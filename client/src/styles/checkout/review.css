@@ -1,0 +1,43 @@
+/* Product styles */
+
+.product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product__header {
+  align-self: flex-start;
+}
+
+.product__title {
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 5vw;
+  margin-bottom: 2vw;
+}
+
+.product__title--light {
+  color: #787878;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  margin: 0;
+}
+
+/*  Image styles */
+
+.product__photo {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 2vw;
+}
+
+.product__img {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 2vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #e5e5e5;
+}
