@@ -3,10 +3,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
+// Import page components
 import Home from "./components/Home";
 import Review from "./components/Review";
 import Payment from "./components/Payment";
 import PhoneNum from "./components/phoneNum";
+
+// Initialize apollo client
 const client = new ApolloClient({
   uri: "https://nifty-server-480a42431a.herokuapp.com/nifty-server/dev"
 });

@@ -1,0 +1,37 @@
+type Seller {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  storeName: String! @unique
+  phoneNum: String!
+  products: [Product!]!
+  orders: [Order!]!
+}
+
+type Buyer {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  phoneNum: String!
+  orders: [Order!]!
+}
+
+type Product {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  seller: Seller!
+  title: String!
+  price: Float!
+  imgUrl: String!
+}
+
+type Order {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: Int!
+  buyer: Buyer!
+  seller: Seller!
+  product: Product!
+}

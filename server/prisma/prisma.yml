@@ -1,0 +1,6 @@
+endpoint: https://nifty-server-480a42431a.herokuapp.com/nifty-server/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
