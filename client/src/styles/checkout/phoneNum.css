@@ -5,3 +5,12 @@
   font-size: 4.8vw;
   color: #787878;
 }
+
+.phoneNum__footer {
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  width: 91vw;
+  bottom: 0;
+  padding-bottom: 4.5vw;
+}

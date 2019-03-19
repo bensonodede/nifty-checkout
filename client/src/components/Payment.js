@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
-import "./checkout.css";
+// Import styles
+import "../styles/index.css";
+import "../styles/checkout/payment.css";
 
 class Payment extends Component {
   render() {
