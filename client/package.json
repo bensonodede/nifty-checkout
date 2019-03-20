@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "0.3.1",
+    "formik": "1.5.1",
     "graphql": "14.1.1",
     "npm": "6.9.0",
     "react": "^16.8.2",
@@ -11,7 +12,8 @@
     "react-dom": "^16.8.2",
     "react-icons-kit": "1.2.1",
     "react-router-dom": "4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "yup": "0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",

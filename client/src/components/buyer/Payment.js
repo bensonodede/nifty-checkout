@@ -4,8 +4,8 @@ import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
 // Import styles
-import "../styles/index.css";
-import "../styles/checkout/payment.css";
+import "../../styles/index.css";
+import "../../styles/buyer/payment.css";
 
 class Payment extends Component {
   render() {
@@ -31,7 +31,7 @@ class Payment extends Component {
                 <div className="payment__row-wrap">
                   <div className="payment__img">
                     <img
-                      src={require("../images/mpesa-logo.png")}
+                      src={require("../../images/mpesa-logo.png")}
                       alt="Mpesa-logo"
                       className="payment__photo"
                     />

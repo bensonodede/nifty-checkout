@@ -1,0 +1,47 @@
+.num-form {
+  margin-top: 10vw;
+}
+
+.num-input {
+  display: flex;
+  flex-direction: row;
+  border-width: 0;
+  border-bottom: 0.4vw;
+  border-style: solid;
+  border-color: #e5e5e5;
+  padding-bottom: 0.5vw;
+  outline: none;
+  width: 91vw;
+}
+
+.num-input__label {
+  margin: 0;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 3vw;
+  color: #787878;
+}
+
+.num-input__entry {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 5vw;
+  color: #484848;
+  display: block;
+  margin: 0;
+  border-width: 0;
+  border-style: none;
+  outline: none;
+  width: 60vw;
+}
+
+.num-input__entry::placeholder {
+  color: #dddddd;
+}
+.num-input__country {
+  font-family: "airbnb_cereal_appmedium";
+  color: #787878;
+  font-size: 4.2vw;
+  padding: 2.4vw;
+  margin-right: 2vw;
+  border-radius: 1vw;
+  background-color: #e5e5e5;
+}

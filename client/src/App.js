@@ -5,9 +5,9 @@ import { ApolloProvider } from "react-apollo";
 
 // Import page components
 import Home from "./components/Home";
-import Review from "./components/Review";
-import Payment from "./components/Payment";
-import PhoneNum from "./components/phoneNum";
+import Review from "./components/buyer/Review";
+import Payment from "./components/buyer/Payment";
+import PhoneNum from "./components/buyer/phoneNum";
 
 // Initialize apollo client
 const client = new ApolloClient({

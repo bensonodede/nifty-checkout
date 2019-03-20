@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 // Import styles
-import "../styles/index.css";
-import "../styles/checkout/review.css";
+import "../../styles/index.css";
+import "../../styles/buyer/review.css";
 
 class Payment extends Component {
   render() {

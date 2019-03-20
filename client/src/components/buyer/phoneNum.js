@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
-import "../styles/index.css";
-import "../styles/checkout/phoneNum.css";
+import NumForm from "../numForm/numForm";
+import "../../styles/index.css";
+import "../../styles/buyer/phoneNum.css";
 
 class PhoneNum extends Component {
   render() {
@@ -11,7 +12,8 @@ class PhoneNum extends Component {
       <div className="App-container">
         {/* Phone number header */}
         <div className="header header--phoneNum">
-          <h1 className="header__title">Confirm your phone number</h1>
+          <h1 className="header__title">What's your</h1>
+          <h1 className="header__title">phone number?</h1>
         </div>
 
         {/* Phone numeber description */}
@@ -26,6 +28,7 @@ class PhoneNum extends Component {
         </div>
 
         {/* Phone number input */}
+        <NumForm />
 
         {/* Phone number button */}
         <div className="phoneNum__footer">
