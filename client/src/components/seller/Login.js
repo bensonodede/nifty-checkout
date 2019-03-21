@@ -9,3 +9,5 @@ class InstaLogin extends Component {
     );
   }
 }
+
+export default InstaLogin;

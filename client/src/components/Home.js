@@ -6,18 +6,16 @@ import "../styles/index.css";
 
 class Home extends Component {
   render() {
-    let { storeName } = this.props.match.params;
-
     return (
       <div>
         <div className="App-container">
-          {/* Checkout header */}
+          {/* Home header */}
           <div className="header">
             <h1 className="header__title">Welcome</h1>
           </div>
         </div>
 
-        {/* Checkout footer  */}
+        {/* Home footer  */}
 
         <div className="footer">
           <hr className="footer__border" />
