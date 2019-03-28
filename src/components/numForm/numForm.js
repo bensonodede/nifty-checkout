@@ -18,9 +18,8 @@ class NumForm extends Component {
           <input
             className="num-input__entry"
             placeholder="712345678"
-            maxlength="9"
+            maxLength="9"
             type="tel"
-            pattern="\d*"
           />
         </div>
       </div>

@@ -1,13 +1,13 @@
 .App-container {
-  padding-left: 4.5vw;
-  padding-right: 4.5vw;
+  padding-left: 6.5vw;
+  padding-right: 6.5vw;
 }
 
 /* Header styles */
 
 .header {
   margin-top: 8vw;
-  margin-bottom: 8vw;
+  margin-bottom: 5vw;
 }
 
 .header__title {
@@ -68,7 +68,7 @@
 }
 
 .footer__btn--large {
-  width: 91vw;
+  width: 87vw;
   display: block;
   margin-left: auto;
   margin-right: auto;

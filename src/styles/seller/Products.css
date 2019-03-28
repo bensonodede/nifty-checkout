@@ -1,0 +1,49 @@
+.header__text {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  color: #787878;
+  line-height: 6.8vw;
+}
+
+.header--product {
+  margin-bottom: 10vw;
+}
+
+.grid {
+  display: grid;
+  margin-top: 5vw;
+  grid-row-gap: 10vw;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.grid__add-item {
+  display: inline-grid;
+  text-align: center;
+  height: 38vw;
+  width: 38vw;
+  border: dashed 2px #e5e5e5;
+  border-radius: 3vw;
+}
+
+.grid__item {
+  display: inline-grid;
+  height: 38vw;
+  width: 38vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 3vw;
+  text-align: center;
+}
+
+.grid__content {
+  align-self: center;
+  justify-self: center;
+}
+
+.grid__text {
+  display: block;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.5vw;
+  color: #787878;
+  line-height: 6.8vw;
+}

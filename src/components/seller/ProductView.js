@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class Login extends Component {
+class ProductView extends Component {
   render() {
     return (
       <div>
-        <h1>Login with Instagram</h1>
+        <h1>View products here</h1>
       </div>
     );
   }
 }
 
-export default Login;
+export default ProductView;

@@ -11,7 +11,7 @@ class PhoneNum extends Component {
     return (
       <div className="App-container">
         {/* Phone number header */}
-        <div className="header header--phoneNum">
+        <div className="header">
           <h1 className="header__title">What's your</h1>
           <h1 className="header__title">phone number?</h1>
         </div>

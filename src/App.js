@@ -3,7 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
-// Import page components
+// Import seller page components
+import Products from "./components/seller/Products";
+import AddProduct from "./components/seller/AddProduct";
+
+// Import buyer page components
 import Home from "./components/Home";
 import Review from "./components/buyer/Review";
 import Payment from "./components/buyer/Payment";
@@ -21,6 +25,12 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
+
+            {/* Seller routes */}
+            <Route path="/:storeName/products" component={Products} />
+            <Route path="/:storeName/add-product" component={AddProduct} />
+
+            {/* Buyer routes */}
             <Route path="/:storeName/review" component={Review} />
             <Route path="/:storeName/payment" component={Payment} />
             <Route path="/:storeName/phonenum" component={PhoneNum} />
