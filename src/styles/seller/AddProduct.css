@@ -1,14 +1,14 @@
-.product-name-form {
+.product-form {
 }
 
-.product-name-form__label {
+.product-form__label {
   margin-bottom: 2vw;
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   color: #787878;
 }
 
-.product-name-form__input {
+.product-form__input-text {
   width: 80vw;
   border: solid 1.2px #e5e5e5;
   border-radius: 1.5vw;
@@ -20,4 +20,15 @@
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.8vw;
   color: #484848;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.product-form__image-label {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }

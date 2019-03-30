@@ -5,26 +5,32 @@ import * as Yup from "yup";
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
 
+//! Add button to clear selected image
 class Thumb extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       loading: false,
       thumb: undefined
     };
   }
+
   componentWillReceiveProps(nextProps) {
+    // If incoming props are empty, return null
     if (!nextProps.file) {
-      return;
+      return null;
     }
 
+    // Set loading to true while file is being read
     this.setState({ loading: true }, () => {
       let reader = new FileReader();
 
+      //When reading is finished, set URL as thumb state
       reader.onloadend = () => {
         this.setState({ loading: false, thumb: reader.result });
       };
 
+      // Read file as BASE64 encoded URL
       reader.readAsDataURL(nextProps.file);
     });
   }
@@ -44,9 +50,15 @@ class Thumb extends Component {
   }
 }
 
-//! Form: Image, Title, Price
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 const AddImageSchema = Yup.object().shape({
-  file: Yup.mixed().required()
+  file: Yup.mixed()
+    .required("Please upload a photo of the item.")
+    .test(
+      "fileFormat",
+      "Oops! That's not an image.",
+      value => value && SUPPORTED_FORMATS.includes(value.type)
+    )
 });
 
 class AddImage extends Component {
@@ -61,7 +73,7 @@ class AddImage extends Component {
             console.log(values);
           }}
         >
-          {({ isValid, values, setFieldValue }) => (
+          {({ isValid, errors, values, setFieldValue }) => (
             <Form>
               {/* Page body */}
               <div className="App-container">
@@ -71,23 +83,30 @@ class AddImage extends Component {
                 </div>
 
                 {/* Form field */}
-                <div className="product-name-form">
-                  <p className="product-name-form__label">
+                <div className="product-form">
+                  {/* Image upload label */}
+                  <p className="product-form__label">
                     Lastly, show us what it looks like.
                   </p>
+
+                  {/* Image upload button */}
+                  <div>
+                    <label className="product-form__image-label" htmlFor="file">
+                      Choose a file
+                    </label>
+                  </div>
                   <input
+                    id="file"
                     name="file"
                     type="file"
-                    className="product-name-form__input"
+                    className="product-form__image-input"
                     onChange={event => {
                       setFieldValue("file", event.currentTarget.files[0]);
                     }}
                   />
                 </div>
-                <ErrorMessage name="file" />
-                <p>{values.file.name}</p>
-                <p>{values.file.type}</p>
-                <p>{values.file.size}</p>
+                <p>{errors.file}</p>
+
                 <Thumb file={values.file} />
               </div>
 
@@ -96,9 +115,9 @@ class AddImage extends Component {
                 <div className="footer__body">
                   <button
                     className={
-                      !isValid
-                        ? "footer__btn footer__btn--disabled"
-                        : "footer__btn"
+                      isValid
+                        ? "footer__btn"
+                        : "footer__btn footer__btn--disabled"
                     }
                     disabled={!isValid}
                     type="submit"

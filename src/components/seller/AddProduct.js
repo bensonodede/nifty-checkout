@@ -34,11 +34,11 @@ class AddProduct extends Component {
                 </div>
 
                 {/* Form field */}
-                <div className="product-name-form">
-                  <p className="product-name-form__label">
+                <div className="product-form">
+                  <p className="product-form__label">
                     First, tell us what it's called.
                   </p>
-                  <input className="product-name-form__input" name="title" />
+                  <input className="product-form__input-text" name="title" />
                 </div>
               </div>
 
