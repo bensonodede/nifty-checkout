@@ -1,0 +1,23 @@
+.product-name-form {
+}
+
+.product-name-form__label {
+  margin-bottom: 2vw;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  color: #787878;
+}
+
+.product-name-form__field {
+  width: 80vw;
+  border: solid 1.2px #e5e5e5;
+  border-radius: 1.5vw;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.8vw;
+  color: #484848;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
+
 import "../../styles/index.css";
 import "../../styles/seller/Products.css";
 
@@ -8,6 +11,8 @@ let items = [1, 2, 3, 4, 5];
 
 class Products extends Component {
   render() {
+    let { storeName } = this.props.match.params;
+
     return (
       <div className="App-container">
         {/* Product page header */}
@@ -24,12 +29,17 @@ class Products extends Component {
         {/* Products grid */}
         <div className="grid">
           {/* Add product */}
-          <div className="grid__add-item">
-            <div className="grid__content">
-              <Icon icon={plus} size={20} style={{ color: "#787878" }} />
-              {/* <p className="grid__text">Add new</p> */}
+          <Link
+            to={`/${storeName}/add-product`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className="grid__add-item">
+              <div className="grid__content">
+                <Icon icon={plus} size={20} style={{ color: "#787878" }} />
+                {/* <p className="grid__text">Add new</p> */}
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Grid item */}
           {items.map((item, index) => (

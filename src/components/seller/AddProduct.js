@@ -1,62 +1,64 @@
 import React, { Component } from "react";
-import { Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+import "../../styles/index.css";
+import "../../styles/seller/AddProduct.css";
+
+//! Form: Image, Title, Price
+const AddProductSchema = Yup.object().shape({
+  title: Yup.string()
+    .min(2, "Too short")
+    .max(20, "Too many words")
+    .required("Please fill in this field")
+});
 
 class AddProduct extends Component {
   render() {
     return (
       <div>
-        <h1>Anywhere in your app!</h1>
         <Formik
-          initialValues={{ email: "", password: "" }}
-          validate={values => {
-            let errors = {};
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
-            return errors;
-          }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          initialValues={{ title: "" }}
+          validationSchema={AddProductSchema}
+          validateOnChange={true}
+          onSubmit={values => {
+            console.log(values);
           }}
         >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting
-            /* and other goodies */
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-              />
-              {errors.email && touched.email && errors.email}
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-              />
-              {errors.password && touched.password && errors.password}
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
-            </form>
+          {({ isValid, errors }) => (
+            <Form>
+              <div className="App-container">
+                {/* Page header */}
+                <div className="header">
+                  <h1 className="header__title">What are you selling?</h1>
+                </div>
+
+                {/* Form field */}
+                <div className="product-name-form">
+                  <p className="product-name-form__label">
+                    First, tell us what it's called.
+                  </p>
+                  <Field className="product-name-form__field" name="title" />
+                </div>
+              </div>
+
+              {/* Page footer */}
+              <div className="footer">
+                <div className="footer__body">
+                  <button
+                    className={
+                      !isValid
+                        ? "footer__btn footer__btn--disabled"
+                        : "footer__btn"
+                    }
+                    disabled={!isValid}
+                    type="submit"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </Form>
           )}
         </Formik>
       </div>

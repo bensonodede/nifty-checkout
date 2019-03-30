@@ -43,8 +43,6 @@ class Payment extends Component {
         {/* Checkout footer  */}
 
         <div className="footer">
-          <hr className="footer__border" />
-
           <div className="footer__body">
             <Link
               to={`/${storeName}/payment`}

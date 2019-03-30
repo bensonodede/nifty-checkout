@@ -18,8 +18,6 @@ class Home extends Component {
         {/* Home footer  */}
 
         <div className="footer">
-          <hr className="footer__border" />
-
           <div className="footer__body">
             <Link to={`/Store1/review`} style={{ textDecoration: "none" }}>
               <button className="footer__btn footer__btn--large">

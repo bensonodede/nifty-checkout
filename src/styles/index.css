@@ -32,24 +32,24 @@
   display: block;
   bottom: 0;
   width: 100vw;
-}
-
-.footer__border {
   border-top: 0.2vh solid #e5e5e5;
 }
 
 .footer__body {
-  padding-top: 1vw;
+  padding-top: 3vw;
   padding-bottom: 3vw;
   padding-left: 3vw;
   padding-right: 3vw;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Footer button */
 
 .footer__btn {
   border-radius: 1.2vw;
-  padding: 4.3vw 0vw;
+  padding: 4.3vw 3vw;
+  width: 20vw;
   background-color: #484848;
   display: inline-block;
   border: none;
@@ -58,7 +58,7 @@
   /* Button text */
   color: #ffffff;
   font-family: "airbnb_cereal_appmedium";
-  font-size: 4vw;
+  font-size: 4.5vw;
   text-align: center;
   text-decoration: none;
 }
@@ -72,6 +72,10 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.footer__btn--disabled {
+  opacity: 0.5;
 }
 
 /* Circular button */
