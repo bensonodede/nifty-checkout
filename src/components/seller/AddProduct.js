@@ -38,7 +38,7 @@ class AddProduct extends Component {
                   <p className="product-name-form__label">
                     First, tell us what it's called.
                   </p>
-                  <Field className="product-name-form__field" name="title" />
+                  <input className="product-name-form__input" name="title" />
                 </div>
               </div>
 
