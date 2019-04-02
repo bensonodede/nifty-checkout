@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import "../../styles/index.css";
@@ -14,13 +14,20 @@ const AddProductSchema = Yup.object().shape({
 });
 
 class AddProduct extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      errors: false
+    };
+  }
+
   render() {
     return (
       <div>
         <Formik
           initialValues={{ title: "" }}
           validationSchema={AddProductSchema}
-          validateOnChange={true}
+          validateOnChange={false}
           onSubmit={values => {
             console.log(values);
           }}
@@ -38,22 +45,25 @@ class AddProduct extends Component {
                   <p className="product-form__label">
                     First, tell us what it's called.
                   </p>
-                  <input className="product-form__input-text" name="title" />
+                  <Field
+                    type="text"
+                    className={
+                      "product-form__input-text " +
+                      (errors.title ? "product-form__input-text--error" : null)
+                    }
+                    name="title"
+                  />
+                  {
+                    <p className="product-form__error-message">
+                      {errors.title}
+                    </p>
+                  }
                 </div>
               </div>
-
               {/* Page footer */}
               <div className="footer">
                 <div className="footer__body">
-                  <button
-                    className={
-                      !isValid
-                        ? "footer__btn footer__btn--disabled"
-                        : "footer__btn"
-                    }
-                    disabled={!isValid}
-                    type="submit"
-                  >
+                  <button className="footer__btn" type="submit">
                     Next
                   </button>
                 </div>
@@ -65,5 +75,4 @@ class AddProduct extends Component {
     );
   }
 }
-
 export default AddProduct;

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
+import { Icon } from "react-icons-kit";
+import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOutline";
+import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
+
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
 
@@ -46,7 +50,9 @@ class Thumb extends Component {
     if (loading) {
       return <p>Loading. . .</p>;
     }
-    return <img src={thumb} alt={file.name} className="" />;
+    return (
+      <img src={thumb} alt={file.name} className="product-form__thumbnail" />
+    );
   }
 }
 
@@ -73,41 +79,73 @@ class AddImage extends Component {
             console.log(values);
           }}
         >
-          {({ isValid, errors, values, setFieldValue }) => (
+          {({ isValid, errors, values, setFieldValue, resetForm }) => (
             <Form>
               {/* Page body */}
               <div className="App-container">
                 {/* Page header */}
                 <div className="header">
-                  <h1 className="header__title">What are you selling?</h1>
+                  <h1 className="header__title">Add a photo</h1>
                 </div>
 
                 {/* Form field */}
-                <div className="product-form">
-                  {/* Image upload label */}
-                  <p className="product-form__label">
-                    Lastly, show us what it looks like.
-                  </p>
+                {!isValid ? (
+                  <div className="product-form">
+                    {/* Image upload label */}
+                    <p className="product-form__label">
+                      First, show us what it looks like.
+                    </p>
 
-                  {/* Image upload button */}
-                  <div>
-                    <label className="product-form__image-label" htmlFor="file">
-                      Choose a file
-                    </label>
+                    {/* Image upload button */}
+                    <div className="product-form__image-placeholder">
+                      <div className="product-form__placeholder-background">
+                        <label
+                          className="product-form__image-label"
+                          htmlFor="file"
+                        >
+                          <Icon
+                            icon={iosCloudUploadOutline}
+                            size={23}
+                            style={{ color: "#ffffff" }}
+                          />
+                          <p className="product-form__label-text">
+                            Upload photo
+                          </p>
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* File input */}
+                    <input
+                      id="file"
+                      name="file"
+                      type="file"
+                      className="product-form__image-input"
+                      onChange={event => {
+                        setFieldValue("file", event.currentTarget.files[0]);
+                      }}
+                    />
                   </div>
-                  <input
-                    id="file"
-                    name="file"
-                    type="file"
-                    className="product-form__image-input"
-                    onChange={event => {
-                      setFieldValue("file", event.currentTarget.files[0]);
+                ) : (
+                  <div
+                    className="product-form__image-delete"
+                    onClick={() => {
+                      resetForm({ file: "" });
                     }}
-                  />
-                </div>
-                <p>{errors.file}</p>
+                  >
+                    <Icon
+                      icon={iosTrashOutline}
+                      size={25}
+                      style={{ color: "#ffffff" }}
+                    />
+                    <p className="product-form__image-delete-text">Remove</p>
+                  </div>
+                )}
+                <Thumb className="product-form__thumbnail" file={values.file} />
 
-                <Thumb file={values.file} />
+                {/* Image upload errors */}
+
+                <p className="product-form__error-message ">{errors.file}</p>
               </div>
 
               {/* Page footer */}

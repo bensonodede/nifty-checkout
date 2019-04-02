@@ -43,7 +43,7 @@ class Payment extends Component {
         {/* Checkout footer  */}
 
         <div className="footer">
-          <div className="footer__body">
+          <div className="footer__body footer__body--large-btn">
             <Link
               to={`/${storeName}/payment`}
               style={{ textDecoration: "none" }}

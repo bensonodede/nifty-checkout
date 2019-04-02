@@ -2,7 +2,7 @@
 }
 
 .product-form__label {
-  margin-bottom: 2vw;
+  margin-bottom: 3vw;
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   color: #787878;
@@ -11,24 +11,104 @@
 .product-form__input-text {
   width: 80vw;
   border: solid 1.2px #e5e5e5;
+  outline: none;
   border-radius: 1.5vw;
-  padding-top: 4vw;
-  padding-bottom: 4vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding: 4vw 2vw;
 
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.8vw;
   color: #484848;
 }
 
+.product-form__input-text:focus {
+  box-shadow: 0 0 5px rgb(81, 238, 146);
+}
+
+.product-form__input-text--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}
+
+.product-form__error-message {
+  margin-bottom: 2vw;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  color: #ff3434;
+}
+
+/* Image form styling */
+
 input[type="file"] {
   display: none;
 }
 
 .product-form__image-label {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
+  background-color: #008489;
+  border-radius: 5px;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 2.3vw 6vw;
+
   cursor: pointer;
+}
+
+.product-form__label-text {
+  margin: 0vw;
+  margin-left: 2.3vw;
+
+  font-family: "airbnb_cereal_appmedium";
+  color: #ffffff;
+}
+
+.product-form__image-placeholder {
+  border: dashed 2px #d5d5d5;
+  border-radius: 10px;
+  width: 86vw;
+  height: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-form__placeholder-background {
+  background-image: url("../../images/img-placeholder.jpg");
+  background-repeat: no-repeat;
+  background-size: 75vw 70vw;
+  background-position: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.product-form__thumbnail {
+  width: 86vw;
+  object-fit: cover;
+  height: 65vw;
+  border-radius: 10px;
+}
+
+.product-form__image-delete {
+  background-color: #fc5e5e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28vw;
+  padding: 2.5vw 2vw;
+  margin-bottom: 5vw;
+  text-align: center;
+  border: solid 1px #e5e5e5;
+  border-radius: 6px;
+}
+
+.product-form__image-delete-text {
+  margin: 0vw;
+  margin-left: 1.3vw;
+  padding-top: 2px;
+  font-family: "airbnb_cereal_appmedium";
+  color: #ffffff;
 }
