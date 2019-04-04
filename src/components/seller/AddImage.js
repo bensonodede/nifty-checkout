@@ -2,61 +2,24 @@ import React, { Component } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
+// Import Components
+import Thumb from "../seller/Thumb.js";
+
+// Import icons
 import { Icon } from "react-icons-kit";
 import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOutline";
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
+// Import styles
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
 
-//! Add button to clear selected image
-class Thumb extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      loading: false,
-      thumb: undefined
-    };
-  }
+// TODO: Prevent multiple submissions
 
-  componentWillReceiveProps(nextProps) {
-    // If incoming props are empty, return null
-    if (!nextProps.file) {
-      return null;
-    }
-
-    // Set loading to true while file is being read
-    this.setState({ loading: true }, () => {
-      let reader = new FileReader();
-
-      //When reading is finished, set URL as thumb state
-      reader.onloadend = () => {
-        this.setState({ loading: false, thumb: reader.result });
-      };
-
-      // Read file as BASE64 encoded URL
-      reader.readAsDataURL(nextProps.file);
-    });
-  }
-
-  render() {
-    const { file } = this.props;
-    const { loading, thumb } = this.state;
-
-    if (!file) {
-      return null;
-    }
-
-    if (loading) {
-      return <p>Loading. . .</p>;
-    }
-    return (
-      <img src={thumb} alt={file.name} className="product-form__thumbnail" />
-    );
-  }
-}
-
+// Define accepted image formats
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
+
+// Validate image format
 const AddImageSchema = Yup.object().shape({
   file: Yup.mixed()
     .required("Please upload a photo of the item.")
@@ -67,6 +30,7 @@ const AddImageSchema = Yup.object().shape({
     )
 });
 
+// Upload image component
 class AddImage extends Component {
   render() {
     return (
@@ -120,6 +84,7 @@ class AddImage extends Component {
                       id="file"
                       name="file"
                       type="file"
+                      accept="image/jpg, image/jpeg, image/png"
                       className="product-form__image-input"
                       onChange={event => {
                         setFieldValue("file", event.currentTarget.files[0]);
@@ -127,6 +92,7 @@ class AddImage extends Component {
                     />
                   </div>
                 ) : (
+                  /* Remove uploaded image button */
                   <div
                     className="product-form__image-delete"
                     onClick={() => {
@@ -136,15 +102,17 @@ class AddImage extends Component {
                     <Icon
                       icon={iosTrashOutline}
                       size={25}
-                      style={{ color: "#ffffff" }}
+                      style={{ color: "#fc5e5e" }}
                     />
+
                     <p className="product-form__image-delete-text">Remove</p>
                   </div>
                 )}
+
+                {/* Thumbnail component */}
                 <Thumb className="product-form__thumbnail" file={values.file} />
 
                 {/* Image upload errors */}
-
                 <p className="product-form__error-message ">{errors.file}</p>
               </div>
 

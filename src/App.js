@@ -4,6 +4,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 // Import seller page components
+import Login from "./components/seller/Login";
 import Products from "./components/seller/Products";
 import AddProduct from "./components/seller/AddProduct";
 import AddImage from "./components/seller/AddImage";
@@ -31,6 +32,8 @@ class App extends Component {
             <Route path="/:storeName/products" component={Products} />
             <Route path="/:storeName/add-product" component={AddProduct} />
             <Route path="/:storeName/add-image" component={AddImage} />
+            <Route path="/login" component={Login} />
+
             {/* Buyer routes */}
             <Route path="/:storeName/review" component={Review} />
             <Route path="/:storeName/payment" component={Payment} />

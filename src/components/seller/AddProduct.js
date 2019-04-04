@@ -4,12 +4,13 @@ import * as Yup from "yup";
 
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
+import "../../styles/chocolat.css";
 
 //! Form: Image, Title, Price
 const AddProductSchema = Yup.object().shape({
   title: Yup.string()
-    .min(2, "Too short")
-    .max(20, "Too many words")
+    .min(2, "That's too short.")
+    .max(20, "That's too many characters(20 or less).")
     .required("Please fill in this field")
 });
 

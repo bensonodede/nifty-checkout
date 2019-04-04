@@ -87,13 +87,13 @@ input[type="file"] {
 
 .product-form__thumbnail {
   width: 86vw;
-  object-fit: cover;
-  height: 65vw;
+  height: 80vw;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .product-form__image-delete {
-  background-color: #fc5e5e;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@ input[type="file"] {
   padding: 2.5vw 2vw;
   margin-bottom: 5vw;
   text-align: center;
-  border: solid 1px #e5e5e5;
+  border: solid 1.3px #fc5e5e;
   border-radius: 6px;
 }
 
@@ -110,5 +110,5 @@ input[type="file"] {
   margin-left: 1.3vw;
   padding-top: 2px;
   font-family: "airbnb_cereal_appmedium";
-  color: #ffffff;
+  color: #fc5e5e;
 }
