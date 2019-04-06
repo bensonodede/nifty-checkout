@@ -90,6 +90,7 @@ input[type="file"] {
   height: 80vw;
   border-radius: 10px;
   object-fit: cover;
+  background-color: #e5e5e5;
 }
 
 .product-form__image-delete {

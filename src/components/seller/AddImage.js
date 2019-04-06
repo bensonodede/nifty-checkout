@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import { Redirect, withRouter } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
@@ -32,15 +34,46 @@ const AddImageSchema = Yup.object().shape({
 
 // Upload image component
 class AddImage extends Component {
+  //
+  constructor(props) {
+    super(props);
+    this.state = {
+      values: null,
+      submitted: false
+    };
+  }
+
+
+  componentWillUnmount(){
+
+  }
+  //
+  handleSubmit = values => {
+    this.props.history.push("/");
+  };
+
+
   render() {
+    let { storeName } = this.props.match.params;
+
+    // if (this.state.values) {
+    //   console.log(this.state.values);
+
+    //   // return <Redirect push to={`/${storeName}/add-product`} />;
+    // }
     return (
       <div>
         <Formik
           initialValues={{ file: "" }}
           validationSchema={AddImageSchema}
           validateOnChange={true}
-          onSubmit={values => {
+          validateOnBlur={false}
+          onSubmit={(values, actions, isValid) => {
+            actions.setSubmitting(false);
             console.log(values);
+            console.log(actions);
+            const { history } = this.props;
+            history.push("/");
           }}
         >
           {({ isValid, errors, values, setFieldValue, resetForm }) => (
@@ -140,4 +173,4 @@ class AddImage extends Component {
   }
 }
 
-export default AddImage;
+export default withRouter(AddImage);

@@ -6,8 +6,7 @@ import { ApolloProvider } from "react-apollo";
 // Import seller page components
 import Login from "./components/seller/Login";
 import Products from "./components/seller/Products";
-import AddProduct from "./components/seller/AddProduct";
-import AddImage from "./components/seller/AddImage";
+import ProductWizard from "./components/productForm";
 
 // Import buyer page components
 import Home from "./components/Home";
@@ -30,8 +29,8 @@ class App extends Component {
 
             {/* Seller routes */}
             <Route path="/:storeName/products" component={Products} />
-            <Route path="/:storeName/add-product" component={AddProduct} />
-            <Route path="/:storeName/add-image" component={AddImage} />
+            <Route path="/:storeName/add-product" component={ProductWizard} />
+
             <Route path="/login" component={Login} />
 
             {/* Buyer routes */}

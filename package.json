@@ -5,6 +5,7 @@
   "dependencies": {
     "apollo-boost": "0.3.1",
     "chocolat": "0.4.21",
+    "firebase": "5.9.2",
     "formik": "1.5.1",
     "graphql": "14.1.1",
     "jquery": "3.3.1",
