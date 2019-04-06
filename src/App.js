@@ -26,12 +26,11 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
 
             {/* Seller routes */}
             <Route path="/:storeName/products" component={Products} />
             <Route path="/:storeName/add-product" component={ProductWizard} />
-
-            <Route path="/login" component={Login} />
 
             {/* Buyer routes */}
             <Route path="/:storeName/review" component={Review} />

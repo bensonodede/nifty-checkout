@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { ErrorMessage } from "formik";
 
 // Import Components
 import Thumb from "./Thumb";
@@ -15,10 +17,18 @@ import "../../styles/seller/AddProduct.css";
 // Upload image component
 
 class ImageForm extends Component {
-  render() {
-    console.log(this.props);
+  constructor(props) {
+    super(props);
 
-    let { isValid, errors, values, setFieldValue, resetForm } = this.props;
+    this.state = {
+      loading: false,
+      thumb: undefined
+    };
+  }
+
+  render() {
+    let { storeName } = this.props.match.params;
+    let { values, setFieldValue, resetForm, validateField } = this.props;
 
     return (
       <div>
@@ -30,7 +40,7 @@ class ImageForm extends Component {
           </div>
 
           {/* Form field */}
-          {!isValid ? (
+          {!values.file ? (
             <div className="product-form">
               {/* Image upload label */}
               <p className="product-form__label">
@@ -59,12 +69,24 @@ class ImageForm extends Component {
                 accept="image/jpg, image/jpeg, image/png"
                 className="product-form__image-input"
                 onChange={event => {
-                  setFieldValue("file", event.currentTarget.files[0]);
+                  let file = event.currentTarget.files[0];
+                  let reader = new FileReader();
+
+                  //
+                  reader.onloadend = () => {
+                    let image = reader.result;
+                    setFieldValue("file", image);
+                    validateField("file");
+                  };
+
+                  // Read file as BASE64 encoded URL
+                  reader.readAsDataURL(file);
                 }}
               />
             </div>
           ) : (
             /* Remove uploaded image button */
+
             <div
               className="product-form__image-delete"
               onClick={() => {
@@ -85,21 +107,25 @@ class ImageForm extends Component {
           <Thumb className="product-form__thumbnail" file={values.file} />
 
           {/* Image upload errors */}
-          <p className="product-form__error-message ">{errors.file}</p>
+          <ErrorMessage name="file" className="product-form__error-message" />
         </div>
 
         {/* Page footer */}
         <div className="footer">
           <div className="footer__body">
-            <button
-              className={
-                isValid ? "footer__btn" : "footer__btn footer__btn--disabled"
-              }
-              disabled={!isValid}
-              type="submit"
-            >
-              Next
-            </button>
+            <Link to={`/${storeName}/add-product/details`}>
+              <button
+                className={
+                  values.file
+                    ? "footer__btn"
+                    : "footer__btn footer__btn--disabled"
+                }
+                disabled={!values.file}
+                onClick={() => console.log("IMAGE UPLOADED")}
+              >
+                Next
+              </button>
+            </Link>
           </div>
         </div>
       </div>
