@@ -1,0 +1,77 @@
+.generic-input {
+}
+
+.generic-input__entry {
+  width: 80vw;
+  border: solid 1.2px #e5e5e5;
+  outline: none;
+  border-radius: 1.5vw;
+  padding: 4vw 2vw;
+
+  font-family: "airbnb_cereal_appbook";
+  font-size: 5vw;
+  color: #484848;
+}
+
+.generic-input__entry:focus {
+  box-shadow: 0 0 5px rgb(81, 238, 146);
+}
+
+.generic-input__entry--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}
+
+/***** Currency Input *****/
+
+.currency-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3vw 2vw;
+  margin: 0;
+  border: solid #e5e5e5 1.2px;
+  border-radius: 3px;
+
+  outline: none;
+  /* width: 87vw; */
+}
+
+.currency-input--focus {
+  box-shadow: 0 0 5px rgb(81, 238, 146);
+}
+
+.currency-input--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}
+
+.currency-input__entry {
+  margin: 0;
+  display: flex;
+  outline: none;
+  padding: 0vw 4vw;
+  border-width: 0;
+  border-style: none;
+
+  font-family: "airbnb_cereal_appbook";
+  font-size: 5vw;
+  color: #484848;
+}
+
+.currency-input__inline-label {
+  margin: 0;
+  padding: 1.2vw 4vw;
+  padding-left: 3vw;
+  border-right: solid #e5e5e5 2px;
+
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.6vw;
+  color: #484848;
+  text-align: center;
+}
+
+.input__error-message {
+  margin-bottom: 2vw;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  color: #ff3434;
+}

@@ -1,41 +1,11 @@
-.product-form {
-}
-
 .product-form__label {
-  margin-bottom: 3vw;
+  margin: 3vw 0vw;
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   color: #787878;
 }
 
-.product-form__input-text {
-  width: 80vw;
-  border: solid 1.2px #e5e5e5;
-  outline: none;
-  border-radius: 1.5vw;
-  padding: 4vw 2vw;
-
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.8vw;
-  color: #484848;
-}
-
-.product-form__input-text:focus {
-  box-shadow: 0 0 5px rgb(81, 238, 146);
-}
-
-.product-form__input-text--error {
-  box-shadow: 0 0 5px rgb(238, 81, 81);
-}
-
-.product-form__error-message {
-  margin-bottom: 2vw;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.5vw;
-  color: #ff3434;
-}
-
-/* Image form styling */
+/***** Image form styling *****/
 
 input[type="file"] {
   display: none;

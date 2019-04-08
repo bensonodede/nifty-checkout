@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Field } from "formik";
 
+// Import Components
+import CurrencyInput from "../input/CurrencyInput";
+import GenericInput from "../input/GenericInput";
+
+// Import Styles
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
 
@@ -12,10 +17,21 @@ class DetailsForm extends Component {
     };
   }
 
+  componentDidMount() {
+    let { values } = this.props;
+    let { storeName } = this.props.match.params;
+
+    console.log(values);
+
+    // If image value does not exist, redirect to upload image page
+    if (values.file === "") {
+      this.props.history.push(`/${storeName}/add-product/image`);
+    }
+  }
+
   render() {
-    let { isValid, errors, values, resetForm, validateField } = this.props;
-    // TODO: If photo value is missing, redirect to image page
-    // TODO: Custom input components. (Simple and inline label for currency and phone numbers)
+    let { values } = this.props;
+
     return (
       <div>
         <div className="App-container">
@@ -25,7 +41,8 @@ class DetailsForm extends Component {
           </div>
 
           {/* Form field */}
-          <div className="product-form">
+          <div>
+            {/*  */}
             <div>
               <img
                 className="product__img"
@@ -38,16 +55,21 @@ class DetailsForm extends Component {
               First, tell us what it's called.
             </p>
 
+            {/*  */}
             <Field
               name="title"
-              type="text"
-              autoComplete="off"
-              className={
-                "product-form__input-text " +
-                (errors.title ? "product-form__input-text--error" : null)
-              }
+              render={({ field, form }) => (
+                <GenericInput {...field} {...form} />
+              )}
             />
-            {<p className="product-form__error-message">{errors.title}</p>}
+
+            {/*  */}
+            <Field
+              name="price"
+              render={({ field, form }) => (
+                <CurrencyInput {...field} {...form} />
+              )}
+            />
           </div>
         </div>
         {/* Page footer */}

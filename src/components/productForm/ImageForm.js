@@ -121,7 +121,7 @@ class ImageForm extends Component {
                     : "footer__btn footer__btn--disabled"
                 }
                 disabled={!values.file}
-                onClick={() => console.log("IMAGE UPLOADED")}
+                onClick={() => {}}
               >
                 Next
               </button>

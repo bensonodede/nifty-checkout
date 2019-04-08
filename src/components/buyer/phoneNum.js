@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
-import NumForm from "../numForm/numForm";
 import "../../styles/index.css";
 import "../../styles/buyer/phoneNum.css";
 
@@ -28,7 +27,6 @@ class PhoneNum extends Component {
         </div>
 
         {/* Phone number input */}
-        <NumForm />
 
         {/* Phone number button */}
         <div className="phoneNum__footer">

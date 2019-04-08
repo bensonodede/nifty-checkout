@@ -18,9 +18,10 @@ const ProductSchema = Yup.object().shape({
   title: Yup.string()
     .min(2, "That's too short.")
     .max(20, "That's too many characters(20 or less).")
-    .required("Please fill in this field")
+    .required("Please fill in this field"),
 
   // Product price validation schema
+  price: Yup.string().required("Please fill in this field")
 });
 
 class ProductWizard extends Component {
@@ -47,9 +48,10 @@ class ProductWizard extends Component {
           }}
         />
         <Formik
-          initialValues={{ file: "", title: "" }}
+          initialValues={{ file: "", title: "", price: "" }}
           validationSchema={ProductSchema}
           validateOnChange={false}
+          validateOnBlur={false}
           onSubmit={this.handleSubmit}
         >
           {FormikProps => (
