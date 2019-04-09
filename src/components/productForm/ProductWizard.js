@@ -21,19 +21,41 @@ const ProductSchema = Yup.object().shape({
     .required("Please fill in this field"),
 
   // Product price validation schema
-  price: Yup.string().required("Please fill in this field")
+  price: Yup.string()
+    .min(2, "That's too short.")
+    .required("Please fill in this field")
 });
 
 class ProductWizard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       submitted: false
     };
   }
 
-  handleSubmit = () => {
-    this.setState({ submitted: true }, () => this.props.history.push("/"));
+  handleSubmit = (values, { setSubmitting, resetForm, setErrors }) => {
+    const { history } = this.props;
+    let { storeName } = this.props.match.params;
+
+    try {
+      setSubmitting(true);
+      this.setState(
+        {
+          submitted: true
+        },
+        () => {
+          console.log(values);
+          setSubmitting(false);
+          resetForm();
+
+          history.push(`/${storeName}/products`);
+        }
+      );
+    } catch (error) {
+      setErrors(error);
+      console.log(error);
+    }
   };
 
   render() {
@@ -78,7 +100,7 @@ class ProductWizard extends Component {
               </Switch>
 
               {/*  */}
-              <Persist name="AddProductForm" />
+              {/* <Persist name="AddProductForm" /> */}
             </Form>
           )}
         </Formik>

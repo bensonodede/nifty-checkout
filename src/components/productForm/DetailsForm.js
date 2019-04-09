@@ -21,8 +21,6 @@ class DetailsForm extends Component {
     let { values } = this.props;
     let { storeName } = this.props.match.params;
 
-    console.log(values);
-
     // If image value does not exist, redirect to upload image page
     if (values.file === "") {
       this.props.history.push(`/${storeName}/add-product/image`);

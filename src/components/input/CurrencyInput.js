@@ -22,26 +22,25 @@ class CurrencyInput extends Component {
   render() {
     let { setFieldValue, name, value, errors } = this.props;
     let { focused } = this.state;
-    console.log(this.props);
 
     return (
       <div>
         <div
           className={
             "currency-input " +
-            (focused ? "currency-input--focus" : "") +
-            (errors.price && !focused ? " currency-input--error" : "")
+            (focused ? "currency-input--focus " : "") +
+            (errors.price && !focused ? "currency-input--error" : "")
           }
         >
           <p className="currency-input__inline-label">KES</p>
           {/* Input phone number entry */}
           <MaskedInput
-            // onFocus={() => {
-            //   this.setState({ focused: true });
-            // }}
-            // onBlur={() => {
-            //   this.setState({ focused: false });
-            // }}
+            onFocus={() => {
+              this.setState({ focused: true });
+            }}
+            onBlur={() => {
+              this.setState({ focused: false });
+            }}
             onChange={event => {
               let val = event.target.value;
               setFieldValue(name, val);
