@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-// Import components
-import CurrencyInput from "./input/CurrencyInput";
-
 // Import styles
 import "../styles/index.css";
 
@@ -16,8 +13,6 @@ class Home extends Component {
           <div className="header">
             <h1 className="header__title">Welcome</h1>
           </div>
-
-          <CurrencyInput />
         </div>
 
         {/* Home footer  */}

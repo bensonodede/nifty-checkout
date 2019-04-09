@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect, Prompt, matchPath } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { Persist } from "formik-persist";
 import * as Yup from "yup";
 
-// import FormikPersist from "./FormikPersist";
 // Import form pages
 import ImageForm from "./ImageForm";
 import DetailsForm from "./DetailsForm";
@@ -98,9 +96,6 @@ class ProductWizard extends Component {
                   render={props => <DetailsForm {...FormikProps} {...props} />}
                 />
               </Switch>
-
-              {/*  */}
-              {/* <Persist name="AddProductForm" /> */}
             </Form>
           )}
         </Formik>
