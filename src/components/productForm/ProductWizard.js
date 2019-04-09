@@ -33,24 +33,28 @@ class ProductWizard extends Component {
   }
 
   handleSubmit = (values, { setSubmitting, resetForm, setErrors }) => {
+    //
     const { history } = this.props;
     let { storeName } = this.props.match.params;
 
     try {
+      //
       setSubmitting(true);
       this.setState(
         {
           submitted: true
         },
         () => {
+          //
           console.log(values);
           setSubmitting(false);
           resetForm();
-
+          //
           history.push(`/${storeName}/products`);
         }
       );
     } catch (error) {
+      //
       setErrors(error);
       console.log(error);
     }
@@ -59,6 +63,7 @@ class ProductWizard extends Component {
   render() {
     return (
       <div>
+        {/*  */}
         <Prompt
           when={!this.state.submitted}
           message={({ pathname }) => {
@@ -67,6 +72,7 @@ class ProductWizard extends Component {
               : "Are you sure you want to navigate away?";
           }}
         />
+        {/*  */}
         <Formik
           initialValues={{ file: "", title: "", price: "" }}
           validationSchema={ProductSchema}

@@ -1,0 +1,76 @@
+.header__welcome-title {
+  margin: 0;
+  line-height: 10vw;
+  color: #484848;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 8vw;
+  text-align: center;
+}
+
+.header__welcome-sub-title {
+  color: #484848;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.5vw;
+  margin: 2vw 0vw;
+  text-align: center;
+}
+
+.welcome-page {
+  height: 100vh;
+  z-index: 0;
+  background-image: url("../images/vectorpaint.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 245vw;
+}
+
+.welcome-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-photo {
+  width: 100vw;
+  height: auto;
+  position: relative;
+  top: 8vh;
+}
+
+.welcome-footer {
+  position: absolute;
+  bottom: 0;
+  padding: 5vw 0vw;
+}
+.welcome-btn {
+  border: solid 1.5px #484848;
+  border-radius: 1.2vw;
+  padding: 4.3vw 3vw;
+  margin: 2vw 0;
+  width: 87vw;
+  background-color: transparent;
+  display: inline-block;
+  outline: none;
+
+  /* Button text */
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.welcome-btn:active {
+  background-color: #484848;
+  color: #ffffff;
+}
+
+.welcome-btn--dark {
+  background-color: #484848;
+  color: #ffffff;
+}
+
+.welcome-btn--dark:active {
+  background-color: #ffffff;
+  color: #484848;
+}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Import seller page components
-import Login from "./seller/Login";
+import Welcome from "./Welcome";
 import Products from "./seller/Products";
 import ProductWizard from "./productForm";
 
@@ -19,7 +19,7 @@ class Routes extends Component {
         <Switch>
           {/* Common routes */}
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
           <Route path="/:storeName/products" component={Products} />
