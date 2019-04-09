@@ -4,7 +4,7 @@ import { ApolloProvider } from "react-apollo";
 import Firebase, { FirebaseContext } from "./components/firebase/";
 
 // Import routes
-import Routes from "./components/routes";
+import Routes from "./components/Routes";
 
 // Initialize apollo client
 const client = new ApolloClient({
@@ -20,7 +20,7 @@ class App extends Component {
         <ApolloProvider client={client}>
           {/* Firebase Provider allows Firebase API access to children */}
           <FirebaseContext.Provider value={new Firebase()}>
-            {/* App routes */}
+            {/* App Routes */}
             <Routes />
           </FirebaseContext.Provider>
         </ApolloProvider>
