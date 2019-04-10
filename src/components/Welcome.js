@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 import "../styles/index.css";
 import "../styles/welcome.css";
@@ -14,9 +15,9 @@ class Welcome extends Component {
 
         {/*  */}
         <div className="header">
-          <h1 className="header__welcome-title">Welcome to nifty.</h1>
+          <h1 className="header__welcome-title">Welcome to Nifty.</h1>
           <p className="header__welcome-sub-title">
-            Beautiful, Simple checkout pages.
+            Beautiful. Simple. Checkouts.
           </p>
         </div>
 
@@ -32,10 +33,14 @@ class Welcome extends Component {
         {/*  */}
         <div className="welcome-footer">
           <div>
-            <button className="welcome-btn welcome-btn--dark">Sign up</button>
+            <Link to="/signup">
+              <button className="welcome-btn welcome-btn--dark">Sign up</button>
+            </Link>
           </div>
           <div>
-            <button className="welcome-btn">I have an account</button>
+            <Link to="/login">
+              <button className="welcome-btn">I have an account</button>
+            </Link>
           </div>
         </div>
       </div>

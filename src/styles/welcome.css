@@ -34,13 +34,13 @@
   width: 100vw;
   height: auto;
   position: relative;
-  top: 8vh;
+  top: 15vh;
 }
 
 .welcome-footer {
   position: absolute;
   bottom: 0;
-  padding: 5vw 0vw;
+  padding: 8vw 0vw;
 }
 .welcome-btn {
   border: solid 1.5px #484848;
