@@ -22,18 +22,9 @@ class Welcome extends Component {
         </div>
 
         {/*  */}
-        <div className="welcome-image">
-          <img
-            src={require("../images/ginger-cat-online-shopping.png")}
-            alt="welcome"
-            className="welcome-photo"
-          />
-        </div>
-
-        {/*  */}
         <div className="welcome-footer">
           <div>
-            <Link to="/signup">
+            <Link to="/signup/store-name">
               <button className="welcome-btn welcome-btn--dark">Sign up</button>
             </Link>
           </div>

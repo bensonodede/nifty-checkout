@@ -21,8 +21,9 @@
 .header__sub-title {
   color: #484848;
   font-family: "airbnb_cereal_appbook";
-  font-size: 4.5vw;
+  font-size: 4.8vw;
   margin-bottom: 2vw;
+  line-height: 6vw;
 }
 
 /* Footer style */

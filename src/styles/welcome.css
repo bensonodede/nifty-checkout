@@ -17,11 +17,6 @@
 
 .welcome-page {
   height: 100vh;
-  z-index: 0;
-  background-image: url("../images/vectorpaint.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 245vw;
 }
 
 .welcome-image {
@@ -44,7 +39,7 @@
 }
 .welcome-btn {
   border: solid 1.5px #484848;
-  border-radius: 1.2vw;
+  border-radius: 10vw;
   padding: 4.3vw 3vw;
   margin: 2vw 0;
   width: 87vw;

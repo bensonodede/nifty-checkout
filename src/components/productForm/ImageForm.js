@@ -121,7 +121,6 @@ class ImageForm extends Component {
                     : "footer__btn footer__btn--disabled"
                 }
                 disabled={!values.file}
-                onClick={() => {}}
               >
                 Next
               </button>

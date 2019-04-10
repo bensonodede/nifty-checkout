@@ -4,25 +4,22 @@ import React, { Component } from "react";
 import "./styles.css";
 
 class GenericInput extends Component {
-  constructor() {
-    super();
-    this.state = {
-      focused: false
-    };
-  }
   render() {
+    // Define props
     let { setFieldValue, name, value, errors } = this.props;
+
     return (
       <div>
         <div className="generic-input">
           {/* Text input */}
           <input
-            name="title"
+            name={name}
             type="text"
             autoComplete="off"
+            // If error, turn input shadow box red
             className={
               "generic-input__entry " +
-              (errors.title ? "generic-input__entry--error" : null)
+              (errors[name] ? "generic-input__entry--error" : null)
             }
             value={value}
             onChange={event => {
@@ -31,7 +28,8 @@ class GenericInput extends Component {
             }}
           />
         </div>
-        <p className="input__error-message">{errors.title}</p>
+        {/* Render field error on validation */}
+        <p className="input__error-message">{errors[name]}</p>
       </div>
     );
   }
