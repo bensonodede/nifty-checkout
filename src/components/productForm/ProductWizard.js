@@ -32,6 +32,13 @@ class ProductWizard extends Component {
     };
   }
 
+  // Prevent submission on enter press
+  onKeyPress(event) {
+    if (event.which === 13 /* Enter */) {
+      event.preventDefault();
+    }
+  }
+
   handleSubmit = (values, { setSubmitting, resetForm, setErrors }) => {
     //
     const { history } = this.props;

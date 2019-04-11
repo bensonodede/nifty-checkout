@@ -1,18 +1,10 @@
 import React, { Component } from "react";
 import MaskedInput from "react-text-mask";
-import createNumberMask from "text-mask-addons/dist/createNumberMask";
 
+// Import styles
 import "./styles.css";
 
-// Number mask input definition
-const numberMask = createNumberMask({
-  prefix: "",
-  suffix: "",
-  allowDecimal: true
-  // integerLimit:""
-});
-
-class CurrencyInput extends Component {
+class LabelInput extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,19 +12,20 @@ class CurrencyInput extends Component {
     };
   }
   render() {
-    let { setFieldValue, name, value, errors } = this.props;
+    let { setFieldValue, name, value, errors, mask, label } = this.props;
     let { focused } = this.state;
 
     return (
       <div>
         <div
           className={
-            "currency-input " +
-            (focused ? "currency-input--focus " : "") +
-            (errors.price && !focused ? "currency-input--error" : "")
+            "label-input " +
+            (focused ? "label-input--focus " : "") +
+            (errors[name] && !focused ? "label-input--error" : "")
           }
         >
-          <p className="currency-input__inline-label">KES</p>
+          <p className="label-input__inline-label">{label}</p>
+
           {/* Input phone number entry */}
           <MaskedInput
             onFocus={() => {
@@ -46,14 +39,15 @@ class CurrencyInput extends Component {
               setFieldValue(name, val);
             }}
             value={value}
-            className="currency-input__entry"
-            mask={numberMask}
+            className="label-input__entry"
+            mask={mask}
+            guide={false}
           />
         </div>
-        <p className="input__error-message">{errors.price}</p>
+        <p className="input__error-message">{errors[name]}</p>
       </div>
     );
   }
 }
 
-export default CurrencyInput;
+export default LabelInput;

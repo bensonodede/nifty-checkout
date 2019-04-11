@@ -2,18 +2,60 @@ import React, { Component } from "react";
 import { Field } from "formik";
 import { Link } from "react-router-dom";
 
-//
+// Import components
 import GenericInput from "../input/GenericInput";
 
-//
+// Import styles
 import "../../styles/index.css";
+import "../../styles/seller/SignUp.css";
+
+// Store name validation
+let validateName = value => {
+  let error;
+  let nameRegex = /^[a-z]+[0-9]\/\s,.-]+$/i;
+  if (!value) {
+    error = " ";
+  } else if (nameRegex.test(value)) {
+    error = " ";
+  }
+  return error;
+};
 
 class StoreName extends Component {
-  //
-  render() {
-    let { values, isValid, validateField } = this.props;
-    // console.log(this.props);
+  constructor() {
+    super();
+    this.state = {
+      valid: false
+    };
+  }
 
+  componentWillReceiveProps(nextProps) {
+    // Define props and regex test
+    let nextVal = nextProps.values.storeName;
+    let val = this.props.values.storeName;
+    let nameRegex = /^[a-z]+[0-9]\/\s,.-]+$/i;
+
+    //If new prop is received...
+    if (nextVal !== val) {
+      // If new value is empty
+      if (!nextVal) {
+        this.setState({ valid: false });
+      }
+
+      // If new value does not pass regex test
+      else if (nameRegex.test(nextVal)) {
+        this.setState({ valid: false });
+      }
+
+      //Input is valid
+      else {
+        this.setState({ valid: true });
+      }
+    }
+  }
+
+  render() {
+    let { valid } = this.state;
     return (
       <div>
         <div className="App-container">
@@ -26,7 +68,7 @@ class StoreName extends Component {
           <div>
             <p className="header__sub-title">
               Something sleek sounding or super weird. Make it memorable.
-              <span role="img" aria-label="call-hand">
+              <span role="img" aria-label="raising-hands">
                 🙌🏾
               </span>
             </p>
@@ -35,8 +77,10 @@ class StoreName extends Component {
           {/*  */}
           <div>
             {/*  */}
+            <p className="signup__label">STORE NAME</p>
             <Field
               name="storeName"
+              validate={validateName}
               render={({ field, form }) => (
                 <GenericInput {...field} {...form} />
               )}
@@ -51,9 +95,9 @@ class StoreName extends Component {
               <button
                 type="button"
                 className={
-                  isValid ? "footer__btn" : "footer__btn footer__btn--disabled"
+                  valid ? "footer__btn" : "footer__btn footer__btn--disabled"
                 }
-                disabled={!isValid}
+                disabled={!valid}
               >
                 Next
               </button>
@@ -64,4 +108,5 @@ class StoreName extends Component {
     );
   }
 }
+
 export default StoreName;

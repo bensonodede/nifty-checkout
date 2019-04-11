@@ -1,23 +1,11 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect, Prompt, matchPath } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 // Import form pages
 import PhoneNum from "./PhoneNum";
 import StoreName from "./StoreName";
-
-// Validate image format
-const SignUpSchema = Yup.object().shape({
-  //  Store name validation schema
-  storeName: Yup.string()
-  .required("Please fill in this field"),
-
-  // Phone number validation schema
-  phoneNum: Yup.string()
-    .min(2, "That's too short.")
-    .required("Please fill in this field")
-});
 
 class SignUpWizard extends Component {
   constructor(props) {
@@ -27,8 +15,15 @@ class SignUpWizard extends Component {
     };
   }
 
+  // Prevent submission on enter press
+  onKeyPress(event) {
+    if (event.which === 13 /* Enter */) {
+      event.preventDefault();
+    }
+  }
+
   handleSubmit = (values, { setSubmitting, resetForm, setErrors }) => {
-    //
+    // Define props
     const { history } = this.props;
     let { storeName } = this.props.match.params;
 
@@ -51,32 +46,21 @@ class SignUpWizard extends Component {
     } catch (error) {
       //
       setErrors(error);
-      console.log(error);
     }
   };
 
   render() {
     return (
       <div>
-        {/*  */}
-        {/* <Prompt
-          when={!this.state.submitted}
-          message={({ pathname }) => {
-            return matchPath(pathname, { path: "/signup/" })
-              ? true
-              : "Are you sure you want to navigate away?";
-          }}
-        /> */}
-        {/*  */}
         <Formik
-          initialValues={{ storeName: "" }}
-          validationSchema={SignUpSchema}
-          validateOnChange={false}
-          validateOnBlur={false}
+          initialValues={{ storeName: "", phoneNum: "" }}
+          // validationSchema={SignUpSchema}
+          validateOnChange={true}
+          validateOnBlur={true}
           onSubmit={this.handleSubmit}
         >
           {FormikProps => (
-            <Form>
+            <Form onKeyPress={this.onKeyPress}>
               <Switch>
                 {/*  */}
                 <Redirect from="/signup" exact to="/signup/store-name" />

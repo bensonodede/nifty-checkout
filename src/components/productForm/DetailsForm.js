@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import { Field } from "formik";
 
 // Import Components
-import CurrencyInput from "../input/CurrencyInput";
+import createNumberMask from "text-mask-addons/dist/createNumberMask";
+import LabelInput from "../input/LabelInput";
 import GenericInput from "../input/GenericInput";
 
 // Import Styles
 import "../../styles/index.css";
 import "../../styles/seller/AddProduct.css";
+
+// Number mask input definition
+const numberMask = createNumberMask({
+  prefix: "",
+  suffix: "",
+  allowDecimal: true
+  // integerLimit:""
+});
 
 class DetailsForm extends Component {
   constructor(props) {
@@ -65,7 +74,12 @@ class DetailsForm extends Component {
             <Field
               name="price"
               render={({ field, form }) => (
-                <CurrencyInput {...field} {...form} />
+                <LabelInput
+                  {...field}
+                  {...form}
+                  mask={numberMask}
+                  label={"KES"}
+                />
               )}
             />
           </div>

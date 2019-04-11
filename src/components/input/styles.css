@@ -1,5 +1,4 @@
-.generic-input {
-}
+/***** Generic Input *****/
 
 .generic-input__entry {
   width: 80vw;
@@ -21,13 +20,13 @@
   box-shadow: 0 0 5px rgb(238, 81, 81);
 }
 
-/***** Currency Input *****/
+/***** Label Input *****/
 
-.currency-input {
+.label-input {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 3vw 2vw;
+  padding: 3vw 0vw;
   margin: 0;
   border: solid #e5e5e5 1.2px;
   border-radius: 3px;
@@ -36,15 +35,15 @@
   /* width: 87vw; */
 }
 
-.currency-input--focus {
+.label-input--focus {
   box-shadow: 0 0 5px rgb(81, 238, 146);
 }
 
-.currency-input--error {
+.label-input--error {
   box-shadow: 0 0 5px rgb(238, 81, 81);
 }
 
-.currency-input__entry {
+.label-input__entry {
   margin: 0;
   display: flex;
   outline: none;
@@ -57,14 +56,14 @@
   color: #484848;
 }
 
-.currency-input__inline-label {
+.label-input__inline-label {
   margin: 0;
   padding: 1.2vw 4vw;
   padding-left: 3vw;
   border-right: solid #e5e5e5 2px;
 
   font-family: "airbnb_cereal_appbook";
-  font-size: 4.6vw;
+  font-size: 4.8vw;
   color: #484848;
   text-align: center;
 }
