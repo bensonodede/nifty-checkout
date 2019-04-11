@@ -42,6 +42,16 @@ class PhoneNum extends Component {
     };
   }
 
+  componentDidMount() {
+    let { history } = this.props;
+    let { storeName } = this.props.values;
+
+    // If image value does not exist, redirect 'store-name' route
+    if (storeName === "") {
+      history.push("/signup/store-name");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     // Define props and regex test
     let nextVal = nextProps.values.phoneNum;
