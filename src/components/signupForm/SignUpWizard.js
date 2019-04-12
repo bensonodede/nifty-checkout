@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 
 // Import form pages
 import PhoneNum from "./PhoneNum";
 import StoreName from "./StoreName";
+import Confirmation from "./Confirmation";
 
 class SignUpWizard extends Component {
   constructor(props) {
@@ -75,6 +75,12 @@ class SignUpWizard extends Component {
                 <Route
                   path="/signup/phone-number"
                   render={props => <PhoneNum {...FormikProps} {...props} />}
+                />
+
+                {/*  */}
+                <Route
+                  path="/signup/confirmation"
+                  render={props => <Confirmation {...FormikProps} {...props} />}
                 />
               </Switch>
             </Form>

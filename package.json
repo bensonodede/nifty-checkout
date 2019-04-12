@@ -13,6 +13,7 @@
     "npm": "6.9.0",
     "react": "^16.8.2",
     "react-apollo": "2.5.2",
+    "react-code-input": "3.8.1",
     "react-dom": "^16.8.2",
     "react-helmet": "5.2.0",
     "react-icons-kit": "1.2.1",

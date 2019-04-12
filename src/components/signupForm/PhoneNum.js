@@ -91,7 +91,7 @@ class PhoneNum extends Component {
           {/*  */}
           <div>
             <p className="header__sub-title">
-              You should be able to receive texts or calls from your customers
+              You should be able to receive texts and calls from your customers
               on this number.
             </p>
           </div>
@@ -126,7 +126,7 @@ class PhoneNum extends Component {
                 }
                 disabled={!valid}
               >
-                Next
+                Verify
               </button>
             </Link>
           </div>

@@ -1,7 +1,18 @@
+.header__sub-title {
+  margin-top: 2vw;
+}
 .signup__label {
   color: #787878;
   font-family: "airbnb_cereal_appbold";
   font-size: 3.8vw;
   margin-top: 6vw;
   margin-bottom: 2vw;
+}
+
+.signup__code-input {
+  color: blue;
+}
+
+input:focus {
+  box-shadow: 0 0 5px rgb(81, 238, 146);
 }
