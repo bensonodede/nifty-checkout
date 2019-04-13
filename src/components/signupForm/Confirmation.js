@@ -10,11 +10,11 @@ import "../../styles/seller/SignUp.css";
 
 const props = {
   type: "number",
-  fields: 4,
+  fields: 6,
   inputStyle: {
     height: "12vw",
     width: "12.5vw",
-    margin: "0vw 4vw",
+    margin: "0vw 0.5vw",
     border: "solid 1.2px #e5e5e5",
     borderRadius: "10vw",
     MozAppearance: "textfield",

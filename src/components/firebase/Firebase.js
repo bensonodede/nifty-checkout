@@ -19,6 +19,13 @@ class Firebase {
     // Initialize Firebase Auth instance
     this.auth = app.auth();
   }
+
+  // Firebase phone number sign in
+  doSignInWithPhoneNumber = (phoneNumber, appVerifier) =>
+    this.auth.signInWithPhoneNumber(phoneNumber, appVerifier);
+
+  // Firebase auth sign out
+  doSignOut = () => this.auth.signOut();
 }
 
 export default Firebase;

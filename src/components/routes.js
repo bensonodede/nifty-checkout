@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Import common page components
 import Welcome from "./Welcome";
-import SignUpWizard from "./signupForm";
-import Login from "./Login";
 
 // Import seller page components
+import SignUpWizard from "./signupForm";
+import Login from "./seller/Login";
 import Products from "./seller/Products";
 import ProductWizard from "./productForm";
 
@@ -24,10 +24,10 @@ class Routes extends Component {
           {/* Common routes */}
           <Route exact path="/" component={Home} />
           <Route path="/welcome" component={Welcome} />
-          <Route path="/signup" component={SignUpWizard} />
-          <Route path="/login" component={Login} />
 
           {/* Seller routes */}
+          <Route path="/signup" component={SignUpWizard} />
+          <Route path="/login" component={Login} />
           <Route path="/:storeName/products" component={Products} />
           <Route path="/:storeName/add-product" component={ProductWizard} />
 
