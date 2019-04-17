@@ -19,9 +19,7 @@ const ProductSchema = Yup.object().shape({
     .required("Please fill in this field"),
 
   // Product price validation schema
-  price: Yup.string()
-    .min(2, "That's too short.")
-    .required("Please fill in this field")
+  price: Yup.string().required("Please fill in this field")
 });
 
 class ProductWizard extends Component {
@@ -33,13 +31,13 @@ class ProductWizard extends Component {
   }
 
   // Prevent submission on enter press
-  onKeyPress(event) {
+  onKeyPress = event => {
     if (event.which === 13 /* Enter */) {
       event.preventDefault();
     }
-  }
+  };
 
-  handleSubmit = (values, { setSubmitting, resetForm, setErrors }) => {
+  handleSubmit = (values, event, { setSubmitting, resetForm, setErrors }) => {
     //
     const { history } = this.props;
     let { storeName } = this.props.match.params;
@@ -65,6 +63,8 @@ class ProductWizard extends Component {
       setErrors(error);
       console.log(error);
     }
+
+    event.preventDefault();
   };
 
   render() {

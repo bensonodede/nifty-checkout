@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import { withAuthentication } from "./session";
+
 // Import common page components
 import Welcome from "./Welcome";
 
 // Import seller page components
-import SignUpWizard from "./signupForm";
+import SignUpForm from "./signupForm";
 import Login from "./seller/Login";
 import Products from "./seller/Products";
 import ProductWizard from "./productForm";
@@ -26,7 +28,7 @@ class Routes extends Component {
           <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
-          <Route path="/signup" component={SignUpWizard} />
+          <Route path="/signup" component={SignUpForm} />
           <Route path="/login" component={Login} />
           <Route path="/:storeName/products" component={Products} />
           <Route path="/:storeName/add-product" component={ProductWizard} />
@@ -41,4 +43,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default withAuthentication(Routes);

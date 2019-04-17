@@ -9,9 +9,7 @@
   margin-bottom: 2vw;
 }
 
-.signup__code-input {
-  color: blue;
-}
+/* For the code input */
 
 input:focus {
   box-shadow: 0 0 5px rgb(81, 238, 146);

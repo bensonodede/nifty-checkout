@@ -56,6 +56,10 @@
   color: #484848;
 }
 
+.label-input__entry:focus {
+  box-shadow: none;
+}
+
 .label-input__inline-label {
   margin: 0;
   padding: 1.2vw 4vw;
@@ -67,6 +71,8 @@
   color: #484848;
   text-align: center;
 }
+
+/***** Input error message *****/
 
 .input__error-message {
   margin-bottom: 2vw;

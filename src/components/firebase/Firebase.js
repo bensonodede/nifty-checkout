@@ -1,5 +1,5 @@
 import app from "firebase/app";
-import "firebase/auth";
+import auth from "firebase/auth";
 
 // Firebase config values stored in env variables file
 const config = {
@@ -18,11 +18,11 @@ class Firebase {
 
     // Initialize Firebase Auth instance
     this.auth = app.auth();
+    this.googleProvider = new app.auth.GoogleAuthProvider();
   }
 
-  // Firebase phone number sign in
-  doSignInWithPhoneNumber = (phoneNumber, appVerifier) =>
-    this.auth.signInWithPhoneNumber(phoneNumber, appVerifier);
+  // Firebase Google sign in
+  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
 
   // Firebase auth sign out
   doSignOut = () => this.auth.signOut();

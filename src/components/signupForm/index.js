@@ -1,3 +1,3 @@
-import SignUpWizard from "./SignUpWizard";
+import SignUpForm from "./SignUpForm";
 
-export default SignUpWizard;
+export default SignUpForm;

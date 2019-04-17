@@ -5,8 +5,7 @@ import { Field } from "formik";
 import ReactCodeInput from "react-code-input";
 
 // Import styles
-import "../../styles/index.css";
-import "../../styles/seller/SignUp.css";
+import "./styles.css";
 
 const props = {
   type: "number",
@@ -32,7 +31,7 @@ const props = {
 
 class Confirmation extends Component {
   render() {
-    let { setFieldValue, name, value, errors, mask, label } = this.props;
+    let { setFieldValue } = this.props;
 
     console.log(this.props);
     return (

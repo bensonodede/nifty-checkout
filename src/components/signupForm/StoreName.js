@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import GenericInput from "../input/GenericInput";
 
 // Import styles
-import "../../styles/index.css";
-import "../../styles/seller/SignUp.css";
+import "./styles.css";
 
 // Store name validation
 let validateName = value => {

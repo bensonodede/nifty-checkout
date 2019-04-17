@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import { withFirebase } from "../firebase";
 import { Field } from "formik";
 import { Link } from "react-router-dom";
+
+// Import styles
+import "./styles.css";
 
 // Import components
 import LabelInput from "../input/LabelInput";
@@ -34,7 +38,7 @@ let validatePhoneNum = value => {
   return error;
 };
 
-class PhoneNum extends Component {
+class PhoneNumPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,10 +49,11 @@ class PhoneNum extends Component {
   componentDidMount() {
     let { history } = this.props;
     let { storeName } = this.props.values;
+    // console.log(this.props);
 
     // If image value does not exist, redirect 'store-name' route
     if (storeName === "") {
-      history.push("/signup/store-name");
+      // history.push("/signup/store-name");
     }
   }
 
@@ -112,27 +117,30 @@ class PhoneNum extends Component {
                 />
               )}
             />
+            <div id="recaptcha-container" />
           </div>
         </div>
 
         {/* Page footer */}
         <div className="footer">
           <div className="footer__body">
-            <Link to="/signup/phone-number">
-              <button
-                type="button"
-                className={
-                  valid ? "footer__btn" : "footer__btn footer__btn--disabled"
-                }
-                disabled={!valid}
-              >
-                Verify
-              </button>
-            </Link>
+            <button
+              // onClick={() => this.smsAuth()}
+              type="button"
+              className={
+                valid ? "footer__btn" : "footer__btn footer__btn--disabled"
+              }
+              disabled={!valid}
+            >
+              Verify
+            </button>
           </div>
         </div>
       </div>
     );
   }
 }
+
+const PhoneNum = withFirebase(PhoneNumPage);
+
 export default PhoneNum;

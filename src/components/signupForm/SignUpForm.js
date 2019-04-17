@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { withFirebase } from "../firebase";
 
 // Import form pages
 import PhoneNum from "./PhoneNum";
@@ -91,4 +92,6 @@ class SignUpWizard extends Component {
   }
 }
 
-export default SignUpWizard;
+const SignUpForm = withFirebase(SignUpWizard);
+
+export default SignUpForm;

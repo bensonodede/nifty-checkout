@@ -20,10 +20,12 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
     "react-text-mask": "5.4.3",
+    "recompose": "0.30.0",
     "text-mask-addons": "3.8.0",
     "yup": "0.27.0"
   },
   "scripts": {
+    "prepare": "patch-package",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +42,8 @@
   ],
   "devDependencies": {
     "flow-bin": "0.96.0",
-    "flow-watch": "1.1.4"
+    "flow-watch": "1.1.4",
+    "patch-package": "6.1.2",
+    "postinstall-prepare": "1.0.1"
   }
 }
