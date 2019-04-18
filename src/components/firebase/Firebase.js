@@ -1,4 +1,5 @@
 import app from "firebase/app";
+
 import auth from "firebase/auth";
 
 // Firebase config values stored in env variables file
@@ -14,15 +15,28 @@ const config = {
 // Create Firebase class and initialize firebase instance
 class Firebase {
   constructor() {
+    // Initialize Firebase app
     app.initializeApp(config);
 
     // Initialize Firebase Auth instance
     this.auth = app.auth();
+
+    // Define social auth providers
     this.googleProvider = new app.auth.GoogleAuthProvider();
+    this.facebookProvider = new app.auth.FacebookAuthProvider();
+    this.twitterProvider = new app.auth.TwitterAuthProvider();
   }
 
   // Firebase Google sign in
-  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
+  doSignInWithGoogle = () => this.auth.signInWithRedirect(this.googleProvider);
+
+  // Firebase Facebook sign in
+  doSignInWithFacebook = () =>
+    this.auth.signInWithRedirect(this.facebookProvider);
+
+  // Firebase Twitter sign in
+  doSignInWithTwitter = () =>
+    this.auth.signInWithRedirect(this.twitterProvider);
 
   // Firebase auth sign out
   doSignOut = () => this.auth.signOut();

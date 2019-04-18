@@ -1,0 +1,37 @@
+.social {
+  margin: 5vw 0vw;
+}
+
+.social__btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 87vw;
+  height: 15vw;
+  padding: 4.3vw 3vw;
+  margin: 0;
+
+  border-radius: 15vw;
+  background-color: #ffffff;
+  border: solid 1.5px #e5e5e5;
+  outline: none;
+
+  /* Button text */
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.social__icon {
+  margin: 0;
+  width: 5.5vw;
+  height: 5.5vw;
+}
+
+.social__label {
+  margin: 0;
+}

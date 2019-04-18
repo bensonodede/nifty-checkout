@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 
-// Import styles
-import "./styles.css";
-
-class SignInGoogleBase extends Component {
+class SignInFacebookBase extends Component {
   constructor() {
     super();
 
-    // Errors from failed Google sign in go here
+    // Errors from failed Facebook sign in go here
     this.state = {
       error: null
     };
@@ -16,7 +13,7 @@ class SignInGoogleBase extends Component {
 
   onSubmit = event => {
     this.props.firebase
-      .doSignInWithGoogle()
+      .doSignInWithFacebook()
       .then(socialAuthUser => {
         console.log(socialAuthUser);
 
@@ -35,24 +32,24 @@ class SignInGoogleBase extends Component {
 
   render() {
     return (
-      <form className="social" onSubmit={this.onSubmit}>
-        {/* Social button */}
+      <form onSubmit={this.onSubmit}>
+        {/* Social buttnon */}
         <button className="social__btn" type="submit">
           {/* Social icon */}
           <img
             className="social__icon"
-            src={require("../../images/google.svg")}
-            alt="google-logo"
+            src={require("../../images/facebook.svg")}
+            alt="facebook-logo"
           />
 
-          {/* Button label */}
-          <p className="social__label">Sign in with Google</p>
+          {/* Social label */}
+          <p className="social__label">Sign in with Facebook</p>
         </button>
       </form>
     );
   }
 }
 
-const SignInGoogle = withFirebase(SignInGoogleBase);
+const SignInFacebook = withFirebase(SignInFacebookBase);
 
-export default SignInGoogle;
+export default SignInFacebook;
