@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 
+// Import styles
+import "./styles.css";
+
 class SignInFacebookBase extends Component {
   constructor() {
     super();

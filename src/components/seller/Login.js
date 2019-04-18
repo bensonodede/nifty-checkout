@@ -5,7 +5,10 @@ import { AuthUserContext } from "../session";
 
 // Import components
 import { SignInGoogle, SignInFacebook, SignInTwitter } from "../socialAuth";
-import SignOut from "./SignOut";
+
+// Import styles
+import "../../styles/index.css";
+import "../../styles/seller/Login.css";
 
 class Login extends Component {
   render() {
@@ -23,19 +26,12 @@ class Login extends Component {
               </span>
               <h1 className="header__title">Sign in</h1>
             </div>
-            <SignInGoogle />
-            <SignInFacebook />
-            <SignInTwitter />
-            <SignOut />
-            {authUser ? (
-              <div>
-                <p> {authUser.displayName}</p>
-                <p>{authUser.email}</p>
-                <p>{authUser.uid}</p>
-              </div>
-            ) : (
-              <p> SIGNED OUT</p>
-            )}
+
+            <div className="login__list">
+              <SignInGoogle />
+              <SignInFacebook />
+              <SignInTwitter />
+            </div>
           </div>
         )}
       </AuthUserContext.Consumer>

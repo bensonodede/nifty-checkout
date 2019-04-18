@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 
+// Import styles
 import "./styles.css";
 
 class SignInTwitterBase extends Component {
