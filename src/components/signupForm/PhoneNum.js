@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 import { Field } from "formik";
-import { Link } from "react-router-dom";
 
 // Import styles
 import "./styles.css";
@@ -24,20 +23,6 @@ const phoneNumMask = [
   /\d/
 ];
 
-// Phone number validation
-let validatePhoneNum = value => {
-  let error;
-  let numRegex = /(.*[0-9]){9}/i;
-  if (!value) {
-    error = " ";
-    // error = null;
-  } else if (!numRegex.test(value)) {
-    error = " ";
-    // error = null;
-  }
-  return error;
-};
-
 class PhoneNumPage extends Component {
   constructor() {
     super();
@@ -49,7 +34,7 @@ class PhoneNumPage extends Component {
   componentDidMount() {
     let { history } = this.props;
     let { storeName } = this.props.values;
-    // console.log(this.props);
+    console.log(this.props);
 
     // If image value does not exist, redirect 'store-name' route
     if (storeName === "") {
@@ -83,7 +68,11 @@ class PhoneNumPage extends Component {
   }
 
   render() {
+    let { phoneNum } = this.props.values;
+    phoneNum = phoneNum.replace(/\D+/g, "");
     let { valid } = this.state;
+
+    console.log(phoneNum);
 
     return (
       <div>
@@ -107,7 +96,6 @@ class PhoneNumPage extends Component {
             <p className="signup__label">PHONE NUMBER</p>
             <Field
               name="phoneNum"
-              validate={validatePhoneNum}
               render={({ field, form }) => (
                 <LabelInput
                   {...field}
@@ -117,15 +105,14 @@ class PhoneNumPage extends Component {
                 />
               )}
             />
-            <div id="recaptcha-container" />
           </div>
         </div>
 
         {/* Page footer */}
         <div className="footer">
           <div className="footer__body">
+            {/* Footer button */}
             <button
-              // onClick={() => this.smsAuth()}
               type="button"
               className={
                 valid ? "footer__btn" : "footer__btn footer__btn--disabled"

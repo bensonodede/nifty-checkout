@@ -1,4 +1,8 @@
+.login__container {
+  height: 100vh;
+}
+
 .login__list {
   position: relative;
-  top: 15vw;
+  top: 10vh;
 }

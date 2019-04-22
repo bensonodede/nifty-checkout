@@ -9,7 +9,7 @@ import Routes from "./components/Routes";
 // Initialize apollo client
 const client = new ApolloClient({
   // Point client to server address
-  uri: "https://nifty-server-480a42431a.herokuapp.com/nifty-server/dev"
+  uri: "http://localhost:4000/"
 });
 
 class App extends Component {

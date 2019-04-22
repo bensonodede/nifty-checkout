@@ -35,3 +35,21 @@
 .social__label {
   margin: 0;
 }
+
+/* Modifiers */
+
+.social__btn--google {
+  margin: 0;
+}
+
+.social__btn--facebook {
+  background-color: #4c70bd;
+  color: #ffffff;
+  border: 0;
+}
+
+.social__btn--twitter {
+  background-color: #38a1f3;
+  color: #ffffff;
+  border: 0;
+}

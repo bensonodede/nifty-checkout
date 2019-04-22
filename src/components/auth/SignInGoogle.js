@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
+import { withRouter } from "react-router-dom";
+import { compose } from "recompose";
 
 // Import styles
 import "./styles.css";
@@ -23,7 +25,7 @@ class SignInGoogleBase extends Component {
         this.setState({ error: null });
 
         // Redirect to home page
-        // this.props.history.push(ROUTES.HOME);
+        this.props.history.push("/");
       })
       .catch(error => {
         this.setState({ error });
@@ -53,6 +55,10 @@ class SignInGoogleBase extends Component {
   }
 }
 
-const SignInGoogle = withFirebase(SignInGoogleBase);
+// Pass Firebase and router props
+const SignInGoogle = compose(
+  withRouter,
+  withFirebase
+)(SignInGoogleBase);
 
 export default SignInGoogle;

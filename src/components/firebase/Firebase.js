@@ -27,6 +27,9 @@ class Firebase {
     this.twitterProvider = new app.auth.TwitterAuthProvider();
   }
 
+  //
+  dosignInWithCustomToken = token => this.auth.signInWithCustomToken(token);
+
   // Firebase Google sign in
   doSignInWithGoogle = () => this.auth.signInWithRedirect(this.googleProvider);
 

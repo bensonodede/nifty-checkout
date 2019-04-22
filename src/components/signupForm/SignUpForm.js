@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { withFirebase } from "../firebase";
+import { Mutation } from "react-apollo";
 
 // Import form pages
 import PhoneNum from "./PhoneNum";
@@ -53,6 +54,16 @@ class SignUpWizard extends Component {
   render() {
     return (
       <div>
+        {/* <Mutation
+          // mutation={LOGIN_MUTATION}
+          variables={{ phoneNum }}
+          onCompleted={data => {
+            console.log(data);
+            this.props.firebase
+              .dosignInWithCustomToken(data.login.token)
+              .catch(error => console.log(error));
+          }}
+        > */}
         <Formik
           initialValues={{ storeName: "", phoneNum: "" }}
           // validationSchema={SignUpSchema}
@@ -87,6 +98,7 @@ class SignUpWizard extends Component {
             </Form>
           )}
         </Formik>
+        {/* </Mutation> */}
       </div>
     );
   }
