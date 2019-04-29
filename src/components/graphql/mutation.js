@@ -1,16 +1,16 @@
 import gql from "graphql-tag";
 
-const LOGIN_MUTATION = gql`
-  mutation LoginMutation($phoneNum: String!) {
-    login(phoneNum: $phoneNum) {
-      token
-      seller {
-        id
-        storeName
-        phoneNum
+const CREATE_STORE = gql`
+  mutation CreateStore($storeName: String!, $phoneNum: String!, $uid: String!) {
+    createStore(storeName: $storeName, phoneNum: $phoneNum, uid: $uid) {
+      id
+      storeName
+      phoneNum
+      user {
+        uid
       }
     }
   }
 `;
 
-export { LOGIN_MUTATION };
+export { CREATE_STORE };

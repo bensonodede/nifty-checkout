@@ -7,7 +7,7 @@ import { withAuthentication } from "./session";
 import Welcome from "./Welcome";
 
 // Import seller page components
-import SignUpForm from "./signupForm";
+import createStore from "./seller/createStore";
 import Login from "./seller/Login";
 import Products from "./seller/Products";
 import ProductWizard from "./productForm";
@@ -28,7 +28,7 @@ class Routes extends Component {
           <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
-          <Route path="/signup" component={SignUpForm} />
+          <Route path="/signup" component={createStore} />
           <Route path="/login" component={Login} />
           <Route path="/:storeName/products" component={Products} />
           <Route path="/:storeName/add-product" component={ProductWizard} />

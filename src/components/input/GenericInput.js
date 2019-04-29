@@ -16,6 +16,8 @@ class GenericInput extends Component {
             name={name}
             type="text"
             autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
             // If error, turn input shadow box red
             className={
               "generic-input__entry " +

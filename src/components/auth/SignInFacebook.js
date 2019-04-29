@@ -21,19 +21,7 @@ class SignInFacebookBase extends Component {
   }
 
   onSubmit = event => {
-    this.props.firebase
-      .doSignInWithFacebook()
-      .then(socialAuthUser => {
-        console.log(socialAuthUser);
-
-        this.setState({ error: null });
-
-        // Redirect to home page
-        this.props.history.push("/");
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
+    this.props.firebase.doSignInWithFacebook();
 
     // Prevent reload
     event.preventDefault();
@@ -45,16 +33,12 @@ class SignInFacebookBase extends Component {
         {/* Social buttnon */}
         <button className="social__btn social__btn--facebook" type="submit">
           {/* Social icon */}
-          {/* <img
-            className="social__icon"
-            src={require("../../images/facebook.svg")}
-            alt="facebook-logo"
-          /> */}
           <div className="social__icon">
             <Icon icon={facebook} size={"100%"} />
           </div>
+
           {/* Social label */}
-          <p className="social__label">Sign in with Facebook</p>
+          <p className="social__label">Continue with Facebook</p>
         </button>
       </form>
     );

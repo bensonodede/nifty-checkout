@@ -50,7 +50,7 @@ class SignInTwitterBase extends Component {
           </div>
 
           {/* Social label */}
-          <p className="social__label">Sign in with Twitter</p>
+          <p className="social__label">Continue with Twitter</p>
         </button>
       </form>
     );

@@ -17,19 +17,7 @@ class SignInGoogleBase extends Component {
   }
 
   onSubmit = event => {
-    this.props.firebase
-      .doSignInWithGoogle()
-      .then(socialAuthUser => {
-        console.log(socialAuthUser);
-
-        this.setState({ error: null });
-
-        // Redirect to home page
-        this.props.history.push("/");
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
+    this.props.firebase.doSignInWithGoogle();
 
     // Prevent reload
     event.preventDefault();
@@ -48,7 +36,7 @@ class SignInGoogleBase extends Component {
           />
 
           {/* Button label */}
-          <p className="social__label">Sign in with Google</p>
+          <p className="social__label">Continue with Google</p>
         </button>
       </form>
     );

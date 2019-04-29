@@ -1,8 +1,17 @@
-.login__container {
-  height: 100vh;
-}
-
 .login__list {
   position: relative;
-  top: 10vh;
+  top: 5vh;
+}
+
+.login__footer {
+  position: fixed;
+  left: 0vw;
+  bottom: -10vw;
+  transform: rotate(27deg);
+}
+
+.login__image {
+  width: 50vw;
+  height: auto;
+  z-index: -1;
 }

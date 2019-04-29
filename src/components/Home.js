@@ -1,15 +1,27 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-//
 
 // Import styles
 import "../styles/index.css";
+import BottomModal from "./overlay/BottomModal";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    //
+    this.state = {
+      modal: false
+    };
+  }
+
+  triggerModal = () => {
+    this.setState({ modal: true });
+  };
+
   render() {
     return (
       <div>
+        <BottomModal show={this.state.modal} />
         <div className="App-container">
           {/* Home header */}
           <div className="header">
@@ -18,14 +30,14 @@ class Home extends Component {
         </div>
 
         {/* Home footer  */}
-
         <div className="footer">
           <div className="footer__body">
-            <Link to={`/Store1/review`} style={{ textDecoration: "none" }}>
-              <button className="footer__btn footer__btn--large">
-                Start here
-              </button>
-            </Link>
+            <button
+              onClick={this.triggerModal}
+              className="footer__btn footer__btn--large"
+            >
+              Start here
+            </button>
           </div>
         </div>
       </div>

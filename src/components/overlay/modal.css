@@ -1,0 +1,166 @@
+/* Modal */
+
+.bottom-modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  /* transition: ease; */
+}
+
+.modal-appear,
+.modal-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.modal-appear-active,
+.modal-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 500ms ease;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1000ms ease;
+}
+
+.bottom-modal__card {
+  width: 100%;
+  padding: 0vw 6.5vw;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 3;
+}
+
+.card-appear,
+.card-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.card-appear-active,
+.card-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 1000ms ease 0.5s;
+}
+
+.card-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.card-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1000ms ease 0s;
+}
+
+.bottom-modal__header {
+  font-family: "airbnb_cereal_appbold";
+  color: #484848;
+  font-size: 8vw;
+}
+
+.bottom-modal__image {
+  width: 60vw;
+  height: auto;
+  position: relative;
+  left: -12vw;
+  padding-top: 6vw;
+}
+
+.bottom-modal__paragraph {
+  padding: 10vw 0vw 5vw 0vw;
+}
+
+.bottom-modal__text {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.8vw;
+  line-height: 8vw;
+  color: #484848;
+  margin: 0;
+}
+
+.bottom-modal__footer {
+  width: 87vw;
+  padding: 5vw 0vw;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+}
+
+.bottom-modal__button {
+  border-radius: 1.3vw;
+  padding: 5vw 3vw;
+  width: 40vw;
+  background-color: #ffffff;
+  display: inline-block;
+  border: solid 1px #484848;
+  outline: none;
+
+  /* Button text */
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bottom-modal__button:active {
+  background-color: #484848;
+  border: solid 1px #484848;
+  color: #ffffff;
+}
+
+.bottom-modal__button--red {
+  background-color: #e66267;
+  color: #ffffff;
+  border: solid 1px #e66267;
+}
+
+.bottom-modal__button--red:active {
+  background-color: #ffffff;
+  color: #e66267;
+  border: solid 1px #e66267;
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@keyframes fadeoutbottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(100%);
+  }
+}

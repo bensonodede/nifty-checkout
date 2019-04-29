@@ -1,6 +1,5 @@
 import app from "firebase/app";
-
-import auth from "firebase/auth";
+import "firebase/auth";
 
 // Firebase config values stored in env variables file
 const config = {
@@ -27,7 +26,7 @@ class Firebase {
     this.twitterProvider = new app.auth.TwitterAuthProvider();
   }
 
-  //
+  //Sign in with custom token
   dosignInWithCustomToken = token => this.auth.signInWithCustomToken(token);
 
   // Firebase Google sign in
@@ -40,6 +39,9 @@ class Firebase {
   // Firebase Twitter sign in
   doSignInWithTwitter = () =>
     this.auth.signInWithRedirect(this.twitterProvider);
+
+  // Get redirect sign in result
+  doGetRedirectResult = () => this.auth.getRedirectResult();
 
   // Firebase auth sign out
   doSignOut = () => this.auth.signOut();
