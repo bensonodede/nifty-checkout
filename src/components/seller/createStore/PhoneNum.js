@@ -24,27 +24,17 @@ const phoneNumMask = [
   /\d/
 ];
 
-// Phone number validation
-let validatePhoneNum = value => {
-  let error;
-  let phoneNumRegex = /(.*[0-9]){9}/i;
-  if (!value) {
-    error = " ";
-  } else if (!phoneNumRegex.test(value)) {
-    error = " ";
-  }
-  return error;
-};
-
 class PhoneNumPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     // Define component state
     this.state = {
       valid: false
     };
   }
+
+  /********** IsValid function **********/
 
   _isValid(param) {
     // Declare global error variable
@@ -60,7 +50,7 @@ class PhoneNumPage extends Component {
       this.setState({ valid: false });
 
       // Set error message
-      error = "Oops, that doesn't look right.";
+      error = " ";
     }
 
     //If input value passes validation, set valid state
@@ -71,24 +61,28 @@ class PhoneNumPage extends Component {
     return error;
   }
 
-  componentDidMount() {
-    // Get component props
-    let { history } = this.props;
-    let { storeName } = this.props.values;
+  /********** Phone number validation **********/
 
+  validatePhoneNum = value => {
+    // Check if value if valid
+    return this._isValid(value);
+  };
+
+  componentDidMount() {
     // Get initial value on mount
-    let val = this.props.values.storeName;
+    let { phoneNum } = this.props.values;
 
     // Check if input is valid
-    this._isValid(val);
-
-    // If store name value does not exist, redirect to 'store-name' route
-    if (storeName === "") {
-      history.push("/signup/store-name");
-    }
+    this._isValid(phoneNum);
   }
 
   componentWillReceiveProps(nextProps) {
+    let { storeName } = nextProps.values;
+
+    if (storeName === "" || storeName === undefined) {
+      this.props.history.push("/signup/store-name");
+    }
+
     // Declare props variables
     let nextVal = nextProps.values.phoneNum;
     let val = this.props.values.phoneNum;
@@ -104,7 +98,6 @@ class PhoneNumPage extends Component {
     // Get input field valid state
     let { valid } = this.state;
 
-    console.log(this.props);
     return (
       <div>
         <div className="App-container">
@@ -125,7 +118,7 @@ class PhoneNumPage extends Component {
             <p className="signup__label">PHONE NUMBER</p>
             <Field
               name="phoneNum"
-              validate={validatePhoneNum}
+              validate={this.validatePhoneNum}
               render={({ field, form }) => (
                 <LabelInput
                   {...field}

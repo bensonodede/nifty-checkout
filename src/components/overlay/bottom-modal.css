@@ -1,4 +1,4 @@
-/* Modal */
+/***** Modal *****/
 
 .bottom-modal {
   height: 100vh;
@@ -13,9 +13,9 @@
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  /* transition: ease; */
 }
 
+/***** Modal Animations *****/
 .modal-appear,
 .modal-enter {
   opacity: 0;
@@ -25,7 +25,7 @@
 .modal-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: all 500ms ease;
+  transition: all 750ms ease;
 }
 
 .modal-exit {
@@ -36,8 +36,10 @@
 .modal-exit-active {
   opacity: 0;
   transform: translateY(100%);
-  transition: all 1000ms ease;
+  transition: all 750ms ease;
 }
+
+/***** Modal Card *****/
 
 .bottom-modal__card {
   width: 100%;
@@ -47,6 +49,7 @@
   z-index: 3;
 }
 
+/***** Modal Card Animations*****/
 .card-appear,
 .card-enter {
   opacity: 0;
@@ -57,7 +60,7 @@
 .card-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: all 1000ms ease 0.5s;
+  transition: all 800ms ease 0.3s;
 }
 
 .card-exit {
@@ -68,22 +71,10 @@
 .card-exit-active {
   opacity: 0;
   transform: translateY(100%);
-  transition: all 1000ms ease 0s;
+  transition: all 800ms ease 0s;
 }
 
-.bottom-modal__header {
-  font-family: "airbnb_cereal_appbold";
-  color: #484848;
-  font-size: 8vw;
-}
-
-.bottom-modal__image {
-  width: 60vw;
-  height: auto;
-  position: relative;
-  left: -12vw;
-  padding-top: 6vw;
-}
+/***** Modal Card Content*****/
 
 .bottom-modal__paragraph {
   padding: 10vw 0vw 5vw 0vw;
@@ -97,6 +88,8 @@
   margin: 0;
 }
 
+/***** Modal Footer *****/
+
 .bottom-modal__footer {
   width: 87vw;
   padding: 5vw 0vw;
@@ -108,9 +101,10 @@
   bottom: 0;
 }
 
+/***** Modal buttons *****/
 .bottom-modal__button {
   border-radius: 1.3vw;
-  padding: 5vw 3vw;
+  padding: 4.3vw 3vw;
   width: 40vw;
   background-color: #ffffff;
   display: inline-block;
@@ -141,26 +135,4 @@
   background-color: #ffffff;
   color: #e66267;
   border: solid 1px #e66267;
-}
-
-@keyframes fadeInBottom {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
-
-@keyframes fadeoutbottom {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(0%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(100%);
-  }
 }

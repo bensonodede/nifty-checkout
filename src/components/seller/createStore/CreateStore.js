@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
 import { Persist } from "formik-persist";
+
 //
 import { AuthUserContext } from "../../session";
 
@@ -15,6 +16,14 @@ import PhoneNum from "./PhoneNum";
 import StoreName from "./StoreName";
 
 class CreateStore extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      submitted: false
+    };
+  }
+
   // Prevent submission on enter press
   onKeyPress(event) {
     if (event.which === 13 /* Enter */) {
@@ -29,8 +38,6 @@ class CreateStore extends Component {
 
     // Remove empty spaces from phone number
     phoneNum = phoneNum.replace(/\D+/g, "");
-
-    console.log(phoneNum);
 
     // Get current user UID
     let { uid } = authUser;
@@ -47,86 +54,83 @@ class CreateStore extends Component {
       }
     });
 
-    actions.resetForm({});
-
     // Set form submitting state to false
     await actions.setSubmitting(false);
-  };
 
-  // Handle data once mutation is complete
-  handleComplete = data => {
-    // Get store name from successful data write
-    let { storeName } = data.createStore;
+    // Reset form
+    await actions.resetForm({});
 
-    //Redrirect to products page
-    // this.props.history.push(`/${storeName}/products`);
+    // Workaround to clear formik persist
+    await actions.resetForm({});
+
+    // Redirect to store product page
+    this.props.history.push(`/${storeName}/products`);
   };
 
   render() {
     return (
       <AuthUserContext.Consumer>
         {authUser => (
-          <Mutation
-            mutation={CREATE_STORE}
-            onCompleted={data => this.handleComplete(data)}
-          >
+          <Mutation mutation={CREATE_STORE}>
             {(createStore, { loading, error }) => {
-              /* Loading handler */
               {
-                /* if (loading) {
-                return <p>Loading...</p>;
-              } */
+                /* Add loading handler */
               }
-
               /* Error handling */
               if (error) {
-                return <p>Please try again</p>;
+                console.log(error);
               }
 
               /* Render form */
               return (
-                <Formik
-                  initialValues={{ storeName: "", phoneNum: "" }}
-                  validateOnChange={true}
-                  validateOnBlur={true}
-                  onSubmit={(values, actions) =>
-                    this.handleSubmit(values, actions, createStore, authUser)
-                  }
-                >
-                  {/*  */}
-                  {FormikProps => (
-                    <Form onKeyPress={this.onKeyPress}>
-                      <Switch>
-                        {/*  */}
-                        <Redirect
-                          from="/signup"
-                          exact
-                          to="/signup/store-name"
-                        />
+                <div>
+                  <Formik
+                    initialValues={{ storeName: "", phoneNum: "" }}
+                    validateOnChange={true}
+                    validateOnBlur={true}
+                    onSubmit={(values, actions) =>
+                      this.handleSubmit(values, actions, createStore, authUser)
+                    }
+                  >
+                    {/* Formik form */}
+                    {FormikProps => (
+                      <Form onKeyPress={this.onKeyPress}>
+                        {/* Declare routes */}
+                        <Switch>
+                          {/* Redirect to store-name sign up */}
+                          <Redirect
+                            from="/signup"
+                            exact
+                            to="/signup/store-name"
+                          />
 
-                        {/*  */}
-                        <Route
-                          path="/signup/store-name"
-                          render={props => (
-                            <StoreName {...FormikProps} {...props} />
-                          )}
-                        />
+                          {/* Store name sign up route */}
+                          <Route
+                            path="/signup/store-name"
+                            render={props => (
+                              <StoreName {...FormikProps} {...props} />
+                            )}
+                          />
 
-                        {/*  */}
-                        <Route
-                          path="/signup/phone-number"
-                          render={props => (
-                            <PhoneNum
-                              {...FormikProps}
-                              {...props}
-                              loading={loading}
-                            />
-                          )}
-                        />
-                      </Switch>
-                    </Form>
-                  )}
-                </Formik>
+                          {/* Phone number route */}
+                          <Route
+                            path="/signup/phone-number"
+                            render={props => (
+                              <PhoneNum
+                                {...FormikProps}
+                                {...props}
+                                loading={loading}
+                              />
+                            )}
+                          />
+                        </Switch>
+
+                        {/* Persist form values */}
+                        <Persist name="signup-form" />
+                      </Form>
+                    )}
+                  </Formik>
+                </div>
               );
             }}
           </Mutation>
