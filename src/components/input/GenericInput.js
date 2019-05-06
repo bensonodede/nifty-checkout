@@ -6,7 +6,7 @@ import "./styles.css";
 class GenericInput extends Component {
   render() {
     // Define props
-    let { setFieldValue, name, value, errors } = this.props;
+    let { setFieldValue, name, value, errors, validateField } = this.props;
 
     return (
       <div>
@@ -24,9 +24,10 @@ class GenericInput extends Component {
               (errors[name] ? "generic-input__entry--error" : null)
             }
             value={value}
-            onChange={event => {
+            onChange={async event => {
               let val = event.target.value;
-              setFieldValue(name, val);
+              await setFieldValue(name, val);
+              validateField(name);
             }}
           />
         </div>

@@ -3,9 +3,9 @@ import $ from "jquery";
 import Chocolat from "chocolat";
 
 // Import styles
-import "../../styles/index.css";
-import "../../styles/seller/AddProduct.css";
-import "../../styles/chocolat.css";
+import "../../../styles/index.css";
+import "./styles.css";
+import "../../../styles/chocolat.css";
 
 $.fn.Chocolat = Chocolat;
 
@@ -25,7 +25,7 @@ class Thumb extends Component {
     $(thumb).Chocolat();
   }
 
-  // Initialize Chocolat for persistent data and subsequent upload
+  // Initialize Chocolat for persistent data and subsequent uploads
   componentDidMount() {
     const thumb = this.thumb.current;
 

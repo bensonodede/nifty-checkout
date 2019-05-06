@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import v8n from "v8n";
 
 // Import components
-import GenericInput from "../../input/GenericInput";
+import { GenericInput } from "../../input";
 
 // Import styles
 import "./styles.css";
@@ -20,7 +20,7 @@ class StoreName extends Component {
   }
 
   // Function to check if input value validates the current field
-  _isValid(param) {
+  _isValid = param => {
     // Declare global error variable
     let error;
 
@@ -34,7 +34,7 @@ class StoreName extends Component {
       this.setState({ valid: false });
 
       // Set error message
-      error = "Please fill in this field";
+      error = " ";
     }
 
     // If input value passes validation, set valid state
@@ -43,7 +43,7 @@ class StoreName extends Component {
     }
 
     return error;
-  }
+  };
 
   // Store name Formik Field level validation
   validateName = value => {

@@ -7,7 +7,7 @@ import v8n from "v8n";
 import "./styles.css";
 
 // Import components
-import LabelInput from "../../input/LabelInput";
+import { LabelInput } from "../../input";
 
 // Number mask input definition
 const phoneNumMask = [
@@ -36,11 +36,11 @@ class PhoneNumPage extends Component {
 
   /********** IsValid function **********/
 
-  _isValid(param) {
+  _isValid = param => {
     // Declare global error variable
     let error;
 
-    // Check for a string with 11 characters, account for 2 spaces from text-mask
+    // Check for a string with 11 characters (account for 2 spaces from text-mask)
     const validation = v8n()
       .string()
       .minLength(11);
@@ -53,13 +53,13 @@ class PhoneNumPage extends Component {
       error = " ";
     }
 
-    //If input value passes validation, set valid state
+    // If input value passes validation, set valid state
     else {
       this.setState({ valid: true });
     }
 
     return error;
-  }
+  };
 
   /********** Phone number validation **********/
 

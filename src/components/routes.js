@@ -10,7 +10,7 @@ import Welcome from "./Welcome";
 import createStore from "./seller/createStore";
 import Login from "./seller/Login";
 import Products from "./seller/Products";
-import ProductWizard from "./productForm";
+import CreateProduct from "./seller/createProduct";
 
 // Import buyer page components
 import Home from "./Home";
@@ -28,10 +28,10 @@ class Routes extends Component {
           <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
-          <Route path="/signup" component={createStore} />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={createStore} />
           <Route path="/:storeName/products" component={Products} />
-          <Route path="/:storeName/add-product" component={ProductWizard} />
+          <Route path="/:storeName/add-product" component={CreateProduct} />
 
           {/* Buyer routes */}
           <Route path="/:storeName/review" component={Review} />

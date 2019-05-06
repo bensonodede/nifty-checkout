@@ -37,7 +37,7 @@ class CreateStore extends Component {
     let { storeName, phoneNum } = values;
 
     // Remove empty spaces from phone number
-    phoneNum = phoneNum.replace(/\D+/g, "");
+    phoneNum = "+254" + phoneNum.replace(/\D+/g, "");
 
     // Get current user UID
     let { uid } = authUser;
@@ -73,9 +73,6 @@ class CreateStore extends Component {
         {authUser => (
           <Mutation mutation={CREATE_STORE}>
             {(createStore, { loading, error }) => {
-              {
-                /* Add loading handler */
-              }
               /* Error handling */
               if (error) {
                 console.log(error);
@@ -86,8 +83,8 @@ class CreateStore extends Component {
                 <div>
                   <Formik
                     initialValues={{ storeName: "", phoneNum: "" }}
-                    validateOnChange={true}
-                    validateOnBlur={true}
+                    validateOnChange={false}
+                    validateOnBlur={false}
                     onSubmit={(values, actions) =>
                       this.handleSubmit(values, actions, createStore, authUser)
                     }

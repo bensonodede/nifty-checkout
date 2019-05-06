@@ -1,8 +1,10 @@
 .product-form__label {
-  margin: 3vw 0vw;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.5vw;
   color: #787878;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 3.8vw;
+  padding-left: 1vw;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
 }
 
 /***** Image form styling *****/
@@ -45,7 +47,7 @@ input[type="file"] {
 }
 
 .product-form__placeholder-background {
-  background-image: url("../../images/img-placeholder.jpg");
+  background-image: url("../../../images/img-placeholder.jpg");
   background-repeat: no-repeat;
   background-size: 75vw 70vw;
   background-position: center;

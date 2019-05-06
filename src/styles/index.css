@@ -26,6 +26,18 @@
   line-height: 6vw;
 }
 
+.header__text {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  color: #787878;
+  line-height: 6.8vw;
+}
+
+.header__text--warning {
+  font-size: 4.8vw;
+  color: #ee5151;
+}
+
 /* Footer style */
 
 .footer {

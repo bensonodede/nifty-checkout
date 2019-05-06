@@ -12,7 +12,15 @@ class LabelInput extends Component {
     };
   }
   render() {
-    let { setFieldValue, name, value, errors, mask, label } = this.props;
+    let {
+      setFieldValue,
+      name,
+      value,
+      errors,
+      mask,
+      label,
+      validateField
+    } = this.props;
     let { focused } = this.state;
 
     return (
@@ -34,9 +42,10 @@ class LabelInput extends Component {
             onBlur={() => {
               this.setState({ focused: false });
             }}
-            onChange={event => {
+            onChange={async event => {
               let val = event.target.value;
-              setFieldValue(name, val);
+              await setFieldValue(name, val);
+              validateField(name);
             }}
             value={value}
             className="label-input__entry"
