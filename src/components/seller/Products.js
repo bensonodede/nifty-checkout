@@ -1,15 +1,30 @@
+// Import packages
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
+import InfiniteScroll from "react-infinite-scroller";
 
+// Import Graphql query
+import { PRODUCTS_QUERY } from "../graphql/query";
+
+// Import components
+import ProductCard from "./ProductCard";
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
 
+// Import styles
 import "../../styles/index.css";
 import "../../styles/seller/Products.css";
 
-let items = [1, 2, 3, 4, 5];
-
 class Products extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasMore: true
+    };
+  }
+
   render() {
     let { storeName } = this.props.match.params;
 
@@ -26,28 +41,93 @@ class Products extends Component {
           </p>
         </div>
 
-        {/* Products grid */}
-        <div className="grid">
-          {/* Add product */}
-          <Link
-            to={`/${storeName}/add-product`}
-            style={{ textDecoration: "none" }}
-          >
-            <div className="grid__add-item">
-              <div className="grid__content">
-                <Icon icon={plus} size={20} style={{ color: "#787878" }} />
-                {/* <p className="grid__text">Add new</p> */}
-              </div>
-            </div>
-          </Link>
+        {/* Products list */}
+        <Query
+          query={PRODUCTS_QUERY}
+          variables={{
+            storeName: "Store1",
+            first: 5,
+            skip: 0,
+            orderBy: "createdAt_ASC"
+          }}
+        >
+          {({ loading, error, data, fetchMore }) => {
+            if (loading) {
+              return <p>loading</p>;
+            }
 
-          {/* Grid item */}
-          {items.map((item, index) => (
-            <div key={index} className="grid__item">
-              <p className="grid__content">{item}</p>
-            </div>
-          ))}
-        </div>
+            if (error) {
+              console.log(error);
+            }
+
+            console.log(data);
+            return (
+              <div className="product__list">
+                {/* Add product */}
+                <Link
+                  to={`/${storeName}/add-product`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div className="product__add-item">
+                    <div>
+                      {/*  */}
+                      <div className="product__plus-icon">
+                        <Icon
+                          icon={plus}
+                          size={"100%"}
+                          style={{ color: "#d5d5d5" }}
+                        />
+                      </div>
+                      <p className="product__add-item-text">Add new</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <InfiniteScroll
+                  pageStart={0}
+                  initialLoad={true}
+                  useWindow={true}
+                  hasMore={this.state.hasMore}
+                  loadMore={() => {
+                    fetchMore({
+                      variables: {
+                        first: 5,
+                        skip: data.productsByStore.length,
+                        orderBy: "createdAt_ASC"
+                      },
+                      updateQuery: (prev, { fetchMoreResult }) => {
+                        if (
+                          !fetchMoreResult ||
+                          fetchMoreResult.productsByStore.length === 0
+                        ) {
+                          console.log("NO MORE");
+                          this.setState({ hasMore: false });
+                          return prev;
+                        }
+
+                        return Object.assign({}, prev, {
+                          productsByStore: [
+                            ...prev.productsByStore,
+                            ...fetchMoreResult.productsByStore
+                          ]
+                        });
+                      }
+                    });
+                  }}
+                  loader={
+                    <div className="loader" key={0}>
+                      Loading ...
+                    </div>
+                  }
+                >
+                  {data.productsByStore.map(item => (
+                    <ProductCard key={item.id} {...item} />
+                  ))}
+                </InfiniteScroll>
+              </div>
+            );
+          }}
+        </Query>
       </div>
     );
   }
