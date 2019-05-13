@@ -1,0 +1,137 @@
+.header--product {
+  margin-bottom: 10vw;
+}
+
+.product__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.product__add-item {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15vw;
+  height: 65vw;
+  width: calc(87vw - 2px);
+  width: -moz-calc(87vw - 2px);
+  width: -webkit-calc(87w - 2px);
+  width: -o-calc(87w - 2px);
+  border: dashed 2px #e5e5e5;
+  border-radius: 3vw;
+}
+
+.product__add-item-text {
+  display: block;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  color: #787878;
+  line-height: 6.8vw;
+}
+
+.product__plus-icon {
+  width: 8vw;
+  height: auto;
+  margin: auto;
+}
+
+/********** Product card component **********/
+a {
+  text-decoration: none;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.product-card__img {
+  width: 87vw;
+  height: 65vw;
+  border: solid 1px #e5e5e5;
+  border-radius: 3vw;
+  object-fit: cover;
+  background-color: #e5e5e5;
+}
+
+.product-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4vw 2vw 10vw 2vw;
+}
+
+.product-card__name {
+  margin: 0;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 6.2vw;
+  color: #484848;
+  line-height: 6.8vw;
+}
+
+.product-card__price {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2vw;
+}
+
+.product-card__currency {
+  margin: 0;
+  padding-left: 1.2vw;
+  padding-bottom: 0.4vw;
+  align-self: flex-end;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 3.5vw;
+  color: #787878;
+}
+.product-card__price-text {
+  margin: 0;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  color: #787878;
+}
+
+/********** Product modal **********/
+
+.product-modal__header {
+  border-bottom: solid 1.2px #e5e5e5;
+  padding: 6vw 6.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-modal__header-text {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.8vw;
+  color: #484848;
+  margin: 0;
+}
+
+.product-modal__content {
+  padding: 0vw 6.5vw;
+}
+
+.product-modal__text {
+  font-family: "airbnb_cereal_appbook";
+  color: #787878;
+  font-size: 4.8vw;
+  margin: 0;
+  padding-left: 6vw;
+}
+
+.product-modal__row {
+  display: flex;
+  flex-direction: row;
+  margin: 10vw 0vw;
+  align-items: center;
+}
+
+.product-modal__icon {
+  width: 8vw;
+}

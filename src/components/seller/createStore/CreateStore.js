@@ -9,7 +9,7 @@ import { Persist } from "formik-persist";
 import { AuthUserContext } from "../../session";
 
 //Import graphql mutations
-import { CREATE_STORE } from "../../graphql";
+import { CREATE_STORE } from "../../graphql/mutation";
 
 // Import form page components
 import PhoneNum from "./PhoneNum";

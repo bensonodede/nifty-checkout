@@ -6,7 +6,7 @@ import { Query } from "react-apollo";
 import { withFirebase } from "../firebase";
 
 // Import GraphQL login query
-import { LOGIN_QUERY } from "../graphql";
+import { LOGIN_QUERY } from "../graphql/query";
 
 // Import components
 import { SignInGoogle, SignInFacebook, SignInTwitter, SignOut } from "../auth";

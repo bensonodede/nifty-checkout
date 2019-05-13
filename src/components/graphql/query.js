@@ -12,7 +12,7 @@ const LOGIN_QUERY = gql`
   }
 `;
 
-const PRODUCTS_QUERY = gql`
+const PRODUCTS_FEED_QUERY = gql`
   query ProductsByStoreQuery(
     $storeName: String!
     $first: Int
@@ -33,4 +33,14 @@ const PRODUCTS_QUERY = gql`
   }
 `;
 
-export { LOGIN_QUERY, PRODUCTS_QUERY };
+const PRODUCT_QUERY = gql`
+  query ProductQuery($id: String!) {
+    product(id: $id) {
+      name
+      price
+      imgUrl
+    }
+  }
+`;
+
+export { LOGIN_QUERY, PRODUCTS_FEED_QUERY, PRODUCT_QUERY };

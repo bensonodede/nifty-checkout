@@ -49,7 +49,7 @@ class Payment extends Component {
               style={{ textDecoration: "none" }}
             >
               <button className="footer__btn footer__btn--large">
-                Add payment
+                Take my money
               </button>
             </Link>
           </div>

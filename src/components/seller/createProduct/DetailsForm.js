@@ -114,7 +114,7 @@ class DetailsForm extends Component {
             {/* Image preview */}
             <div>
               <img
-                className="product__img"
+                className="product-form__img"
                 src={PREVIEW_URL}
                 alt={values.file.name}
               />

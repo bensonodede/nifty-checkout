@@ -8,7 +8,7 @@ import ImageForm from "./ImageForm";
 import DetailsForm from "./DetailsForm";
 
 // Import graphql mutation
-import { CREATE_PRODUCT } from "../../graphql";
+import { CREATE_PRODUCT } from "../../graphql/mutation";
 
 class CreateProduct extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class CreateProduct extends Component {
     await actions.setSubmitting(false);
 
     // Redirect to store product page
-    await this.props.history.push(`/${storeName}/products`);
+    this.props.history.push(`/${storeName}/products`);
   };
 
   render() {

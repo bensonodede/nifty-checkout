@@ -61,6 +61,8 @@ input[type="file"] {
 .product-form__thumbnail {
   width: 86vw;
   height: 80vw;
+  border: solid 1px #e5e5e5;
+
   border-radius: 10px;
   object-fit: cover;
   background-color: #e5e5e5;
@@ -85,4 +87,16 @@ input[type="file"] {
   padding-top: 2px;
   font-family: "airbnb_cereal_appmedium";
   color: #fc5e5e;
+}
+
+/*********** Details form  *********/
+
+.product-form__img {
+  width: 20vw;
+  height: 20vw;
+  border: solid 1px #e5e5e5;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #e5e5e5;
 }

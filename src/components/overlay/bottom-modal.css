@@ -19,31 +19,29 @@
 .modal-appear,
 .modal-enter {
   opacity: 0;
-  transform: translateY(100%);
 }
 .modal-appear-active,
 .modal-enter-active {
   opacity: 1;
-  transform: translateY(0%);
-  transition: all 750ms ease;
+  transition: all 600ms ease 0ms;
 }
 
 .modal-exit {
   opacity: 1;
-  transform: translateY(0%);
 }
 
 .modal-exit-active {
   opacity: 0;
-  transform: translateY(100%);
-  transition: all 750ms ease;
+  transition: all 500ms ease 50ms;
 }
 
 /***** Modal Card *****/
 
 .bottom-modal__card {
   width: 100%;
-  padding: 0vw 6.5vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   background-color: #ffffff;
   border-radius: 10px 10px 0px 0px;
   z-index: 3;
@@ -60,7 +58,7 @@
 .card-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: all 800ms ease 0.3s;
+  transition: all 500ms ease 100ms;
 }
 
 .card-exit {
@@ -71,68 +69,5 @@
 .card-exit-active {
   opacity: 0;
   transform: translateY(100%);
-  transition: all 800ms ease 0s;
-}
-
-/***** Modal Card Content*****/
-
-.bottom-modal__paragraph {
-  padding: 10vw 0vw 5vw 0vw;
-}
-
-.bottom-modal__text {
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.8vw;
-  line-height: 8vw;
-  color: #484848;
-  margin: 0;
-}
-
-/***** Modal Footer *****/
-
-.bottom-modal__footer {
-  width: 87vw;
-  padding: 5vw 0vw;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  bottom: 0;
-}
-
-/***** Modal buttons *****/
-.bottom-modal__button {
-  border-radius: 1.3vw;
-  padding: 4.3vw 3vw;
-  width: 40vw;
-  background-color: #ffffff;
-  display: inline-block;
-  border: solid 1px #484848;
-  outline: none;
-
-  /* Button text */
-  color: #484848;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.5vw;
-  text-align: center;
-  text-decoration: none;
-}
-
-.bottom-modal__button:active {
-  background-color: #484848;
-  border: solid 1px #484848;
-  color: #ffffff;
-}
-
-.bottom-modal__button--red {
-  background-color: #e66267;
-  color: #ffffff;
-  border: solid 1px #e66267;
-}
-
-.bottom-modal__button--red:active {
-  background-color: #ffffff;
-  color: #e66267;
-  border: solid 1px #e66267;
+  transition: all 600ms ease 0s;
 }

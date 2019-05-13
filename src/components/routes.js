@@ -9,7 +9,7 @@ import Welcome from "./Welcome";
 // Import seller page components
 import createStore from "./seller/createStore";
 import Login from "./seller/Login";
-import Products from "./seller/Products";
+import ProductSwitch from "./seller/products";
 import CreateProduct from "./seller/createProduct";
 
 // Import buyer page components
@@ -30,7 +30,8 @@ class Routes extends Component {
           {/* Seller routes */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />
-          <Route path="/:storeName/products" component={Products} />
+          <Route path="/:storeName/products" component={ProductSwitch} />
+
           <Route path="/:storeName/add-product" component={CreateProduct} />
 
           {/* Buyer routes */}

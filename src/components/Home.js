@@ -15,13 +15,20 @@ class Home extends Component {
   }
 
   triggerModal = () => {
-    this.setState({ modal: true });
+    this.setState(prevState => ({ modal: !prevState.modal }));
   };
 
   render() {
     return (
       <div>
-        <BottomModal show={this.state.modal} />
+        <BottomModal
+          show={this.state.modal}
+          onBackgroundClick={this.triggerModal}
+        >
+          <p>Hello</p>
+          <p>This is a test</p>
+          <button onClick={this.triggerModal}>CLOSE</button>
+        </BottomModal>
         <div className="App-container">
           {/* Home header */}
           <div className="header">
