@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import { withAuthentication } from "./session";
 
@@ -30,8 +30,8 @@ class Routes extends Component {
           {/* Seller routes */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />
+          <Redirect exact from="/:storeName" to="/:storeName/products" />
           <Route path="/:storeName/products" component={ProductSwitch} />
-
           <Route path="/:storeName/add-product" component={CreateProduct} />
 
           {/* Buyer routes */}

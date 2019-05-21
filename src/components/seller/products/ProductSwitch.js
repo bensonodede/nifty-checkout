@@ -5,11 +5,9 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // Import components
 import Products from "./Products";
-import EditProduct from "./EditProduct";
 import ProductModal from "./ProductModal";
-
-//
-import "../../overlay/bottom-modal.css";
+import DeleteModal from "./DeleteModal";
+import EditProduct from "./EditProduct";
 
 //
 class ProductSwitch extends Component {
@@ -40,13 +38,29 @@ class ProductSwitch extends Component {
     );
 
     //
+
     return (
       <div>
         <Switch location={isModal ? this.previousLocation : location}>
-          <Redirect from="/:storeName" exact to="/:storeName/products" />
+          {/*  */}
+          <Redirect
+            from="/:storeName/products/options"
+            exact
+            to="/:storeName/products"
+          />
+
+          {/*  */}
+          <Redirect
+            from="/:storeName/products/:id/delete"
+            exact
+            to="/:storeName/products"
+          />
 
           <Route exact path="/:storeName/products" component={Products} />
+          <Route path="/:storeName/products/:id/edit" component={EditProduct} />
         </Switch>
+
+        {/*  */}
         <TransitionGroup>
           <CSSTransition
             key={this.props.location.key}
@@ -54,14 +68,19 @@ class ProductSwitch extends Component {
             timeout={1000}
           >
             <div>
-              <Switch location={location}>
-                {isModal ? (
+              {isModal && (
+                <Switch location={location}>
                   <Route
                     path="/:storeName/products/options"
-                    component={ProductModal}
+                    render={props => <ProductModal {...props} />}
                   />
-                ) : null}
-              </Switch>
+
+                  <Route
+                    path="/:storeName/products/:id/delete"
+                    render={props => <DeleteModal {...props} />}
+                  />
+                </Switch>
+              )}
             </div>
           </CSSTransition>
         </TransitionGroup>

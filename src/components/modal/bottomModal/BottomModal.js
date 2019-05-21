@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 // Import styles and transitions
-import "./bottom-modal.css";
+import "./styles.css";
 
 //! Unmount component after animation
 class BottomModal extends Component {
@@ -14,17 +14,19 @@ class BottomModal extends Component {
       show: true
     };
   }
+
   goBack = e => {
     e.stopPropagation();
 
-    this.setState({ show: false }, () => {
-      this.props.history.goBack();
-    });
+    //? Fix for modal double-click: Prevents going back twice
+    if (this.state.show) {
+      this.setState({ show: false }, () => {
+        this.props.goBack();
+      });
+    }
   };
 
   render() {
-    console.log(this.props);
-
     let { show } = this.state;
     return (
       <div>
@@ -35,7 +37,10 @@ class BottomModal extends Component {
             unmountOnExit={true}
             in={show}
             classNames="card"
-            timeout={1000}
+            timeout={500}
+            onClick={e => {
+              e.stopPropagation();
+            }}
           >
             {/* Modal card */}
             <div className="bottom-modal__card">{this.props.children}</div>

@@ -37,4 +37,20 @@ const CREATE_PRODUCT = gql`
   }
 `;
 
-export { CREATE_STORE, CREATE_PRODUCT };
+const UPDATE_PRODUCT = gql`
+  mutation UpdateProduct(
+    $id: String!
+    $file: Upload!
+    $name: String!
+    $price: Float!
+  ) {
+    updateProduct(id: $id, file: $file, name: $name, price: $price) {
+      id
+      name
+      price
+      imgUrl
+    }
+  }
+`;
+
+export { CREATE_STORE, CREATE_PRODUCT, UPDATE_PRODUCT };

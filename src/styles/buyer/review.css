@@ -1,43 +1,50 @@
-/* Product styles */
-
-.product {
+/* Review layout */
+.review--container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  height: 75vh;
+  top: 25vh;
+  background-color: #ffffff;
+  border-radius: 6vw 6vw 0vw 0vw;
 }
 
-.product__header {
-  align-self: flex-start;
+.review__header {
+  padding: 8vw 0vw;
 }
 
-.product__title {
+/* Review text */
+.review__title {
   color: #484848;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 5vw;
-  margin-bottom: 2vw;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 6vw;
+  margin: 0;
 }
 
-.product__title--light {
-  color: #787878;
-  font-family: "airbnb_cereal_appbook";
-  font-size: 4.8vw;
+.review__sub-title {
+}
+
+.review__btn {
+  position: fixed;
+  bottom: 20vw;
+  right: 20vw;
+}
+
+.review__btn-text {
   margin: 0;
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
 }
 
 /*  Image styles */
 
-.product__photo {
-  width: 20vw;
-  height: 20vw;
-  border-radius: 2vw;
-}
-
-.product__img {
-  width: 20vw;
-  height: 20vw;
-  border-radius: 2vw;
-  background-repeat: no-repeat;
-  background-size: contain;
+.review__img {
+  width: 100vw;
+  height: 30vh;
+  position: absolute;
+  object-fit: cover;
   background-color: #e5e5e5;
 }

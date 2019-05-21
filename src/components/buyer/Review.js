@@ -1,58 +1,58 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+// Import components
+import { PulseBtn } from "../button";
+
 // Import styles
 import "../../styles/index.css";
 import "../../styles/buyer/review.css";
 
 class Payment extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPaused: true
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isPaused: false });
+    }, 10000);
+  }
+
   render() {
     let { storeName } = this.props.match.params;
 
     return (
       <div>
-        <div className="App-container">
-          {/* Checkout header */}
+        {/* Product Image */}
+        <img
+          src={require("../../images/9fb4b2761138ed08d135da600e33bd89.png")}
+          alt="unsplash"
+          className="review__img"
+        />
 
-          <div className="header">
-            <p className="header__sub-title ">Step 1 of 3</p>
-            <h1 className="header__title">Review item</h1>
+        <div className="App-container review--container">
+          {/* Product and store name */}
+
+          <div className="review__header">
+            <p className="review__title">Reddish blue</p>
+            <p />
           </div>
 
-          {/* Checkout body */}
-
-          <div className="product">
-            {/* Product and store name */}
-
-            <div className="product__header">
-              <p className="product__title">Product name</p>
-              <p className="product__title product__title--light">Shop name</p>
-            </div>
-            {/* Product Image */}
-
-            <div className="product__img">
-              <img
-                src="https://source.unsplash.com/random/800x800"
-                alt="unsplash"
-                className="product__photo"
-              />
-            </div>
+          <div>
+            <p>Other stuff goes here.</p>
           </div>
         </div>
 
         {/* Checkout footer  */}
-
-        <div className="footer">
-          <div className="footer__body footer__body--large-btn">
-            <Link
-              to={`/${storeName}/payment`}
-              style={{ textDecoration: "none" }}
-            >
-              <button className="footer__btn footer__btn--large">
-                Take my money
-              </button>
-            </Link>
-          </div>
+        <div className="review__btn">
+          <PulseBtn isPaused={this.state.isPaused}>
+            <div />
+          </PulseBtn>
         </div>
       </div>
     );

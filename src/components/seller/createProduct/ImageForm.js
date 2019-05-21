@@ -80,7 +80,8 @@ class ImageForm extends Component {
     let { valid } = this.state;
     let { storeName } = this.props.match.params;
     let { values, setFieldValue, resetForm } = this.props;
-    // Declare global image preview i
+
+    // Declare global image preview
     let PREVIEW_URL = "";
 
     //
@@ -148,7 +149,7 @@ class ImageForm extends Component {
               <div
                 className="product-form__image-delete"
                 onClick={async () => {
-                  URL.revokeObjectURL(values.file);
+                  await URL.revokeObjectURL(values.file);
                   resetForm({ file: "" });
                 }}
               >

@@ -15,7 +15,6 @@ const numberMask = createNumberMask({
   prefix: "",
   suffix: "",
   allowDecimal: true
-  // integerLimit:""
 });
 
 // Check for a string with at least one character

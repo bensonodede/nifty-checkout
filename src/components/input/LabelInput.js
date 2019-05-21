@@ -11,9 +11,11 @@ class LabelInput extends Component {
       focused: false
     };
   }
+
   render() {
     let {
       setFieldValue,
+      setFieldTouched,
       name,
       value,
       errors,
@@ -45,6 +47,7 @@ class LabelInput extends Component {
             onChange={async event => {
               let val = event.target.value;
               await setFieldValue(name, val);
+              await setFieldTouched(name, true);
               validateField(name);
             }}
             value={value}

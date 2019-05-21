@@ -1,0 +1,24 @@
+.pulse {
+  position: relative;
+}
+
+.pulse__lottie {
+  width: 32vw;
+  position: absolute;
+  top: -7.95vw;
+  left: -8.15vw;
+}
+
+.pulse__btn {
+  position: absolute;
+  top: 0vw;
+  left: 0vw;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 12vw;
+  padding: 2vw 2vw;
+  background-color: #484848;
+  display: inline-block;
+  border: none;
+  outline: none;
+}
