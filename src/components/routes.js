@@ -14,7 +14,7 @@ import CreateProduct from "./seller/createProduct";
 
 // Import buyer page components
 import Home from "./Home";
-import Review from "./buyer/Review";
+import Review from "./buyer/review";
 import Payment from "./buyer/Payment";
 import PhoneNum from "./buyer/phoneNum";
 

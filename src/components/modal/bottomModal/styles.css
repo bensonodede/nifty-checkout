@@ -47,7 +47,7 @@
   z-index: 3;
 }
 
-/***** Modal Card Animations*****/
+/***** Modal Card Animations *****/
 .card-appear,
 .card-enter {
   opacity: 0;

@@ -1,0 +1,144 @@
+.review {
+  background-color: #e5e5e5;
+  height: 100vh;
+}
+
+.review__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0vw 6.5vw;
+  width: 87vw;
+  height: 30vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0),
+    rgba(0, 0, 0, 1) 50%
+  );
+  z-index: 2;
+}
+
+/*********** Image styling **********/
+
+.review__img {
+  width: 100vw;
+  height: 85vh;
+  position: absolute;
+  object-fit: cover;
+  background-color: #e5e5e5;
+}
+
+/********** Header styling **********/
+
+.review__header {
+  margin: 0;
+}
+
+.review__title {
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 6.5vw;
+  margin: 0;
+}
+
+.review__sub-title {
+  color: #ffffff;
+  font-family: "airbnb_cereal_applight";
+  font-size: 4.8vw;
+  margin: 3vw 0vw;
+}
+
+.review__currency {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 3.2vw;
+  margin-left: 1.8vw;
+}
+
+/*********** Footer styling **********/
+
+.review__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 5vw 0vw;
+  margin-top: 5vw;
+  bottom: 0;
+  width: 87vw;
+  border-top: 0.4vh solid rgba(229, 229, 229, 0.25);
+}
+
+.review__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.2vw;
+  padding: 2vw 2vw;
+  height: 10vw;
+  width: 20vw;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+}
+
+.review__btn-text {
+  margin: 0;
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+/********** Transition animations **********/
+
+/* Card transition */
+
+.transition__header-appear,
+.transition__header-enter {
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+}
+
+.transition__header-appear-active,
+.transition__header-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 2000ms ease-out 500ms;
+}
+
+.transition__header-exit {
+  transform: scale(100%);
+}
+
+.transition__header-exit-active {
+  transform: translateY(0%);
+  transition: all 1000ms ease-in-out 1000ms;
+}
+
+/* Button Transition */
+
+.transition__btn-appear,
+.transition__btn-enter {
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+}
+
+.transition__btn-appear-active,
+.transition__btn-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 2000ms ease-out 500ms;
+}
+
+.transition__btn-exit {
+  transform: translateX(1);
+}
+
+.transition__btn-exit-active {
+  transform: translateY(0%);
+  transition: all 1000ms ease-in-out 1000ms;
+}
