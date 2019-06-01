@@ -16,11 +16,16 @@ const defaultOptions = {
 
 // Pulse button component
 const PulseBtn = props => (
-  <div className="pulse">
+  <div onClick={props.onClick} className="pulse">
+    {/*  */}
     <div className="pulse__lottie">
       <Lottie options={defaultOptions} isPaused={props.isPaused} />
     </div>
-    <div className="pulse__btn">{props.children}</div>
+
+    {/*  */}
+    <div className="pulse__btn">
+      <div className="pulse__icon">{props.children}</div>
+    </div>
   </div>
 );
 

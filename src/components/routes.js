@@ -6,17 +6,14 @@ import { withAuthentication } from "./session";
 // Import common page components
 import Welcome from "./Welcome";
 
-// Import seller page components
+// Import seller page component
 import createStore from "./seller/createStore";
 import Login from "./seller/Login";
 import ProductSwitch from "./seller/products";
 import CreateProduct from "./seller/createProduct";
 
-// Import buyer page components
-import Home from "./Home";
-import Review from "./buyer/review";
-import Payment from "./buyer/Payment";
-import PhoneNum from "./buyer/phoneNum";
+// Import Checkout page component
+import Checkout from "./buyer/Checkout";
 
 class Routes extends Component {
   render() {
@@ -24,7 +21,6 @@ class Routes extends Component {
       <BrowserRouter>
         <Switch>
           {/* Common routes */}
-          <Route exact path="/" component={Home} />
           <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
@@ -34,10 +30,8 @@ class Routes extends Component {
           <Route path="/:storeName/products" component={ProductSwitch} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
 
-          {/* Buyer routes */}
-          <Route path="/:storeName/review" component={Review} />
-          <Route path="/:storeName/payment" component={Payment} />
-          <Route path="/:storeName/phonenum" component={PhoneNum} />
+          {/* Checkout routes */}
+          <Route path="/:storeName/:productId" component={Checkout} />
         </Switch>
       </BrowserRouter>
     );

@@ -1,4 +1,4 @@
-/***** Generic Input *****/
+/********** Generic Input **********/
 
 .generic-input__entry {
   width: 81vw;
@@ -20,7 +20,7 @@
   box-shadow: 0 0 5px rgb(238, 81, 81);
 }
 
-/***** Label Input *****/
+/********** Label Input **********/
 
 .label-input {
   display: flex;
@@ -30,9 +30,7 @@
   margin: 0;
   border: solid #e5e5e5 1.2px;
   border-radius: 1.5vw;
-
   outline: none;
-  /* width: 87vw; */
 }
 
 .label-input--focus {
@@ -50,6 +48,8 @@
   padding: 0vw 3vw;
   border-width: 0;
   border-style: none;
+
+  /* Text styling */
 
   font-family: "airbnb_cereal_appbook";
   font-size: 5vw;
@@ -72,7 +72,22 @@
   text-align: center;
 }
 
-/***** Input error message *****/
+/********** Label Input placeholder **********/
+
+::-webkit-input-placeholder {
+  color: #d5d5d5;
+}
+::-moz-placeholder {
+  color: #d5d5d5;
+}
+:-ms-input-placeholder {
+  color: #d5d5d5;
+}
+::placeholder {
+  color: #d5d5d5;
+}
+
+/********** Input error message **********/
 
 .input__error-message {
   margin-bottom: 2vw;

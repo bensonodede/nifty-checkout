@@ -3,22 +3,33 @@
 }
 
 .pulse__lottie {
-  width: 32vw;
+  width: 33vw;
+  height: auto;
   position: absolute;
-  top: -7.95vw;
-  left: -8.15vw;
+  z-index: -1;
+  top: -8.3vw;
+  left: -8.4vw;
 }
 
 .pulse__btn {
-  position: absolute;
+  z-index: 2;
   top: 0vw;
   left: 0vw;
   width: 12vw;
   height: 12vw;
   border-radius: 12vw;
   padding: 2vw 2vw;
-  background-color: #484848;
-  display: inline-block;
+  background-color: #a8f1f5;
+  box-shadow: 0 0 4px 1px #a8f1f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   outline: none;
+}
+
+.pulse__icon {
+  color: #484848;
+  width: 8vw;
 }

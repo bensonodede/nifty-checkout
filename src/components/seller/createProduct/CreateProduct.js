@@ -11,13 +11,6 @@ import DetailsForm from "./DetailsForm";
 import { CREATE_PRODUCT } from "../../graphql/mutation";
 
 class CreateProduct extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      submitted: false
-    };
-  }
-
   // Prevent submission on enter press
   onKeyPress = event => {
     if (event.which === 13 /* Enter */) {

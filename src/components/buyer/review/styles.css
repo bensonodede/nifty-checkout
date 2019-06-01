@@ -1,8 +1,26 @@
 .review {
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   height: 100vh;
 }
 
+/********** Loader styling **********/
+.review__loader-container {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.review__loader {
+  width: 50vw;
+  height: auto;
+}
+
+/********** Header styling **********/
 .review__container {
   display: flex;
   flex-direction: column;
@@ -17,22 +35,10 @@
   background-image: linear-gradient(
     180deg,
     rgba(255, 0, 0, 0),
-    rgba(0, 0, 0, 1) 50%
+    rgb(0, 0, 0) 50%
   );
   z-index: 2;
 }
-
-/*********** Image styling **********/
-
-.review__img {
-  width: 100vw;
-  height: 85vh;
-  position: absolute;
-  object-fit: cover;
-  background-color: #e5e5e5;
-}
-
-/********** Header styling **********/
 
 .review__header {
   margin: 0;
@@ -48,14 +54,43 @@
 .review__sub-title {
   color: #ffffff;
   font-family: "airbnb_cereal_applight";
-  font-size: 4.8vw;
+  font-size: 5.5vw;
   margin: 3vw 0vw;
 }
 
 .review__currency {
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 3.2vw;
-  margin-left: 1.8vw;
+  font-family: "airbnb_cereal_applight";
+  font-size: 3.6vw;
+  margin-left: 1.5vw;
+}
+
+/********** Image styling **********/
+.review__img-loading {
+  opacity: 0;
+  width: 100vw;
+  height: 85vh;
+}
+
+.review__img {
+  animation: fadeInImg cubic-bezier(0.23, 1, 0.32, 1) 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.7s;
+  animation-delay: 0.1s;
+  width: 100vw;
+  height: 85vh;
+  position: relative;
+  object-fit: cover;
+  background-color: #e5e5e5;
+}
+
+@keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*********** Footer styling **********/
@@ -64,38 +99,14 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 5vw 0vw;
-  margin-top: 5vw;
+  padding: 6.5vw 0vw;
   bottom: 0;
   width: 87vw;
-  border-top: 0.4vh solid rgba(229, 229, 229, 0.25);
-}
-
-.review__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1.2vw;
-  padding: 2vw 2vw;
-  height: 10vw;
-  width: 20vw;
-  background-color: #ffffff;
-  border: none;
-  outline: none;
-}
-
-.review__btn-text {
-  margin: 0;
-  color: #484848;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.5vw;
-  text-align: center;
-  text-decoration: none;
 }
 
 /********** Transition animations **********/
 
-/* Card transition */
+/* Header transition */
 
 .transition__header-appear,
 .transition__header-enter {
@@ -107,7 +118,7 @@
 .transition__header-enter-active {
   opacity: 1;
   transform: scale3d(1, 1, 1);
-  transition: all 2000ms ease-out 500ms;
+  transition: all 800ms ease-out 500ms;
 }
 
 .transition__header-exit {
@@ -121,24 +132,24 @@
 
 /* Button Transition */
 
-.transition__btn-appear,
-.transition__btn-enter {
+.transition__footer-appear,
+.transition__footer-enter {
   opacity: 0;
   transform: scale3d(2, 2, 2);
 }
 
-.transition__btn-appear-active,
-.transition__btn-enter-active {
+.transition__footer-appear-active,
+.transition__footer-enter-active {
   opacity: 1;
   transform: scale3d(1, 1, 1);
-  transition: all 2000ms ease-out 500ms;
+  transition: all 800ms ease-out 800ms;
 }
 
-.transition__btn-exit {
+.transition__footer-exit {
   transform: translateX(1);
 }
 
-.transition__btn-exit-active {
+.transition__footer-exit-active {
   transform: translateY(0%);
   transition: all 1000ms ease-in-out 1000ms;
 }
