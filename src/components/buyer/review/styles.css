@@ -122,12 +122,14 @@
 }
 
 .transition__header-exit {
-  transform: scale(100%);
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
 }
 
 .transition__header-exit-active {
-  transform: translateY(0%);
-  transition: all 1000ms ease-in-out 1000ms;
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+  transition: all 800ms ease-out 500ms;
 }
 
 /* Button Transition */
@@ -142,14 +144,16 @@
 .transition__footer-enter-active {
   opacity: 1;
   transform: scale3d(1, 1, 1);
-  transition: all 800ms ease-out 800ms;
+  transition: all 800ms ease-out 500ms;
 }
 
 .transition__footer-exit {
-  transform: translateX(1);
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
 }
 
 .transition__footer-exit-active {
-  transform: translateY(0%);
-  transition: all 1000ms ease-in-out 1000ms;
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+  transition: all 800ms ease-out 500ms;
 }

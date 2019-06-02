@@ -38,19 +38,32 @@ class PhoneNum extends Component {
     const { cookies } = props;
 
     this.state = {
-      name: cookies.get("name") || "None"
+      phoneNum: cookies.get("phoneNum") || ""
     };
+  }
+
+  // Prevent submission on enter press
+  onKeyPress(event) {
+    if (event.which === 13 /* Enter */) {
+      event.preventDefault();
+    }
   }
 
   //
   handleSubmit = async (values, actions) => {
-    console.log(values.phoneNum);
+    let { phoneNum } = values;
+
+    // Remove empty spaces from phone number and prepend country code
+    phoneNum = "+254" + phoneNum.replace(/\D+/g, "");
+
+    console.log(phoneNum);
+
+    const { cookies } = this.props;
+
+    cookies.set("phoneNum", phoneNum, { path: "/" });
   };
 
   render() {
-    //
-    const { name } = this.state;
-
     return (
       <Formik
         initialValues={{ phoneNum: "" }}
@@ -59,28 +72,23 @@ class PhoneNum extends Component {
         onSubmit={(values, actions) => this.handleSubmit(values, actions)}
       >
         {formikProps => (
-          <Form onSubmit={formikProps.handleSubmit}>
-            <div className="App-container">
+          <Form onKeyPress={this.onKeyPress}>
+            <div className="phoneNum">
               {/* Phone number header */}
-              <div className="header">
-                <h1 className="header__title">What's your</h1>
-                <h1 className="header__title">phone number?</h1>
+              <div className="phoneNum__header">
+                <h1 className="phoneNum__title">What's your phone number?</h1>
               </div>
 
               {/* Phone numeber description */}
-              <div className="description">
-                <p className="description__text">
-                  We use your phone number to confirm your payment. Also, the
-                  seller might want to contact you.
+              <div className="phoneNum__description">
+                <p className="phoneNum__description-text">
+                  We use your phone number to confirm your payment. Also, we
+                  would like to contact you.{" "}
                   <span role="img" aria-label="call-hand">
                     🤙🏾
                   </span>
                 </p>
               </div>
-
-              {/* Phone number input */}
-
-              <p>{name}</p>
 
               {/* PhoneNum field  */}
               <Field
@@ -96,11 +104,10 @@ class PhoneNum extends Component {
                   />
                 )}
               />
-            </div>
-            {/* Page footer */}
-            <div className="footer">
-              <div className="footer__body">
+              {/* Page footer */}
+              <div className="phoneNum__footer">
                 {/* Footer button */}
+
                 <button
                   type="submit"
                   className={
@@ -113,8 +120,8 @@ class PhoneNum extends Component {
                   Done
                 </button>
               </div>
+              {/* End Page footer */}
             </div>
-            {/* End Page footer */}
           </Form>
         )}
       </Formik>

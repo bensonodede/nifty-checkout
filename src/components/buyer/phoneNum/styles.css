@@ -1,0 +1,71 @@
+.phoneNum {
+  padding: 0vw 6.5vw;
+  height: 100vh;
+}
+
+/* Header styles */
+
+.phoneNum__header {
+  padding-top: 8vw;
+  padding-bottom: 5vw;
+}
+
+.phoneNum__title {
+  color: #484848;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 8vw;
+  margin: 0;
+  line-height: 10vw;
+}
+
+/* Description styling */
+.phoneNum__description {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.phoneNum__description-text {
+  margin: 0;
+  color: #787878;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  line-height: 6.4vw;
+  padding-bottom: 8vw;
+}
+
+/* Footer styling */
+
+.phoneNum__footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  justify-content: flex-end;
+  width: 87vw;
+  padding: 4vw 0vw;
+}
+
+.footer__btn {
+  border-radius: 1.2vw;
+  padding: 4.5vw 3vw;
+  width: 20vw;
+  background-color: #484848;
+  display: inline-block;
+  border: none;
+  outline: none;
+
+  /* Button text */
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer__btn:active {
+  opacity: 0.7;
+}
+
+.footer__btn--disabled {
+  opacity: 0.5;
+}
