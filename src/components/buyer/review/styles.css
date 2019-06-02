@@ -84,6 +84,30 @@
   background-color: #e5e5e5;
 }
 
+@-o-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes fadeInImg {
   from {
     opacity: 0;
@@ -104,6 +128,16 @@
   width: 87vw;
 }
 
+.review__btn {
+  background-color: #a8f1f5;
+  box-shadow: 0 0 4px 1px #a8f1f5;
+}
+
+.review__icon {
+  color: #484848;
+  width: 8vw;
+}
+
 /********** Transition animations **********/
 
 /* Header transition */
@@ -111,14 +145,14 @@
 .transition__header-appear,
 .transition__header-enter {
   opacity: 0;
-  transform: scale3d(2, 2, 2);
+  transform: translate3d(0, 30px, 0);
 }
 
 .transition__header-appear-active,
 .transition__header-enter-active {
   opacity: 1;
   transform: scale3d(1, 1, 1);
-  transition: all 800ms ease-out 500ms;
+  transition: all 700ms ease 300ms;
 }
 
 .transition__header-exit {
@@ -137,14 +171,14 @@
 .transition__footer-appear,
 .transition__footer-enter {
   opacity: 0;
-  transform: scale3d(2, 2, 2);
+  transform: translate3d(0, 30px, 0);
 }
 
 .transition__footer-appear-active,
 .transition__footer-enter-active {
   opacity: 1;
   transform: scale3d(1, 1, 1);
-  transition: all 800ms ease-out 500ms;
+  transition: all 700ms ease 500ms;
 }
 
 .transition__footer-exit {

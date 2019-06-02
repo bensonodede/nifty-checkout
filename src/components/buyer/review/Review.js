@@ -37,6 +37,7 @@ class Review extends Component {
       //
       console.log("One click checkout: ");
       console.log(phoneNum);
+      this.props.history.push(`/${storeName}/${productId}/phoneNum`);
     } else {
       this.props.history.push(`/${storeName}/${productId}/phoneNum`);
     }
@@ -59,8 +60,8 @@ class Review extends Component {
               }, 5000);
             });
           }}
-          // src={require("../../../images/scott-webb-1615983-unsplash.jpg")}
-          src="https://source.unsplash.com/random"
+          src={require("../../../images/scott-webb-1615983-unsplash.jpg")}
+          // src="https://source.unsplash.com/random"
           alt="unsplash"
           className={loaded ? "review__img" : "review__img-loading"}
         />
@@ -80,7 +81,7 @@ class Review extends Component {
                 <p className="review__title">Something green</p>
                 <p className="review__sub-title">
                   30,400
-                  <span className="review__currency">KES</span>
+                  <span className="review__currency">KSH</span>
                 </p>
               </div>
             </CSSTransition>
@@ -96,10 +97,15 @@ class Review extends Component {
             >
               <div className="review__footer">
                 <PulseBtn
+                  dark={false}
                   onClick={this.handleClick}
+                  type={"button"}
                   isPaused={this.state.isPaused}
+                  btnStyle={"review__btn"}
                 >
-                  <Icon size={"100%"} icon={arrow_right} />
+                  <div className="review__icon">
+                    <Icon size={"100%"} icon={arrow_right} />
+                  </div>
                 </PulseBtn>
               </div>
             </CSSTransition>

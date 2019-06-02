@@ -5,7 +5,9 @@ import { Formik, Field, Form } from "formik";
 import { withCookies, Cookies } from "react-cookie";
 
 //  Import components
-
+import { PulseBtn } from "../../button";
+import { Icon } from "react-icons-kit";
+import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 import { LabelInput } from "../../input";
 import { validatePhoneNum } from "../../validation";
 
@@ -83,7 +85,7 @@ class PhoneNum extends Component {
               <div className="phoneNum__description">
                 <p className="phoneNum__description-text">
                   We use your phone number to confirm your payment. Also, we
-                  would like to contact you.{" "}
+                  would like to contact you after you make your purchase .{" "}
                   <span role="img" aria-label="call-hand">
                     🤙🏾
                   </span>
@@ -106,19 +108,22 @@ class PhoneNum extends Component {
               />
               {/* Page footer */}
               <div className="phoneNum__footer">
-                {/* Footer button */}
-
-                <button
-                  type="submit"
-                  className={
-                    formikProps.isValid
-                      ? "footer__btn"
-                      : "footer__btn footer__btn--disabled"
-                  }
+                <PulseBtn
+                  dark={true}
+                  type={"submit"}
                   disabled={!formikProps.isValid}
+                  btnStyle={
+                    formikProps.isValid
+                      ? "phoneNum__btn"
+                      : "phoneNum__btn--disabled"
+                  }
+                  onClick={this.handleClick}
+                  isPaused={formikProps.isValid ? false : true}
                 >
-                  Done
-                </button>
+                  <div className="phoneNum__icon">
+                    <Icon size={"100%"} icon={arrow_right} />
+                  </div>
+                </PulseBtn>
               </div>
               {/* End Page footer */}
             </div>

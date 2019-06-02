@@ -1,5 +1,9 @@
 .pulse {
   position: relative;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: rgb(0, 0, 0, 0);
 }
 
 .pulse__lottie {
@@ -7,8 +11,8 @@
   height: auto;
   position: absolute;
   z-index: -1;
-  top: -8.3vw;
-  left: -8.4vw;
+  top: -8vw;
+  left: -7vw;
 }
 
 .pulse__btn {
@@ -19,17 +23,12 @@
   height: 12vw;
   border-radius: 12vw;
   padding: 2vw 2vw;
-  background-color: #a8f1f5;
-  box-shadow: 0 0 4px 1px #a8f1f5;
+  background-color: #484848;
+  box-shadow: 0 0 4px 1px #484848;
 
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   outline: none;
-}
-
-.pulse__icon {
-  color: #484848;
-  width: 8vw;
 }
