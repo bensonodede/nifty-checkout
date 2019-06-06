@@ -28,7 +28,12 @@ const PulseBtn = props => {
   };
 
   return (
-    <button type={props.type} onClick={props.onClick} className="pulse">
+    <button
+      disabled={props.disabled}
+      type={props.type}
+      onClick={props.onClick}
+      className="pulse"
+    >
       {/*  */}
       <div className="pulse__lottie">
         <Lottie options={defaultOptions} isPaused={props.isPaused} />
