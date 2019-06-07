@@ -54,10 +54,10 @@ class Review extends Component {
           onLoad={() => {
             // Set image loaded state
             this.setState({ loaded: true }, () => {
-              // Play pulse animation after 5s
+              // Play pulse animation after 3s
               setTimeout(() => {
                 this.setState({ isPaused: false });
-              }, 5000);
+              }, 3000);
             });
           }}
           src={require("../../../images/scott-webb-1615983-unsplash.jpg")}

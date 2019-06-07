@@ -15,6 +15,9 @@ import { Icon } from "react-icons-kit";
 import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOutline";
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
+// Import styles
+import "./styles.css";
+
 // Number mask input definition
 const numberMask = createNumberMask({
   prefix: "",
@@ -100,8 +103,9 @@ class EditProduct extends Component {
     let { PREVIEW_URL } = this.state;
 
     return (
-      <Mutation mutation={UPDATE_PRODUCT}
-      // update={(cache, {})}
+      <Mutation
+        mutation={UPDATE_PRODUCT}
+        // update={(cache, {})}
       >
         {(mutate, { loading, error }) => {
           if (error) {

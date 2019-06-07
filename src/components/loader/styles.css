@@ -3,3 +3,43 @@
   display: flex;
   margin: auto;
 }
+
+.img__container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img__placeholder {
+  position: relative;
+  filter: blur(5px);
+  transform: scale(1);
+  animation: pulse 1.5s infinite;
+}
+
+.img__loaded {
+  opacity: 1;
+  transition: opacity 700ms linear;
+}
+
+.img__loading {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}

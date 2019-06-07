@@ -1,6 +1,6 @@
 .App-container {
-  padding-left: 6.5vw;
-  padding-right: 6.5vw;
+  padding: 0vw 6.5vw;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
 }
 
 /* Header styles */

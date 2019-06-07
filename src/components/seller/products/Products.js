@@ -18,6 +18,15 @@ import { plus } from "react-icons-kit/ikons/plus";
 import "../../../styles/index.css";
 import "./styles.css";
 
+// Product loader component
+const ProductLoader = () => (
+  <div className="product__loader-container">
+    <div className="product__loader">
+      <Loader key={0} />
+    </div>
+  </div>
+);
+
 class Products extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +44,7 @@ class Products extends Component {
     return (
       <div>
         {/*  */}
-        <div className="App-container">
+        <div className="product">
           {/* Product page header */}
           <div className="header header--product">
             <h1 className="header__title">Welcome.</h1>
@@ -79,18 +88,18 @@ class Products extends Component {
             >
               {({ loading, error, data, fetchMore }) => {
                 if (error) {
-                  return <p>Oops. Please try again</p>;
+                  return <p>Oops, please try again.</p>;
                 }
 
                 if (loading) {
-                  return <Loader />;
+                  return <ProductLoader />;
                 }
 
                 return (
                   <InfiniteScroll
                     pageStart={0}
                     initialLoad={true}
-                    useWindow={true}
+                    useWindow={false}
                     hasMore={this.state.hasMore}
                     loadMore={() => {
                       fetchMore({
@@ -119,7 +128,7 @@ class Products extends Component {
                         }
                       });
                     }}
-                    loader={<Loader key={0} />}
+                    loader={<ProductLoader key={0} />}
                   >
                     {data.productsByStore.map(item => (
                       <Link
