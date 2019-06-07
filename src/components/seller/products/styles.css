@@ -164,3 +164,19 @@ a {
 .product-modal__icon {
   width: 8vw;
 }
+
+.product-modal__btn {
+  background-color: #ffffff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 28vw;
+  padding: 2.5vw 2vw;
+  margin-bottom: 5vw;
+  text-align: center;
+  border: solid 1.3px #fc5e5e;
+  border-radius: 6px;
+}

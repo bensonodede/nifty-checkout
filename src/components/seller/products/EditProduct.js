@@ -63,10 +63,12 @@ class EditProduct extends Component {
   handleSubmit = async (values, actions, mutate) => {
     let { file, name, price } = values;
     let { id, storeName } = this.props.match.params;
+    let { imgUrl } = this.props.location.state;
 
     // Remove commas from string and convert to float
     price = await parseFloat(price.replace(",", ""));
 
+    console.log(imgUrl);
     console.log(file);
     console.log(name);
     console.log(price);
@@ -76,6 +78,7 @@ class EditProduct extends Component {
     await mutate({
       variables: {
         id,
+        imgUrl,
         file,
         name,
         price
@@ -103,10 +106,7 @@ class EditProduct extends Component {
     let { PREVIEW_URL } = this.state;
 
     return (
-      <Mutation
-        mutation={UPDATE_PRODUCT}
-        // update={(cache, {})}
-      >
+      <Mutation mutation={UPDATE_PRODUCT}>
         {(mutate, { loading, error }) => {
           if (error) {
             console.log(error);

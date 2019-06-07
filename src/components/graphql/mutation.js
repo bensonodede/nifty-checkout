@@ -40,11 +40,18 @@ const CREATE_PRODUCT = gql`
 const UPDATE_PRODUCT = gql`
   mutation UpdateProduct(
     $id: String!
+    $imgUrl: String!
     $file: Upload!
     $name: String!
     $price: Float!
   ) {
-    updateProduct(id: $id, file: $file, name: $name, price: $price) {
+    updateProduct(
+      id: $id
+      imgUrl: $imgUrl
+      file: $file
+      name: $name
+      price: $price
+    ) {
       id
       name
       price
