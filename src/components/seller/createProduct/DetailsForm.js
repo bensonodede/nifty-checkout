@@ -5,6 +5,7 @@ import v8n from "v8n";
 // Import Components
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import { LabelInput, GenericInput } from "../../input";
+import { Loader } from "../../loader";
 
 // Import Styles
 import "../../../styles/index.css";
@@ -90,7 +91,7 @@ class DetailsForm extends Component {
   }
 
   render() {
-    let { values } = this.props;
+    let { values, loading } = this.props;
     let { nameValid, priceValid } = this.state;
 
     // Declare gloabl URL for image preview
@@ -142,7 +143,7 @@ class DetailsForm extends Component {
                     {...field}
                     {...form}
                     mask={numberMask}
-                    label={"KES"}
+                    label={"KSH"}
                   />
                 )}
               />
@@ -151,19 +152,27 @@ class DetailsForm extends Component {
         </div>
         {/* Page footer */}
         <div className="footer">
-          <div className="footer__body">
-            <button
-              type="submit"
-              className={
-                nameValid && priceValid
-                  ? "footer__btn"
-                  : "footer__btn footer__btn--disabled"
-              }
-              disabled={!(nameValid && priceValid)}
-            >
-              Done
-            </button>
-          </div>
+          {loading ? (
+            <div className="footer__loader-body">
+              <div className="footer__loader">
+                <Loader />
+              </div>
+            </div>
+          ) : (
+            <div className="footer__body">
+              <button
+                type="submit"
+                className={
+                  nameValid && priceValid
+                    ? "footer__btn"
+                    : "footer__btn footer__btn--disabled"
+                }
+                disabled={!(nameValid && priceValid) || loading}
+              >
+                Done
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );

@@ -10,7 +10,6 @@ const ProductCard = props => {
   let { name, price, imgUrl } = props;
   return (
     <div className="product-card">
-      {/* <img src={imgUrl} alt={name} className="product-card__img" /> */}
       <ImgLoader src={imgUrl} alt={imgUrl} className={"product-card__img"} />
       <div className="product-card__content">
         <p className="product-card__name">{name}</p>

@@ -45,7 +45,8 @@
   display: block;
   bottom: 0;
   width: 100vw;
-  border-top: 0.2vh solid #e5e5e5;
+  height: 10vh;
+  border-top: 1.2px solid #e5e5e5;
 }
 
 .footer__body {
@@ -64,8 +65,7 @@
 
 .footer__btn {
   border-radius: 1.2vw;
-  padding: 4.3vw 3vw;
-  width: 20vw;
+  padding: 4.8vw 5.3vw;
   background-color: #484848;
   display: inline-block;
   border: none;

@@ -75,7 +75,7 @@ class PhoneNum extends Component {
       >
         {formikProps => (
           <Form onKeyPress={this.onKeyPress}>
-            <div className="phoneNum">
+            <div className="App-container">
               {/* Phone number header */}
               <div className="phoneNum__header">
                 <h1 className="phoneNum__title">What's your phone number?</h1>
@@ -106,27 +106,27 @@ class PhoneNum extends Component {
                   />
                 )}
               />
-              {/* Page footer */}
-              <div className="phoneNum__footer">
-                <PulseBtn
-                  dark={true}
-                  type={"submit"}
-                  disabled={!formikProps.isValid}
-                  btnStyle={
-                    formikProps.isValid
-                      ? "phoneNum__btn"
-                      : "phoneNum__btn--disabled"
-                  }
-                  onClick={this.handleClick}
-                  isPaused={formikProps.isValid ? false : true}
-                >
-                  <div className="phoneNum__icon">
-                    <Icon size={"100%"} icon={arrow_right} />
-                  </div>
-                </PulseBtn>
-              </div>
-              {/* End Page footer */}
             </div>
+            {/* Page footer */}
+            <div className="phoneNum__footer">
+              <PulseBtn
+                dark={true}
+                type={"submit"}
+                disabled={!formikProps.isValid}
+                btnStyle={
+                  formikProps.isValid
+                    ? "phoneNum__btn"
+                    : "phoneNum__btn--disabled"
+                }
+                onClick={this.handleClick}
+                isPaused={formikProps.isValid ? false : true}
+              >
+                <div className="phoneNum__icon">
+                  <Icon size={"100%"} icon={arrow_right} />
+                </div>
+              </PulseBtn>
+            </div>
+            {/* End Page footer */}
           </Form>
         )}
       </Formik>

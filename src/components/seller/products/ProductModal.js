@@ -34,7 +34,7 @@ const ProductModal = props => {
           <Link
             to={{
               pathname: `/${storeName}/products/${id}/edit`,
-              state: { name, imgUrl, price }
+              state: { modal: false, name, imgUrl, price }
             }}
             className="product-modal__row"
           >
@@ -53,7 +53,7 @@ const ProductModal = props => {
             className="product-modal__row"
             to={{
               pathname: `/${storeName}/products/${id}/delete`,
-              state: { modal: true, id, name }
+              state: { modal: true, id, name, imgUrl }
             }}
           >
             <div className="product-modal__icon">

@@ -35,44 +35,19 @@ class EditProduct extends Component {
     };
   }
 
-  onBackButtonEvent = e => {
-    e.preventDefault();
-    console.log("Nice try");
-  };
-
   componentDidMount() {
     // Set image preview
     let { imgUrl } = this.props.location.state;
     this.setState({ PREVIEW_URL: imgUrl });
   }
 
-  componentDidUpdate() {
-    window.addEventListener(
-      "hashchange",
-      function() {
-        console.log("The hash has changed!");
-      },
-      false
-    );
-  }
-
-  componentWillUnmount() {
-    // this.onBackButtonEvent();
-  }
-
   handleSubmit = async (values, actions, mutate) => {
     let { file, name, price } = values;
-    let { id, storeName } = this.props.match.params;
+    let { id } = this.props.match.params;
     let { imgUrl } = this.props.location.state;
 
     // Remove commas from string and convert to float
     price = await parseFloat(price.replace(",", ""));
-
-    console.log(imgUrl);
-    console.log(file);
-    console.log(name);
-    console.log(price);
-    console.log(id);
 
     // Run mutation to create store
     await mutate({
@@ -87,17 +62,12 @@ class EditProduct extends Component {
 
     // Set form submitting state to false
     await actions.setSubmitting(false);
-
-    // Redirect to store product page
-    this.props.history.push({
-      pathname: `/${storeName}/products`,
-      state: { modal: false }
-    });
   };
 
   render() {
     // Destructure route props
     let { name, price } = this.props.location.state;
+    let { storeName } = this.props.match.params;
 
     // Format price and convert to string
     price = numeral(price).format("'0,0'");
@@ -106,7 +76,13 @@ class EditProduct extends Component {
     let { PREVIEW_URL } = this.state;
 
     return (
-      <Mutation mutation={UPDATE_PRODUCT}>
+      <Mutation
+        mutation={UPDATE_PRODUCT}
+        onCompleted={data => {
+          // Redirect to store product page
+          this.props.history.push(`/${storeName}/products`);
+        }}
+      >
         {(mutate, { loading, error }) => {
           if (error) {
             console.log(error);

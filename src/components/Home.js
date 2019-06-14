@@ -9,11 +9,6 @@ class Home extends Component {
     return (
       <div>
         <div className="App-container">
-          {/* Home header */}
-          <div className="header">
-            <h1 className="header__title">Welcome</h1>
-          </div>
-
           <Loader />
         </div>
 

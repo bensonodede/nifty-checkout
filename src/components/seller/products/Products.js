@@ -44,7 +44,7 @@ class Products extends Component {
     return (
       <div>
         {/*  */}
-        <div className="product">
+        <div className="App-container">
           {/* Product page header */}
           <div className="header header--product">
             <h1 className="header__title">Welcome.</h1>
@@ -114,7 +114,6 @@ class Products extends Component {
                             !fetchMoreResult ||
                             fetchMoreResult.productsByStore.length === 0
                           ) {
-                            console.log("NO MORE");
                             this.setState({ hasMore: false });
                             return prev;
                           }

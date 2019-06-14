@@ -74,18 +74,17 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
   width: 28vw;
-  padding: 2.5vw 2vw;
+  padding: 3.5vw 3.2vw;
   margin-bottom: 5vw;
   text-align: center;
-  border: solid 1.3px #fc5e5e;
+  border: solid 1px #fc5e5e;
   border-radius: 6px;
 }
 
 .product-form__image-delete-text {
   margin: 0vw;
   margin-left: 1.3vw;
-  padding-top: 2px;
-  font-family: "airbnb_cereal_appmedium";
+  font-family: "airbnb_cereal_appbook";
   color: #fc5e5e;
 }
 
@@ -99,4 +98,17 @@ input[type="file"] {
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #e5e5e5;
+}
+
+.footer__loader-body {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__loader {
+  position: absolute;
+  width: 35vw;
+  height: auto;
+  top: -7vw;
+  margin: auto;
 }

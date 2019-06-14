@@ -60,4 +60,11 @@ const UPDATE_PRODUCT = gql`
   }
 `;
 
-export { CREATE_STORE, CREATE_PRODUCT, UPDATE_PRODUCT };
+const DELETE_PRODUCT = gql`
+  mutation DeleteProduct($id: String!, $imgUrl: String!) {
+    deleteProduct(id: $id, imgUrl: $imgUrl) {
+      id
+    }
+  }
+`;
+export { CREATE_STORE, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT };

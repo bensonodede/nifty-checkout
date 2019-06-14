@@ -7,8 +7,9 @@ import { Mutation } from "react-apollo";
 import ImageForm from "./ImageForm";
 import DetailsForm from "./DetailsForm";
 
-// Import graphql mutation
+// Import graphql operation
 import { CREATE_PRODUCT } from "../../graphql/mutation";
+import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 class CreateProduct extends Component {
   // Prevent submission on enter press
@@ -40,18 +41,59 @@ class CreateProduct extends Component {
 
     // Set form submitting state to false
     await actions.setSubmitting(false);
-
-    // Redirect to store product page
-    this.props.history.push(`/${storeName}/products`);
   };
 
   render() {
+    let { storeName } = this.props.match.params;
+
     return (
-      <Mutation mutation={CREATE_PRODUCT}>
+      <Mutation
+        mutation={CREATE_PRODUCT}
+        onCompleted={data => {
+          console.log(data);
+
+          // Redirect to store product page
+          this.props.history.push(`/${storeName}/products`);
+        }}
+        update={(cache, { data: { createProduct } }) => {
+          //
+
+          console.log(createProduct);
+          let { __typename } = createProduct;
+
+          try {
+            //
+            const data = cache.readQuery({
+              query: PRODUCTS_FEED_QUERY,
+              variables: {
+                type: __typename
+              }
+            });
+
+            console.log(data);
+            //
+            cache.writeQuery({
+              query: PRODUCTS_FEED_QUERY,
+              variables: {
+                type: __typename
+              },
+              data: {
+                productsByStore: [createProduct, ...data.productsByStore]
+              }
+            });
+          } catch (error) {
+            console.log(error);
+          }
+        }}
+      >
         {(mutate, { loading, error }) => {
           /* Error handling */
           if (error) {
             console.log(error);
+          }
+
+          if (loading) {
+            console.log("Loading...");
           }
 
           /* Render form */
@@ -88,7 +130,11 @@ class CreateProduct extends Component {
                       <Route
                         path="/:storeName/add-product/details"
                         render={props => (
-                          <DetailsForm {...FormikProps} {...props} />
+                          <DetailsForm
+                            loading={loading}
+                            {...FormikProps}
+                            {...props}
+                          />
                         )}
                       />
                     </Switch>

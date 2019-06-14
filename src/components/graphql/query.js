@@ -24,7 +24,7 @@ const PRODUCTS_FEED_QUERY = gql`
       first: $first
       skip: $skip
       orderBy: $orderBy
-    ) {
+    ) @connection(key: "productsByStore", filter: ["type"]) {
       id
       name
       price

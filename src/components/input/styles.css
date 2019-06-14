@@ -46,6 +46,7 @@
   display: flex;
   outline: none;
   padding: 0vw 3vw;
+  width: 70vw;
   border-width: 0;
   border-style: none;
 
@@ -63,9 +64,7 @@
 .label-input__inline-label {
   margin: 0;
   padding: 1vw 3vw;
-
   border-right: solid #e5e5e5 2px;
-
   font-family: "airbnb_cereal_appbook";
   font-size: 4.8vw;
   color: #484848;

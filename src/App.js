@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
-// import { HttpLink } from 'apollo-link-http';
-// import { onError } from 'apollo-link-error';
-// import { ApolloLink } from 'apollo-link';
 import { createUploadLink } from "apollo-upload-client";
 import { ApolloProvider } from "react-apollo";
 import Firebase, { FirebaseContext } from "./components/firebase/";
