@@ -34,12 +34,12 @@ const PulseBtn = props => {
       onClick={props.onClick}
       className="pulse"
     >
-      {/*  */}
+      {/* Lottie pulse animation */}
       <div className="pulse__lottie">
         <Lottie options={defaultOptions} isPaused={props.isPaused} />
       </div>
 
-      {/*  */}
+      {/* Circular button */}
       <div className={`pulse__btn  ${props.btnStyle}`}>{props.children}</div>
     </button>
   );

@@ -14,6 +14,20 @@
   filter: blur(5px);
   transform: scale(1);
   animation: pulse 1.5s infinite;
+  -webkit-animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
 }
 
 .img__loaded {
@@ -30,16 +44,30 @@
   height: 100%;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.8;
-  }
+/********** Transition animations **********/
 
-  50% {
-    opacity: 0.6;
-  }
+/* Loader transition */
 
-  100% {
-    opacity: 0.8;
-  }
+.transition__loader-appear,
+.transition__loader-enter {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+}
+
+.transition__loader-appear-active,
+.transition__loader-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 500ms ease 100ms;
+}
+
+.transition__loader-exit {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.transition__loader-exit-active {
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+  transition: all 500ms ease-out 500ms;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
+import { CSSTransition } from "react-transition-group";
 
 // Import loader styles
 import "./styles.css";
@@ -16,9 +17,18 @@ const defaultOptions = {
 
 // Loader component
 const Loader = () => (
-  <div className="loader">
-    <Lottie options={defaultOptions} />
-  </div>
+  <CSSTransition
+    in={true}
+    appear={true}
+    mountOnEnter={true}
+    unmountOnExit={true}
+    classNames="transition__loader"
+    timeout={1000}
+  >
+    <div className="loader">
+      <Lottie options={defaultOptions} />
+    </div>
+  </CSSTransition>
 );
 
 export default Loader;

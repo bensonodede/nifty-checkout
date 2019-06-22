@@ -112,7 +112,7 @@ a {
 
 .product-modal__header {
   border-bottom: solid 1.2px #e5e5e5;
-  padding: 6vw 6.5vw;
+  padding: 3vh 6.5vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -141,7 +141,8 @@ a {
 .product-modal__row {
   display: flex;
   flex-direction: row;
-  margin: 10vw 0vw;
+  margin: 2vh 0vw;
+  padding: 2vh 0vw;
   align-items: center;
 }
 

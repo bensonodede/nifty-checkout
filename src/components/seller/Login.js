@@ -137,15 +137,6 @@ class Login extends Component {
                 <SignInTwitter />
                 <SignOut />
               </div>
-
-              {/* Login footer */}
-              <div className="login__footer">
-                <img
-                  className="login__image"
-                  alt={""}
-                  src={require("../../images/welcome.png")}
-                />
-              </div>
             </div>
           );
           /* End Render login page */

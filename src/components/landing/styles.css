@@ -1,0 +1,139 @@
+.landing__logo {
+  padding: 6.5vw 2vw;
+}
+
+.landing__logo-img {
+  object-fit: cover;
+  width: 12vw;
+  height: auto;
+}
+
+.hero {
+  margin: 4vw 0vw 0vw 4vw;
+  overflow: hidden;
+  width: 78vw;
+}
+
+.hero__img {
+  object-fit: cover;
+  width: 155vw;
+  height: auto;
+}
+
+.hero__header {
+  align-items: center;
+  padding: 8vw 0vw;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: "airbnb_cereal_appmedium";
+  color: #484848;
+  font-size: 8vw;
+  line-height: 10vw;
+  text-align: center;
+}
+
+.hero__text {
+  margin: 0;
+  font-family: "airbnb_cereal_appbook";
+  color: #787878;
+  font-size: 4.8vw;
+  line-height: 6vw;
+  padding: 5vw 0vw;
+  text-align: center;
+}
+
+.hero__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__footer-btn {
+  border-radius: 1.2vw;
+  padding: 4.8vw 5.8vw;
+  background-color: #f36b7f;
+  display: inline-block;
+  border: none;
+  outline: none;
+
+  /* Button text */
+  color: #ffffff;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 4vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.hero__lottie {
+  width: 8vw;
+  margin: auto;
+  margin-top: 4vh;
+}
+
+/********** Product demo **********/
+.demo {
+  margin-top: 12vh;
+}
+
+.demo__header {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 6vw;
+  color: #484848;
+}
+
+.demo__product {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo__mockup {
+  width: 65vw;
+  z-index: 2;
+}
+
+.demo__gif-container {
+  position: absolute;
+  top: 3.2vw;
+}
+
+.demo__gif {
+  object-fit: cover;
+  width: 57.2vw;
+}
+
+/********** Features card **********/
+
+.features__card {
+  background-color: #fcf0e3;
+  border-radius: 12px;
+  padding: 18vw 8vw 6vw 8vw;
+  margin: 25vw 0vw;
+  position: relative;
+}
+
+.features__image {
+  width: 55vw;
+  height: auto;
+  position: absolute;
+  top: -20vw;
+  left: -5vw;
+}
+
+.features__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 10vw;
+  line-height: 12vw;
+  color: #484848;
+  margin: 4vw 0vw;
+}
+
+.features__text {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  line-height: 6vw;
+  color: #787878;
+  margin: 4vw 0vw;
+}

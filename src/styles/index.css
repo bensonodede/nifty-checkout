@@ -1,6 +1,18 @@
 .App-container {
   padding: 0vw 6.5vw;
   animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  -webkit-animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(1, 1, 1);
+  }
 }
 
 /* Header styles */
@@ -93,6 +105,19 @@
   margin-left: auto;
   margin-right: auto;
   align-self: center;
+}
+
+.footer__loader-body {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__loader {
+  position: absolute;
+  width: 35vw;
+  height: auto;
+  top: -7vw;
+  margin: auto;
 }
 
 /* Circular button */

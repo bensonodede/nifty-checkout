@@ -9,6 +9,7 @@ import { LabelInput, GenericInput } from "../../input";
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import Thumb from "../createProduct/Thumb";
 import { UPDATE_PRODUCT } from "../../graphql/mutation";
+import { Loader } from "../../loader";
 
 // Import icons
 import { Icon } from "react-icons-kit";
@@ -88,10 +89,6 @@ class EditProduct extends Component {
             console.log(error);
           }
 
-          if (loading) {
-            return <p>Loading...</p>;
-          }
-
           return (
             <div>
               <Formik
@@ -153,7 +150,6 @@ class EditProduct extends Component {
 
                               // Validate image
                               validateImage(file)
-                                //
                                 .then(() => {
                                   // Set file value in formik field
                                   setFieldValue("file", file);
@@ -254,20 +250,29 @@ class EditProduct extends Component {
                     {/********** Page footer **********/}
 
                     <div className="footer">
-                      <div className="footer__body">
-                        {/* Submit button */}
-                        <button
-                          type="submit"
-                          className={
-                            dirty && isValid
-                              ? "footer__btn"
-                              : "footer__btn footer__btn--disabled"
-                          }
-                          disabled={!(dirty && isValid)}
-                        >
-                          Save
-                        </button>
-                      </div>
+                      {/* Mutation loader */}
+                      {loading ? (
+                        <div className="footer__loader-body">
+                          <div className="footer__loader">
+                            <Loader />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="footer__body">
+                          {/* Submit button */}
+                          <button
+                            type="submit"
+                            className={
+                              dirty && isValid
+                                ? "footer__btn"
+                                : "footer__btn footer__btn--disabled"
+                            }
+                            disabled={!(dirty && isValid)}
+                          >
+                            Save
+                          </button>
+                        </div>
+                      )}
                     </div>
 
                     {/********** End page footer **********/}

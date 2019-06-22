@@ -91,6 +91,7 @@ input[type="file"] {
 /*********** Details form  *********/
 
 .product-form__img {
+  object-fit: cover;
   width: 20vw;
   height: 20vw;
   border: solid 1px #e5e5e5;
@@ -98,17 +99,4 @@ input[type="file"] {
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #e5e5e5;
-}
-
-.footer__loader-body {
-  display: flex;
-  justify-content: center;
-}
-
-.footer__loader {
-  position: absolute;
-  width: 35vw;
-  height: auto;
-  top: -7vw;
-  margin: auto;
 }
