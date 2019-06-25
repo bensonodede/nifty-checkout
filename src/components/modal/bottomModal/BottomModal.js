@@ -4,12 +4,10 @@ import { CSSTransition } from "react-transition-group";
 // Import styles and transitions
 import "./styles.css";
 
-//! Unmount component after animation
 class BottomModal extends Component {
   constructor() {
     super();
 
-    //
     this.state = {
       show: true
     };

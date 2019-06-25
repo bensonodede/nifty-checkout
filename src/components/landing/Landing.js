@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Lottie from "react-lottie";
+import { Link } from "react-router-dom";
 
 // Import styles
 import "./styles.css";
+
+// Import questions
+const faq = require("./faq.json");
 
 class Landing extends Component {
   render() {
@@ -59,24 +63,42 @@ class Landing extends Component {
 
           {/********** Product demo section **********/}
           <div className="demo">
+            <h1>See it in action</h1>
+            <p>This is what your customer sees</p>
+
             <div className="demo__product">
               {/* Product demo mockup */}
-              {/* <img
+              <img
                 className="demo__mockup"
                 alt={"demo__mockup"}
                 src={require("../../images/iphone_x_mockup.png")}
-              /> */}
+              />
               {/* Product demo GIF */}
-              {/* <div className="demo__gif-container">
+              <div className="demo__gif-container">
                 <img
                   className="demo__gif"
                   alt={"demo__gif"}
                   src={require("../../images/Product-demo.gif")}
                 />
-              </div> */}
+              </div>
             </div>
           </div>
           {/********** End product demo section **********/}
+
+          {/********** How it works section **********/}
+          {/* <div className="how">
+            <h1>How it works in 3 steps</h1>
+            <div className="how__card">
+
+              <div>
+                <h1 className="how__number">1</h1>
+              </div>
+
+              
+              <h1 className="how__title">First step</h1>
+            </div>
+          </div> */}
+          {/********** End how it works section **********/}
 
           {/********** Features section **********/}
           <div className="features">
@@ -128,6 +150,56 @@ class Landing extends Component {
           </div>
 
           {/********** End features section **********/}
+
+          {/********** Pricing section **********/}
+          <div>
+            <div className="divider" />
+            <h1 className="pricing__title">Pricing</h1>
+
+            {/* Pricing sub-section */}
+            <div className="pricing__card">
+              <h1 className="pricing__sub-title">Pay low fees</h1>
+              <p className="pricing__text">
+                Isle99 is free to sign up. We charge a{" "}
+                <span className="pricing__warn">2.5%</span> fee per transaction.
+                There are no hidden fees.
+              </p>
+            </div>
+
+            {/* Pricing sub-section */}
+            <div className="pricing__card">
+              <h1 className="pricing__sub-title">Get paid quickly</h1>
+              <p className="pricing__text">
+                We send your money to your preferred M-pesa enabled phone number{" "}
+                <span className="pricing__warn">everyday</span> before 10am.
+              </p>
+            </div>
+          </div>
+          {/********** End pricing section **********/}
+
+          {/********** FAQ section **********/}
+          <div className="faq">
+            <div className="divider" />
+            <h1 className="faq__title">Common questions </h1>
+
+            {/* Iterate through questions */}
+            {faq.map(item => (
+              <Link
+                key={item.id}
+                to={{
+                  pathname: "/faq",
+                  state: {
+                    modal: true,
+                    item
+                  }
+                }}
+              >
+                <p className="faq__question">{item.question}</p>
+              </Link>
+            ))}
+          </div>
+
+          {/********** End common questions section **********/}
         </div>
       </div>
     );

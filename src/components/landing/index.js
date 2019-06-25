@@ -1,3 +1,4 @@
 import Landing from "./Landing";
+import Faq from "./Faq";
 
-export default Landing;
+export { Landing, Faq };

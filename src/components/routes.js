@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { withAuthentication } from "./session";
 
 // Import common page components
-import Landing from "./landing";
+import { Landing, Faq } from "./landing";
 import Welcome from "./Welcome";
 
 // Import seller page component
@@ -22,8 +22,10 @@ class Routes extends Component {
       <BrowserRouter>
         <Switch>
           {/* Common routes */}
-          <Route path="/welcome" component={Welcome} />
+          {/* <Route exact path="/" component={Landing} /> */}
           <Route exact path="/" component={Landing} />
+          <Route path="/faq" component={Faq} />
+          <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
           <Route path="/login" component={Login} />

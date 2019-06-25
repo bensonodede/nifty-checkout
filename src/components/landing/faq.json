@@ -1,0 +1,8 @@
+[
+  {
+    "id": 1,
+    "question": "How much does it cost to start using Isle-99?",
+    "answer": "It's free."
+  },
+  { "id": 2, "question": "Another question?", "answer": "The right answer." }
+]
