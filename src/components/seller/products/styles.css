@@ -1,7 +1,10 @@
+.product {
+  height: 96vh;
+}
+
 .header--product {
   margin-bottom: 10vw;
 }
-
 .product__list {
   display: flex;
   flex-direction: column;
@@ -47,6 +50,71 @@
 
 .product__loader {
   width: 40vw;
+  height: auto;
+}
+
+.product__error {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(1, 1, 1);
+  }
+}
+
+.product__error-title {
+  margin: 0;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.8vw;
+  color: #484848;
+  line-height: 6.8vw;
+  text-align: center;
+}
+
+.product__error-btn {
+  border-radius: 1.2vw;
+  margin-top: 8vw;
+  padding: 3.8vw 4.8vw;
+  background-color: #ffffff;
+  display: inline-block;
+  border: solid 1px #f36b7f;
+  outline: none;
+
+  /* Button text */
+  color: #f36b7f;
+  font-family: "airbnb_cereal_applight";
+  font-size: 4vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.product__error-btn:active {
+  background-color: #f36b7f;
+  color: #ffffff;
+}
+
+.product__error-img-container {
+  position: fixed;
+  bottom: -5.2vw;
+  left: -3vw;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__error-img {
+  object-fit: cover;
+  width: 105vw;
   height: auto;
 }
 

@@ -67,7 +67,7 @@
 
   /* Button text */
   color: #ffffff;
-  font-family: "airbnb_cereal_appbold";
+  font-family: "airbnb_cereal_appmedium";
   font-size: 4vw;
   text-align: center;
   text-decoration: none;
@@ -124,7 +124,7 @@
   background-color: #fcf0e3;
   border-radius: 12px;
   padding: 18vw 8vw 6vw 8vw;
-  margin: 25vw 0vw;
+  margin-bottom: 35vw;
   position: relative;
 }
 
@@ -176,15 +176,19 @@
 }
 
 /********** Pricing section **********/
+.pricing {
+  margin-bottom: 35vw;
+}
 
 .pricing__card {
-  margin: 20vw 0vw;
+  margin-bottom: 15vw;
 }
 
 .pricing__title {
   font-family: "airbnb_cereal_appmedium";
   font-size: 8vw;
   line-height: 10vw;
+  margin-bottom: 20vw;
   text-align: center;
   color: #484848;
 }
@@ -211,25 +215,44 @@
 
 /********** FAQ section **********/
 
+.faq {
+  margin-bottom: 35vw;
+}
 .faq__title {
   font-family: "airbnb_cereal_appmedium";
   font-size: 8vw;
   line-height: 10vw;
-  text-align: center;
   margin-bottom: 20vw;
+  text-align: center;
   color: #484848;
 }
 
 .faq__question {
+  margin: 0;
   padding: 6vw 0vw;
   font-family: "airbnb_cereal_appbook";
   font-size: 4.8vw;
   color: #f36b7f;
   line-height: 7vw;
-  border-bottom: solid 2px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5;
 }
-.faq__answer {
-  font-family: "airbnb_cereal_appbook";
+
+/********** FAQ page **********/
+
+.faq__page {
+  margin-top: 10vw;
+}
+
+.faq__sub-title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 6vw;
+  line-height: 7.8vw;
+  color: #484848;
+  margin: 4vw 0vw;
+}
+
+.faq__text {
+  font-family: "airbnb_cereal_applight";
   font-size: 4.8vw;
   line-height: 7.8vw;
   color: #484848;

@@ -152,7 +152,7 @@ class Landing extends Component {
           {/********** End features section **********/}
 
           {/********** Pricing section **********/}
-          <div>
+          <div className="pricing">
             <div className="divider" />
             <h1 className="pricing__title">Pricing</h1>
 

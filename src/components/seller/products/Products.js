@@ -44,10 +44,10 @@ class Products extends Component {
     return (
       <div>
         {/*  */}
-        <div className="App-container">
+        <div className="App-container product">
           {/* Product page header */}
           <div className="header header--product">
-            <h1 className="header__title">Welcome.</h1>
+            <h1 className="header__title">Welcome</h1>
             <p className="header__text">
               Keep track of all your products. Happy selling!
               <span role="img" aria-label="100">
@@ -88,7 +88,21 @@ class Products extends Component {
             >
               {({ loading, error, data, fetchMore }) => {
                 if (error) {
-                  return <p>Oops, please try again.</p>;
+                  return (
+                    <div className="product__error">
+                      <p className="product__error-title">
+                        Oops, something went wrong
+                      </p>
+                      <button className="product__error-btn">Try again</button>
+                      <div className="product__error-img-container">
+                        <img
+                          className="product__error-img"
+                          alt={"no_internet"}
+                          src={require("../../../images/pablo-no-connection.png")}
+                        />
+                      </div>
+                    </div>
+                  );
                 }
 
                 if (loading) {
@@ -129,6 +143,19 @@ class Products extends Component {
                     }}
                     loader={<ProductLoader key={0} />}
                   >
+                    {/* Empty state */}
+                    {data.productsByStore[0] ? null : (
+                      <div>
+                        <p>No products here.</p>
+                        <img
+                          className="product__error-img"
+                          alt={"no_internet"}
+                          src={require("../../../images/pablo-no-comments.png")}
+                        />
+                      </div>
+                    )}
+
+                    {/* Render all products */}
                     {data.productsByStore.map(item => (
                       <Link
                         key={item.id}
