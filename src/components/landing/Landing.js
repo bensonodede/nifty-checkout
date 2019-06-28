@@ -13,7 +13,7 @@ class Landing extends Component {
     // Define lottie options
     const defaultOptions = {
       loop: true,
-      autoplay: false,
+      autoplay: true,
       animationData: require("../../images/arrow-down-charcoal.json"),
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice"
@@ -23,9 +23,17 @@ class Landing extends Component {
     return (
       <div>
         <div className="App-container">
-          <div className="landing__logo">
+          {/********** Landing header **********/}
+
+          {/* Header logo */}
+          <div
+            className="header__logo"
+            onClick={() => {
+              this.setState({ menu: true });
+            }}
+          >
             <img
-              className={"landing__logo-img"}
+              className={"header__logo-img"}
               alt={"isle99-logo"}
               src={require("../../images/isle99_charcoal.png")}
             />
@@ -33,7 +41,7 @@ class Landing extends Component {
 
           {/********** Hero section **********/}
           {/* Hero image */}
-          <div className="hero">
+          <div className="hero__img-container">
             <img
               className="hero__img"
               alt={"landing_header"}
@@ -63,8 +71,9 @@ class Landing extends Component {
 
           {/********** Product demo section **********/}
           <div className="demo">
-            <h1>See it in action</h1>
-            <p>This is what your customer sees</p>
+            <div className="divider" />
+            <h1 className="demo__title">See it in action</h1>
+            <p className="demo__text">This is what your customers will see.</p>
 
             <div className="demo__product">
               {/* Product demo mockup */}
@@ -85,76 +94,60 @@ class Landing extends Component {
           </div>
           {/********** End product demo section **********/}
 
-          {/********** How it works section **********/}
-          {/* <div className="how">
-            <h1>How it works in 3 steps</h1>
+          {/********** How section **********/}
+          <div className="how">
+            <div className="divider" />
+            <h1 className="how__title">How it works in 3 steps</h1>
+
+            {/* Step 1 */}
             <div className="how__card">
-
-              <div>
-                <h1 className="how__number">1</h1>
-              </div>
-
-              
-              <h1 className="how__title">First step</h1>
-            </div>
-          </div> */}
-          {/********** End how it works section **********/}
-
-          {/********** Features section **********/}
-          <div className="features">
-            {/* First feature */}
-            <div className="features__card">
-              <img
-                className="features__image"
-                alt={"features__image"}
-                src={require("../../images/ginger-cat-bad-gateway.png")}
-              />
-              <h1 className="features__title">No long threads</h1>
-              <p className="features__text">
-                It's annoying if you have to send a dozen texts just to buy a
-                pair of sunglasses.
+              <h1 className="how__number">
+                <div className="how__number-circle" />
+                <p className="how__number-text">1</p>
+              </h1>
+              <h1 className="how__sub-title">List your items for free</h1>
+              <p className="how__text">
+                Upload a photo of the item, tell us what its called and how much
+                you are selling it for
               </p>
             </div>
 
-            {/* Second feature */}
-            <div className="features__card">
-              <img
-                className="features__image"
-                alt={"features__image"}
-                src={require("../../images/ginger-cat-welcome.png")}
-              />
-              <h1 className="features__title">Feels like home</h1>
-              <p className="features__text">
-                Treat returning customers as regulars. Let your customers make a
-                purchase with a single click
-              </p>
+            {/* Step 2 */}
+            <div className="how__card">
+              <h1 className="how__number">
+                <div className="how__number-circle" />
+                <p className="how__number-text">2</p>
+              </h1>
+              <h1 className="how__sub-title">Step 2</h1>
+              <p className="how__text">Explaining step two over here.</p>
             </div>
 
-            {/* Third feature */}
-            <div className="features__card">
-              <img
-                className="features__image"
-                alt={"features__image"}
-                src={require("../../images/ginger-cat-waiting.png")}
-              />
-              <h1 className="features__title">Zero wait times</h1>
-              <p className="features__text">
-                You're human, sometimes you have to poop and customers are left
-                waiting for a response.
-                <br />
-                <br />
-                Don't worry, we'll send them an SMS with all the information
-                about their order.
-              </p>
+            {/* Step 3 */}
+            <div className="how__card">
+              <h1 className="how__number">
+                <div className="how__number-circle" />
+                <p className="how__number-text">3</p>
+              </h1>
+              <h1 className="how__sub-title">Step 3</h1>
+              <p className="how__text">Explaining step three over here.</p>
             </div>
           </div>
 
-          {/********** End features section **********/}
+          {/********** End how section **********/}
 
           {/********** Pricing section **********/}
           <div className="pricing">
             <div className="divider" />
             <h1 className="pricing__title">Pricing</h1>
+
+            {/* Pricing image */}
+            <div className="pricing__img-container">
+              <img
+                className="pricing__img"
+                alt={"landing_header"}
+                src={require("../../images/pablo-coming-soon.png")}
+              />
+            </div>
 
             {/* Pricing sub-section */}
             <div className="pricing__card">
@@ -182,6 +175,14 @@ class Landing extends Component {
             <div className="divider" />
             <h1 className="faq__title">Common questions </h1>
 
+            {/* Faq image */}
+            <div className="faq__img-container">
+              <img
+                className="faq__img"
+                alt={"landing_header"}
+                src={require("../../images/pablo-animal-care.png")}
+              />
+            </div>
             {/* Iterate through questions */}
             {faq.map(item => (
               <Link

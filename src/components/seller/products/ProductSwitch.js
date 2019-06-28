@@ -53,7 +53,6 @@ class ProductSwitch extends Component {
             to="/:storeName/products"
           />
 
-          {/* <Redirect exact from="/:storeName" to="/:storeName/products" /> */}
           <Route exact path="/:storeName/products" component={Products} />
           <Route path="/:storeName/products/:id/edit" component={EditProduct} />
         </Switch>

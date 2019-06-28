@@ -10,7 +10,6 @@ import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 import { Loader } from "../../loader";
 import InfiniteScroll from "react-infinite-scroller";
 import ProductCard from "./ProductCard";
-
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
 
@@ -31,147 +30,181 @@ class Products extends Component {
   constructor(props) {
     super(props);
 
-    //
     this.state = {
       hasMore: true
     };
   }
 
-  //
   render() {
+    // Destructure route params
     let { storeName } = this.props.match.params;
 
     return (
       <div>
-        {/*  */}
         <div className="App-container product">
-          {/* Product page header */}
-          <div className="header header--product">
-            <h1 className="header__title">Welcome</h1>
-            <p className="header__text">
-              Keep track of all your products. Happy selling!
-              <span role="img" aria-label="100">
-                💯
-              </span>
-            </p>
-          </div>
+          <Query
+            query={PRODUCTS_FEED_QUERY}
+            variables={{
+              storeName,
+              first: 5,
+              skip: 0,
+              orderBy: "updatedAt_DESC"
+            }}
+          >
+            {({ loading, error, data, fetchMore }) => {
+              /********** Error state **********/
 
-          {/* Products list */}
-          <div className="product__list">
-            {/* Add product */}
-            <Link
-              to={`/${storeName}/add-product`}
-              style={{ textDecoration: "none" }}
-            >
-              <div className="product__add-item">
-                <div>
-                  {/*  */}
-                  <div className="product__plus-icon">
-                    <Icon
-                      icon={plus}
-                      size={"100%"}
-                      style={{ color: "#d5d5d5" }}
-                    />
-                  </div>
-                  <p className="product__add-item-text">Add new</p>
-                </div>
-              </div>
-            </Link>
-            <Query
-              query={PRODUCTS_FEED_QUERY}
-              variables={{
-                storeName,
-                first: 5,
-                skip: 0,
-                orderBy: "updatedAt_DESC"
-              }}
-            >
-              {({ loading, error, data, fetchMore }) => {
-                if (error) {
-                  return (
-                    <div className="product__error">
-                      <p className="product__error-title">
-                        Oops, something went wrong
-                      </p>
-                      <button className="product__error-btn">Try again</button>
-                      <div className="product__error-img-container">
-                        <img
-                          className="product__error-img"
-                          alt={"no_internet"}
-                          src={require("../../../images/pablo-no-connection.png")}
-                        />
-                      </div>
-                    </div>
-                  );
-                }
-
-                if (loading) {
-                  return <ProductLoader />;
-                }
-
+              if (error) {
                 return (
-                  <InfiniteScroll
-                    pageStart={0}
-                    initialLoad={true}
-                    useWindow={false}
-                    hasMore={this.state.hasMore}
-                    loadMore={() => {
-                      fetchMore({
-                        variables: {
-                          storeName,
-                          first: 5,
-                          skip: data.productsByStore.length,
-                          orderBy: "updatedAt_DESC"
-                        },
-                        updateQuery: (prev, { fetchMoreResult }) => {
-                          if (
-                            !fetchMoreResult ||
-                            fetchMoreResult.productsByStore.length === 0
-                          ) {
-                            this.setState({ hasMore: false });
-                            return prev;
-                          }
+                  <div className="product__error">
+                    <p className="product__error-title">
+                      Oops, something went wrong
+                    </p>
+                    <button className="product__error-btn">Try again</button>
+                    <div className="product__error-img-container">
+                      <img
+                        className="product__error-img"
+                        alt={"no_internet"}
+                        src={require("../../../images/pablo-no-connection.png")}
+                      />
+                    </div>
+                  </div>
+                );
+              }
 
-                          return Object.assign({}, prev, {
-                            productsByStore: [
-                              ...prev.productsByStore,
-                              ...fetchMoreResult.productsByStore
-                            ]
-                          });
-                        }
-                      });
-                    }}
-                    loader={<ProductLoader key={0} />}
-                  >
-                    {/* Empty state */}
-                    {data.productsByStore[0] ? null : (
-                      <div>
-                        <p>No products here.</p>
+              /*********** Loading state  **********/
+
+              if (loading) {
+                return <ProductLoader />;
+              }
+
+              return (
+                /********** Render products **********/
+                <div>
+                  {data.productsByStore[0] ? (
+                    <div>
+                      {/********** Products header **********/}
+
+                      <div className="header header--product">
+                        <h1 className="header__title">Welcome</h1>
+                        <p className="header__text">
+                          Keep track of all your products. Happy selling!
+                          <span role="img" aria-label="100">
+                            💯
+                          </span>
+                        </p>
+                      </div>
+
+                      {/********** Products header end **********/}
+
+                      {/********** Products page list **********/}
+
+                      <div className="product__list">
+                        {/* Add product */}
+                        <Link
+                          to={`/${storeName}/add-product`}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div className="product__add-item">
+                            <div>
+                              {/* Add product plus icon */}
+                              <div className="product__plus-icon">
+                                <Icon
+                                  icon={plus}
+                                  size={"100%"}
+                                  style={{ color: "#d5d5d5" }}
+                                />
+                              </div>
+                              <p className="product__add-item-text">Add new</p>
+                            </div>
+                          </div>
+                        </Link>
+
+                        {/* Infinite scroll list */}
+
+                        <InfiniteScroll
+                          pageStart={0}
+                          initialLoad={true}
+                          useWindow={false}
+                          hasMore={this.state.hasMore}
+                          loadMore={() => {
+                            fetchMore({
+                              variables: {
+                                storeName,
+                                first: 5,
+                                skip: data.productsByStore.length,
+                                orderBy: "updatedAt_DESC"
+                              },
+                              updateQuery: (prev, { fetchMoreResult }) => {
+                                if (
+                                  !fetchMoreResult ||
+                                  fetchMoreResult.productsByStore.length === 0
+                                ) {
+                                  this.setState({ hasMore: false });
+                                  return prev;
+                                }
+
+                                return Object.assign({}, prev, {
+                                  productsByStore: [
+                                    ...prev.productsByStore,
+                                    ...fetchMoreResult.productsByStore
+                                  ]
+                                });
+                              }
+                            });
+                          }}
+                          loader={<ProductLoader key={0} />}
+                        >
+                          {/* Render all products */}
+                          {data.productsByStore.map(item => (
+                            <Link
+                              key={item.id}
+                              to={{
+                                pathname: `/${storeName}/products/options`,
+                                state: { modal: true, item }
+                              }}
+                            >
+                              <ProductCard {...item} storeName={storeName} />
+                            </Link>
+                          ))}
+                        </InfiniteScroll>
+                      </div>
+
+                      {/********** Products page list end **********/}
+                    </div>
+                  ) : (
+                    /********** Empty state **********/
+
+                    <div className="product__empty">
+                      {/* Empty state image */}
+                      <div className="product__empty-img-container">
                         <img
-                          className="product__error-img"
+                          className="product__empty-img"
                           alt={"no_internet"}
                           src={require("../../../images/pablo-no-comments.png")}
                         />
                       </div>
-                    )}
 
-                    {/* Render all products */}
-                    {data.productsByStore.map(item => (
+                      <h1 className="product__empty-title">No products yet.</h1>
+                      <p className="product__empty-text">
+                        Click the button below to add your first product.
+                      </p>
                       <Link
-                        key={item.id}
-                        to={{
-                          pathname: `/${storeName}/products/options`,
-                          state: { modal: true, item }
-                        }}
+                        to={`/${storeName}/add-product`}
+                        style={{ textDecoration: "none" }}
                       >
-                        <ProductCard {...item} storeName={storeName} />
+                        <button className="product__empty-btn">
+                          + Add product
+                        </button>
                       </Link>
-                    ))}
-                  </InfiniteScroll>
-                );
-              }}
-            </Query>
-          </div>
+                    </div>
+
+                    /********** Empty state end **********/
+                  )}
+                </div>
+              );
+            }}
+          </Query>
         </div>
       </div>
     );
