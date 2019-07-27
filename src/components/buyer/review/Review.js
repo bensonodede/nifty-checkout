@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import { instanceOf } from "prop-types";
 import { withCookies, Cookies } from "react-cookie";
+import { Query } from "react-apollo";
+import numeral from "numeral";
+
+// Import graphql query
+import { PRODUCT_HUMANID_QUERY } from "../../graphql/query";
 
 // Import components
 import { Loader } from "../../loader";
@@ -11,6 +16,15 @@ import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
 // Import styles
 import "./styles.css";
+
+// Review page loader
+const ReviewLoader = () => (
+  <div className="review__loader-container">
+    <div className="review__loader">
+      <Loader />
+    </div>
+  </div>
+);
 
 class Review extends Component {
   static propTypes = {
@@ -30,96 +44,123 @@ class Review extends Component {
   }
 
   handleClick = () => {
-    let { storeName, productId } = this.props.match.params;
+    let { storeName, humanId } = this.props.match.params;
     let { phoneNum } = this.state;
 
     if (phoneNum) {
-      //
+      //! Initiate M-pesa STK push
       console.log("One click checkout: ");
       console.log(phoneNum);
-      this.props.history.push(`/${storeName}/${productId}/phoneNum`);
+      this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
     } else {
-      this.props.history.push(`/${storeName}/${productId}/phoneNum`);
+      //! Redirect to phone number entry
+      console.log("First time?");
+      this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
     }
   };
 
   render() {
+    let { storeName, humanId } = this.props.match.params;
     let { loaded } = this.state;
 
     return (
-      <div className="review">
-        {/* Review Image */}
+      <Query
+        query={PRODUCT_HUMANID_QUERY}
+        variables={{
+          storeName,
+          humanId
+        }}
+      >
+        {({ loading, error, data }) => {
+          /********** LOADING STATE **********/
 
-        <img
-          onLoad={() => {
-            // Set image loaded state
-            this.setState({ loaded: true }, () => {
-              // Play pulse animation after 3s
-              setTimeout(() => {
-                this.setState({ isPaused: false });
-              }, 3000);
-            });
-          }}
-          src={require("../../../images/scott-webb-1615983-unsplash.jpg")}
-          // src="https://source.unsplash.com/random"
-          alt="unsplash"
-          className={loaded ? "review__img" : "review__img-loading"}
-        />
+          if (loading) {
+            return <ReviewLoader />;
+          }
 
-        {loaded ? (
-          <div className="review__container">
-            {/* Review header */}
-            <CSSTransition
-              in={loaded}
-              appear={true}
-              mountOnEnter={true}
-              unmountOnExit={false}
-              classNames="transition__header"
-              timeout={3000}
-            >
-              <div className="review__header">
-                <p className="review__title">Something green</p>
-                <p className="review__sub-title">
-                  30,400
-                  <span className="review__currency">KSH</span>
-                </p>
-              </div>
-            </CSSTransition>
+          /********** ERROR STATE **********/
 
-            {/* Review footer */}
-            <CSSTransition
-              in={loaded}
-              appear={true}
-              mountOnEnter={true}
-              unmountOnExit={false}
-              classNames="transition__footer"
-              timeout={3000}
-            >
-              <div className="review__footer">
-                <PulseBtn
-                  dark={false}
-                  onClick={this.handleClick}
-                  type={"button"}
-                  isPaused={this.state.isPaused}
-                  btnStyle={"review__btn"}
-                >
-                  <div className="review__icon">
-                    <Icon size={"100%"} icon={arrow_right} />
-                  </div>
-                </PulseBtn>
-              </div>
-            </CSSTransition>
+          if (error) {
+            console.log(error);
+            return <p>Oops. an error occurred.</p>;
+          }
 
-            {/* End Review footer */}
-          </div>
-        ) : (
-          <div className="review__loader-container">
-            <div className="review__loader">
-              <Loader />
+          let { imgUrl, name, price } = data.productByHumanId;
+
+          // Format price and convert to string
+          price = numeral(price).format("'0,0'");
+
+          return (
+            <div className="review">
+              {/* Review Image */}
+              <img
+                onLoad={() => {
+                  // Set image loaded state
+                  this.setState({ loaded: true }, () => {
+                    // Play pulse animation after 3s
+                    setTimeout(() => {
+                      this.setState({ isPaused: false });
+                    }, 3000);
+                  });
+                }}
+                src={imgUrl}
+                alt="unsplash"
+                className={loaded ? "review__img" : "review__img-loading"}
+              />
+
+              {loaded ? (
+                <div className="review__container">
+                  {/* Review header */}
+                  <CSSTransition
+                    in={loaded}
+                    appear={true}
+                    mountOnEnter={true}
+                    unmountOnExit={false}
+                    classNames="transition__header"
+                    timeout={3000}
+                  >
+                    <div className="review__header">
+                      <p className="review__title">{name}</p>
+                      <p className="review__sub-title">
+                        <span>{price}</span>
+                        <span className="review__currency">KSH</span>
+                      </p>
+                    </div>
+                  </CSSTransition>
+
+                  {/* Review footer */}
+                  <CSSTransition
+                    in={loaded}
+                    appear={true}
+                    mountOnEnter={true}
+                    unmountOnExit={false}
+                    classNames="transition__footer"
+                    timeout={3000}
+                  >
+                    <div className="review__footer">
+                      <PulseBtn
+                        dark={false}
+                        onClick={this.handleClick}
+                        type={"button"}
+                        isPaused={this.state.isPaused}
+                        btnStyle={"review__btn"}
+                      >
+                        <div className="review__icon">
+                          <Icon size={"100%"} icon={arrow_right} />
+                        </div>
+                      </PulseBtn>
+                    </div>
+                  </CSSTransition>
+
+                  {/* End Review footer */}
+                </div>
+              ) : (
+                <ReviewLoader />
+              )}
             </div>
-          </div>
-        )}
-      </div>
+          );
+        }}
+      </Query>
     );
   }
 }

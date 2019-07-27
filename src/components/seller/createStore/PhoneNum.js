@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withFirebase } from "../../firebase";
-import { Field } from "formik";
 import v8n from "v8n";
 
 // Import styles
@@ -8,6 +7,7 @@ import "./styles.css";
 
 // Import components
 import { LabelInput } from "../../input";
+import { Field } from "formik";
 
 // Number mask input definition
 const phoneNumMask = [
@@ -125,6 +125,7 @@ class PhoneNumPage extends Component {
                   {...form}
                   label={"+254"}
                   mask={phoneNumMask}
+                  placeholder={"712 345 678"}
                 />
               )}
             />

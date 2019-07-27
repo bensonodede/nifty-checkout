@@ -3,6 +3,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
 
+// Import components
+import { withAuthorization } from "../../session";
+
 // Import form pages
 import ImageForm from "./ImageForm";
 import DetailsForm from "./DetailsForm";
@@ -62,7 +65,8 @@ class CreateProduct extends Component {
           let { __typename } = createProduct;
 
           try {
-            //
+            // Get data from cache
+
             const data = cache.readQuery({
               query: PRODUCTS_FEED_QUERY,
               variables: {
@@ -71,7 +75,8 @@ class CreateProduct extends Component {
             });
 
             console.log(data);
-            //
+
+            // Update apollo cache after mutation
             cache.writeQuery({
               query: PRODUCTS_FEED_QUERY,
               variables: {
@@ -99,7 +104,7 @@ class CreateProduct extends Component {
           /* Render form */
           return (
             <div>
-              {/*  */}
+              {/* Formik form start */}
               <Formik
                 initialValues={{ file: "", name: "", price: "" }}
                 validateOnChange={false}
@@ -111,14 +116,14 @@ class CreateProduct extends Component {
                 {FormikProps => (
                   <Form>
                     <Switch>
-                      {/*  */}
+                      {/* Product-form redirect */}
                       <Redirect
                         from="/:storeName/add-product"
                         exact
                         to="/:storeName/add-product/image"
                       />
 
-                      {/*  */}
+                      {/* Product-form image route */}
                       <Route
                         path="/:storeName/add-product/image"
                         render={props => (
@@ -126,7 +131,7 @@ class CreateProduct extends Component {
                         )}
                       />
 
-                      {/*  */}
+                      {/* Product-form details route */}
                       <Route
                         path="/:storeName/add-product/details"
                         render={props => (
@@ -141,6 +146,7 @@ class CreateProduct extends Component {
                   </Form>
                 )}
               </Formik>
+              {/* Formik form END */}
             </div>
           );
         }}
@@ -149,4 +155,4 @@ class CreateProduct extends Component {
   }
 }
 
-export default CreateProduct;
+export default withAuthorization(CreateProduct);

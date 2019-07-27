@@ -3,12 +3,11 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 // Import components
+import { withAuthorization } from "../../session";
 import Products from "./Products";
 import ProductModal from "./ProductModal";
 import DeleteModal from "./DeleteModal";
 import EditProduct from "./EditProduct";
-
-// Product switch component
 
 class ProductSwitch extends Component {
   previousLocation = this.props.location;
@@ -79,4 +78,4 @@ class ProductSwitch extends Component {
   }
 }
 
-export default ProductSwitch;
+export default withAuthorization(ProductSwitch);

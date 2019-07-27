@@ -21,11 +21,11 @@ class Checkout extends Component {
             <Switch location={location}>
               <Route
                 exact
-                path="/:storeName/:productId"
+                path="/:storeName/:humanId"
                 render={props => <Review {...props} />}
               />
               <Route
-                path="/:storeName/:productId/phonenum"
+                path="/:storeName/:humanId/phonenum"
                 render={props => <PhoneNum {...props} />}
               />
             </Switch>

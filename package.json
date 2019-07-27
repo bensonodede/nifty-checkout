@@ -44,7 +44,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "cypress:open": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -57,7 +56,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "3.3.1",
     "flow-bin": "0.96.0",
     "flow-watch": "1.1.4",
     "patch-package": "6.1.2",

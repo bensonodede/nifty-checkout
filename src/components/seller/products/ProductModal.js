@@ -10,7 +10,7 @@ import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
 // Product modal component
 const ProductModal = props => {
-  let { name, id, imgUrl, price } = props.location.state.item;
+  let { name, id, imgUrl, price, humanId } = props.location.state.item;
   let { storeName } = props.match.params;
   return (
     <BottomModal {...props.history}>
@@ -23,12 +23,23 @@ const ProductModal = props => {
         {/* Product modal content  */}
         <div className="product-modal__content">
           {/* View in checkout link  */}
-          <div className="product-modal__row">
-            <div className="product-modal__icon">
-              <Icon icon={iosEye} size={"100%"} style={{ color: "#484848" }} />
+          <Link
+            to={{
+              pathname: `/${storeName}/${humanId}`,
+              state: { modal: false }
+            }}
+          >
+            <div className="product-modal__row">
+              <div className="product-modal__icon">
+                <Icon
+                  icon={iosEye}
+                  size={"100%"}
+                  style={{ color: "#484848" }}
+                />
+              </div>
+              <p className="product-modal__text">View in checkout</p>
             </div>
-            <p className="product-modal__text">View in checkout</p>
-          </div>
+          </Link>
 
           {/* Edit product link  */}
           <Link

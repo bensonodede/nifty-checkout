@@ -5,7 +5,6 @@ import { withAuthentication } from "./session";
 
 // Import common page components
 import { Landing, Faq } from "./landing";
-import Welcome from "./Welcome";
 
 // Import seller page component
 import createStore from "./seller/createStore";
@@ -22,10 +21,8 @@ class Routes extends Component {
       <BrowserRouter>
         <Switch>
           {/* Common routes */}
-          {/* <Route exact path="/" component={Landing} /> */}
           <Route exact path="/" component={Landing} />
           <Route path="/faq" component={Faq} />
-          <Route path="/welcome" component={Welcome} />
 
           {/* Seller routes */}
           <Route path="/login" component={Login} />
@@ -42,4 +39,5 @@ class Routes extends Component {
   }
 }
 
+// Wrap routes in authentication provider
 export default withAuthentication(Routes);

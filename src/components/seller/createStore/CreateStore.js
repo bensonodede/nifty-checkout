@@ -3,10 +3,9 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
-import { Persist } from "formik-persist";
 
-//
-import { AuthUserContext } from "../../session";
+//Import components
+import { AuthUserContext, withAuthorization } from "../../session";
 
 //Import graphql mutations
 import { CREATE_STORE } from "../../graphql/mutation";
@@ -36,8 +35,11 @@ class CreateStore extends Component {
     // Declare form values
     let { storeName, phoneNum } = values;
 
+    // Convert storeName to lower case
+    storeName = storeName.toLowerCase();
+
     // Remove empty spaces from phone number
-    phoneNum = "+254" + phoneNum.replace(/\D+/g, "");
+    phoneNum = "254" + phoneNum.replace(/\D+/g, "");
 
     // Get current user UID
     let { uid } = authUser;
@@ -89,7 +91,8 @@ class CreateStore extends Component {
                       this.handleSubmit(values, actions, createStore, authUser)
                     }
                   >
-                    {/* Formik form */}
+                    {/********** Formik form **********/}
+
                     {FormikProps => (
                       <Form onKeyPress={this.onKeyPress}>
                         {/* Declare routes */}
@@ -121,9 +124,6 @@ class CreateStore extends Component {
                             )}
                           />
                         </Switch>
-
-                        {/* Persist form values */}
-                        <Persist name="signup-form" />
                       </Form>
                     )}
                   </Formik>
@@ -137,4 +137,4 @@ class CreateStore extends Component {
   }
 }
 
-export default CreateStore;
+export default withAuthorization(CreateStore);

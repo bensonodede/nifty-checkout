@@ -1,17 +1,48 @@
-.login__list {
-  position: relative;
-  top: 5vh;
+.login__logo-container {
+  overflow: hidden;
+  width: 10vw;
+  margin: auto;
+  margin-top: 8vw;
+  margin-bottom: 6vw;
 }
-
-.login__footer {
-  position: fixed;
-  left: 0vw;
-  bottom: -10vw;
-  transform: rotate(27deg);
-}
-
-.login__image {
-  width: 50vw;
+.login__logo {
+  object-fit: cover;
+  width: 10vw;
   height: auto;
-  z-index: -1;
+}
+
+.login__header {
+  margin-bottom: 25vw;
+}
+
+.login__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  text-align: center;
+  color: #484848;
+  margin: 0;
+  margin-bottom: 5vw;
+}
+
+.login__sub-title {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  text-align: center;
+  color: #787878;
+  margin: 0;
+}
+
+.login__img-container {
+  overflow: hidden;
+  width: 87vw;
+  margin-bottom: 10vw;
+}
+
+.login__img {
+  object-fit: cover;
+  width: 90vw;
+  height: auto;
+}
+
+.login__list {
 }

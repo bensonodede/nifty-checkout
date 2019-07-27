@@ -53,14 +53,10 @@ class Products extends Component {
           >
             {({ loading, error, data, fetchMore }) => {
               /********** Error state **********/
-
               if (error) {
                 return (
                   <div className="product__error">
-                    <p className="product__error-title">
-                      Oops, something went wrong
-                    </p>
-                    <button className="product__error-btn">Try again</button>
+                    {/* Error image */}
                     <div className="product__error-img-container">
                       <img
                         className="product__error-img"
@@ -68,6 +64,19 @@ class Products extends Component {
                         src={require("../../../images/pablo-no-connection.png")}
                       />
                     </div>
+
+                    {/* Error title */}
+                    <h1 className="product__error-title">
+                      Oops, something went wrong.
+                    </h1>
+
+                    {/* Error button */}
+                    <button
+                      onClick={() => window.location.reload()}
+                      className="product__error-btn"
+                    >
+                      Try again
+                    </button>
                   </div>
                 );
               }
@@ -88,7 +97,8 @@ class Products extends Component {
                       <div className="header header--product">
                         <h1 className="header__title">Welcome</h1>
                         <p className="header__text">
-                          Keep track of all your products. Happy selling!
+                          Keep track of and manage all your products. Happy
+                          selling!
                           <span role="img" aria-label="100">
                             💯
                           </span>
@@ -194,7 +204,7 @@ class Products extends Component {
                         style={{ textDecoration: "none" }}
                       >
                         <button className="product__empty-btn">
-                          + Add product
+                          Add product
                         </button>
                       </Link>
                     </div>

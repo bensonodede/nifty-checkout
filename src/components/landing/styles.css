@@ -1,8 +1,12 @@
-.header__logo {
-  padding: 6.5vw 2vw;
+.landing__logo-container {
+  overflow: hidden;
+  width: 10vw;
+  margin-top: 6vw;
+  margin-bottom: 8vw;
+  margin-left: 2vw;
 }
 
-.header__logo-img {
+.landing__logo {
   object-fit: cover;
   width: 10vw;
   height: auto;
@@ -10,7 +14,7 @@
 
 .divider {
   margin: auto;
-  width: 14vw;
+  width: 10vw;
   border-bottom: solid 2px #484848;
 }
 
@@ -70,7 +74,7 @@
 
 .hero__footer-btn {
   border-radius: 1.2vw;
-  padding: 4.8vw 5.8vw;
+  padding: 4vw 5vw;
   background-color: #f36b7f;
   display: inline-block;
   border: solid 2px #f36b7f;
@@ -79,7 +83,7 @@
   /* Button text */
   color: #ffffff;
   font-family: "airbnb_cereal_appmedium";
-  font-size: 4vw;
+  font-size: 4.2vw;
   text-align: center;
   text-decoration: none;
 }
@@ -203,6 +207,7 @@
 }
 
 /********** Pricing section **********/
+
 .pricing {
   margin-top: 15vh;
 }
@@ -292,7 +297,7 @@
 /********** FAQ page **********/
 
 .faq__page {
-  margin-top: 10vw;
+  margin-top: 5vh;
 }
 
 .faq__sub-title {
@@ -309,4 +314,39 @@
   line-height: 7.8vw;
   color: #484848;
   margin: 4vw 0vw;
+}
+
+/********** Footer section **********/
+
+.landing__footer {
+  margin-top: 15vh;
+  padding: 0vw 6.5vw;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  background-color: #484848;
+}
+
+.landing__footer-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5vw 0vw;
+}
+
+.landing__footer-logo-img {
+  object-fit: cover;
+  width: 10vw;
+  height: auto;
+}
+
+.landing__footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5vw 0vw;
+}
+
+.landing__footer-text {
+  font-family: "airbnb_cereal_applight";
+  color: #ffffff;
+  margin: 0;
 }

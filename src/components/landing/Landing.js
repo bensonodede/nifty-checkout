@@ -27,13 +27,13 @@ class Landing extends Component {
 
           {/* Header logo */}
           <div
-            className="header__logo"
+            className="landing__logo-container"
             onClick={() => {
               this.setState({ menu: true });
             }}
           >
             <img
-              className={"header__logo-img"}
+              className={"landing__logo"}
               alt={"isle99-logo"}
               src={require("../../images/isle99_charcoal.png")}
             />
@@ -53,13 +53,13 @@ class Landing extends Component {
           <div className="hero__header">
             <h1 className="hero__title">Simple, beautiful checkouts.</h1>
             <p className="hero__text">
-              Let customers purchase anything in one click.
+              Let your customers purchase anything in one click with M-pesa.
             </p>
           </div>
 
           {/* Hero footer */}
           <div className="hero__footer">
-            <button className="hero__footer-btn">SIGN UP FREE</button>
+            <button className="hero__footer-btn">Get started</button>
           </div>
 
           {/* Lottie arrow animation */}
@@ -97,7 +97,7 @@ class Landing extends Component {
           {/********** How section **********/}
           <div className="how">
             <div className="divider" />
-            <h1 className="how__title">How it works in 3 steps</h1>
+            <h1 className="how__title">How it works</h1>
 
             {/* Step 1 */}
             <div className="how__card">
@@ -118,7 +118,7 @@ class Landing extends Component {
                 <div className="how__number-circle" />
                 <p className="how__number-text">2</p>
               </h1>
-              <h1 className="how__sub-title">Step 2</h1>
+              <h1 className="how__sub-title">Share your checkout link</h1>
               <p className="how__text">Explaining step two over here.</p>
             </div>
 
@@ -128,7 +128,7 @@ class Landing extends Component {
                 <div className="how__number-circle" />
                 <p className="how__number-text">3</p>
               </h1>
-              <h1 className="how__sub-title">Step 3</h1>
+              <h1 className="how__sub-title">Make the sale</h1>
               <p className="how__text">Explaining step three over here.</p>
             </div>
           </div>
@@ -201,6 +201,24 @@ class Landing extends Component {
           </div>
 
           {/********** End common questions section **********/}
+        </div>
+
+        {/* Footer section */}
+        <div className="landing__footer">
+          {/* Footer logo */}
+
+          <div className="landing__footer-logo">
+            <img
+              className={"landing__footer-logo-img"}
+              alt={"isle99-logo"}
+              src={require("../../images/isle99_pink.png")}
+            />
+          </div>
+
+          {/* Footer links  */}
+          <div className="landing__footer-links">
+            <p className="landing__footer-text">Help</p>
+          </div>
         </div>
       </div>
     );

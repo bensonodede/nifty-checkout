@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 
+// Login a user
 const LOGIN_QUERY = gql`
   query LoginQuery($uid: String!) {
     login(uid: $uid) {
@@ -12,6 +13,7 @@ const LOGIN_QUERY = gql`
   }
 `;
 
+// Get all products from a store
 const PRODUCTS_FEED_QUERY = gql`
   query ProductsByStoreQuery(
     $storeName: String!
@@ -26,6 +28,7 @@ const PRODUCTS_FEED_QUERY = gql`
       orderBy: $orderBy
     ) @connection(key: "productsByStore", filter: ["type"]) {
       id
+      humanId
       name
       price
       imgUrl
@@ -33,6 +36,7 @@ const PRODUCTS_FEED_QUERY = gql`
   }
 `;
 
+// Get a product by ID
 const PRODUCT_QUERY = gql`
   query ProductQuery($id: String!) {
     product(id: $id) {
@@ -43,4 +47,22 @@ const PRODUCT_QUERY = gql`
   }
 `;
 
-export { LOGIN_QUERY, PRODUCTS_FEED_QUERY, PRODUCT_QUERY };
+// Get a product by humanId
+const PRODUCT_HUMANID_QUERY = gql`
+  query ProdcutByHumanIdQuery($storeName: String!, $humanId: String!) {
+    productByHumanId(storeName: $storeName, humanId: $humanId) {
+      id
+      humanId
+      name
+      price
+      imgUrl
+    }
+  }
+`;
+
+export {
+  LOGIN_QUERY,
+  PRODUCTS_FEED_QUERY,
+  PRODUCT_QUERY,
+  PRODUCT_HUMANID_QUERY
+};

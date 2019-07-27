@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import v8n from "v8n";
 
 // Import components
-import { GenericInput } from "../../input";
+import { GenericMaskedInput } from "../../input";
+import { SignOut } from "../../auth";
 
 // Import styles
 import "./styles.css";
@@ -27,7 +28,8 @@ class StoreName extends Component {
     // Check for a string with at least one character
     const validation = v8n()
       .string()
-      .minLength(1);
+      .minLength(1)
+      .not.includes(" ");
 
     // If value does not pass regex test
     if (!validation.test(param)) {
@@ -101,7 +103,12 @@ class StoreName extends Component {
               name="storeName"
               validate={this.validateName}
               render={({ field, form }) => (
-                <GenericInput {...field} {...form} />
+                <GenericMaskedInput
+                  placeholder={"xyzbusiness"}
+                  mask={s => Array.from(s).map(() => /[A-Za-z0-9_]+/)}
+                  {...field}
+                  {...form}
+                />
               )}
             />
           </div>
@@ -110,6 +117,7 @@ class StoreName extends Component {
         {/* Page footer */}
         <div className="footer">
           <div className="footer__body">
+            <SignOut />
             <Link to="/signup/phone-number">
               <button
                 type="button"

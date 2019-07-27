@@ -9,8 +9,8 @@ import "./styles.css";
 const DeleteModal = props => {
   let { name, id, imgUrl } = props.location.state;
 
+  // Run mutation to delete product
   const handleDelete = async mutate => {
-    // Run mutation to delete product
     await mutate({
       variables: {
         id,

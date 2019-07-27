@@ -4,7 +4,7 @@ import MaskedInput from "react-text-mask";
 // Import styles
 import "./styles.css";
 
-class LabelInput extends Component {
+class GenericMaskedInput extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,7 +24,6 @@ class LabelInput extends Component {
       errors,
       validateField,
       mask,
-      label,
       placeholder
     } = this.props;
 
@@ -37,8 +36,6 @@ class LabelInput extends Component {
             (errors[name] && !focused ? "label-input--error" : "")
           }
         >
-          <p className="label-input__inline-label">{label}</p>
-
           {/* Input phone number entry */}
           <MaskedInput
             onFocus={() => {
@@ -59,6 +56,9 @@ class LabelInput extends Component {
             className="label-input__entry"
             mask={mask}
             guide={false}
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
         </div>
         <p className="input__error-message">{errors[name]}</p>
@@ -67,4 +67,4 @@ class LabelInput extends Component {
   }
 }
 
-export default LabelInput;
+export default GenericMaskedInput;

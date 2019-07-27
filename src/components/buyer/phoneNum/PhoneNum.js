@@ -56,7 +56,7 @@ class PhoneNum extends Component {
     let { phoneNum } = values;
 
     // Remove empty spaces from phone number and prepend country code
-    phoneNum = "+254" + phoneNum.replace(/\D+/g, "");
+    phoneNum = "254" + phoneNum.replace(/\D+/g, "");
 
     console.log(phoneNum);
 

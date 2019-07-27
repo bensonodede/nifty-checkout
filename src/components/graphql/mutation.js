@@ -27,6 +27,7 @@ const CREATE_PRODUCT = gql`
       storeName: $storeName
     ) {
       id
+      humanId
       name
       price
       imgUrl
