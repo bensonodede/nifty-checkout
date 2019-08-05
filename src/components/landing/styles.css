@@ -309,13 +309,60 @@
 }
 
 .faq__text {
-  font-family: "airbnb_cereal_applight";
+  font-family: "airbnb_cereal_appbook";
   font-size: 4.8vw;
-  line-height: 7.8vw;
-  color: #484848;
+  line-height: 6.8vw;
+  color: #787878;
   margin: 4vw 0vw;
 }
 
+/********** Signup section **********/
+.signup {
+  background-color: #faebd7;
+  border-radius: 3vw;
+  padding: 5vw 4vw;
+  margin: 12vw 0vw;
+}
+
+.signup__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  line-height: 10vw;
+  margin: 10vw;
+  text-align: center;
+  color: #484848;
+}
+
+.signup__text {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 4.8vw;
+  line-height: 6.8vw;
+  color: #787878;
+  margin: 4vw 0vw;
+}
+
+.signup__btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10vw 0vw;
+}
+
+.signup__btn {
+  border-radius: 1.2vw;
+  padding: 4vw 5vw;
+  background-color: #f36b7f;
+  display: inline-block;
+  border: solid 2px #f36b7f;
+  outline: none;
+
+  /* Button text */
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.2vw;
+  text-align: center;
+  text-decoration: none;
+}
 /********** Footer section **********/
 
 .landing__footer {
@@ -349,4 +396,31 @@
   font-family: "airbnb_cereal_applight";
   color: #ffffff;
   margin: 0;
+}
+
+/********** Feautures section **********/
+
+.landing__features {
+}
+
+.feature {
+  background-color: #faebd7;
+}
+
+.feature__img-container {
+  position: absolute;
+  overflow: hidden;
+  width: 87vw;
+}
+
+.feature__img {
+  object-fit: cover;
+  width: 90vw;
+  height: auto;
+}
+
+.feature__title {
+}
+
+.feature__text {
 }

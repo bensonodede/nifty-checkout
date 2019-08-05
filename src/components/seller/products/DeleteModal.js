@@ -1,13 +1,20 @@
 import React from "react";
 import { Mutation } from "react-apollo";
+
+// Import components
 import { BottomModal } from "../../modal";
+import { Loader } from "../../loader";
+
+// Import graphql operations
 import { DELETE_PRODUCT } from "../../graphql/mutation";
 import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
-//
+
+// Import styles
 import "./styles.css";
 
 const DeleteModal = props => {
   let { name, id, imgUrl } = props.location.state;
+  let { storeName } = props.match.params;
 
   // Run mutation to delete product
   const handleDelete = async mutate => {
@@ -25,16 +32,14 @@ const DeleteModal = props => {
       onCompleted={data => {
         console.log(data);
         // Redirect to store product page
-        props.history.go(-2);
+        props.history.push(`/${storeName}/products`);
       }}
       update={(cache, { data: { deleteProduct } }) => {
-        //
-
-        console.log(deleteProduct);
+        // Get mutation typename
         let { __typename } = deleteProduct;
 
         try {
-          //
+          // Query cache
           const data = cache.readQuery({
             query: PRODUCTS_FEED_QUERY,
             variables: {
@@ -42,12 +47,12 @@ const DeleteModal = props => {
             }
           });
 
-          console.log(data);
+          // Remove deleted product from array of cached products
           const productsArr = data.productsByStore.filter(
             product => product.id !== deleteProduct.id
           );
-          console.log(productsArr);
-          //
+
+          // Write new array to cache
           cache.writeQuery({
             query: PRODUCTS_FEED_QUERY,
             variables: {
@@ -68,6 +73,7 @@ const DeleteModal = props => {
           console.log(error);
         }
 
+        /* Delete modal component */
         return (
           <BottomModal {...props.history}>
             <div>
@@ -85,7 +91,11 @@ const DeleteModal = props => {
                 </div>
 
                 {loading ? (
-                  <p>Loading...</p>
+                  <div className="delete-modal__loader-body">
+                    <div className="delete-modal__loader">
+                      <Loader />
+                    </div>
+                  </div>
                 ) : (
                   /* Button row */
                   <div className="delete-modal__row">

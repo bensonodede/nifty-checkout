@@ -52,11 +52,12 @@
 /* Footer style */
 
 .footer {
-  position: absolute;
+  position: fixed;
   display: block;
   bottom: 0;
   width: 100vw;
   border-top: 1.2px solid #e5e5e5;
+  background-color: #ffffff;
 }
 
 .footer__body {
@@ -108,13 +109,14 @@
 .footer__loader-body {
   display: flex;
   justify-content: center;
+  height: 22vw;
 }
 
 .footer__loader {
   position: absolute;
   width: 35vw;
   height: auto;
-  top: -7vw;
+  top: -6vw;
   margin: auto;
 }
 

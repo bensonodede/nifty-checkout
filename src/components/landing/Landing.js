@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import Lottie from "react-lottie";
 import { Link } from "react-router-dom";
 
+// Import components
+import Demo from "./Demo";
+import How from "./How";
+// import Features from "./Features";
+import Pricing from "./Pricing";
+import Signup from "./Signup";
+import Footer from "./Footer";
+
 // Import styles
 import "./styles.css";
 
@@ -26,12 +34,7 @@ class Landing extends Component {
           {/********** Landing header **********/}
 
           {/* Header logo */}
-          <div
-            className="landing__logo-container"
-            onClick={() => {
-              this.setState({ menu: true });
-            }}
-          >
+          <div className="landing__logo-container">
             <img
               className={"landing__logo"}
               alt={"isle99-logo"}
@@ -59,7 +62,9 @@ class Landing extends Component {
 
           {/* Hero footer */}
           <div className="hero__footer">
-            <button className="hero__footer-btn">Get started</button>
+            <Link to="/login">
+              <button className="hero__footer-btn">Get started</button>
+            </Link>
           </div>
 
           {/* Lottie arrow animation */}
@@ -69,106 +74,21 @@ class Landing extends Component {
 
           {/********** End hero section **********/}
 
-          {/********** Product demo section **********/}
-          <div className="demo">
-            <div className="divider" />
-            <h1 className="demo__title">See it in action</h1>
-            <p className="demo__text">This is what your customers will see.</p>
+          {/* Product demo section */}
 
-            <div className="demo__product">
-              {/* Product demo mockup */}
-              <img
-                className="demo__mockup"
-                alt={"demo__mockup"}
-                src={require("../../images/iphone_x_mockup.png")}
-              />
-              {/* Product demo GIF */}
-              <div className="demo__gif-container">
-                <img
-                  className="demo__gif"
-                  alt={"demo__gif"}
-                  src={require("../../images/Product-demo.gif")}
-                />
-              </div>
-            </div>
-          </div>
-          {/********** End product demo section **********/}
+          <Demo />
 
-          {/********** How section **********/}
-          <div className="how">
-            <div className="divider" />
-            <h1 className="how__title">How it works</h1>
+          {/* How section */}
 
-            {/* Step 1 */}
-            <div className="how__card">
-              <h1 className="how__number">
-                <div className="how__number-circle" />
-                <p className="how__number-text">1</p>
-              </h1>
-              <h1 className="how__sub-title">List your items for free</h1>
-              <p className="how__text">
-                Upload a photo of the item, tell us what its called and how much
-                you are selling it for
-              </p>
-            </div>
+          <How />
 
-            {/* Step 2 */}
-            <div className="how__card">
-              <h1 className="how__number">
-                <div className="how__number-circle" />
-                <p className="how__number-text">2</p>
-              </h1>
-              <h1 className="how__sub-title">Share your checkout link</h1>
-              <p className="how__text">Explaining step two over here.</p>
-            </div>
+          {/* Features section */}
 
-            {/* Step 3 */}
-            <div className="how__card">
-              <h1 className="how__number">
-                <div className="how__number-circle" />
-                <p className="how__number-text">3</p>
-              </h1>
-              <h1 className="how__sub-title">Make the sale</h1>
-              <p className="how__text">Explaining step three over here.</p>
-            </div>
-          </div>
+          {/* <Features /> */}
 
-          {/********** End how section **********/}
+          {/* Pricing section */}
 
-          {/********** Pricing section **********/}
-          <div className="pricing">
-            <div className="divider" />
-            <h1 className="pricing__title">Pricing</h1>
-
-            {/* Pricing image */}
-            <div className="pricing__img-container">
-              <img
-                className="pricing__img"
-                alt={"landing_header"}
-                src={require("../../images/pablo-coming-soon.png")}
-              />
-            </div>
-
-            {/* Pricing sub-section */}
-            <div className="pricing__card">
-              <h1 className="pricing__sub-title">Pay low fees</h1>
-              <p className="pricing__text">
-                Isle99 is free to sign up. We charge a{" "}
-                <span className="pricing__warn">2.5%</span> fee per transaction.
-                There are no hidden fees.
-              </p>
-            </div>
-
-            {/* Pricing sub-section */}
-            <div className="pricing__card">
-              <h1 className="pricing__sub-title">Get paid quickly</h1>
-              <p className="pricing__text">
-                We send your money to your preferred M-pesa enabled phone number{" "}
-                <span className="pricing__warn">everyday</span> before 10am.
-              </p>
-            </div>
-          </div>
-          {/********** End pricing section **********/}
+          <Pricing />
 
           {/********** FAQ section **********/}
           <div className="faq">
@@ -199,27 +119,14 @@ class Landing extends Component {
               </Link>
             ))}
           </div>
+          {/********** End FAQ section **********/}
 
-          {/********** End common questions section **********/}
+          {/* Signup section */}
+          <Signup />
         </div>
 
         {/* Footer section */}
-        <div className="landing__footer">
-          {/* Footer logo */}
-
-          <div className="landing__footer-logo">
-            <img
-              className={"landing__footer-logo-img"}
-              alt={"isle99-logo"}
-              src={require("../../images/isle99_pink.png")}
-            />
-          </div>
-
-          {/* Footer links  */}
-          <div className="landing__footer-links">
-            <p className="landing__footer-text">Help</p>
-          </div>
-        </div>
+        <Footer />
       </div>
     );
   }

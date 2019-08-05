@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import { instanceOf } from "prop-types";
 import { withCookies, Cookies } from "react-cookie";
-import { Query } from "react-apollo";
+import { Query, Mutation } from "react-apollo";
 import numeral from "numeral";
 
 // Import graphql query
@@ -16,6 +16,7 @@ import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
 // Import styles
 import "./styles.css";
+import { CREATE_ORDER } from "../../graphql/mutation";
 
 // Review page loader
 const ReviewLoader = () => (
@@ -43,19 +44,36 @@ class Review extends Component {
     };
   }
 
-  handleClick = () => {
+  handleClick = async (createOrder, data) => {
+    // Get URL variables
     let { storeName, humanId } = this.props.match.params;
+
+    // Get buyer phone number from cookies
     let { phoneNum } = this.state;
 
+    // Get data for create order variables
+    let { id, price } = data.productByHumanId;
+
+    console.log(data.productByHumanId);
     if (phoneNum) {
       //! Initiate M-pesa STK push
       console.log("One click checkout: ");
       console.log(phoneNum);
-      this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
+
+      // Run mutation to create order
+      await createOrder({
+        variables: {
+          buyerNum: phoneNum,
+          storeName,
+          productID: id,
+          price
+        }
+      });
+      // this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
     } else {
       //! Redirect to phone number entry
       console.log("First time?");
-      this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
+      // this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
     }
   };
 
@@ -85,79 +103,103 @@ class Review extends Component {
             return <p>Oops. an error occurred.</p>;
           }
 
+          // Destructure data
           let { imgUrl, name, price } = data.productByHumanId;
 
           // Format price and convert to string
           price = numeral(price).format("'0,0'");
 
           return (
-            <div className="review">
-              {/* Review Image */}
-              <img
-                onLoad={() => {
-                  // Set image loaded state
-                  this.setState({ loaded: true }, () => {
-                    // Play pulse animation after 3s
-                    setTimeout(() => {
-                      this.setState({ isPaused: false });
-                    }, 3000);
-                  });
-                }}
-                src={imgUrl}
-                alt="unsplash"
-                className={loaded ? "review__img" : "review__img-loading"}
-              />
+            <Mutation
+              mutation={CREATE_ORDER}
+              onCompleted={data => {
+                console.log(data);
+              }}
+            >
+              {(createOrder, { loading, error }) => {
+                /********** Error handling **********/
+                if (error) {
+                  console.log(error);
+                }
 
-              {loaded ? (
-                <div className="review__container">
-                  {/* Review header */}
-                  <CSSTransition
-                    in={loaded}
-                    appear={true}
-                    mountOnEnter={true}
-                    unmountOnExit={false}
-                    classNames="transition__header"
-                    timeout={3000}
-                  >
-                    <div className="review__header">
-                      <p className="review__title">{name}</p>
-                      <p className="review__sub-title">
-                        <span>{price}</span>
-                        <span className="review__currency">KSH</span>
-                      </p>
-                    </div>
-                  </CSSTransition>
+                /********** Loading state **********/
+                if (loading) {
+                  return <ReviewLoader />;
+                }
 
-                  {/* Review footer */}
-                  <CSSTransition
-                    in={loaded}
-                    appear={true}
-                    mountOnEnter={true}
-                    unmountOnExit={false}
-                    classNames="transition__footer"
-                    timeout={3000}
-                  >
-                    <div className="review__footer">
-                      <PulseBtn
-                        dark={false}
-                        onClick={this.handleClick}
-                        type={"button"}
-                        isPaused={this.state.isPaused}
-                        btnStyle={"review__btn"}
-                      >
-                        <div className="review__icon">
-                          <Icon size={"100%"} icon={arrow_right} />
-                        </div>
-                      </PulseBtn>
-                    </div>
-                  </CSSTransition>
+                return (
+                  <div className="review">
+                    {/* Review Image */}
+                    <img
+                      onLoad={() => {
+                        // Set image loaded state
+                        this.setState({ loaded: true }, () => {
+                          // Play pulse animation after 3s
+                          setTimeout(() => {
+                            this.setState({ isPaused: false });
+                          }, 3000);
+                        });
+                      }}
+                      src={imgUrl}
+                      alt="unsplash"
+                      className={loaded ? "review__img" : "review__img-loading"}
+                    />
 
-                  {/* End Review footer */}
-                </div>
-              ) : (
-                <ReviewLoader />
-              )}
-            </div>
+                    {loaded ? (
+                      <div className="review__container">
+                        {/* Review header */}
+                        <CSSTransition
+                          in={loaded}
+                          appear={true}
+                          mountOnEnter={true}
+                          unmountOnExit={false}
+                          classNames="transition__header"
+                          timeout={3000}
+                        >
+                          <div className="review__header">
+                            <p className="review__title">{name}</p>
+                            <p className="review__sub-title">
+                              <span>{price}</span>
+                              <span className="review__currency">KSH</span>
+                            </p>
+                          </div>
+                        </CSSTransition>
+
+                        {/* Review footer */}
+                        <CSSTransition
+                          in={loaded}
+                          appear={true}
+                          mountOnEnter={true}
+                          unmountOnExit={false}
+                          classNames="transition__footer"
+                          timeout={3000}
+                        >
+                          <div className="review__footer">
+                            <PulseBtn
+                              dark={false}
+                              onClick={() => {
+                                this.handleClick(createOrder, data);
+                              }}
+                              type={"button"}
+                              isPaused={this.state.isPaused}
+                              btnStyle={"review__btn"}
+                            >
+                              <div className="review__icon">
+                                <Icon size={"100%"} icon={arrow_right} />
+                              </div>
+                            </PulseBtn>
+                          </div>
+                        </CSSTransition>
+
+                        {/* End Review footer */}
+                      </div>
+                    ) : (
+                      <ReviewLoader />
+                    )}
+                  </div>
+                );
+              }}
+            </Mutation>
           );
         }}
       </Query>

@@ -10,6 +10,7 @@ import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 import { LabelInput } from "../../input";
 import { validatePhoneNum } from "../../validation";
+import { CREATE_ORDER } from "../../graphql/mutation";
 
 // Import styles
 import "./styles.css";
@@ -39,6 +40,7 @@ class PhoneNum extends Component {
 
     const { cookies } = props;
 
+    // Set cookies to state
     this.state = {
       phoneNum: cookies.get("phoneNum") || ""
     };
@@ -51,18 +53,37 @@ class PhoneNum extends Component {
     }
   }
 
-  //
+  // Handle form submit
   handleSubmit = async (values, actions) => {
     let { phoneNum } = values;
-
-    // Remove empty spaces from phone number and prepend country code
-    phoneNum = "254" + phoneNum.replace(/\D+/g, "");
-
-    console.log(phoneNum);
-
     const { cookies } = this.props;
 
-    cookies.set("phoneNum", phoneNum, { path: "/" });
+    // Remove empty spaces from phone number and prepend country code
+    const buyerNum = "254" + phoneNum.replace(/\D+/g, "");
+
+    // Set phone number as cookie
+    await cookies.set("phoneNum", phoneNum, { path: "/" });
+
+    // Set form submitting state to true
+    await actions.setSubmitting(true);
+
+    // Run mutation to create store
+    // await createOrder({
+    //   variables: {
+    //     buyerNum,
+    //     storeName
+    //     // uid
+    //   }
+    // });
+
+    // Set form submitting state to false
+    await actions.setSubmitting(false);
+
+    // Reset form
+    await actions.resetForm({});
+
+    // Redirect to success page
+    // this.props.history.push(`/${storeName}/products`);
   };
 
   render() {
@@ -118,7 +139,6 @@ class PhoneNum extends Component {
                     ? "phoneNum__btn"
                     : "phoneNum__btn--disabled"
                 }
-                onClick={this.handleClick}
                 isPaused={formikProps.isValid ? false : true}
               >
                 <div className="phoneNum__icon">

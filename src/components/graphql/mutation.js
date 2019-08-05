@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 
+// Create a store
 const CREATE_STORE = gql`
   mutation CreateStore($storeName: String!, $phoneNum: String!, $uid: String!) {
     createStore(storeName: $storeName, phoneNum: $phoneNum, uid: $uid) {
@@ -13,6 +14,7 @@ const CREATE_STORE = gql`
   }
 `;
 
+// Create a product
 const CREATE_PRODUCT = gql`
   mutation CreateProduct(
     $name: String!
@@ -38,6 +40,7 @@ const CREATE_PRODUCT = gql`
   }
 `;
 
+// Update a product
 const UPDATE_PRODUCT = gql`
   mutation UpdateProduct(
     $id: String!
@@ -61,6 +64,7 @@ const UPDATE_PRODUCT = gql`
   }
 `;
 
+// Delete a product
 const DELETE_PRODUCT = gql`
   mutation DeleteProduct($id: String!, $imgUrl: String!) {
     deleteProduct(id: $id, imgUrl: $imgUrl) {
@@ -68,4 +72,46 @@ const DELETE_PRODUCT = gql`
     }
   }
 `;
-export { CREATE_STORE, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT };
+
+// Create an order
+const CREATE_ORDER = gql`
+  mutation CreateOrder(
+    $buyerNum: String!
+    $storeName: String!
+    $productID: String!
+    $price: Int!
+  ) {
+    createOrder(
+      buyerNum: $buyerNum
+      storeName: $storeName
+      productID: $productID
+      price: $price
+    ) {
+      id
+      humanId
+      uid
+      status
+      buyer {
+        id
+        phoneNum
+      }
+      store {
+        id
+        phoneNum
+        storeName
+      }
+      product {
+        id
+        name
+        price
+      }
+    }
+  }
+`;
+export {
+  CREATE_STORE,
+  CREATE_PRODUCT,
+  UPDATE_PRODUCT,
+  DELETE_PRODUCT,
+  CREATE_ORDER
+};

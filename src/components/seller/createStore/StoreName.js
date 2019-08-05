@@ -5,7 +5,6 @@ import v8n from "v8n";
 
 // Import components
 import { GenericMaskedInput } from "../../input";
-import { SignOut } from "../../auth";
 
 // Import styles
 import "./styles.css";
@@ -117,7 +116,6 @@ class StoreName extends Component {
         {/* Page footer */}
         <div className="footer">
           <div className="footer__body">
-            <SignOut />
             <Link to="/signup/phone-number">
               <button
                 type="button"

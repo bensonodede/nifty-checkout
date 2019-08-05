@@ -102,7 +102,7 @@
 
   /* Button text */
   color: #ffffff;
-  font-family: "airbnb_cereal_applight";
+  font-family: "airbnb_cereal_appmedium";
   font-size: 4vw;
   text-align: center;
   text-decoration: none;
@@ -239,6 +239,10 @@ a {
   font-size: 4.8vw;
   color: #787878;
 }
+/********** Edit product **********/
+.edit-product {
+  margin-bottom: 28vw;
+}
 
 /********** Product modal **********/
 
@@ -353,4 +357,19 @@ a {
   background-color: #ffffff;
   border: solid 1px #fc5e5e;
   color: #fc5e5e;
+}
+
+.delete-modal__loader-body {
+  display: flex;
+  justify-content: center;
+  height: 34.5vw;
+  position: relative;
+}
+
+.delete-modal__loader {
+  position: absolute;
+  width: 35vw;
+  height: auto;
+  top: -2vw;
+  margin: auto;
 }

@@ -105,7 +105,7 @@ class EditProduct extends Component {
               >
                 {({ setFieldValue, setFieldError, dirty, isValid }) => (
                   <Form>
-                    <div className="App-container">
+                    <div className="App-container edit-product">
                       {/* Page header */}
                       <div className="header">
                         <h1 className="header__title">Edit Product</h1>
