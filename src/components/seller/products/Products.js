@@ -8,6 +8,7 @@ import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 // Import components
 import { Loader } from "../../loader";
+import { Error } from "../../error";
 import InfiniteScroll from "react-infinite-scroller";
 import ProductCard from "./ProductCard";
 import { Icon } from "react-icons-kit";
@@ -54,31 +55,7 @@ class Products extends Component {
             {({ loading, error, data, fetchMore }) => {
               /********** Error state **********/
               if (error) {
-                return (
-                  <div className="product__error">
-                    {/* Error image */}
-                    <div className="product__error-img-container">
-                      <img
-                        className="product__error-img"
-                        alt={"no_internet"}
-                        src={require("../../../images/pablo-no-connection.png")}
-                      />
-                    </div>
-
-                    {/* Error title */}
-                    <h1 className="product__error-title">
-                      Oops, something went wrong.
-                    </h1>
-
-                    {/* Error button */}
-                    <button
-                      onClick={() => window.location.reload()}
-                      className="product__error-btn"
-                    >
-                      Try again
-                    </button>
-                  </div>
-                );
+                return <Error />;
               }
 
               /*********** Loading state  **********/

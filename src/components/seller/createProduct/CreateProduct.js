@@ -13,6 +13,7 @@ import DetailsForm from "./DetailsForm";
 // Import graphql operation
 import { CREATE_PRODUCT } from "../../graphql/mutation";
 import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
+import { PageNotFound } from "../../error";
 
 class CreateProduct extends Component {
   // Prevent submission on enter press
@@ -142,6 +143,9 @@ class CreateProduct extends Component {
                           />
                         )}
                       />
+
+                      {/*  */}
+                      <Route component={PageNotFound} />
                     </Switch>
                   </Form>
                 )}

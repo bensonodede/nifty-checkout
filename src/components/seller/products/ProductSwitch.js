@@ -8,6 +8,7 @@ import Products from "./Products";
 import ProductModal from "./ProductModal";
 import DeleteModal from "./DeleteModal";
 import EditProduct from "./EditProduct";
+import { PageNotFound } from "../../error";
 
 class ProductSwitch extends Component {
   previousLocation = this.props.location;
@@ -54,6 +55,9 @@ class ProductSwitch extends Component {
 
           <Route exact path="/:storeName/products" component={Products} />
           <Route path="/:storeName/products/:id/edit" component={EditProduct} />
+
+          {/* Error 404 component */}
+          <Route component={PageNotFound} />
         </Switch>
 
         {/* Declare modal routes */}

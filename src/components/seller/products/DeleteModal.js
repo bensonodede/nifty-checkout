@@ -86,7 +86,7 @@ const DeleteModal = props => {
                 {/* Delete confirmation text */}
                 <div>
                   <p className="delete-modal__text">
-                    Are you sure you want to delete this product?
+                    Are you sure you want to delete this item?
                   </p>
                 </div>
 

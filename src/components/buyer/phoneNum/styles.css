@@ -1,8 +1,12 @@
+.phoneNum {
+  height: 100vh;
+}
+
 /********** Header styles **********/
 
 .phoneNum__header {
   padding-top: 8vw;
-  padding-bottom: 5vw;
+  padding-bottom: 8vw;
 }
 
 .phoneNum__title {
@@ -20,6 +24,25 @@
   margin: 0;
 }
 
+.phoneNum__mpesa-img-container {
+  border: solid 2px #e5e5e5;
+  border-radius: 2vw;
+  width: 8vw;
+  height: 2vw;
+}
+
+.phoneNum__mpesa-img {
+  object-fit: cover;
+  width: 10vw;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+}
+
+.phoneNum__emoji {
+  margin-right: 4vw;
+  font-size: 5vw;
+}
+
 .phoneNum__description-text {
   margin: 0;
   color: #787878;
@@ -27,6 +50,11 @@
   font-size: 4.8vw;
   line-height: 6.4vw;
   padding-bottom: 8vw;
+}
+
+.phoneNum__description-text--bold {
+  font-family: "airbnb_cereal_appmedium";
+  color: #484848;
 }
 
 /********** Footer styling **********/

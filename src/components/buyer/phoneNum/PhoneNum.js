@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { instanceOf } from "prop-types";
-
 import { Formik, Field, Form } from "formik";
-import { withCookies, Cookies } from "react-cookie";
+import Cookies from "js-cookie";
 
 //  Import components
 import { PulseBtn } from "../../button";
@@ -31,18 +29,12 @@ const phoneNumMask = [
 ];
 
 class PhoneNum extends Component {
-  static propTypes = {
-    cookies: instanceOf(Cookies).isRequired
-  };
-
   constructor(props) {
     super(props);
 
-    const { cookies } = props;
-
     // Set cookies to state
     this.state = {
-      phoneNum: cookies.get("phoneNum") || ""
+      phoneNum: Cookies.get("phoneNum") || null
     };
   }
 
@@ -56,13 +48,12 @@ class PhoneNum extends Component {
   // Handle form submit
   handleSubmit = async (values, actions) => {
     let { phoneNum } = values;
-    const { cookies } = this.props;
 
     // Remove empty spaces from phone number and prepend country code
     const buyerNum = "254" + phoneNum.replace(/\D+/g, "");
 
     // Set phone number as cookie
-    await cookies.set("phoneNum", phoneNum, { path: "/" });
+    await Cookies.set("phoneNum", buyerNum);
 
     // Set form submitting state to true
     await actions.setSubmitting(true);
@@ -96,20 +87,45 @@ class PhoneNum extends Component {
       >
         {formikProps => (
           <Form onKeyPress={this.onKeyPress}>
-            <div className="App-container">
+            <div className="App-container phoneNum">
               {/* Phone number header */}
               <div className="phoneNum__header">
                 <h1 className="phoneNum__title">What's your phone number?</h1>
               </div>
 
-              {/* Phone numeber description */}
+              {/* Phone number description 1*/}
               <div className="phoneNum__description">
+                <span
+                  role="img"
+                  aria-label="call-hand"
+                  className="phoneNum__emoji"
+                >
+                  ✔️
+                </span>
+
+                {/* Phone number description text */}
                 <p className="phoneNum__description-text">
-                  We use your phone number to confirm your payment. Also, we
-                  would like to contact you after you make your purchase .{" "}
-                  <span role="img" aria-label="call-hand">
-                    🤙🏾
-                  </span>
+                  Please make sure this phone number is{" "}
+                  <span className="phoneNum__description-text--bold">
+                    {" "}
+                    M-pesa{" "}
+                  </span>{" "}
+                  enabled.
+                </p>
+              </div>
+
+              {/* Phone number description 2 */}
+
+              <div className="phoneNum__description">
+                <span
+                  role="img"
+                  aria-label="call-hand"
+                  className="phoneNum__emoji"
+                >
+                  🤙🏾
+                </span>
+                <p className="phoneNum__description-text">
+                  We'll use it to contact you after you make your purchase.
                 </p>
               </div>
 
@@ -154,4 +170,4 @@ class PhoneNum extends Component {
   }
 }
 
-export default withCookies(PhoneNum);
+export default PhoneNum;

@@ -36,6 +36,27 @@ const PRODUCTS_FEED_QUERY = gql`
   }
 `;
 
+// Get an order by ID
+const ORDER_QUERY = gql`
+  query OrderQuery($id: String!) {
+    order(id: $id) {
+      id
+      humanId
+      uid
+      status
+      buyer {
+        id
+        phoneNum
+      }
+      store {
+        id
+        phoneNum
+        storeName
+      }
+    }
+  }
+`;
+
 // Get a product by ID
 const PRODUCT_QUERY = gql`
   query ProductQuery($id: String!) {
@@ -62,6 +83,7 @@ const PRODUCT_HUMANID_QUERY = gql`
 
 export {
   LOGIN_QUERY,
+  ORDER_QUERY,
   PRODUCTS_FEED_QUERY,
   PRODUCT_QUERY,
   PRODUCT_HUMANID_QUERY

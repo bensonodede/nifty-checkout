@@ -14,7 +14,7 @@ input[type="file"] {
 }
 
 .product-form__image-label {
-  background-color: #008489;
+  background-color: #f36b7f;
   border-radius: 5px;
   height: 10vw;
   display: flex;
@@ -74,7 +74,7 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
   width: 28vw;
-  padding: 3.5vw 3.2vw;
+  padding: 2.5vw 1.2vw;
   margin-bottom: 5vw;
   text-align: center;
   border: solid 1px #fc5e5e;

@@ -1,87 +1,62 @@
 import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
-import { instanceOf } from "prop-types";
-import { withCookies, Cookies } from "react-cookie";
-import { Query, Mutation } from "react-apollo";
-import numeral from "numeral";
+import Cookies from "js-cookie";
+import { Query } from "react-apollo";
 
 // Import graphql query
 import { PRODUCT_HUMANID_QUERY } from "../../graphql/query";
 
 // Import components
-import { Loader } from "../../loader";
-import { PulseBtn } from "../../button";
-import { Icon } from "react-icons-kit";
-import { arrow_right } from "react-icons-kit/ikons/arrow_right";
+import ReviewLoader from "./ReviewLoader";
+import ImgLoaded from "./ImgLoaded";
+import { Error } from "../../error";
 
 // Import styles
 import "./styles.css";
-import { CREATE_ORDER } from "../../graphql/mutation";
-
-// Review page loader
-const ReviewLoader = () => (
-  <div className="review__loader-container">
-    <div className="review__loader">
-      <Loader />
-    </div>
-  </div>
-);
 
 class Review extends Component {
-  static propTypes = {
-    cookies: instanceOf(Cookies).isRequired
-  };
-
   constructor(props) {
     super(props);
 
-    const { cookies } = props;
-
+    // Define state
     this.state = {
-      phoneNum: cookies.get("phoneNum") || null,
-      loaded: false,
+      phoneNum: Cookies.get("phoneNum") || null,
+      imgLoaded: false,
       isPaused: true
     };
   }
 
-  handleClick = async (createOrder, data) => {
-    // Get URL variables
-    let { storeName, humanId } = this.props.match.params;
-
-    // Get buyer phone number from cookies
+  // Check for phone number
+  handleClick = productData => {
+    console.log(productData);
+    // Get phone number from cookies
     let { phoneNum } = this.state;
 
-    // Get data for create order variables
-    let { id, price } = data.productByHumanId;
+    // Get route parameters
+    let { storeName, humanId } = this.props.match.params;
 
-    console.log(data.productByHumanId);
+    // Redirect to confirmation modal
     if (phoneNum) {
-      //! Initiate M-pesa STK push
-      console.log("One click checkout: ");
-      console.log(phoneNum);
-
-      // Run mutation to create order
-      await createOrder({
-        variables: {
-          buyerNum: phoneNum,
-          storeName,
-          productID: id,
-          price
-        }
+      this.props.history.push({
+        pathname: `/${storeName}/${humanId}/confirm`,
+        state: { modal: true, data: productData.productByHumanId }
       });
-      // this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
-    } else {
-      //! Redirect to phone number entry
-      console.log("First time?");
-      // this.props.history.push(`/${storeName}/${humanId}/phoneNum`);
+    }
+
+    // Redirect to phone number page
+    else {
+      this.props.history.push({
+        pathname: `/${storeName}/${humanId}/phone-number`,
+        state: { data: productData.productByHumanId }
+      });
     }
   };
 
   render() {
     let { storeName, humanId } = this.props.match.params;
-    let { loaded } = this.state;
+    let { imgLoaded, isPaused } = this.state;
 
     return (
+      /********** START: QUERY PRODUCT BY HUMAN ID **********/
       <Query
         query={PRODUCT_HUMANID_QUERY}
         variables={{
@@ -90,121 +65,55 @@ class Review extends Component {
         }}
       >
         {({ loading, error, data }) => {
-          /********** LOADING STATE **********/
-
+          // Loading state
           if (loading) {
             return <ReviewLoader />;
           }
 
-          /********** ERROR STATE **********/
-
+          // Error state
           if (error) {
-            console.log(error);
-            return <p>Oops. an error occurred.</p>;
+            return <Error />;
           }
 
-          // Destructure data
-          let { imgUrl, name, price } = data.productByHumanId;
+          // Destructure product data
+          let { imgUrl } = data.productByHumanId;
 
-          // Format price and convert to string
-          price = numeral(price).format("'0,0'");
-
+          // Render component
           return (
-            <Mutation
-              mutation={CREATE_ORDER}
-              onCompleted={data => {
-                console.log(data);
-              }}
-            >
-              {(createOrder, { loading, error }) => {
-                /********** Error handling **********/
-                if (error) {
-                  console.log(error);
-                }
+            <div className="review">
+              <img
+                onLoad={() => {
+                  // Set image loaded state
+                  this.setState({ imgLoaded: true }, () => {
+                    // Play pulse animation after 3s
+                    setTimeout(() => {
+                      this.setState({ isPaused: false });
+                    }, 3000);
+                  });
+                }}
+                src={imgUrl}
+                alt="unsplash"
+                className={imgLoaded ? "review__img" : "review__img-loading"}
+              />
 
-                /********** Loading state **********/
-                if (loading) {
-                  return <ReviewLoader />;
-                }
-
-                return (
-                  <div className="review">
-                    {/* Review Image */}
-                    <img
-                      onLoad={() => {
-                        // Set image loaded state
-                        this.setState({ loaded: true }, () => {
-                          // Play pulse animation after 3s
-                          setTimeout(() => {
-                            this.setState({ isPaused: false });
-                          }, 3000);
-                        });
-                      }}
-                      src={imgUrl}
-                      alt="unsplash"
-                      className={loaded ? "review__img" : "review__img-loading"}
-                    />
-
-                    {loaded ? (
-                      <div className="review__container">
-                        {/* Review header */}
-                        <CSSTransition
-                          in={loaded}
-                          appear={true}
-                          mountOnEnter={true}
-                          unmountOnExit={false}
-                          classNames="transition__header"
-                          timeout={3000}
-                        >
-                          <div className="review__header">
-                            <p className="review__title">{name}</p>
-                            <p className="review__sub-title">
-                              <span>{price}</span>
-                              <span className="review__currency">KSH</span>
-                            </p>
-                          </div>
-                        </CSSTransition>
-
-                        {/* Review footer */}
-                        <CSSTransition
-                          in={loaded}
-                          appear={true}
-                          mountOnEnter={true}
-                          unmountOnExit={false}
-                          classNames="transition__footer"
-                          timeout={3000}
-                        >
-                          <div className="review__footer">
-                            <PulseBtn
-                              dark={false}
-                              onClick={() => {
-                                this.handleClick(createOrder, data);
-                              }}
-                              type={"button"}
-                              isPaused={this.state.isPaused}
-                              btnStyle={"review__btn"}
-                            >
-                              <div className="review__icon">
-                                <Icon size={"100%"} icon={arrow_right} />
-                              </div>
-                            </PulseBtn>
-                          </div>
-                        </CSSTransition>
-
-                        {/* End Review footer */}
-                      </div>
-                    ) : (
-                      <ReviewLoader />
-                    )}
-                  </div>
-                );
-              }}
-            </Mutation>
+              {/* Image loaded  */}
+              {imgLoaded ? (
+                <ImgLoaded
+                  productData={data}
+                  handleClick={this.handleClick}
+                  isPaused={isPaused}
+                  imgLoaded={imgLoaded}
+                />
+              ) : (
+                <ReviewLoader />
+              )}
+            </div>
           );
         }}
       </Query>
+      /********** END: QUERY PRODUCT BY HUMAN ID **********/
     );
   }
 }
 
-export default withCookies(Review);
+export default Review;

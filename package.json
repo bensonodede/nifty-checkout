@@ -17,6 +17,7 @@
     "graphql": "14.1.1",
     "graphql-tag": "2.10.1",
     "jquery": "^3.3.1",
+    "js-cookie": "2.2.1",
     "npm": "6.9.0",
     "numeral": "2.0.6",
     "prop-types": "15.7.2",

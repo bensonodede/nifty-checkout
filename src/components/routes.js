@@ -5,6 +5,7 @@ import { withAuthentication } from "./session";
 
 // Import common page components
 import { Landing, Faq } from "./landing";
+import { PageNotFound } from "./error";
 
 // Import seller page component
 import createStore from "./seller/createStore";
@@ -33,6 +34,7 @@ class Routes extends Component {
 
           {/* Checkout routes */}
           <Route path="/:storeName/:productId" component={Checkout} />
+          <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     );

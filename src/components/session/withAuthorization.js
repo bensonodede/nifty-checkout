@@ -11,8 +11,6 @@ const withAuthorization = Component => {
       // Firebase Auth state listener
       this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
         // If User is not signed in, redirect to login page
-        console.log(authUser);
-
         if (!authUser) {
           this.props.history.push("/login");
         }

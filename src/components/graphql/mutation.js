@@ -100,11 +100,6 @@ const CREATE_ORDER = gql`
         phoneNum
         storeName
       }
-      product {
-        id
-        name
-        price
-      }
     }
   }
 `;

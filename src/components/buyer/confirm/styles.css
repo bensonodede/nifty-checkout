@@ -1,0 +1,65 @@
+.confirm {
+  padding: 0vw 6.5vw;
+}
+
+.confirm__header {
+  margin-top: 10vw;
+}
+
+.confirm__title {
+  font-family: "airbnb_cereal_appbook";
+  text-align: left;
+  font-size: 5vw;
+  line-height: 8vw;
+  margin: 0vw;
+  padding: 0vw 4vw;
+  color: #787878;
+}
+
+.confirm__title--bold {
+  color: #484848;
+  font-size: 5.4vw;
+  font-family: "airbnb_cereal_appmedium";
+}
+.confirm__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10vw 0vw;
+  align-items: center;
+}
+
+.confirm__btn {
+  border-radius: 1.2vw;
+  padding: 4vw 14vw;
+  margin: 0vw 4vw;
+  background-color: #ffffff;
+  display: inline-block;
+  border: solid 1px #fc5e5e;
+  outline: none;
+
+  /* Button text */
+  color: #fc5e5e;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.2vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.confirm__btn:active {
+  background-color: #fc5e5e;
+  color: #ffffff;
+  border: solid 1px #fc5e5e;
+}
+
+.confirm__btn--warn {
+  background-color: #fc5e5e;
+  border: solid 1px #fc5e5e;
+  color: #ffffff;
+}
+
+.confirm__btn--warn:active {
+  background-color: #ffffff;
+  border: solid 1px #fc5e5e;
+  color: #fc5e5e;
+}

@@ -113,74 +113,6 @@
   color: #f36b7f;
 }
 
-/********** Product error state **********/
-
-.product__error {
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-  position: fixed;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20vh;
-  padding: 0vw 6.5vw;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(1, 1, 1);
-  }
-}
-
-.product__error-title {
-  font-family: "airbnb_cereal_appmedium";
-  text-align: center;
-  font-size: 8vw;
-  margin: 0vw;
-  color: #484848;
-}
-
-.product__error-btn {
-  border-radius: 1.2vw;
-  margin-top: 8vw;
-  padding: 3.8vw 4.8vw;
-
-  background-color: #f36b7f;
-  display: inline-block;
-  border: solid 1px #f36b7f;
-  outline: none;
-
-  /* Button text */
-
-  color: #ffffff;
-  font-family: "airbnb_cereal_applight";
-  font-size: 4vw;
-  text-align: center;
-  text-decoration: none;
-}
-
-.product__error-btn:active {
-  background-color: #ffffff;
-  color: #f36b7f;
-}
-
-.product__error-img-container {
-  overflow: hidden;
-  width: 87vw;
-  margin-bottom: 15vw;
-}
-
-.product__error-img {
-  object-fit: cover;
-  width: 90vw;
-  height: auto;
-}
-
 /********** Product card component **********/
 
 a {
@@ -318,7 +250,7 @@ a {
 
 .delete-modal__btn {
   border-radius: 1.2vw;
-  padding: 4.8vw 12.2vw;
+  padding: 4.2vw 12.2vw;
   background-color: #ffffff;
   display: inline-block;
   border: solid 1px #484848;
@@ -326,7 +258,7 @@ a {
 
   /* Button text */
   color: #484848;
-  font-family: "airbnb_cereal_appbook";
+  font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   text-align: center;
   text-decoration: none;

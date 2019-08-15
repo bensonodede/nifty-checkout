@@ -1,0 +1,141 @@
+/* Error state component styling */
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error__title {
+  font-family: "airbnb_cereal_appmedium";
+  text-align: center;
+  font-size: 8vw;
+  line-height: 10vw;
+  margin: 0vw;
+  padding: 0vw 2vw;
+  color: #484848;
+}
+
+.error__btn-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10vw 0vw;
+  align-items: center;
+}
+
+.error__btn {
+  border-radius: 1.2vw;
+  margin-top: 2.5vw;
+  padding: 3.8vw 4.8vw;
+  background-color: #f36b7f;
+  display: inline-block;
+  border: solid 1px #f36b7f;
+  outline: none;
+
+  /* Button text */
+
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.2vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.error__btn:active {
+  background-color: #ffffff;
+  color: #f36b7f;
+}
+
+.error__btn-clear {
+  border: solid 1px #ffffff;
+  background-color: #ffffff;
+  color: #f36b7f;
+}
+
+.error__btn-clear:active {
+  border: solid 1px #f36b7f;
+  background-color: #ffffff;
+  color: #f36b7f;
+}
+
+.error__img {
+  object-fit: cover;
+  width: 100vw;
+  height: auto;
+  position: fixed;
+  left: -2.5vw;
+  bottom: -5.2vw;
+}
+
+/* 'Page not found' component styling */
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.page-not-found__img {
+  object-fit: cover;
+  width: 100vw;
+  height: auto;
+  position: fixed;
+  bottom: -5.65vw;
+}
+
+.page-not-found__title {
+  font-family: "airbnb_cereal_appmedium";
+  text-align: center;
+  font-size: 8vw;
+  line-height: 10vw;
+  margin: 0vw;
+  padding: 0vw 2vw;
+  color: #484848;
+}
+
+.page-not-found__btn-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10vw 0vw;
+  align-items: center;
+}
+
+.page-not-found__btn {
+  border-radius: 1.2vw;
+  margin-top: 2.5vw;
+  padding: 4vw 12vw;
+  background-color: #f36b7f;
+  display: inline-block;
+  border: solid 1px #f36b7f;
+  outline: none;
+
+  /* Button text */
+
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.2vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.page-not-found__btn:active {
+  background-color: #ffffff;
+  color: #f36b7f;
+}
+
+.page-not-found__btn-clear {
+  border: solid 1px #ffffff;
+  background-color: #ffffff;
+  color: #f36b7f;
+}
+.page-not-found__btn-clear:active {
+  border: solid 1px #f36b7f;
+  background-color: #ffffff;
+  color: #f36b7f;
+}

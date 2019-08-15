@@ -16,6 +16,7 @@ import { SignInGoogle, SignInFacebook, SignInTwitter } from "../auth";
 // Import styles
 import "../../styles/index.css";
 import "../../styles/seller/Login.css";
+import { Error } from "../error";
 
 // Review page loader
 const LoginLoader = () => (
@@ -105,7 +106,7 @@ class Login extends Component {
                 /* Error handling */
                 if (error) {
                   console.log(error);
-                  return <p>Error: {error.message}</p>;
+                  return <Error />;
                 }
 
                 /* Render login page */
