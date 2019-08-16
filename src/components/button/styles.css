@@ -11,16 +11,16 @@
   height: auto;
   position: absolute;
   z-index: -1;
-  top: -8vw;
-  left: -7vw;
+  top: -8.5vw;
+  left: -7.5vw;
 }
 
 .pulse__btn {
   z-index: 2;
   top: 0vw;
   left: 0vw;
-  width: 12vw;
-  height: 12vw;
+  width: 11vw;
+  height: 11vw;
   border-radius: 12vw;
   padding: 2vw 2vw;
   background-color: #484848;

@@ -77,7 +77,7 @@ input[type="file"] {
   padding: 2.5vw 1.2vw;
   margin-bottom: 5vw;
   text-align: center;
-  border: solid 1px #fc5e5e;
+  border: solid 1px #f36b7f;
   border-radius: 6px;
 }
 
@@ -85,7 +85,7 @@ input[type="file"] {
   margin: 0vw;
   margin-left: 1.3vw;
   font-family: "airbnb_cereal_appbook";
-  color: #fc5e5e;
+  color: #f36b7f;
 }
 
 /*********** Details form  *********/

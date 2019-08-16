@@ -27,7 +27,7 @@
   justify-content: flex-end;
   padding: 0vw 6.5vw;
   width: 87vw;
-  height: 30vh;
+  height: 42vh;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -35,7 +35,7 @@
   background-image: linear-gradient(
     180deg,
     rgba(255, 0, 0, 0),
-    rgb(0, 0, 0) 50%
+    rgb(0, 0, 0) 65%
   );
   z-index: 2;
 }
@@ -46,22 +46,22 @@
 
 .review__title {
   color: #ffffff;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 6.5vw;
+  font-family: "airbnb_cereal_appbold";
+  font-size: 7vw;
   margin: 0;
 }
 
 .review__sub-title {
   color: #ffffff;
-  font-family: "airbnb_cereal_applight";
+  font-family: "airbnb_cereal_appbook";
   font-size: 5.5vw;
   margin: 3vw 0vw;
 }
 
 .review__currency {
-  font-family: "airbnb_cereal_applight";
+  font-family: "airbnb_cereal_appbook";
   font-size: 3.6vw;
-  margin-left: 1.5vw;
+  margin-left: 1vw;
 }
 
 /********** Image styling **********/
@@ -129,12 +129,12 @@
 }
 
 .review__btn {
-  background-color: #a8f1f5;
-  box-shadow: 0 0 4px 1px #a8f1f5;
+  background-color: #f36b7f;
+  box-shadow: 0 0 4px 1px #f36b7f;
 }
 
 .review__icon {
-  color: #484848;
+  color: #ffffff;
   width: 8vw;
 }
 

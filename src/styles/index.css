@@ -44,6 +44,10 @@
   line-height: 6.8vw;
 }
 
+.dashboard__emoji {
+  margin-left: 2vw;
+}
+
 .header__text--warning {
   font-size: 4.8vw;
   color: #ee5151;

@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import Cookies from "js-cookie";
 import { Mutation } from "react-apollo";
 import { CREATE_ORDER } from "../../graphql/mutation";
+import { Helmet } from "react-helmet";
 
+// Import components
 import { BottomModal } from "../../modal";
+import { Loader } from "../../loader";
 
 // Import styles
 import "./styles.css";
@@ -19,7 +22,7 @@ class Confirm extends Component {
   /********** Handle Mutation **********/
   handleClick = async createOrder => {
     // Get URL variables
-    let { storeName, humanId } = this.props.match.params;
+    let { storeName } = this.props.match.params;
     let { price, id } = this.props.location.state.data;
 
     // Get phone number from cookies
@@ -58,25 +61,21 @@ class Confirm extends Component {
         }}
       >
         {(createOrder, { loading, error }) => {
-          // Loading state
-          if (loading) {
-            {
-              /* return <ReviewLoader />; */
-            }
-          }
-
           // Error state
           if (error) {
-            {
-              /* return <Error />; */
-            }
+            this.props.history.push(`/${storeName}/${humanId}`);
           }
 
           // Render component
           return (
             <BottomModal {...history}>
               <div className="confirm">
-                {/* Confirm header */}
+                {/* Document title */}
+                <Helmet>
+                  <title>Confirmation - {storeName}</title>
+                </Helmet>
+
+                {/* Confirm body */}
                 <div className="confirm__header">
                   <p className="confirm__title">Do you want to continue with</p>
                   <p className="confirm__title confirm__title--bold">
@@ -84,27 +83,39 @@ class Confirm extends Component {
                   </p>
                 </div>
 
-                {/* Button row */}
-                <div className="confirm__row">
-                  {/* 'NO' button */}
-                  <button
-                    onClick={() =>
-                      history.push(`/${storeName}/${humanId}/phone-number`)
-                    }
-                    className="confirm__btn"
-                  >
-                    No
-                  </button>
+                {loading ? (
+                  /********** Loader **********/
+                  <div className="confirm__loader-container">
+                    <div className="confirm__loader">
+                      <Loader />
+                    </div>
+                  </div>
+                ) : (
+                  /********** Button row **********/
+                  <div className="confirm__row">
+                    {/* 'NO' button */}
+                    <button
+                      onClick={() =>
+                        history.push({
+                          pathname: `/${storeName}/${humanId}/phone-number`,
+                          state: { data: this.props.location.state.data }
+                        })
+                      }
+                      className="confirm__btn"
+                    >
+                      No
+                    </button>
 
-                  {/* 'YES' button */}
-                  <button
-                    onClick={() => this.handleClick(createOrder)}
-                    className="confirm__btn  confirm__btn--warn"
-                  >
-                    Yes
-                  </button>
-                </div>
-                {/* End button row */}
+                    {/* 'YES' button */}
+                    <button
+                      onClick={() => this.handleClick(createOrder)}
+                      className="confirm__btn  confirm__btn--warn"
+                    >
+                      Yes
+                    </button>
+                  </div>
+                  /********** End Button row **********/
+                )}
               </div>
             </BottomModal>
           );

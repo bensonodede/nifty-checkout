@@ -10,10 +10,8 @@
     "apollo-link-http": "1.5.14",
     "apollo-upload-client": "10.0.1",
     "chocolat": "0.4.21",
-    "cloudinary-react": "1.1.1",
     "firebase": "5.9.2",
     "formik": "1.5.1",
-    "formik-persist": "1.1.0",
     "graphql": "14.1.1",
     "graphql-tag": "2.10.1",
     "jquery": "^3.3.1",
@@ -24,15 +22,12 @@
     "react": "^16.8.2",
     "react-apollo": "2.5.2",
     "react-code-input": "3.8.1",
-    "react-cookie": "4.0.0",
     "react-dom": "^16.8.2",
     "react-helmet": "5.2.0",
     "react-icons-kit": "1.2.1",
     "react-infinite-scroller": "1.2.4",
-    "react-lazy-load": "3.0.13",
     "react-lottie": "1.2.3",
     "react-router-dom": "4.3.1",
-    "react-router-navigation-prompt": "1.8.6",
     "react-scripts": "2.1.5",
     "react-text-mask": "5.4.3",
     "react-transition-group": "4.0.0",
@@ -57,9 +52,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "flow-bin": "0.96.0",
-    "flow-watch": "1.1.4",
-    "patch-package": "6.1.2",
-    "postinstall-prepare": "1.0.1"
+    "patch-package": "6.1.2"
   }
 }

@@ -8,7 +8,7 @@ import Firebase, { FirebaseContext } from "./components/firebase/";
 // Import routes
 import Routes from "./components/Routes";
 
-const link = createUploadLink({ uri: "http://localhost:4000/graphql" });
+const link = createUploadLink({ uri: "http://192.168.0.17:4000/graphql" });
 
 // Initialize apollo client
 const client = new ApolloClient({

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
 import { Query } from "react-apollo";
+import { Helmet } from "react-helmet";
 
 // Import graphql query
 import { PRODUCT_HUMANID_QUERY } from "../../graphql/query";
@@ -27,7 +28,6 @@ class Review extends Component {
 
   // Check for phone number
   handleClick = productData => {
-    console.log(productData);
     // Get phone number from cookies
     let { phoneNum } = this.state;
 
@@ -56,62 +56,70 @@ class Review extends Component {
     let { imgLoaded, isPaused } = this.state;
 
     return (
-      /********** START: QUERY PRODUCT BY HUMAN ID **********/
-      <Query
-        query={PRODUCT_HUMANID_QUERY}
-        variables={{
-          storeName,
-          humanId
-        }}
-      >
-        {({ loading, error, data }) => {
-          // Loading state
-          if (loading) {
-            return <ReviewLoader />;
-          }
+      <div>
+        {/********** START: QUERY PRODUCT BY HUMAN ID **********/}
+        <Query
+          query={PRODUCT_HUMANID_QUERY}
+          variables={{
+            storeName,
+            humanId
+          }}
+        >
+          {({ loading, error, data }) => {
+            // Loading state
+            if (loading) {
+              return <ReviewLoader />;
+            }
 
-          // Error state
-          if (error) {
-            return <Error />;
-          }
+            // Error state
+            if (error) {
+              return <Error />;
+            }
 
-          // Destructure product data
-          let { imgUrl } = data.productByHumanId;
+            // Destructure product data
+            let { imgUrl } = data.productByHumanId;
 
-          // Render component
-          return (
-            <div className="review">
-              <img
-                onLoad={() => {
-                  // Set image loaded state
-                  this.setState({ imgLoaded: true }, () => {
-                    // Play pulse animation after 3s
-                    setTimeout(() => {
-                      this.setState({ isPaused: false });
-                    }, 3000);
-                  });
-                }}
-                src={imgUrl}
-                alt="unsplash"
-                className={imgLoaded ? "review__img" : "review__img-loading"}
-              />
-
-              {/* Image loaded  */}
-              {imgLoaded ? (
-                <ImgLoaded
-                  productData={data}
-                  handleClick={this.handleClick}
-                  isPaused={isPaused}
-                  imgLoaded={imgLoaded}
+            // Render component
+            return (
+              <div className="review">
+                {/* Document title */}
+                <Helmet>
+                  <title>
+                    {data.productByHumanId.name} - {storeName}
+                  </title>
+                </Helmet>
+                <img
+                  onLoad={() => {
+                    // Set image loaded state
+                    this.setState({ imgLoaded: true }, () => {
+                      // Play pulse animation after 3s
+                      setTimeout(() => {
+                        this.setState({ isPaused: false });
+                      }, 3000);
+                    });
+                  }}
+                  src={imgUrl}
+                  alt="unsplash"
+                  className={imgLoaded ? "review__img" : "review__img-loading"}
                 />
-              ) : (
-                <ReviewLoader />
-              )}
-            </div>
-          );
-        }}
-      </Query>
-      /********** END: QUERY PRODUCT BY HUMAN ID **********/
+
+                {/* Image loaded  */}
+                {imgLoaded ? (
+                  <ImgLoaded
+                    productData={data}
+                    handleClick={this.handleClick}
+                    isPaused={isPaused}
+                    imgLoaded={imgLoaded}
+                  />
+                ) : (
+                  <ReviewLoader />
+                )}
+              </div>
+            );
+          }}
+        </Query>
+        {/********** END: QUERY PRODUCT BY HUMAN ID **********/}
+      </div>
     );
   }
 }

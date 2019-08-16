@@ -53,12 +53,12 @@ class Products extends Component {
             }}
           >
             {({ loading, error, data, fetchMore }) => {
-              /********** Error state **********/
+             // Error state
               if (error) {
                 return <Error />;
               }
 
-              /*********** Loading state  **********/
+              // Loading state
 
               if (loading) {
                 return <ProductLoader />;
@@ -76,7 +76,11 @@ class Products extends Component {
                         <p className="header__text">
                           Keep track of and manage all your products. Happy
                           selling!
-                          <span role="img" aria-label="100">
+                          <span
+                            role="img"
+                            aria-label="100"
+                            className="dashboard__emoji"
+                          >
                             💯
                           </span>
                         </p>

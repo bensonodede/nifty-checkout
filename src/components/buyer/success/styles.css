@@ -18,20 +18,20 @@
 
 .success__img {
   object-fit: cover;
-  width: 100vw;
+  width: 85vw;
   height: auto;
   position: fixed;
-  left: -2.5vw;
-  bottom: -6vw;
+  bottom: -4.8vw;
 }
 
 .success__text {
   margin: 0;
-  padding: 8vw 2vw 4vw 2vw;
+  margin-top: 6vw;
+  padding: 0vw 2vw;
   font-family: "airbnb_cereal_appbook";
   color: #787878;
   font-size: 4.8vw;
-  line-height: 6.8vw;
+  line-height: 6vw;
   text-align: center;
 }
 
@@ -42,7 +42,7 @@
 
 .success__btn {
   border-radius: 1.2vw;
-  margin-top: 7vw;
+  margin-top: 8vw;
   padding: 3.8vw 4.8vw;
   background-color: #f36b7f;
   display: inline-block;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
 import Cookies from "js-cookie";
+import { Mutation } from "react-apollo";
+import { Helmet } from "react-helmet";
 
 //  Import components
 import { PulseBtn } from "../../button";
@@ -9,6 +11,7 @@ import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 import { LabelInput } from "../../input";
 import { validatePhoneNum } from "../../validation";
 import { CREATE_ORDER } from "../../graphql/mutation";
+import { Loader } from "../../loader";
 
 // Import styles
 import "./styles.css";
@@ -46,7 +49,12 @@ class PhoneNum extends Component {
   }
 
   // Handle form submit
-  handleSubmit = async (values, actions) => {
+  handleSubmit = async (values, actions, createOrder) => {
+    // Destructure route parameters
+    let { storeName } = this.props.match.params;
+    let { price, id } = this.props.location.state.data;
+
+    // Get phone number
     let { phoneNum } = values;
 
     // Remove empty spaces from phone number and prepend country code
@@ -58,114 +66,156 @@ class PhoneNum extends Component {
     // Set form submitting state to true
     await actions.setSubmitting(true);
 
-    // Run mutation to create store
-    // await createOrder({
-    //   variables: {
-    //     buyerNum,
-    //     storeName
-    //     // uid
-    //   }
-    // });
+    // Run mutation to create order
+    await createOrder({
+      variables: {
+        buyerNum,
+        storeName,
+        productID: id,
+        price
+      }
+    });
 
     // Set form submitting state to false
     await actions.setSubmitting(false);
 
     // Reset form
-    await actions.resetForm({});
-
-    // Redirect to success page
-    // this.props.history.push(`/${storeName}/products`);
+    // await actions.resetForm({});
   };
 
   render() {
+    // Destructure route parameters
+    let { storeName, humanId } = this.props.match.params;
+
     return (
-      <Formik
-        initialValues={{ phoneNum: "" }}
-        validateOnChange={false}
-        validateOnBlur={false}
-        onSubmit={(values, actions) => this.handleSubmit(values, actions)}
-      >
-        {formikProps => (
-          <Form onKeyPress={this.onKeyPress}>
-            <div className="App-container phoneNum">
-              {/* Phone number header */}
-              <div className="phoneNum__header">
-                <h1 className="phoneNum__title">What's your phone number?</h1>
-              </div>
+      <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Phone number - {storeName}</title>
+        </Helmet>
 
-              {/* Phone number description 1*/}
-              <div className="phoneNum__description">
-                <span
-                  role="img"
-                  aria-label="call-hand"
-                  className="phoneNum__emoji"
-                >
-                  ✔️
-                </span>
+        {/* Mutation */}
+        <Mutation
+          mutation={CREATE_ORDER}
+          onCompleted={data => {
+            console.log(data);
+            this.props.history.push({
+              pathname: `/${storeName}/${humanId}/waiting`,
+              state: { orderId: data.createOrder.id }
+            });
+          }}
+        >
+          {(createOrder, { loading, error }) => {
+            if (error) {
+              this.props.history.push(`/${storeName}/${humanId}`);
+            }
 
-                {/* Phone number description text */}
-                <p className="phoneNum__description-text">
-                  Please make sure this phone number is{" "}
-                  <span className="phoneNum__description-text--bold">
-                    {" "}
-                    M-pesa{" "}
-                  </span>{" "}
-                  enabled.
-                </p>
-              </div>
-
-              {/* Phone number description 2 */}
-
-              <div className="phoneNum__description">
-                <span
-                  role="img"
-                  aria-label="call-hand"
-                  className="phoneNum__emoji"
-                >
-                  🤙🏾
-                </span>
-                <p className="phoneNum__description-text">
-                  We'll use it to contact you after you make your purchase.
-                </p>
-              </div>
-
-              {/* PhoneNum field  */}
-              <Field
-                name="phoneNum"
-                validate={validatePhoneNum}
-                render={({ field, form }) => (
-                  <LabelInput
-                    {...field}
-                    {...form}
-                    mask={phoneNumMask}
-                    label={"+254"}
-                    placeholder={"712 345 678"}
-                  />
-                )}
-              />
-            </div>
-            {/* Page footer */}
-            <div className="phoneNum__footer">
-              <PulseBtn
-                dark={true}
-                type={"submit"}
-                disabled={!formikProps.isValid}
-                btnStyle={
-                  formikProps.isValid
-                    ? "phoneNum__btn"
-                    : "phoneNum__btn--disabled"
+            return (
+              <Formik
+                initialValues={{ phoneNum: "" }}
+                validateOnChange={false}
+                validateOnBlur={false}
+                onSubmit={(values, actions) =>
+                  this.handleSubmit(values, actions, createOrder)
                 }
-                isPaused={formikProps.isValid ? false : true}
               >
-                <div className="phoneNum__icon">
-                  <Icon size={"100%"} icon={arrow_right} />
-                </div>
-              </PulseBtn>
-            </div>
-            {/* End Page footer */}
-          </Form>
-        )}
-      </Formik>
+                {formikProps => (
+                  <Form onKeyPress={this.onKeyPress}>
+                    <div className="App-container phoneNum">
+                      {/* Phone number header */}
+                      <div className="phoneNum__header">
+                        <h1 className="phoneNum__title">
+                          What's your phone number?
+                        </h1>
+                      </div>
+
+                      {/* Phone number description 1*/}
+                      <div className="phoneNum__description">
+                        <span
+                          role="img"
+                          aria-label="call-hand"
+                          className="phoneNum__emoji"
+                        >
+                          ✔️
+                        </span>
+
+                        <p className="phoneNum__description-text">
+                          Please make sure this phone number is{" "}
+                          <span className="phoneNum__description-text--bold">
+                            {" "}
+                            M-pesa{" "}
+                          </span>{" "}
+                          enabled.
+                        </p>
+                      </div>
+
+                      {/* Phone number description 2 */}
+
+                      <div className="phoneNum__description">
+                        <span
+                          role="img"
+                          aria-label="call-hand"
+                          className="phoneNum__emoji"
+                        >
+                          🤙🏾
+                        </span>
+                        <p className="phoneNum__description-text">
+                          We'll use it to contact you after you make your
+                          purchase.
+                        </p>
+                      </div>
+
+                      {/* PhoneNum field  */}
+                      <Field
+                        name="phoneNum"
+                        validate={validatePhoneNum}
+                        render={({ field, form }) => (
+                          <LabelInput
+                            {...field}
+                            {...form}
+                            mask={phoneNumMask}
+                            label={"+254"}
+                            placeholder={"712 345 678"}
+                          />
+                        )}
+                      />
+                    </div>
+                    {/* Page footer */}
+                    {loading ? (
+                      <div className="phoneNum__loader">
+                        <div className="footer__loader-body">
+                          <div className="footer__loader">
+                            <Loader />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="phoneNum__footer">
+                        <PulseBtn
+                          dark={true}
+                          type={"submit"}
+                          disabled={!formikProps.isValid}
+                          btnStyle={
+                            formikProps.isValid
+                              ? "phoneNum__btn"
+                              : "phoneNum__btn--disabled"
+                          }
+                          isPaused={formikProps.isValid ? false : true}
+                        >
+                          <div className="phoneNum__icon">
+                            <Icon size={"100%"} icon={arrow_right} />
+                          </div>
+                        </PulseBtn>
+                      </div>
+                    )}
+                    {/* End Page footer */}
+                  </Form>
+                )}
+              </Formik>
+            );
+          }}
+        </Mutation>
+      </div>
     );
   }
 }

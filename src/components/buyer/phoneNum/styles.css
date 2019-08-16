@@ -68,6 +68,15 @@
   padding: 6.5vw 6.5vw;
 }
 
+.phoneNum__loader {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  width: 87vw;
+  padding: 1.5vw 6.5vw;
+}
+
 .phoneNum__btn {
   background-color: #484848;
   box-shadow: 0 0 4px 1px #484848;

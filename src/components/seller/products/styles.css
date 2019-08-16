@@ -129,7 +129,6 @@ a {
 .product-card__img {
   width: 87vw;
   height: 65vw;
-  border: solid 1px #e5e5e5;
   border-radius: 3vw;
   object-fit: cover;
   background-color: #e5e5e5;
@@ -253,11 +252,11 @@ a {
   padding: 4.2vw 12.2vw;
   background-color: #ffffff;
   display: inline-block;
-  border: solid 1px #484848;
+  border: solid 1px #f36b7f;
   outline: none;
 
   /* Button text */
-  color: #484848;
+  color: #f36b7f;
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   text-align: center;
@@ -265,9 +264,9 @@ a {
 }
 
 .delete-modal__btn:active {
-  background-color: #484848;
+  background-color: #f36b7f;
   color: #ffffff;
-  border: solid 1px #484848;
+  border: solid 1px #f36b7f;
 }
 
 .delete-modal__text {
@@ -280,15 +279,15 @@ a {
 }
 
 .delete-modal__btn--warn {
-  background-color: #fc5e5e;
-  border: solid 1px #fc5e5e;
+  background-color: #f36b7f;
+  border: solid 1px #f36b7f;
   color: #ffffff;
 }
 
 .delete-modal__btn--warn:active {
   background-color: #ffffff;
-  border: solid 1px #fc5e5e;
-  color: #fc5e5e;
+  border: solid 1px #f36b7f;
+  color: #f36b7f;
 }
 
 .delete-modal__loader-body {
