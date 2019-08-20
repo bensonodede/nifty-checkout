@@ -55,14 +55,12 @@
 
 /********** Product empty state **********/
 .product__empty {
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-  position: fixed;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20vh;
-  padding: 0vw 6.5vw;
+  justify-content: center;
+  height: 100vh;
+  padding: 0vw 2vw;
 }
 
 .product__empty-img-container {
@@ -73,8 +71,10 @@
 
 .product__empty-img {
   object-fit: cover;
-  width: 90vw;
+  width: 100vw;
   height: auto;
+  position: fixed;
+  bottom: -5.2vw;
 }
 .product__empty-title {
   font-family: "airbnb_cereal_appmedium";
@@ -87,13 +87,13 @@
   font-family: "airbnb_cereal_appbook";
   text-align: center;
   font-size: 4.8vw;
-  line-height: 6.8vw;
+  line-height: 5.8vw;
   color: #787878;
 }
 
 .product__empty-btn {
   border-radius: 1.2vw;
-  margin-top: 8vw;
+  margin: 5vw 0vw 30vw 0vw;
   padding: 3.8vw 4.8vw;
   background-color: #f36b7f;
   display: inline-block;
@@ -101,9 +101,10 @@
   outline: none;
 
   /* Button text */
+
   color: #ffffff;
   font-family: "airbnb_cereal_appmedium";
-  font-size: 4vw;
+  font-size: 4.2vw;
   text-align: center;
   text-decoration: none;
 }
@@ -172,7 +173,7 @@ a {
 }
 /********** Edit product **********/
 .edit-product {
-  margin-bottom: 28vw;
+  height: 115vh;
 }
 
 /********** Product modal **********/

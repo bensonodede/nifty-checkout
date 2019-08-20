@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Lottie from "react-lottie";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // Import components
 import Demo from "./Demo";
@@ -30,6 +31,11 @@ class Landing extends Component {
 
     return (
       <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Isle99 - Simple, Beautiful checkouts</title>
+        </Helmet>
+
         <div className="App-container">
           {/********** Landing header **********/}
 
@@ -69,7 +75,11 @@ class Landing extends Component {
 
           {/* Lottie arrow animation */}
           <div className="hero__lottie">
-            <Lottie options={defaultOptions} isPaused={false} />
+            <Lottie
+              options={defaultOptions}
+              isPaused={false}
+              isClickToPauseDisabled={true}
+            />
           </div>
 
           {/********** End hero section **********/}

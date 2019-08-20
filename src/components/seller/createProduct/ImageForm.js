@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ErrorMessage } from "formik";
+import { Helmet } from "react-helmet";
 import v8n from "v8n";
 
 // Import Components
@@ -93,6 +94,11 @@ class ImageForm extends Component {
 
     return (
       <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Add a photo - {storeName}</title>
+        </Helmet>
+
         {/* Page body */}
         <div className="App-container">
           {/* Page header */}

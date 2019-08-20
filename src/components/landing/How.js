@@ -13,8 +13,8 @@ const How = () => (
       </h1>
       <h1 className="how__sub-title">List your items for free</h1>
       <p className="how__text">
-        Upload a photo of the item, tell us what its called and how much you are
-        selling it for. Our checkout design makes your stuff look pretty.
+        Upload a photo of the item, tell us what it's called and how much you
+        are selling it for. Our checkout design makes your products look pretty.
       </p>
     </div>
 

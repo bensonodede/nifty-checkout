@@ -45,7 +45,7 @@
 
 .hero__header {
   align-items: center;
-  padding: 10vw 0vw;
+  padding: 10vw 0vw 5vw 0vw;
 }
 
 .hero__title {
@@ -74,7 +74,7 @@
 
 .hero__footer-btn {
   border-radius: 1.2vw;
-  padding: 4vw 5vw;
+  padding: 3.8vw 4.8vw;
   background-color: #f36b7f;
   display: inline-block;
   border: solid 2px #f36b7f;
@@ -349,7 +349,7 @@
 
 .signup__btn {
   border-radius: 1.2vw;
-  padding: 4vw 5vw;
+  padding: 3.8vw 4.8vw;
   background-color: #f36b7f;
   display: inline-block;
   border: solid 2px #f36b7f;

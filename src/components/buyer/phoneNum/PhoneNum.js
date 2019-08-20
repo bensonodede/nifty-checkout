@@ -12,6 +12,7 @@ import { LabelInput } from "../../input";
 import { validatePhoneNum } from "../../validation";
 import { CREATE_ORDER } from "../../graphql/mutation";
 import { Loader } from "../../loader";
+import { ScrollToTop } from "../../utils";
 
 // Import styles
 import "./styles.css";
@@ -93,6 +94,9 @@ class PhoneNum extends Component {
         <Helmet>
           <title>Phone number - {storeName}</title>
         </Helmet>
+
+        {/* Scroll to top of the page */}
+        <ScrollToTop />
 
         {/* Mutation */}
         <Mutation
@@ -182,7 +186,7 @@ class PhoneNum extends Component {
                     </div>
                     {/* Page footer */}
                     {loading ? (
-                      <div className="phoneNum__loader">
+                      <div className="footer__loader-container">
                         <div className="footer__loader-body">
                           <div className="footer__loader">
                             <Loader />

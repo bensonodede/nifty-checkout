@@ -21,7 +21,7 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
   align-self: center;
-  padding: 2.3vw 6vw;
+  padding: 1.5vw 5vw;
 
   cursor: pointer;
 }
@@ -62,7 +62,6 @@ input[type="file"] {
   width: 86vw;
   height: 80vw;
   border: solid 1px #e5e5e5;
-
   border-radius: 10px;
   object-fit: cover;
   background-color: #e5e5e5;
@@ -74,7 +73,7 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
   width: 28vw;
-  padding: 2.5vw 1.2vw;
+  padding: 2vw 1.2vw;
   margin-bottom: 5vw;
   text-align: center;
   border: solid 1px #f36b7f;
@@ -85,6 +84,7 @@ input[type="file"] {
   margin: 0vw;
   margin-left: 1.3vw;
   font-family: "airbnb_cereal_appbook";
+  font-size: 4.2vw;
   color: #f36b7f;
 }
 

@@ -88,6 +88,8 @@ class Review extends Component {
                     {data.productByHumanId.name} - {storeName}
                   </title>
                 </Helmet>
+
+                {/* Image component */}
                 <img
                   onLoad={() => {
                     // Set image loaded state

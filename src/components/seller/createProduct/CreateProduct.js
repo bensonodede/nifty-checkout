@@ -60,9 +60,7 @@ class CreateProduct extends Component {
           this.props.history.push(`/${storeName}/products`);
         }}
         update={(cache, { data: { createProduct } }) => {
-          //
-
-          console.log(createProduct);
+          // Get mutation type
           let { __typename } = createProduct;
 
           try {

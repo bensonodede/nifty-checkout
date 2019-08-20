@@ -57,11 +57,9 @@
 
 .footer {
   position: fixed;
-  display: block;
+  display: flex;
   bottom: 0;
-  width: 100vw;
-  border-top: 1.2px solid #e5e5e5;
-  background-color: #ffffff;
+  right: 0;
 }
 
 .footer__body {
@@ -108,6 +106,15 @@
   margin-left: auto;
   margin-right: auto;
   align-self: center;
+}
+
+.footer__loader-container {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  width: 87vw;
+  padding: 1.5vw 6.5vw;
 }
 
 .footer__loader-body {

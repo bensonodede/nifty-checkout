@@ -26,7 +26,7 @@ const Loader = () => (
     timeout={1000}
   >
     <div className="loader">
-      <Lottie options={defaultOptions} />
+      <Lottie options={defaultOptions} isClickToPauseDisabled={true} />
     </div>
   </CSSTransition>
 );

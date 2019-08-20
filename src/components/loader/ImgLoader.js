@@ -31,7 +31,7 @@ class ImgLoader extends Component {
     // Insert transformations and optimizations for placeholder
     let placeholder = [
       src.slice(0, position),
-      "e_blur:1500,q_1,f_auto/",
+      "q_1,f_auto/",
       src.slice(position)
     ].join("");
 

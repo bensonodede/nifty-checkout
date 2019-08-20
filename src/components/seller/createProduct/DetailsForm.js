@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field } from "formik";
 import v8n from "v8n";
+import { Helmet } from "react-helmet";
 
 // Import Components
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
@@ -93,6 +94,7 @@ class DetailsForm extends Component {
   render() {
     let { values, loading } = this.props;
     let { nameValid, priceValid } = this.state;
+    let { storeName } = this.props.match.params;
 
     // Declare gloabl URL for image preview
     let PREVIEW_URL = "";
@@ -103,6 +105,11 @@ class DetailsForm extends Component {
     }
     return (
       <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Add details - {storeName}</title>
+        </Helmet>
+
         <div className="App-container">
           {/* Page header */}
           <div className="header">
@@ -151,14 +158,16 @@ class DetailsForm extends Component {
           </div>
         </div>
         {/* Page footer */}
-        <div className="footer">
-          {loading ? (
+        {loading ? (
+          <div className="footer__loader-container">
             <div className="footer__loader-body">
               <div className="footer__loader">
                 <Loader />
               </div>
             </div>
-          ) : (
+          </div>
+        ) : (
+          <div className="footer">
             <div className="footer__body">
               <button
                 type="submit"
@@ -172,8 +181,8 @@ class DetailsForm extends Component {
                 Done
               </button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     );
   }

@@ -36,7 +36,11 @@ const PulseBtn = props => {
     >
       {/* Lottie pulse animation */}
       <div className="pulse__lottie">
-        <Lottie options={defaultOptions} isPaused={props.isPaused} />
+        <Lottie
+          options={defaultOptions}
+          isPaused={props.isPaused}
+          isClickToPauseDisabled={true}
+        />
       </div>
 
       {/* Circular button */}

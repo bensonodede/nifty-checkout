@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import { Mutation } from "react-apollo";
+import { Helmet } from "react-helmet";
 import numeral from "numeral";
 
 // Import components
@@ -8,13 +9,17 @@ import { validateImage, validateName } from "../../validation";
 import { LabelInput, GenericInput } from "../../input";
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import Thumb from "../createProduct/Thumb";
-import { UPDATE_PRODUCT } from "../../graphql/mutation";
 import { Loader } from "../../loader";
+import { ScrollToTop } from "../../utils";
 
 // Import icons
 import { Icon } from "react-icons-kit";
 import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOutline";
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
+
+// Import GraphQL operations
+import { UPDATE_PRODUCT } from "../../graphql/mutation";
+import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 // Import styles
 import "./styles.css";
@@ -83,6 +88,42 @@ class EditProduct extends Component {
           // Redirect to store product page
           this.props.history.push(`/${storeName}/products`);
         }}
+        update={(cache, { data: { updateProduct } }) => {
+          //
+
+          let { __typename } = updateProduct;
+
+          try {
+            // Get data from cache
+
+            const data = cache.readQuery({
+              query: PRODUCTS_FEED_QUERY,
+              variables: {
+                type: __typename
+              }
+            });
+
+            // Remove old edited product from array of cached products
+            const productsArr = data.productsByStore.filter(
+              product => product.id !== updateProduct.id
+            );
+
+            // Update apollo cache after mutation
+            cache.writeQuery({
+              query: PRODUCTS_FEED_QUERY,
+              variables: {
+                type: __typename
+              },
+
+              // Add new edited product to cached array
+              data: {
+                productsByStore: [updateProduct, ...productsArr]
+              }
+            });
+          } catch (error) {
+            console.log(error);
+          }
+        }}
       >
         {(mutate, { loading, error }) => {
           if (error) {
@@ -91,6 +132,14 @@ class EditProduct extends Component {
 
           return (
             <div>
+              {/* Document title */}
+              <Helmet>
+                <title>Edit product - {storeName}</title>
+              </Helmet>
+
+              {/* Scroll to top of the page */}
+              <ScrollToTop />
+
               <Formik
                 initialValues={{
                   file: "",
@@ -249,15 +298,17 @@ class EditProduct extends Component {
 
                     {/********** Page footer **********/}
 
-                    <div className="footer">
-                      {/* Mutation loader */}
-                      {loading ? (
+                    {/* Mutation loader */}
+                    {loading ? (
+                      <div className="footer__loader-container">
                         <div className="footer__loader-body">
                           <div className="footer__loader">
                             <Loader />
                           </div>
                         </div>
-                      ) : (
+                      </div>
+                    ) : (
+                      <div className="footer">
                         <div className="footer__body">
                           {/* Submit button */}
                           <button
@@ -272,8 +323,8 @@ class EditProduct extends Component {
                             Save
                           </button>
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
 
                     {/********** End page footer **********/}
                   </Form>

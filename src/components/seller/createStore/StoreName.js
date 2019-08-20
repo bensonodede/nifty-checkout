@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field } from "formik";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import v8n from "v8n";
 
 // Import components
@@ -8,6 +9,7 @@ import { GenericMaskedInput } from "../../input";
 
 // Import styles
 import "./styles.css";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 class StoreName extends Component {
   constructor() {
@@ -78,7 +80,14 @@ class StoreName extends Component {
 
     return (
       <div>
-        <div className="App-container">
+        {/* Document title */}
+        <Helmet>
+          <title>Create a store - Store name - Isle99</title>
+        </Helmet>
+
+        <ScrollToTop />
+        {/* Store name component */}
+        <div className="App-container store-name">
           {/* Store name page header */}
           <div className="header">
             <h1 className="header__title">What's the name of your store?</h1>

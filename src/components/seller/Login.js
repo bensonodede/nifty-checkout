@@ -1,6 +1,8 @@
 // Import packages
 import React, { Component } from "react";
 import { Query } from "react-apollo";
+import { Helmet } from "react-helmet";
+import Cookies from "js-cookie";
 
 // Import higher order components
 import { withFirebase } from "../firebase";
@@ -55,8 +57,8 @@ class Login extends Component {
   }
 
   // Handle data once query runs
-  handleComplete = data => {
-    // Get User stores from data
+  handleComplete = async data => {
+    // Get User store from data
     let { stores } = data.login;
 
     // Get history function from router props
@@ -65,6 +67,9 @@ class Login extends Component {
     // If user has a store redirect to store
     if (stores[0]) {
       let { storeName } = stores[0];
+
+      // Set user store name to global cookie
+      await Cookies.set("userStore", storeName);
 
       history.push(`/${storeName}/products`);
     }
@@ -77,72 +82,80 @@ class Login extends Component {
 
   render() {
     return (
-      <AuthUserContext.Consumer>
-        {authUser => {
-          /* Destructure uid and make it global */
-          let uid;
-          if (authUser) {
-            uid = authUser.uid;
-          }
+      <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Login - Isle99</title>
+        </Helmet>
 
-          return (
-            // Query component
-            <Query
-              // Graphql login query
-              query={LOGIN_QUERY}
-              // User ID from firebase social sign
-              variables={{ uid }}
-              // Run query if authUser is true
-              skip={!authUser}
-              // Handle data once query is completed
-              onCompleted={data => this.handleComplete(data)}
-            >
-              {({ loading, error, data }) => {
-                /* Loading handler */
-                if (loading || this.state.loading) {
-                  return <LoginLoader />;
-                }
+        {/* Auth user */}
+        <AuthUserContext.Consumer>
+          {authUser => {
+            /* Destructure uid and make it global */
+            let uid;
+            if (authUser) {
+              uid = authUser.uid;
+            }
 
-                /* Error handling */
-                if (error) {
-                  console.log(error);
-                  return <Error />;
-                }
+            return (
+              // Query component
+              <Query
+                // Graphql login query
+                query={LOGIN_QUERY}
+                // User ID from firebase social sign
+                variables={{ uid }}
+                // Run query if authUser is true
+                skip={!authUser}
+                // Handle data once query is completed
+                onCompleted={data => this.handleComplete(data)}
+              >
+                {({ loading, error, data }) => {
+                  /* Loading handler */
+                  if (loading || this.state.loading) {
+                    return <LoginLoader />;
+                  }
 
-                /* Render login page */
-                return (
-                  <div className="App-container">
-                    {/* Login logo */}
-                    <div className="login__logo-container">
-                      <img
-                        src={require("../../images/isle99_pink.png")}
-                        alt={"logo"}
-                        className="login__logo"
-                      />
+                  /* Error handling */
+                  if (error) {
+                    console.log(error);
+                    return <Error />;
+                  }
+
+                  /* Render login page */
+                  return (
+                    <div className="App-container">
+                      {/* Login logo */}
+                      <div className="login__logo-container">
+                        <img
+                          src={require("../../images/isle99_pink.png")}
+                          alt={"logo"}
+                          className="login__logo"
+                        />
+                      </div>
+                      {/* Login header */}
+                      <div className="login__header">
+                        {/* Login title */}
+                        <h1 className="login__title">Let's get started</h1>
+                        <p className="login__sub-title">
+                          Create great online experiences for your customers.
+                        </p>
+                      </div>
+
+                      {/* Social auth components */}
+                      <div className="login__list">
+                        <SignInGoogle />
+                        <SignInFacebook />
+                        <SignInTwitter />
+                      </div>
                     </div>
-                    {/* Login header */}
-                    <div className="login__header">
-                      {/* Login title */}
-                      <h1 className="login__title">Let's get started</h1>
-                      <p className="login__sub-title">
-                        Create great online experiences for your customers.
-                      </p>
-                    </div>
-
-                    {/* Social auth components */}
-                    <div className="login__list">
-                      <SignInGoogle />
-                      <SignInFacebook />
-                      <SignInTwitter />
-                    </div>
-                  </div>
-                );
-                /* End Render login page */
-              }}
-            </Query>
-          );
-        }}
-      </AuthUserContext.Consumer>
+                  );
+                  /* End Render login page */
+                }}
+              </Query>
+            );
+          }}
+        </AuthUserContext.Consumer>
+      </div>
     );
   }
 }

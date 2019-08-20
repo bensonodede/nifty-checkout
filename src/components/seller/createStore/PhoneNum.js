@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { withFirebase } from "../../firebase";
+import { Helmet } from "react-helmet";
 import v8n from "v8n";
 
 // Import styles
 import "./styles.css";
 
 // Import components
-import { LabelInput } from "../../input";
 import { Field } from "formik";
+import { LabelInput } from "../../input";
+import { Loader } from "../../loader";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 // Number mask input definition
 const phoneNumMask = [
@@ -100,6 +103,14 @@ class PhoneNumPage extends Component {
 
     return (
       <div>
+        {/* Document title */}
+        <Helmet>
+          <title>Create a store - Phone number - Isle99</title>
+        </Helmet>
+
+        <ScrollToTop />
+
+        {/* Phone number component */}
         <div className="App-container">
           {/* Phone number page header */}
           <div className="header">
@@ -133,20 +144,30 @@ class PhoneNumPage extends Component {
         </div>
 
         {/* Page footer */}
-        <div className="footer">
-          <div className="footer__body">
-            {/* Footer button */}
-            <button
-              type="submit"
-              className={
-                valid ? "footer__btn" : "footer__btn footer__btn--disabled"
-              }
-              disabled={!valid}
-            >
-              Done
-            </button>
+        {this.props.loading ? (
+          <div className="footer__loader-container">
+            <div className="footer__loader-body">
+              <div className="footer__loader">
+                <Loader />
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="footer">
+            <div className="footer__body">
+              {/* Footer button */}
+              <button
+                type="submit"
+                className={
+                  valid ? "footer__btn" : "footer__btn footer__btn--disabled"
+                }
+                disabled={!valid}
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

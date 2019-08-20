@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
+import Cookies from "js-cookie";
 
 //Import components
 import { AuthUserContext, withAuthorization } from "../../session";
@@ -61,19 +62,24 @@ class CreateStore extends Component {
 
     // Reset form
     await actions.resetForm({});
-
-    // Workaround to clear formik persist
-    await actions.resetForm({});
-
-    // Redirect to store product page
-    this.props.history.push(`/${storeName}/products`);
   };
 
   render() {
     return (
       <AuthUserContext.Consumer>
         {authUser => (
-          <Mutation mutation={CREATE_STORE}>
+          <Mutation
+            mutation={CREATE_STORE}
+            onCompleted={async data => {
+              let { storeName } = data.createStore;
+
+              // Set user store name to global cookie
+              await Cookies.set("userStore", storeName);
+
+              // Redirect to store product page
+              this.props.history.push(`/${storeName}/products`);
+            }}
+          >
             {(createStore, { loading, error }) => {
               /* Error handling */
               if (error) {

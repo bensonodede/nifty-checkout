@@ -26,6 +26,10 @@
   text-decoration: none;
 }
 
+.social__btn:active {
+  opacity: 0.4;
+}
+
 .social__icon {
   margin: 0;
   width: 5.5vw;
