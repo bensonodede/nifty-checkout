@@ -10,6 +10,8 @@ const EmptyState = props => (
     <p className="product__empty-text">
       Click the button below to add your first product.
     </p>
+
+    {/* Link to create product form */}
     <Link
       to={`/${props.storeName}/add-product`}
       style={{ textDecoration: "none" }}
@@ -21,7 +23,9 @@ const EmptyState = props => (
     <img
       className="product__empty-img"
       alt={"no_internet"}
-      src={require("../../../images/pablo-no-comments.png")}
+      src={
+        "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625899/web_assets/pablo-no-comments.png"
+      }
     />
   </div>
 );

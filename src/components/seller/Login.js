@@ -127,7 +127,9 @@ class Login extends Component {
                       {/* Login logo */}
                       <div className="login__logo-container">
                         <img
-                          src={require("../../images/isle99_pink.png")}
+                          src={
+                            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/isle99_pink.png"
+                          }
                           alt={"logo"}
                           className="login__logo"
                         />

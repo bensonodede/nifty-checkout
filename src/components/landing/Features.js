@@ -6,11 +6,7 @@ const Features = () => (
     <div className="feature">
       {/* Feature image */}
       <div className="feature__img-container">
-        <img
-          className="feature__img"
-          alt={"Increase sales"}
-          src={require("../../images/Jeans-Butt.gif")}
-        />
+        <img className="feature__img" alt={"Increase sales"} />
       </div>
 
       {/* Feature header */}

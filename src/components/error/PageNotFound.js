@@ -31,7 +31,9 @@ const PageNotFound = ({ history }) => (
     <img
       className="page-not-found__img"
       alt={"page not found"}
-      src={require("../../images/pablo-fatal-error.png")}
+      src={
+        "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625902/web_assets/pablo-fatal-error.png"
+      }
     />
   </div>
 );

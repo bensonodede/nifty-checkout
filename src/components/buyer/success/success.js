@@ -42,7 +42,9 @@ const Success = props => {
       <img
         className="success__img"
         alt={"no_internet"}
-        src={require("../../../images/pablo-good-job.png")}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382183/web_assets/pablo-good-job.png"
+        }
       />
     </div>
   );

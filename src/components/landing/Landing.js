@@ -44,7 +44,9 @@ class Landing extends Component {
             <img
               className={"landing__logo"}
               alt={"isle99-logo"}
-              src={require("../../images/isle99_charcoal.png")}
+              src={
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/isle99_charcoal.png"
+              }
             />
           </div>
 
@@ -54,7 +56,9 @@ class Landing extends Component {
             <img
               className="hero__img"
               alt={"landing_header"}
-              src={require("../../images/pablo-delete-confirmation.png")}
+              src={
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625948/web_assets/pablo-delete-confirmation.png"
+              }
             />
           </div>
 
@@ -110,7 +114,9 @@ class Landing extends Component {
               <img
                 className="faq__img"
                 alt={"landing_header"}
-                src={require("../../images/pablo-animal-care.png")}
+                src={
+                  "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625895/web_assets/pablo-animal-care.png"
+                }
               />
             </div>
             {/* Iterate through questions */}

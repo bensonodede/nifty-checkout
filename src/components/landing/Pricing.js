@@ -10,7 +10,9 @@ const Pricing = () => (
       <img
         className="pricing__img"
         alt={"landing_header"}
-        src={require("../../images/pablo-coming-soon.png")}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625900/web_assets/pablo-coming-soon.png"
+        }
       />
     </div>
 

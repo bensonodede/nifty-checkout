@@ -28,7 +28,9 @@ const Error = () => (
     <img
       className="error__img"
       alt={"no_internet"}
-      src={require("../../images/pablo-no-connection.png")}
+      src={
+        "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625964/web_assets/pablo-no-connection.png"
+      }
     />
   </div>
 );

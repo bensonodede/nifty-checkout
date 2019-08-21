@@ -10,7 +10,9 @@ const Explain = () => (
       <img
         className="explain__img"
         alt={"no_internet"}
-        src={require("../../../images/pablo-come-back-later.png")}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565626269/web_assets/pablo-come-back-later.png"
+        }
       />
     </div>
 

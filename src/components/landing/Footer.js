@@ -8,7 +8,9 @@ const Footer = () => (
       <img
         className={"landing__footer-logo-img"}
         alt={"isle99-logo"}
-        src={require("../../images/isle99_pink.png")}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/isle99_pink.png"
+        }
       />
     </div>
 

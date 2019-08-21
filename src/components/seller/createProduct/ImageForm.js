@@ -12,8 +12,6 @@ import { Icon } from "react-icons-kit";
 import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOutline";
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
-import { SignOut } from "../../auth";
-
 // Import styles
 import "../../../styles/index.css";
 import "./styles.css";
@@ -181,7 +179,6 @@ class ImageForm extends Component {
 
         {/* Page footer */}
         <div className="footer">
-          <SignOut />
           <div className="footer__body">
             <Link to={`/${storeName}/add-product/details`}>
               <button

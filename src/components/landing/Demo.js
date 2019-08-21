@@ -11,15 +11,19 @@ const Demo = () => (
       <img
         className="demo__mockup"
         alt={"demo__mockup"}
-        src={require("../../images/iphone_x_mockup.png")}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566397303/web_assets/iphone_x_mockup.png"
+        }
       />
+
       {/* Product demo GIF */}
       <div className="demo__gif-container">
-        <img
-          className="demo__gif"
-          alt={"demo__gif"}
-          src={require("../../images/Product-demo.gif")}
-        />
+        <video autoPlay loop muted={"muted"} className="demo__gif">
+          <source
+            type="video/mp4"
+            src="https://res.cloudinary.com/dzxuz9zc9/video/upload/q_auto/v1566383113/web_assets/Product-demo.mp4"
+          />
+        </video>
       </div>
     </div>
   </div>

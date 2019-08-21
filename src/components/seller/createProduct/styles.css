@@ -47,7 +47,7 @@ input[type="file"] {
 }
 
 .product-form__placeholder-background {
-  background-image: url("../../../images/img-placeholder.jpg");
+  background-image: url("https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566397329/web_assets/img-placeholder.png");
   background-repeat: no-repeat;
   background-size: 75vw 70vw;
   background-position: center;
