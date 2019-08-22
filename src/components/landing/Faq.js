@@ -7,7 +7,7 @@ const Faq = props => {
     <div>
       {/* Document title */}
       <Helmet>
-        <title>Isle99 - FAQ</title>
+        <title>Finn - FAQ</title>
       </Helmet>
 
       {/* FAQ component */}

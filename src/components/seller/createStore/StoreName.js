@@ -82,7 +82,7 @@ class StoreName extends Component {
       <div>
         {/* Document title */}
         <Helmet>
-          <title>Create a store - Store name - Isle99</title>
+          <title>Create a store - Store name - Finn</title>
         </Helmet>
 
         <ScrollToTop />

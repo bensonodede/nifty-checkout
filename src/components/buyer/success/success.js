@@ -23,7 +23,7 @@ const Success = props => {
         Go Back
       </button>
 
-      {/* Isle99 label */}
+      {/* Finn label */}
       <p className="success__label">
         <span
           role="img"
@@ -34,7 +34,7 @@ const Success = props => {
         </span>
         by{" "}
         <Link to={"/"}>
-          <span className="success__text--bold success--pink">Isle99.</span>
+          <span className="success__text--bold success--pink">Finn.</span>
         </Link>
       </p>
 

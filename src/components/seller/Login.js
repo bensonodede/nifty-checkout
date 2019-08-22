@@ -85,7 +85,7 @@ class Login extends Component {
       <div>
         {/* Document title */}
         <Helmet>
-          <title>Login - Isle99</title>
+          <title>Login - Finn</title>
         </Helmet>
 
         {/* Auth user */}
@@ -128,7 +128,7 @@ class Login extends Component {
                       <div className="login__logo-container">
                         <img
                           src={
-                            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/isle99_pink.png"
+                            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
                           }
                           alt={"logo"}
                           className="login__logo"

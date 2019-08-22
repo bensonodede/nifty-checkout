@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 // Import components
 import Demo from "./Demo";
 import How from "./How";
-// import Features from "./Features";
 import Pricing from "./Pricing";
 import Signup from "./Signup";
 import Footer from "./Footer";
@@ -33,7 +32,7 @@ class Landing extends Component {
       <div>
         {/* Document title */}
         <Helmet>
-          <title>Isle99 - Simple, Beautiful checkouts</title>
+          <title>Finn - Simple, Beautiful checkouts</title>
         </Helmet>
 
         <div className="App-container">
@@ -43,14 +42,15 @@ class Landing extends Component {
           <div className="landing__logo-container">
             <img
               className={"landing__logo"}
-              alt={"isle99-logo"}
+              alt={"finn-logo"}
               src={
-                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/isle99_charcoal.png"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_charcoal.png"
               }
             />
           </div>
 
           {/********** Hero section **********/}
+
           {/* Hero image */}
           <div className="hero__img-container">
             <img
@@ -119,6 +119,7 @@ class Landing extends Component {
                 }
               />
             </div>
+
             {/* Iterate through questions */}
             {faq.map(item => (
               <Link

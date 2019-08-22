@@ -105,7 +105,7 @@ class PhoneNumPage extends Component {
       <div>
         {/* Document title */}
         <Helmet>
-          <title>Create a store - Phone number - Isle99</title>
+          <title>Create a store - Phone number - Finn</title>
         </Helmet>
 
         <ScrollToTop />

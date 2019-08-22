@@ -20,9 +20,9 @@ const Pricing = () => (
     <div className="pricing__card">
       <h1 className="pricing__sub-title">Pay low fees</h1>
       <p className="pricing__text">
-        Isle99 is free to sign up. We charge a{" "}
-        <span className="pricing__warn">2.5%</span> fee per transaction. There
-        are no hidden fees.
+        Finn is free to sign up. We charge a{" "}
+        <span className="pricing__warn">2.5%</span> fee per transaction. M-pesa
+        charges also apply. There are no hidden fees.
       </p>
     </div>
 

@@ -62,7 +62,7 @@ class PhoneNum extends Component {
     const buyerNum = "254" + phoneNum.replace(/\D+/g, "");
 
     // Set phone number as cookie
-    await Cookies.set("phoneNum", buyerNum);
+    await Cookies.set("phoneNum", buyerNum, { expires: 10000 });
 
     // Set form submitting state to true
     await actions.setSubmitting(true);
