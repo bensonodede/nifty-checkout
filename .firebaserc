@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "magic-finn"
+    "default": "magic-finn",
+    "dev": "magic-finn-dev"
   }
 }
