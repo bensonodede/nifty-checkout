@@ -9,7 +9,7 @@ import Firebase, { FirebaseContext } from "./components/firebase/";
 import Routes from "./components/Routes";
 
 const link = createUploadLink({
-  uri: "http://localhost:4000/graphql"
+  uri: "https://finn-server.herokuapp.com/graphql"
 });
 
 // Initialize apollo client

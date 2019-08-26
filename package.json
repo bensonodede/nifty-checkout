@@ -40,6 +40,8 @@
     "prepare": "patch-package",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy-prod": "react-scripts build && firebase use prod && firebase deploy --only hosting",
+    "deploy-dev": "react-scripts build && firebase use dev && firebase deploy --only hosting",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
