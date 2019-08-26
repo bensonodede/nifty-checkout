@@ -54,8 +54,6 @@ class CreateProduct extends Component {
       <Mutation
         mutation={CREATE_PRODUCT}
         onCompleted={data => {
-          console.log(data);
-
           // Redirect to store product page
           this.props.history.push(`/${storeName}/products`);
         }}
@@ -72,8 +70,6 @@ class CreateProduct extends Component {
                 type: __typename
               }
             });
-
-            console.log(data);
 
             // Update apollo cache after mutation
             cache.writeQuery({
@@ -94,10 +90,6 @@ class CreateProduct extends Component {
           /* Error handling */
           if (error) {
             console.log(error);
-          }
-
-          if (loading) {
-            console.log("Loading...");
           }
 
           /* Render form */
