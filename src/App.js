@@ -8,6 +8,7 @@ import Firebase, { FirebaseContext } from "./components/firebase/";
 // Import routes
 import Routes from "./components/Routes";
 
+// Configure network
 const link = createUploadLink({
   uri: "https://finn-server.herokuapp.com/graphql"
 });
