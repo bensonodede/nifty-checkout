@@ -8,9 +8,18 @@ import Firebase, { FirebaseContext } from "./components/firebase/";
 // Import routes
 import Routes from "./components/Routes";
 
-// Configure network
+// Import server url environment variables
+let serverUrl;
+
+if (process.env.NODE_ENV === "development") {
+  serverUrl = process.env.REACT_APP_DEV_SERVER_URL;
+} else {
+  serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
+}
+
+console.log(serverUrl);
 const link = createUploadLink({
-  uri: "https://finn-server.herokuapp.com/graphql"
+  uri: serverUrl
 });
 
 // Initialize apollo client
