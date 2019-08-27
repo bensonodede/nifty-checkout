@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === "development") {
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
 }
 
-console.log(serverUrl);
 const link = createUploadLink({
   uri: serverUrl
 });
