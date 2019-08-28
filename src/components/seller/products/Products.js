@@ -15,6 +15,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import ProductCard from "./ProductCard";
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
+import { Menu } from "../menu";
 
 // Import styles
 import "../../../styles/index.css";
@@ -66,7 +67,6 @@ class Products extends Component {
               }
 
               // Loading state
-
               if (loading) {
                 return <ProductLoader />;
               }
@@ -74,6 +74,7 @@ class Products extends Component {
               return (
                 /********** Render products **********/
                 <div>
+                  <Menu />
                   {data.productsByStore[0] ? (
                     <div>
                       {/********** Products header **********/}
