@@ -14,11 +14,14 @@ class Menu extends Component {
 
     this.state = {
       visible: false,
-      animate: false
+      animate: false,
+      isStopped: true,
+      direction: 1
     };
   }
 
-  // Toggle menu appearance
+  /********** Toggle menu appearance **********/
+
   toggleMenu = () => {
     let { visible } = this.state;
 
@@ -30,14 +33,35 @@ class Menu extends Component {
     }
   };
 
+  /********** Toggle button animation **********/
+
+  toggleBtn = () => {
+    const { isStopped } = this.state;
+
+    // Reverse lottie animation direction
+    if (!isStopped) {
+      this.setState(prevState => ({
+        direction: prevState.direction * -1
+      }));
+    }
+
+    // Play lottie animation
+    this.setState({ isStopped: false });
+  };
+
   render() {
     // Destructure state
-    let { visible, animate } = this.state;
+    let { visible, animate, isStopped, direction } = this.state;
 
     return (
       <div>
         {/* Menu toggle button */}
-        <MenuBtn toggle={this.toggleMenu} />
+        <MenuBtn
+          toggleMenu={this.toggleMenu}
+          toggleBtn={this.toggleBtn}
+          direction={direction}
+          isStopped={isStopped}
+        />
 
         {/* Menu content */}
         {visible ? (
@@ -51,8 +75,12 @@ class Menu extends Component {
               e.stopPropagation();
             }}
           >
+            {/* Menu links */}
             <div className="menu">
-              <MenuList />
+              <MenuList
+                toggleMenu={this.toggleMenu}
+                toggleBtn={this.toggleBtn}
+              />
             </div>
           </CSSTransition>
         ) : null}

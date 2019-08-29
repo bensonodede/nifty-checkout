@@ -5,12 +5,12 @@ import { NavLink, withRouter } from "react-router-dom";
 const links = require("./menu.json");
 
 const MenuList = props => {
+  let { toggleBtn, toggleMenu } = props;
   let { storeName } = props.match.params;
 
   return (
     <div>
       {/* Menu logo */}
-
       <img
         className={"menu__logo"}
         alt={"finn-logo"}
@@ -24,6 +24,10 @@ const MenuList = props => {
         {/* Map menu links */}
         {links.map(item => (
           <NavLink
+            onClick={() => {
+              toggleMenu();
+              toggleBtn();
+            }}
             key={item.id}
             to={`/${storeName}/${item.link}`}
             className="menu__link"
