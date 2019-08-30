@@ -219,9 +219,7 @@ a {
   background-color: #ffffff;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
   justify-content: center;
   width: 28vw;
   padding: 2.5vw 2vw;

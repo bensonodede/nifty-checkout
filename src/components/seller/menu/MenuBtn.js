@@ -12,7 +12,7 @@ const MenuBtn = props => {
   const defaultOptions = {
     loop: false,
     autoplay: false,
-    animationData: require("../../../images/menu.json"),
+    animationData: require("../../../images/menu-black.json"),
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
     }
@@ -36,7 +36,7 @@ const MenuBtn = props => {
           direction={direction}
           isStopped={isStopped}
           isPaused={false}
-          speed={1}
+          speed={1.5}
         />
       </div>
     </button>

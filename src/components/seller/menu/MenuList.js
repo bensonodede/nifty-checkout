@@ -9,7 +9,7 @@ const MenuList = props => {
   let { storeName } = props.match.params;
 
   return (
-    <div>
+    <div className="menu__body">
       {/* Menu logo */}
       <img
         className={"menu__logo"}

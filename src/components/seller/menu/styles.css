@@ -69,6 +69,12 @@
 }
 
 /********** Menu Page  **********/
+.menu__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vw;
+}
 
 .menu__logo {
   width: 10vw;
@@ -79,6 +85,9 @@
 .menu__list {
   padding: 0vw 6.5vw;
   margin-top: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu__link {
@@ -93,5 +102,5 @@
 }
 
 .menu__item {
-  margin: 8vw 0vw;
+  margin: 5vw 0vw;
 }
