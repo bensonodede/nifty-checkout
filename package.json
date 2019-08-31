@@ -55,6 +55,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "patch-package": "6.1.2"
+    "patch-package": "6.1.2",
+    "postinstall-prepare": "1.0.1"
   }
 }

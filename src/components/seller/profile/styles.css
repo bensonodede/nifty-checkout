@@ -1,7 +1,12 @@
+.profile {
+  height: 100vh;
+}
+
 .profile__header {
   display: flex;
   flex-direction: column;
-  margin-top: 10vw;
+  padding-top: 10vw;
+  align-items: center;
 }
 
 .profile__title {
@@ -31,8 +36,7 @@
 }
 
 .profile__body {
-  padding: 10vw 0vw 10vw 0vw;
-  border-bottom: solid #e5e5e5 1.2px;
+  padding-top: 15vw;
 }
 
 .profile__thumbnail {
@@ -51,6 +55,10 @@
   padding: 3.5vw 0vw;
 }
 
+.profile__row:active {
+  background-color: #e5e5e5;
+}
+
 .profile__icon {
   width: 7vw;
   height: auto;
@@ -62,31 +70,9 @@
   font-family: "airbnb_cereal_appbook";
   color: #787878;
   font-size: 4.8vw;
-  line-height: 6.8vw;
-  padding-top: 1.2vw;
   text-align: left;
 }
 
-.profile__sign-out {
-  background-color: #efefef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 87vw;
-  padding: 3.5vw 2vw;
-  margin: 10vw 0vw 10vw 0vw;
-  text-align: center;
-  border: none;
-  border-radius: 6px;
-
-  /* Button text */
-  font-family: "airbnb_cereal_appmedium";
+.profile__text--warn {
   color: #f36b7f;
-  font-size: 4.8vw;
-  text-align: center;
-}
-
-.profile__sign-out:active {
-  background-color: #f36b7f;
-  color: #ffffff;
 }

@@ -1,0 +1,52 @@
+.help {
+  height: 100vh;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+}
+
+.help__header {
+  background-color: #ffebd1;
+  padding: 10vw 6.5vw 12vw 6.5vw;
+}
+
+.help__img {
+  width: 10vw;
+  height: auto;
+}
+
+.help__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  margin: 0vw;
+  color: #484848;
+  padding-top: 16vw;
+}
+
+.help__body {
+  padding-top: 10vw;
+}
+
+.help__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vw 0vw;
+  border-bottom: solid #e5e5e5 1px;
+}
+
+.help__row:active {
+  background-color: #e5e5e5;
+}
+
+.help__text {
+  margin: 0;
+  font-family: "airbnb_cereal_appbook";
+  color: #787878;
+  font-size: 4.8vw;
+  text-align: left;
+}
+
+.help__icon {
+  width: 6vw;
+  height: auto;
+}

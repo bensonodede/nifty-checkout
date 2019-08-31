@@ -7,6 +7,7 @@ import SignOut from "../../auth/SignOut";
 import { Icon } from "react-icons-kit";
 import { iosComposeOutline } from "react-icons-kit/ionicons/iosComposeOutline";
 import { iosHelpOutline } from "react-icons-kit/ionicons/iosHelpOutline";
+import { iosCloseOutline } from "react-icons-kit/ionicons/iosCloseOutline";
 
 // Import styles
 import "./styles.css";
@@ -38,7 +39,7 @@ const Profile = props => {
             <h1 className="profile__title">{storeName}</h1>
           </div>
 
-          {/* Profile body */}
+          {/********** Profile body **********/}
           <div className="profile__body">
             {/* Profile list item */}
             <div className="profile__row">
@@ -63,12 +64,23 @@ const Profile = props => {
               </div>
               <p className="profile__text">Help and support</p>
             </div>
+
+            {/* Profile sign out */}
+            <SignOut>
+              <div className="profile__row">
+                <div className="profile__icon">
+                  <Icon
+                    icon={iosCloseOutline}
+                    size={"100%"}
+                    style={{ color: "#f36b7f" }}
+                  />
+                </div>
+                <p className="profile__text profile__text--warn">Log out</p>
+              </div>
+            </SignOut>
           </div>
 
-          {/* Sign out button */}
-          <SignOut>
-            <button className="profile__sign-out">Log out</button>
-          </SignOut>
+          {/********** End Profile body **********/}
         </div>
       </div>
     </div>
