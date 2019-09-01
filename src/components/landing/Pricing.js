@@ -9,7 +9,7 @@ const Pricing = () => (
     <div className="pricing__img-container">
       <img
         className="pricing__img"
-        alt={"landing_header"}
+        alt={"finn pricing"}
         src={
           "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625900/web_assets/pablo-coming-soon.png"
         }

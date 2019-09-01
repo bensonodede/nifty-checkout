@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 // Import components
 import { Menu } from "../menu";
@@ -8,55 +9,56 @@ import { iosArrowRight } from "react-icons-kit/ionicons/iosArrowRight";
 // Import styles
 import "./styles.css";
 
-const Help = () => (
-  <div>
-    {/* Seller menu */}
-    <Menu />
+const Help = props => {
+  let { storeName } = props.match.params;
 
-    <div className="help">
-      {/********** Help header **********/}
-      <div className="help__header">
-        {/* Help logo */}
-        <img
-          className="help__img"
-          alt={"Finn logo"}
-          src={
-            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-          }
-        />
+  return (
+    <div className="App-container help">
+      {/* Seller menu */}
+      <Menu />
 
-        {/* Help title */}
-        <h1 className="help__title">How can we help?</h1>
-      </div>
+      {/* Help logo */}
+      <img
+        className="help__img"
+        alt={"Finn logo"}
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
+        }
+      />
+
+      {/* Help title */}
+      <h1 className="help__title">How can we help?</h1>
 
       {/* Help body */}
-      <div className="App-container help__body">
+      <div className="help__body">
         {/* Help row item */}
-        <div className="help__row">
-          <p className="help__text">Common questions</p>
-          <div className="help__icon">
-            <Icon
-              icon={iosArrowRight}
-              size={"100%"}
-              style={{ color: "#787878" }}
-            />
+        <Link to={`/${storeName}/questions`}>
+          <div className="help__row">
+            <p className="help__text">Common questions</p>
+            <div className="help__icon">
+              <Icon
+                icon={iosArrowRight}
+                size={"100%"}
+                style={{ color: "#c2c2c2" }}
+              />
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Help row item */}
+
         <div className="help__row">
           <p className="help__text">Talk to us</p>
           <div className="help__icon">
             <Icon
               icon={iosArrowRight}
               size={"100%"}
-              style={{ color: "#787878" }}
+              style={{ color: "#c2c2c2" }}
             />
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
-
-export default Help;
+  );
+};
+export default withRouter(Help);

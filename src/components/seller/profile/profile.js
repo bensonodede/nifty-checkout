@@ -5,9 +5,7 @@ import { Menu } from "../menu";
 import { withAuthorization } from "../../session";
 import SignOut from "../../auth/SignOut";
 import { Icon } from "react-icons-kit";
-import { iosComposeOutline } from "react-icons-kit/ionicons/iosComposeOutline";
-import { iosHelpOutline } from "react-icons-kit/ionicons/iosHelpOutline";
-import { iosCloseOutline } from "react-icons-kit/ionicons/iosCloseOutline";
+import { iosArrowRight } from "react-icons-kit/ionicons/iosArrowRight";
 
 // Import styles
 import "./styles.css";
@@ -43,40 +41,31 @@ const Profile = props => {
           <div className="profile__body">
             {/* Profile list item */}
             <div className="profile__row">
+              <p className="profile__text">Edit profile</p>
               <div className="profile__icon">
                 <Icon
-                  icon={iosComposeOutline}
+                  icon={iosArrowRight}
                   size={"100%"}
-                  style={{ color: "#484848" }}
+                  style={{ color: "#c2c2c2" }}
                 />
               </div>
-              <p className="profile__text">Edit profile</p>
             </div>
 
             {/* Profile list item */}
             <div className="profile__row">
+              <p className="profile__text">Help and support</p>
               <div className="profile__icon">
                 <Icon
-                  icon={iosHelpOutline}
+                  icon={iosArrowRight}
                   size={"100%"}
-                  style={{ color: "#484848" }}
+                  style={{ color: "#c2c2c2" }}
                 />
               </div>
-              <p className="profile__text">Help and support</p>
             </div>
 
             {/* Profile sign out */}
             <SignOut>
-              <div className="profile__row">
-                <div className="profile__icon">
-                  <Icon
-                    icon={iosCloseOutline}
-                    size={"100%"}
-                    style={{ color: "#f36b7f" }}
-                  />
-                </div>
-                <p className="profile__text profile__text--warn">Log out</p>
-              </div>
+              <button className="profile__sign-out">Log out</button>
             </SignOut>
           </div>
 

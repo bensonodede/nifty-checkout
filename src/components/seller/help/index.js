@@ -1,3 +1,4 @@
 import Help from "./Help";
+import Questions from "./Questions";
 
-export { Help };
+export { Help, Questions };

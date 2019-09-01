@@ -51,8 +51,10 @@
 .profile__row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  padding: 3.5vw 0vw;
+  padding: 5vw 0vw;
+  border-bottom: solid #e5e5e5 1px;
 }
 
 .profile__row:active {
@@ -60,9 +62,8 @@
 }
 
 .profile__icon {
-  width: 7vw;
+  width: 6vw;
   height: auto;
-  margin-right: 4vw;
 }
 
 .profile__text {
@@ -73,6 +74,23 @@
   text-align: left;
 }
 
-.profile__text--warn {
+.profile__sign-out {
+  border-radius: 1.2vw;
+  padding: 4.2vw 12.2vw;
+  margin-top: 12vw;
+  width: 87vw;
+  background-color: #f36b7f;
+  display: inline-block;
+  border: solid 1px #f36b7f;
+  outline: none;
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 4.5vw;
+  text-align: center;
+  text-decoration: none;
+}
+
+.profile__sign-out:active {
+  background-color: #ffffff;
   color: #f36b7f;
 }
