@@ -34,8 +34,9 @@ class Routes extends Component {
           <Route path="/:storeName/products" component={ProductSwitch} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
           <Route path="/:storeName/profile" component={Profile} />
-          <Route path="/:storeName/help" component={Help} />
-          <Route path="/:storeName/questions" component={Questions} />
+          <Route exact path="/:storeName/help" component={Help} />
+          <Route path="/:storeName/help/questions" component={Questions} />
+          <Route path="/:storeName/help/faq" component={Faq} />
 
           {/* Checkout routes */}
           <Route path="/:storeName/:productId" component={Checkout} />

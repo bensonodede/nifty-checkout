@@ -32,7 +32,7 @@ const Help = props => {
       {/* Help body */}
       <div className="help__body">
         {/* Help row item */}
-        <Link to={`/${storeName}/questions`}>
+        <Link to={`/${storeName}/help/questions`}>
           <div className="help__row">
             <p className="help__text">Common questions</p>
             <div className="help__icon">

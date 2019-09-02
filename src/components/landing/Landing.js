@@ -127,7 +127,6 @@ class Landing extends Component {
                 to={{
                   pathname: "/faq",
                   state: {
-                    modal: true,
                     item
                   }
                 }}

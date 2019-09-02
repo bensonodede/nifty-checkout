@@ -51,7 +51,8 @@
 .questions {
 }
 
-.questions__header {
+.questions {
+  height: 100vh;
 }
 
 .questions__title {
@@ -59,5 +60,26 @@
   font-size: 8vw;
   margin: 0vw;
   color: #484848;
-  padding-top: 10vw;
+  padding-top: 15vw;
+}
+
+.questions__body {
+  padding-top: 20vw;
+}
+
+.questions__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vw 0vw;
+  border-bottom: solid #e5e5e5 1px;
+}
+
+.questions__text {
+  margin: 0;
+  font-family: "airbnb_cereal_appbook";
+  color: #f36b7f;
+  font-size: 4.8vw;
+  text-align: left;
 }

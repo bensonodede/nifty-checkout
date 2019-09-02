@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "question": "How much does it cost to start using finn?",
+    "answer": "It's free to sign up and start using. We only charge a 2.5% fee for sales made through finn. M-pesa charges also apply."
+  },
+  {
+    "id": 2,
+    "question": "Do I need an M-pesa paybill to use this service?",
+    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
+  }
+]
