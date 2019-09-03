@@ -18,13 +18,15 @@ const Help = props => {
       <Menu />
 
       {/* Help logo */}
-      <img
-        className="help__img"
-        alt={"Finn logo"}
-        src={
-          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-        }
-      />
+      <div className="help__img-container">
+        <img
+          className="help__img"
+          alt={"Finn logo"}
+          src={
+            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
+          }
+        />
+      </div>
 
       {/* Help title */}
       <h1 className="help__title">How can we help?</h1>
@@ -44,20 +46,24 @@ const Help = props => {
             </div>
           </div>
         </Link>
+        {/* End Help row item */}
 
         {/* Help row item */}
-
-        <div className="help__row">
-          <p className="help__text">Talk to us</p>
-          <div className="help__icon">
-            <Icon
-              icon={iosArrowRight}
-              size={"100%"}
-              style={{ color: "#c2c2c2" }}
-            />
+        <Link to={`/${storeName}/help/talk`}>
+          <div className="help__row">
+            <p className="help__text">Talk to us</p>
+            <div className="help__icon">
+              <Icon
+                icon={iosArrowRight}
+                size={"100%"}
+                style={{ color: "#c2c2c2" }}
+              />
+            </div>
           </div>
-        </div>
+        </Link>
+        {/* End Help row item */}
       </div>
+      {/* End Help body */}
     </div>
   );
 };

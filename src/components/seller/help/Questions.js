@@ -17,16 +17,18 @@ const Questions = props => {
     <div className="App-container questions">
       <Menu />
       {/* Questions logo */}
-      <img
-        className="help__img"
-        alt={"Finn logo"}
-        src={
-          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-        }
-      />
+      <div className="help__img-container">
+        <img
+          className="help__img"
+          alt={"Finn logo"}
+          src={
+            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
+          }
+        />
+      </div>
 
       {/* Questions header */}
-      <h1 className="questions__title">Common questions</h1>
+      <h1 className="help__title">Common questions</h1>
 
       {/* Questions body */}
       <div className="questions__body">
