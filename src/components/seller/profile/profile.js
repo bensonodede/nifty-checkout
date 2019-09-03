@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Import components
 import { Menu } from "../menu";
@@ -40,34 +41,39 @@ const Profile = props => {
           {/********** Profile body **********/}
           <div className="profile__body">
             {/* Profile list item */}
-            <div className="profile__row">
-              <p className="profile__text">Edit profile</p>
-              <div className="profile__icon">
-                <Icon
-                  icon={iosArrowRight}
-                  size={"100%"}
-                  style={{ color: "#c2c2c2" }}
-                />
+
+            <Link to={`/${storeName}/edit-profile`}>
+              <div className="profile__row">
+                <p className="profile__text">Edit profile</p>
+                <div className="profile__icon">
+                  <Icon
+                    icon={iosArrowRight}
+                    size={"100%"}
+                    style={{ color: "#c2c2c2" }}
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Profile list item */}
-            <div className="profile__row">
-              <p className="profile__text">Help and support</p>
-              <div className="profile__icon">
-                <Icon
-                  icon={iosArrowRight}
-                  size={"100%"}
-                  style={{ color: "#c2c2c2" }}
-                />
+            <Link to={`/${storeName}/help`}>
+              <div className="profile__row">
+                <p className="profile__text">Help and support</p>
+                <div className="profile__icon">
+                  <Icon
+                    icon={iosArrowRight}
+                    size={"100%"}
+                    style={{ color: "#c2c2c2" }}
+                  />
+                </div>
               </div>
-            </div>
-
-            {/* Profile sign out */}
-            <SignOut>
-              <button className="profile__sign-out">Log out</button>
-            </SignOut>
+            </Link>
           </div>
+
+          {/* Profile sign out */}
+          <SignOut>
+            <button className="profile__sign-out">Log out</button>
+          </SignOut>
 
           {/********** End Profile body **********/}
         </div>

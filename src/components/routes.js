@@ -12,7 +12,7 @@ import createStore from "./seller/createStore";
 import Login from "./seller/Login";
 import ProductSwitch from "./seller/products";
 import CreateProduct from "./seller/createProduct";
-import { Profile } from "./seller/profile";
+import { Profile, EditProfile } from "./seller/profile";
 import { Help, Questions, Talk } from "./seller/help";
 
 // Import Checkout page component
@@ -34,6 +34,7 @@ class Routes extends Component {
           <Route path="/:storeName/products" component={ProductSwitch} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
           <Route path="/:storeName/profile" component={Profile} />
+          <Route path="/:storeName/edit-profile" component={EditProfile} />
           <Route exact path="/:storeName/help" component={Help} />
           <Route path="/:storeName/help/questions" component={Questions} />
           <Route path="/:storeName/help/faq" component={Faq} />

@@ -36,7 +36,7 @@
 }
 
 .profile__body {
-  padding-top: 15vw;
+  padding: 15vw 0vw;
 }
 
 .profile__thumbnail {
@@ -77,7 +77,6 @@
 .profile__sign-out {
   border-radius: 1.2vw;
   padding: 4.2vw 12.2vw;
-  margin-top: 12vw;
   width: 87vw;
   background-color: #f36b7f;
   display: inline-block;

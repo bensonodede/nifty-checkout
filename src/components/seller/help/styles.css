@@ -84,7 +84,8 @@
   text-align: left;
 }
 
-/*  */
+/********** Talk styling **********/
+
 .talk__text {
   font-family: "airbnb_cereal_appbook";
   color: #787878;
@@ -103,7 +104,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 10vw;
+  margin-top: 15vw;
 }
 
 .talk__btn {
@@ -112,8 +113,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 1.2vw;
-  padding: 3.2vw 5.2vw;
-  margin-top: 12vw;
+  padding: 2vw 5.2vw;
   width: 30vw;
   background-color: #f36b7f;
   border: solid 1px #f36b7f;
