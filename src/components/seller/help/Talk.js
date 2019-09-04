@@ -4,8 +4,6 @@ import React from "react";
 import { Menu } from "../menu";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
-import { socialWhatsapp } from "react-icons-kit/ionicons/socialWhatsapp";
-import { PulseBtn } from "../../button";
 
 const Talk = () => (
   <div className="App-container help">
@@ -34,8 +32,9 @@ const Talk = () => (
     </p>
 
     {/* Talk button */}
-    <div className="talk__btn-container"
-    onClick={() =>window.location.href = "https://wa.me/254724645546"}
+    <div
+      className="talk__btn-container"
+      onClick={() => (window.location.href = "https://wa.me/254724645546")}
     >
       <div className="talk__btn">
         <p className="talk__btn-text">Chat</p>
