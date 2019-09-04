@@ -34,13 +34,13 @@ const Talk = () => (
     {/* Talk button */}
     <div
       className="talk__btn-container"
-      onClick={() => (window.location.href = "https://wa.me/254724645546")}
+      onClick={() => (window.location.href = "https://wa.me/254747645546")}
     >
       <div className="talk__btn">
-        <p className="talk__btn-text">Chat</p>
         <div className="talk__icon">
           <Icon icon={socialWhatsappOutline} size={"100%"} />
         </div>
+        <p className="talk__btn-text">Chat</p>
       </div>
     </div>
     {/* End Talk button */}

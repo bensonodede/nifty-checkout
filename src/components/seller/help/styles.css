@@ -108,16 +108,14 @@
 }
 
 .talk__btn {
+  background-color: #f36b7f;
+  border-radius: 5px;
+  height: 10vw;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 1.2vw;
-  padding: 2vw 5.2vw;
-  width: 30vw;
-  background-color: #f36b7f;
-  border: solid 1px #f36b7f;
-  outline: none;
+  align-self: center;
+  padding: 1.5vw 5vw;
 }
 
 .talk__btn:active {
@@ -134,9 +132,9 @@
 }
 
 .talk__icon {
-  width: 6vw;
+  width: 5.5vw;
   height: auto;
-  margin-left: 2.5vw;
-  padding-bottom: 1vw;
+  margin-right: 2.2vw;
+  padding-bottom: 1.2vw;
   color: #ffffff;
 }
