@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { withAuthentication } from "./session";
 
@@ -14,6 +14,7 @@ import ProductSwitch from "./seller/products";
 import CreateProduct from "./seller/createProduct";
 import { Profile, EditProfile } from "./seller/profile";
 import { Help, Questions, Talk } from "./seller/help";
+import { Home } from "./seller/home";
 
 // Import Checkout page component
 import Checkout from "./buyer/Checkout";
@@ -30,7 +31,6 @@ class Routes extends Component {
           {/* Seller routes */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />
-          <Redirect exact from="/:storeName" to="/:storeName/products" />
           <Route path="/:storeName/products" component={ProductSwitch} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
           <Route path="/:storeName/profile" component={Profile} />
@@ -41,6 +41,7 @@ class Routes extends Component {
           <Route path="/:storeName/help/talk" component={Talk} />
 
           {/* Checkout routes */}
+          <Route exact path="/:storeName" component={Home} />
           <Route path="/:storeName/:productId" component={Checkout} />
           <Route component={PageNotFound} />
         </Switch>

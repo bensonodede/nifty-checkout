@@ -10,6 +10,7 @@
     "apollo-link-http": "1.5.14",
     "apollo-upload-client": "10.0.1",
     "chocolat": "0.4.21",
+    "colorthief": "2.3.0",
     "cypress": "3.4.1",
     "firebase": "5.9.2",
     "formik": "1.5.1",

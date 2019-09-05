@@ -1,0 +1,27 @@
+.home {
+  height: 100vh;
+}
+
+.home__header {
+  z-index: 0;
+  width: 100vw;
+  height: 102vw;
+  position: absolute;
+  padding-top: 10vw;
+}
+
+.home__img {
+  box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.2);
+  border-radius: 10px;
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+}
+
+.home__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  margin: 0vw;
+  color: #484848;
+  margin: 10vw 0vw 0vw 0vw;
+}

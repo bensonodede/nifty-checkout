@@ -115,7 +115,7 @@
   align-items: center;
   justify-content: center;
   align-self: center;
-  padding: 1.5vw 5vw;
+  padding: 1.5vw 6vw;
 }
 
 .talk__btn:active {
@@ -125,7 +125,7 @@
 .talk__btn-text {
   margin: 0;
   font-family: "airbnb_cereal_appmedium";
-  font-size: 4.8vw;
+  font-size: 4.5vw;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
