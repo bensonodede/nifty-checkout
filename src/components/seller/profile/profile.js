@@ -42,7 +42,7 @@ const Profile = props => {
           <div className="profile__body">
             {/* Profile list item */}
 
-            <Link to={`/${storeName}/edit-profile`}>
+            {/* <Link to={`/${storeName}/edit-profile`}>
               <div className="profile__row">
                 <p className="profile__text">Edit profile</p>
                 <div className="profile__icon">
@@ -53,7 +53,7 @@ const Profile = props => {
                   />
                 </div>
               </div>
-            </Link>
+            </Link> */}
 
             {/* Profile list item */}
             <Link to={`/${storeName}/help`}>

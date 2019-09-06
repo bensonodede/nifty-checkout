@@ -17,19 +17,9 @@
   margin: 10vw 0vw 0vw 0vw;
 }
 
-.profile__img-container {
-  width: 20vw;
-  height: 20vw;
-  box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.2);
-  border-radius: 2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .profile__img {
   box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.2);
-  border-radius: 10px;
+  border-radius: 16vw;
   width: 30vw;
   height: 30vw;
   object-fit: cover;

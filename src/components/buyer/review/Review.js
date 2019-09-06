@@ -93,12 +93,7 @@ class Review extends Component {
                 <img
                   onLoad={() => {
                     // Set image loaded state
-                    this.setState({ imgLoaded: true }, () => {
-                      // Play pulse animation after 3s
-                      setTimeout(() => {
-                        this.setState({ isPaused: false });
-                      }, 3000);
-                    });
+                    this.setState({ imgLoaded: true, isPaused: false });
                   }}
                   src={imgUrl}
                   alt="unsplash"

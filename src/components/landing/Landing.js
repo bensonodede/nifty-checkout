@@ -44,7 +44,7 @@ class Landing extends Component {
               className={"landing__logo"}
               alt={"finn logo"}
               src={
-                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_charcoal.png"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
               }
             />
           </div>

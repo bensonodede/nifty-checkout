@@ -10,9 +10,15 @@
   padding-top: 10vw;
 }
 
+.home__img-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .home__img {
   box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.2);
-  border-radius: 10px;
+  border-radius: 16vw;
   width: 30vw;
   height: 30vw;
   object-fit: cover;
@@ -24,4 +30,39 @@
   margin: 0vw;
   color: #484848;
   margin: 10vw 0vw 0vw 0vw;
+}
+
+.home__masonry-grid {
+  display: flex;
+  width: auto;
+  justify-content: center;
+}
+.home__masonry-grid_column {
+  /* padding: 0px 30px; */
+  /* background-clip: padding-box; */
+}
+
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 30px;
+  /* padding: 5vw 3vw; */
+}
+
+/* .home__grid-item {
+} */
+
+.home__grid-img {
+  border-radius: 8px;
+  width: 45vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.home__item-name {
+  margin: 0;
+}
+
+.home__item-price {
+  margin: 0;
 }
