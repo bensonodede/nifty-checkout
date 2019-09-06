@@ -1,5 +1,7 @@
 .home {
   height: 100vh;
+  padding-top: 15vw;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0s;
 }
 
 .home__header {
@@ -24,22 +26,41 @@
   object-fit: cover;
 }
 
+.home__title-container {
+  padding: 0vw 5vw;
+}
+
 .home__title {
   font-family: "airbnb_cereal_appmedium";
   font-size: 8vw;
+  line-height: 10vw;
   margin: 0vw;
   color: #484848;
-  margin: 10vw 0vw 0vw 0vw;
+}
+
+.home__title--very-light {
+  color: #484848;
+  opacity: 0.2;
+}
+
+.home__title--light {
+  color: #484848;
+  opacity: 0.6;
+}
+
+.home__emoji {
+  font-size: 8vw;
 }
 
 .home__masonry-grid {
   display: flex;
   width: auto;
-  justify-content: center;
+  overflow: hidden;
+  padding: 0vw 2.5vw;
+  padding-top: 15vw;
 }
 .home__masonry-grid_column {
-  /* padding: 0px 30px; */
-  /* background-clip: padding-box; */
+  background-clip: padding-box;
 }
 
 .my-masonry-grid_column > div {
@@ -49,12 +70,16 @@
   /* padding: 5vw 3vw; */
 }
 
-/* .home__grid-item {
-} */
+.home__grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8vw;
+}
 
 .home__grid-img {
   border-radius: 8px;
-  width: 45vw;
+  width: 42vw;
   height: auto;
   object-fit: contain;
 }
