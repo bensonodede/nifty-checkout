@@ -22,27 +22,24 @@ const Profile = props => {
       {/* Profile page */}
       <div className="App-container">
         <div className="profile">
-          {/* Profile header */}
-          <div className="profile__header">
-            {/* Profile Image */}
-
+          {/* Help logo */}
+          <div className="help__img-container">
             <img
+              className="help__img"
+              alt={"Finn logo"}
               src={
-                "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
               }
-              alt={"profile logo"}
-              className={"profile__img"}
             />
-
-            {/* Profile the title */}
-            <h1 className="profile__title">{storeName}</h1>
           </div>
+
+          {/* Help title */}
+          <h1 className="help__title">Abc business</h1>
 
           {/********** Profile body **********/}
           <div className="profile__body">
             {/* Profile list item */}
-
-            {/* <Link to={`/${storeName}/edit-profile`}>
+            <Link to={`/${storeName}/edit-profile`}>
               <div className="profile__row">
                 <p className="profile__text">Edit profile</p>
                 <div className="profile__icon">
@@ -53,7 +50,7 @@ const Profile = props => {
                   />
                 </div>
               </div>
-            </Link> */}
+            </Link>
 
             {/* Profile list item */}
             <Link to={`/${storeName}/help`}>

@@ -68,11 +68,11 @@
   border-radius: 1.2vw;
   padding: 4.2vw 12.2vw;
   width: 87vw;
-  background-color: #f36b7f;
+  background-color: #ffffff;
   display: inline-block;
   border: solid 1px #f36b7f;
   outline: none;
-  color: #ffffff;
+  color: #f36b7f;
   font-family: "airbnb_cereal_appmedium";
   font-size: 4.5vw;
   text-align: center;
@@ -80,6 +80,6 @@
 }
 
 .profile__sign-out:active {
-  background-color: #ffffff;
-  color: #f36b7f;
+  background-color: #f36b7f;
+  color: #ffffff;
 }

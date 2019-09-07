@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import Masonry from "react-masonry-css";
+import { Icon } from "react-icons-kit";
+import { iosPricetag } from "react-icons-kit/ionicons/iosPricetag";
 
 // Import components
 import { ScrollToTop } from "../../utils";
@@ -10,6 +12,11 @@ import "./styles.css";
 
 // Import json mock data
 const Items = require("./home.json");
+
+// Define breakpoint columns
+const breakpointCols = {
+  default: 2
+};
 
 class Home extends Component {
   render() {
@@ -28,7 +35,7 @@ class Home extends Component {
 
         <div className="home">
           {/* Store title */}
-          <div className="home__title-container">
+          <div className="home__header">
             <h1 className="home__title">
               <span className="home__title--very-light">Hey you,</span>
               <br />
@@ -44,20 +51,26 @@ class Home extends Component {
 
           {/* Store grid */}
           <Masonry
-            breakpointCols={2}
+            breakpointCols={breakpointCols}
             className="home__masonry-grid"
             columnClassName="home__masonry-grid_column"
           >
             {/* Store grid item */}
             {Items.map(item => (
-              <div key={item.key} className="home__grid-item">
+              <div key={item.id} className="home__grid-item">
                 <img
                   src={item.imgUrl}
-                  alt={"company logo"}
+                  alt={item.name}
                   className={"home__grid-img"}
                 />
-                {/* <p className={"home__item-name"}>{item.name}</p>
-                  <p className={"home__item-price"}>{item.price}</p> */}
+
+                <div className="home__item-details">
+                  <p className={"home__item-name"}>{item.name}</p>
+                  <p className={"home__item-price"}>
+                    {item.price}
+                    <span className={"home__item-currency"}>KES</span>
+                  </p>
+                </div>
               </div>
             ))}
           </Masonry>

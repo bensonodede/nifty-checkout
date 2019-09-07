@@ -3,42 +3,42 @@
     "id": 1,
     "name": "Red shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/1"
   },
   {
     "id": 2,
     "name": "Green shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/2"
   },
   {
     "id": 3,
     "name": "Blue shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/3"
   },
   {
     "id": 4,
     "name": "Yellow shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/4"
   },
   {
     "id": 5,
     "name": "Pink shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/5"
   },
   {
-    "id": 1,
+    "id": 6,
     "name": "Green shoes",
     "humanId": "moody-earwig-46",
-    "price": 1200,
+    "price": "1,200",
     "imgUrl": "https://source.unsplash.com/random/6"
   }
 ]
