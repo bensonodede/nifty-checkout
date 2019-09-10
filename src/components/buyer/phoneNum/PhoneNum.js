@@ -13,6 +13,7 @@ import { validatePhoneNum } from "../../validation";
 import { CREATE_ORDER } from "../../graphql/mutation";
 import { Loader } from "../../loader";
 import { ScrollToTop } from "../../utils";
+import { Waiting } from "../waiting";
 
 // Import styles
 import "./styles.css";
@@ -38,6 +39,9 @@ class PhoneNum extends Component {
 
     // Set cookies to state
     this.state = {
+      waitingAnimate: false,
+      waitingVisible: false,
+      orderId: "",
       phoneNum: Cookies.get("phoneNum") || null
     };
   }
@@ -84,9 +88,25 @@ class PhoneNum extends Component {
     // await actions.resetForm({});
   };
 
+  /********** Toggle waiting modal appearance **********/
+
+  toggleWaitingModal = () => {
+    let { waitingVisible } = this.state;
+
+    if (waitingVisible) {
+      this.setState({ waitingAnimate: false });
+      setTimeout(() => this.setState({ waitingVisible: false }), 500);
+    } else {
+      this.setState({ waitingVisible: true, waitingAnimate: true });
+    }
+  };
+
   render() {
     // Destructure route parameters
     let { storeName, humanId } = this.props.match.params;
+
+    // Destructure state
+    let { waitingAnimate, waitingVisible, orderId } = this.state;
 
     return (
       <div>
@@ -98,15 +118,26 @@ class PhoneNum extends Component {
         {/* Scroll to top of the page */}
         <ScrollToTop />
 
+        {/* Waiting modal */}
+        <Waiting
+          orderId={orderId}
+          toggleModal={e => e.stopPropagation}
+          animate={waitingAnimate}
+          visible={waitingVisible}
+        />
+
         {/* Mutation */}
         <Mutation
           mutation={CREATE_ORDER}
-          onCompleted={data => {
-            console.log(data);
-            this.props.history.push({
-              pathname: `/${storeName}/${humanId}/waiting`,
-              state: { orderId: data.createOrder.id }
-            });
+          onCompleted={orderData => {
+            this.setState(
+              {
+                orderId: orderData.createOrder.id
+              },
+              () => {
+                this.toggleWaitingModal();
+              }
+            );
           }}
         >
           {(createOrder, { loading, error }) => {

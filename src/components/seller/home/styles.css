@@ -51,7 +51,7 @@
 .home__grid-item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 4vw;
+  margin-bottom: 5vw;
 }
 
 .home__grid-img {

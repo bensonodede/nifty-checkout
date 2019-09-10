@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Helmet } from "react-helmet";
 
 // Import components
+import { Loader } from "../../loader";
 import { ORDER_QUERY } from "../../graphql/query";
 
 // Import styles
 import "./styles.css";
-import ReviewLoader from "../review/ReviewLoader";
+import { withRouter } from "react-router-dom";
+import { BottomModal } from "../../modal";
 
 class Waiting extends Component {
   constructor(props) {
@@ -18,35 +19,16 @@ class Waiting extends Component {
     };
   }
 
-  componentWillMount() {
-    // Get URL parameters
-    let { storeName, humanId } = this.props.match.params;
-
-    if (!this.props.location.state || !this.props.location.state.orderId) {
-      this.props.history.push(`/${storeName}/${humanId}`);
-    }
-  }
   render() {
     // Get URL parameters
     let { storeName, humanId } = this.props.match.params;
 
     // Get order ID
-    let orderId;
-
-    if (!this.props.location.state || !this.props.location.state.orderId) {
-      this.props.history.push(`/${storeName}/${humanId}`);
-    } else {
-      orderId = this.props.location.state.orderId;
-    }
+    let { orderId } = this.props;
 
     // Render component
     return (
-      <div>
-        {/* Document title */}
-        <Helmet>
-          <title>Waiting for payment - {storeName}</title>
-        </Helmet>
-
+      <BottomModal {...this.props}>
         {/* Poll for order */}
         <Query
           fetchPolicy={"network-only"}
@@ -82,16 +64,21 @@ class Waiting extends Component {
                 <h1 className="waiting__title">
                   Waiting to confirm your payment.
                 </h1>
-                <ReviewLoader />
+                {/********** Loader **********/}
+                <div className="confirm__loader-container">
+                  <div className="confirm__loader">
+                    <Loader />
+                  </div>
+                </div>
               </div>
             );
 
             /********** End Return component **********/
           }}
         </Query>
-      </div>
+      </BottomModal>
     );
   }
 }
 
-export default Waiting;
+export default withRouter(Waiting);

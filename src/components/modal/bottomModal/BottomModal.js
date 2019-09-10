@@ -1,52 +1,55 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import PropTypes from "prop-types";
 
 // Import styles and transitions
 import "./styles.css";
 
 class BottomModal extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      show: true
-    };
-  }
-
-  goBack = e => {
-    e.stopPropagation();
-
-    //? Fix for modal double-click: Prevents going back twice
-    if (this.state.show) {
-      this.setState({ show: false }, () => {
-        this.props.goBack();
-      });
-    }
-  };
-
   render() {
-    let { show } = this.state;
+    // Destructure props
+    let { visible, animate, toggleModal } = this.props;
+
     return (
       <div>
-        <div className="bottom-modal" onClick={this.goBack}>
-          {/* Modal card transition */}
+        {visible ? (
+          /* End Modal background */
           <CSSTransition
             appear={true}
             unmountOnExit={true}
-            in={show}
-            classNames="card"
+            in={animate}
+            classNames="modal"
             timeout={500}
-            onClick={e => {
-              e.stopPropagation();
-            }}
+            onClick={toggleModal}
           >
-            {/* Modal card */}
-            <div className="bottom-modal__card">{this.props.children}</div>
+            <div className="bottom-modal" onClick={this.toggleModal}>
+              {/* Modal card transition */}
+              <CSSTransition
+                appear={true}
+                unmountOnExit={true}
+                in={animate}
+                classNames="card"
+                timeout={500}
+                onClick={e => {
+                  e.stopPropagation();
+                }}
+              >
+                {/* Modal card */}
+                <div className="bottom-modal__card">{this.props.children}</div>
+              </CSSTransition>
+            </div>
           </CSSTransition>
-        </div>
+        ) : /* End Modal background */
+        null}
       </div>
     );
   }
 }
+
+BottomModal.propTypes = {
+  animate: PropTypes.bool,
+  visible: PropTypes.bool,
+  toggleModal: PropTypes.func
+};
 
 export default BottomModal;

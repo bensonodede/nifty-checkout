@@ -8,11 +8,12 @@ import { PRODUCT_HUMANID_QUERY } from "../../graphql/query";
 
 // Import components
 import ReviewLoader from "./ReviewLoader";
-import ImgLoaded from "./ImgLoaded";
+import ReviewDetails from "./ReviewDetails";
 import { Error } from "../../error";
 
 // Import styles
 import "./styles.css";
+import { Confirm } from "../confirm";
 
 class Review extends Component {
   constructor(props) {
@@ -22,7 +23,9 @@ class Review extends Component {
     this.state = {
       phoneNum: Cookies.get("phoneNum") || null,
       imgLoaded: false,
-      isPaused: true
+      isPaused: true,
+      confirmVisible: false,
+      confirmAnimate: false
     };
   }
 
@@ -36,10 +39,7 @@ class Review extends Component {
 
     // Redirect to confirmation modal
     if (phoneNum) {
-      this.props.history.push({
-        pathname: `/${storeName}/${humanId}/confirm`,
-        state: { modal: true, data: productData.productByHumanId }
-      });
+      this.toggleModal();
     }
 
     // Redirect to phone number page
@@ -51,9 +51,22 @@ class Review extends Component {
     }
   };
 
+  /********** Toggle modal appearance **********/
+
+  toggleModal = () => {
+    let { confirmVisible } = this.state;
+
+    if (confirmVisible) {
+      this.setState({ confirmAnimate: false });
+      setTimeout(() => this.setState({ confirmVisible: false }), 500);
+    } else {
+      this.setState({ confirmVisible: true, confirmAnimate: true });
+    }
+  };
+
   render() {
     let { storeName, humanId } = this.props.match.params;
-    let { imgLoaded, isPaused } = this.state;
+    let { imgLoaded, isPaused, confirmVisible, confirmAnimate } = this.state;
 
     return (
       <div>
@@ -77,40 +90,55 @@ class Review extends Component {
             }
 
             // Destructure product data
-            let { imgUrl } = data.productByHumanId;
+            let { imgUrl, name } = data.productByHumanId;
 
             // Render component
             return (
-              <div className="review">
-                {/* Document title */}
-                <Helmet>
-                  <title>
-                    {data.productByHumanId.name} - {storeName}
-                  </title>
-                </Helmet>
-
-                {/* Image component */}
-                <img
-                  onLoad={() => {
-                    // Set image loaded state
-                    this.setState({ imgLoaded: true, isPaused: false });
-                  }}
-                  src={imgUrl}
-                  alt="unsplash"
-                  className={imgLoaded ? "review__img" : "review__img-loading"}
+              <div>
+                <Confirm
+                  data={data.productByHumanId}
+                  toggleModal={this.toggleModal}
+                  animate={confirmAnimate}
+                  visible={confirmVisible}
                 />
+                <div className="review">
+                  {/* Document title */}
+                  <Helmet>
+                    <title>
+                      {name} - {storeName}
+                    </title>
+                  </Helmet>
 
-                {/* Image loaded  */}
-                {imgLoaded ? (
-                  <ImgLoaded
-                    productData={data}
-                    handleClick={this.handleClick}
-                    isPaused={isPaused}
-                    imgLoaded={imgLoaded}
+                  {/* Image component */}
+                  <img
+                    onLoad={() => {
+                      // Set image loaded state
+                      this.setState({ imgLoaded: true }, () => {
+                        // Play pulse animation after 3s
+                        setTimeout(() => {
+                          this.setState({ isPaused: false });
+                        }, 3000);
+                      });
+                    }}
+                    src={imgUrl}
+                    alt="unsplash"
+                    className={
+                      imgLoaded ? "review__img" : "review__img-loading"
+                    }
                   />
-                ) : (
-                  <ReviewLoader />
-                )}
+
+                  {/* Image loaded  */}
+                  {imgLoaded ? (
+                    <ReviewDetails
+                      productData={data.productByHumanId}
+                      handleClick={this.handleClick}
+                      isPaused={isPaused}
+                      imgLoaded={imgLoaded}
+                    />
+                  ) : (
+                    <ReviewLoader />
+                  )}
+                </div>
               </div>
             );
           }}

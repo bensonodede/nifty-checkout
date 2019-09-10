@@ -74,7 +74,9 @@ class Products extends Component {
               return (
                 /********** Render products **********/
                 <div>
+                  {/* Menu */}
                   <Menu />
+
                   {data.productsByStore[0] ? (
                     <div>
                       {/********** Products header **********/}
@@ -126,6 +128,7 @@ class Products extends Component {
                           initialLoad={true}
                           useWindow={false}
                           hasMore={this.state.hasMore}
+                          loader={<ProductLoader key={0} />}
                           loadMore={() => {
                             fetchMore({
                               variables: {
@@ -135,6 +138,7 @@ class Products extends Component {
                                 orderBy: "updatedAt_DESC"
                               },
                               updateQuery: (prev, { fetchMoreResult }) => {
+                                // Add new items to previously fetched array
                                 if (
                                   !fetchMoreResult ||
                                   fetchMoreResult.productsByStore.length === 0
@@ -152,7 +156,6 @@ class Products extends Component {
                               }
                             });
                           }}
-                          loader={<ProductLoader key={0} />}
                         >
                           {/* Render all products */}
                           {data.productsByStore.map(item => (

@@ -1,24 +1,43 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
 import Masonry from "react-masonry-css";
-import { Icon } from "react-icons-kit";
-import { iosPricetag } from "react-icons-kit/ionicons/iosPricetag";
+import InfiniteScroll from "react-infinite-scroller";
+
+// Import Graphql query
+import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 // Import components
-import { ScrollToTop } from "../../utils";
+import { Error } from "../../error";
+import { Loader, ImgLoader } from "../../loader";
 
 // Import styles
 import "./styles.css";
-
-// Import json mock data
-const Items = require("./home.json");
 
 // Define breakpoint columns
 const breakpointCols = {
   default: 2
 };
 
+// Product loader component
+const ProductLoader = () => (
+  <div className="product__loader-container">
+    <div className="product__loader">
+      <Loader key={0} />
+    </div>
+  </div>
+);
+
 class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasMore: true
+    };
+  }
+
   render() {
     // Get state params
     const { storeName } = this.props.match.params;
@@ -29,9 +48,6 @@ class Home extends Component {
         <Helmet>
           <title>Abc business</title>
         </Helmet>
-
-        {/* Scroll to top of the page */}
-        <ScrollToTop />
 
         <div className="home">
           {/* Store title */}
@@ -48,33 +64,93 @@ class Home extends Component {
             </h1>
           </div>
           {/* End store title */}
-
-          {/* Store grid */}
-          <Masonry
-            breakpointCols={breakpointCols}
-            className="home__masonry-grid"
-            columnClassName="home__masonry-grid_column"
+          <Query
+            query={PRODUCTS_FEED_QUERY}
+            variables={{
+              storeName,
+              first: 4,
+              skip: 0,
+              orderBy: "updatedAt_DESC"
+            }}
           >
-            {/* Store grid item */}
-            {Items.map(item => (
-              <div key={item.id} className="home__grid-item">
-                <img
-                  src={item.imgUrl}
-                  alt={item.name}
-                  className={"home__grid-img"}
-                />
+            {({ loading, error, data, fetchMore }) => {
+              // Error state
+              if (error) {
+                return <Error />;
+              }
 
-                <div className="home__item-details">
-                  <p className={"home__item-name"}>{item.name}</p>
-                  <p className={"home__item-price"}>
-                    {item.price}
-                    <span className={"home__item-currency"}>KES</span>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </Masonry>
-          {/* End store grid */}
+              // Loading state
+              if (loading) {
+                return <ProductLoader />;
+              }
+
+              return (
+                /* Infinite scroll list */
+
+                <InfiniteScroll
+                  pageStart={0}
+                  initialLoad={true}
+                  useWindow={false}
+                  hasMore={this.state.hasMore}
+                  loader={<ProductLoader key={0} />}
+                  loadMore={() => {
+                    fetchMore({
+                      variables: {
+                        storeName,
+                        first: 4,
+                        skip: data.productsByStore.length,
+                        orderBy: "updatedAt_DESC"
+                      },
+                      updateQuery: (prev, { fetchMoreResult }) => {
+                        // Add new items to previously fetched array
+                        if (
+                          !fetchMoreResult ||
+                          fetchMoreResult.productsByStore.length === 0
+                        ) {
+                          this.setState({ hasMore: false });
+                          return prev;
+                        }
+
+                        return Object.assign({}, prev, {
+                          productsByStore: [
+                            ...prev.productsByStore,
+                            ...fetchMoreResult.productsByStore
+                          ]
+                        });
+                      }
+                    });
+                  }}
+                >
+                  {/* Store grid */}
+                  <Masonry
+                    breakpointCols={breakpointCols}
+                    className="home__masonry-grid"
+                    columnClassName="home__masonry-grid_column"
+                  >
+                    {/* Store grid item */}
+                    {data.productsByStore.map(item => (
+                      <Link
+                        key={item.id}
+                        to={{
+                          pathname: `/${storeName}/${item.humanId}`
+                        }}
+                      >
+                        <div className="home__grid-item">
+                          <ImgLoader
+                            src={item.imgUrl}
+                            alt={item.name}
+                            className={"home__grid-img"}
+                          />
+                        </div>
+                      </Link>
+                    ))}
+                  </Masonry>
+                  {/* End store grid */}
+                </InfiniteScroll>
+                /* End Infinte scroll */
+              );
+            }}
+          </Query>
         </div>
       </div>
     );
