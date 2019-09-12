@@ -88,18 +88,10 @@ const CREATE_ORDER = gql`
       price: $price
     ) {
       id
-      humanId
-      uid
-      status
-      buyer {
-        id
-        phoneNum
-      }
-      store {
-        id
-        phoneNum
-        storeName
-      }
+      shortCode
+      password
+      timestamp
+      checkoutRequestID
     }
   }
 `;

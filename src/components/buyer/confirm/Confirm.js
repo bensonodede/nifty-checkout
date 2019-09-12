@@ -10,16 +10,12 @@ import { Loader } from "../../loader";
 
 // Import styles
 import "./styles.css";
-import Waiting from "../waiting/Waiting";
 
 class Confirm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      waitingAnimate: false,
-      waitingVisible: false,
-      orderId: "",
       phoneNum: Cookies.get("phoneNum")
     };
   }
@@ -45,50 +41,29 @@ class Confirm extends Component {
 
   /********** End Handle Mutation **********/
 
-  /********** Toggle waiting modal appearance **********/
-
-  toggleWaitingModal = () => {
-    let { waitingVisible } = this.state;
-
-    if (waitingVisible) {
-      this.setState({ waitingAnimate: false });
-      setTimeout(() => this.setState({ waitingVisible: false }), 500);
-    } else {
-      this.setState({ waitingVisible: true, waitingAnimate: true });
-    }
-  };
-
   render() {
     // Destructure route parameters
     let { storeName, humanId } = this.props.match.params;
-    let { data, history } = this.props;
+    let { data, history, onOrderComplete } = this.props;
 
     // Destructure state
-    let { waitingVisible, waitingAnimate, orderId, phoneNum } = this.state;
+    let { phoneNum } = this.state;
 
     return (
       <div>
-        <Waiting
-          orderId={orderId}
-          toggleModal={e => e.stopPropagation}
-          animate={waitingAnimate}
-          visible={waitingVisible}
-        />
-
         {/* Confirm component */}
         <BottomModal {...this.props}>
           <Mutation
             mutation={CREATE_ORDER}
-            onCompleted={orderData => {
-              this.setState(
-                {
-                  orderId: orderData.createOrder.id
-                },
-                () => {
-                  this.props.toggleModal();
-                  this.toggleWaitingModal();
-                }
-              );
+            onCompleted={async result => {
+              // Pass order ID to waiting
+              await onOrderComplete(result.createOrder.id);
+
+              // Close Confirmation modal
+              this.props.toggleModal();
+
+              // Open Waiting modal
+              this.props.toggleWaitingModal();
             }}
           >
             {(createOrder, { loading, error }) => {

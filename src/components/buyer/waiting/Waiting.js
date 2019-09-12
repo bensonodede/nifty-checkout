@@ -11,14 +11,6 @@ import { withRouter } from "react-router-dom";
 import { BottomModal } from "../../modal";
 
 class Waiting extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      polling: true
-    };
-  }
-
   render() {
     // Get URL parameters
     let { storeName, humanId } = this.props.match.params;
@@ -28,33 +20,34 @@ class Waiting extends Component {
 
     // Render component
     return (
-      <BottomModal {...this.props}>
+      <BottomModal {...this.props} toggleModal={null}>
         {/* Poll for order */}
         <Query
           fetchPolicy={"network-only"}
           query={ORDER_QUERY}
-          pollInterval={400}
-          variables={{
-            id: orderId
-          }}
-          onCompleted={data => {
-            if (data.order) {
-              // If order status is 0, redirect to success page
-              if (!data.order.status) {
+          pollInterval={1000}
+          variables={{ id: orderId }}
+          onCompleted={async result => {
+            // If order exists
+            if (!!result.order) {
+              // Get order status
+              let { status } = result.order;
+
+              // If order status is successful
+              if (status === 0) {
                 this.props.history.push(`/${storeName}/${humanId}/success`);
               }
-            }
 
-            // Redirect to product page
-            else {
-              this.props.history.push(`/${storeName}/${humanId}`);
+              // If payment is cancelled or times out
+            } else {
+              window.location.reload();
             }
           }}
         >
           {({ error }) => {
             // Error state
             if (error) {
-              this.props.history.push(`/${storeName}/${humanId}`);
+              console.log(error);
             }
 
             /********** Return component  **********/
