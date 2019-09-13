@@ -31,7 +31,7 @@ class Routes extends Component {
           {/* Seller routes */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />
-          <Route path="/:storeName/products" component={ProductSwitch} />
+          <Route path="/:storeName/dashboard" component={ProductSwitch} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
           <Route path="/:storeName/profile" component={Profile} />
           <Route path="/:storeName/edit-profile" component={EditProfile} />

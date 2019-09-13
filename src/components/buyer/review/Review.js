@@ -43,15 +43,10 @@ class Review extends Component {
           )}
           /********** Render Waiting modal **********/
 
-          renderWaitingModal={({
-            waitingAnimate,
-            waitingVisible,
-            toggleWaitingModal
-          }) => (
+          renderWaitingModal={({ waitingAnimate, waitingVisible }) => (
             <Waiting
               animate={waitingAnimate}
               visible={waitingVisible}
-              toggleWaitingModal={toggleWaitingModal}
               orderId={this.state.orderId}
             />
           )}

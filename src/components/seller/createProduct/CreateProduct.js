@@ -55,7 +55,7 @@ class CreateProduct extends Component {
         mutation={CREATE_PRODUCT}
         onCompleted={data => {
           // Redirect to store product page
-          this.props.history.push(`/${storeName}/products`);
+          this.props.history.push(`/${storeName}/dashboard`);
         }}
         update={(cache, { data: { createProduct } }) => {
           // Get mutation type
