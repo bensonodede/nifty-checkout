@@ -63,8 +63,9 @@ class ReviewPage extends Component {
     let { confirmVisible } = this.state;
 
     if (confirmVisible) {
-      this.setState({ confirmAnimate: false });
-      setTimeout(() => this.setState({ confirmVisible: false }), 300);
+      this.setState({ confirmAnimate: false }, () => {
+        setTimeout(() => this.setState({ confirmVisible: false }), 300);
+      });
     } else {
       this.setState({ confirmVisible: true, confirmAnimate: true });
     }
@@ -76,8 +77,9 @@ class ReviewPage extends Component {
     let { waitingVisible } = this.state;
 
     if (waitingVisible) {
-      this.setState({ waitingAnimate: false });
-      setTimeout(() => this.setState({ waitingVisible: false }), 500);
+      this.setState({ waitingAnimate: false }, () => {
+        setTimeout(() => this.setState({ waitingVisible: false }), 300);
+      });
     } else {
       this.setState({ waitingVisible: true, waitingAnimate: true });
     }
@@ -131,7 +133,7 @@ class ReviewPage extends Component {
                 {this.props.renderWaitingModal({
                   waitingAnimate,
                   waitingVisible,
-                  toggleModal: this.toggleWaitingModal,
+                  toggleWaitingModal: this.toggleWaitingModal,
                   orderId: this.props.orderId
                 })}
 

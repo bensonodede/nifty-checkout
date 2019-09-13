@@ -60,7 +60,7 @@ class Confirm extends Component {
               await onOrderComplete(result.createOrder.id);
 
               // Close Confirmation modal
-              this.props.toggleModal();
+              await this.props.toggleModal();
 
               // Open Waiting modal
               this.props.toggleWaitingModal();

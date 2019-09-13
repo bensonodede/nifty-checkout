@@ -46,12 +46,12 @@ class Review extends Component {
           renderWaitingModal={({
             waitingAnimate,
             waitingVisible,
-            toggleModal
+            toggleWaitingModal
           }) => (
             <Waiting
               animate={waitingAnimate}
               visible={waitingVisible}
-              toggleModal={toggleModal}
+              toggleWaitingModal={toggleWaitingModal}
               orderId={this.state.orderId}
             />
           )}
