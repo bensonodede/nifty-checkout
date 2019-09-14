@@ -37,6 +37,7 @@ class ReviewPage extends Component {
 
   // Check for phone number
   handleClick = productData => {
+    console.log(productData);
     // Get phone number from cookies
     let { phoneNum } = this.state;
 
@@ -52,7 +53,7 @@ class ReviewPage extends Component {
     else {
       this.props.history.push({
         pathname: `/${storeName}/${humanId}/phone-number`,
-        state: { data: productData.productByHumanId }
+        state: { data: productData }
       });
     }
   };

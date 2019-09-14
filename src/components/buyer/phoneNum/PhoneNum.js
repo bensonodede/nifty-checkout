@@ -88,14 +88,15 @@ class PhoneNum extends Component {
     // await actions.resetForm({});
   };
 
-  /********** Toggle waiting modal appearance **********/
+  /********** Toggle Waiting modal appearance **********/
 
   toggleWaitingModal = () => {
     let { waitingVisible } = this.state;
 
     if (waitingVisible) {
-      this.setState({ waitingAnimate: false });
-      setTimeout(() => this.setState({ waitingVisible: false }), 500);
+      this.setState({ waitingAnimate: false }, () => {
+        setTimeout(() => this.setState({ waitingVisible: false }), 300);
+      });
     } else {
       this.setState({ waitingVisible: true, waitingAnimate: true });
     }

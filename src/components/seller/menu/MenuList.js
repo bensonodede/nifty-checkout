@@ -28,7 +28,7 @@ const MenuList = props => {
               toggleMenu();
               toggleBtn();
             }}
-            exact
+            exact={item.exact}
             key={item.id}
             to={`/${storeName}/${item.link}`}
             className="menu__link"

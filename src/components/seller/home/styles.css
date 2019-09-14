@@ -30,14 +30,26 @@
   margin-left: 1.2vw;
 }
 
+.home__loader-container {
+  bottom: 10vh;
+  display: flex;
+  /* width: 87vw; */
+  align-items: center;
+  justify-content: center;
+}
+
+.home__loader {
+  width: 35vw;
+  height: auto;
+}
+
 /********** Grid styling **********/
 
 .home__masonry-grid {
   display: flex;
   width: auto;
   overflow: hidden;
-  padding: 0vw 2.5vw;
-  padding-top: 15vw;
+  padding: 15vw 0.5vw 0vw 5.2vw;
 }
 .home__masonry-grid_column {
   background-clip: padding-box;

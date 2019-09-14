@@ -11,6 +11,9 @@
 # production
 /build
 
+# firebase hosting cache
+.cache
+
 # misc
 .DS_Store
 .env

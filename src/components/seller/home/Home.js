@@ -22,10 +22,10 @@ const breakpointCols = {
   default: 2
 };
 
-// Product loader component
-const ProductLoader = () => (
-  <div className="product__loader-container">
-    <div className="product__loader">
+// Home loader component
+const HomeLoader = () => (
+  <div className="home__loader-container">
+    <div className="home__loader">
       <Loader key={0} />
     </div>
   </div>
@@ -77,7 +77,7 @@ class Home extends Component {
 
                     // Loading state
                     if (loading) {
-                      return <ProductLoader />;
+                      return <HomeLoader />;
                     }
 
                     return (
@@ -110,7 +110,7 @@ class Home extends Component {
                           initialLoad={true}
                           useWindow={false}
                           hasMore={this.state.hasMore}
-                          loader={<ProductLoader key={0} />}
+                          loader={<HomeLoader key={0} />}
                           loadMore={() => {
                             fetchMore({
                               variables: {

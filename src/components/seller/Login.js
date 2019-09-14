@@ -71,7 +71,7 @@ class Login extends Component {
       // Set user store name to global cookie
       await Cookies.set("userStore", storeName);
 
-      history.push(`/${storeName}/products`);
+      history.push(`/${storeName}/dashboard`);
     }
 
     // If User does NOT have a store, redirect to 'create-store page'

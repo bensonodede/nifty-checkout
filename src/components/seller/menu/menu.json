@@ -1,25 +1,29 @@
 [
   {
     "id": 1,
-    "title": "Dashboard",
-    "link": "dashboard"
+    "title": "Store",
+    "link": "",
+    "exact": true
   },
 
   {
     "id": 2,
-    "title": "Store",
-    "link": ""
+    "title": "Dashboard",
+    "link": "dashboard",
+    "exact": false
   },
 
   {
     "id": 3,
     "title": "Profile",
-    "link": "profile"
+    "link": "profile",
+    "exact": false
   },
 
   {
     "id": 4,
     "title": "Help",
-    "link": "help"
+    "link": "help",
+    "exact": false
   }
 ]
