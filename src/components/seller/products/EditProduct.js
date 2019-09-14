@@ -86,7 +86,7 @@ class EditProduct extends Component {
         mutation={UPDATE_PRODUCT}
         onCompleted={data => {
           // Redirect to store product page
-          this.props.history.push(`/${storeName}/products`);
+          this.props.history.push(`/${storeName}/dashboard`);
         }}
         update={(cache, { data: { updateProduct } }) => {
           //

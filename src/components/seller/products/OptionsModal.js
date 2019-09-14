@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// Import components
+import { withRouter, Link } from "react-router-dom";
 
+// Import components
 import { BottomModal } from "../../modal";
 import { Icon } from "react-icons-kit";
 import { iosEye } from "react-icons-kit/ionicons/iosEye";
@@ -9,11 +9,12 @@ import { iosComposeOutline } from "react-icons-kit/ionicons/iosComposeOutline";
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
 // Product modal component
-const ProductModal = props => {
-  let { name, id, imgUrl, price, humanId } = props.location.state.item;
+const OptionsModal = props => {
+  let { name, id, imgUrl, price, humanId } = props.item;
   let { storeName } = props.match.params;
+
   return (
-    <BottomModal {...props.history}>
+    <BottomModal {...props}>
       <div>
         {/* Product modal header */}
         <div className="product-modal__header">
@@ -23,12 +24,7 @@ const ProductModal = props => {
         {/* Product modal content  */}
         <div className="product-modal__content">
           {/* View in checkout link  */}
-          <Link
-            to={{
-              pathname: `/${storeName}/${humanId}`,
-              state: { modal: false }
-            }}
-          >
+          <Link to={`/${storeName}/${humanId}`}>
             <div className="product-modal__row">
               <div className="product-modal__icon">
                 <Icon
@@ -44,8 +40,8 @@ const ProductModal = props => {
           {/* Edit product link  */}
           <Link
             to={{
-              pathname: `/${storeName}/products/${id}/edit`,
-              state: { modal: false, name, imgUrl, price }
+              pathname: `/${storeName}/dashboard/${id}/edit`,
+              state: { name, imgUrl, price }
             }}
             className="product-modal__row"
           >
@@ -60,11 +56,11 @@ const ProductModal = props => {
           </Link>
 
           {/* Delete product link */}
-          <Link
+          <div
             className="product-modal__row"
-            to={{
-              pathname: `/${storeName}/products/${id}/delete`,
-              state: { modal: true, id, name, imgUrl }
+            onClick={async () => {
+              await props.toggleModal();
+              props.toggleDeleteModal();
             }}
           >
             <div className="product-modal__icon">
@@ -75,7 +71,7 @@ const ProductModal = props => {
               />
             </div>
             <p className="product-modal__text">Delete</p>
-          </Link>
+          </div>
         </div>
         {/* End product modal content  */}
       </div>
@@ -83,4 +79,4 @@ const ProductModal = props => {
   );
 };
 
-export default ProductModal;
+export default withRouter(OptionsModal);

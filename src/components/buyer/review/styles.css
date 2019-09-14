@@ -20,7 +20,7 @@
   height: auto;
 }
 
-/********** Header styling **********/
+/********** Review details styling **********/
 .review__container {
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
     rgba(255, 0, 0, 0),
     rgb(0, 0, 0) 65%
   );
-  z-index: 2;
+  z-index: 1;
 }
 
 .review__header {
@@ -46,7 +46,7 @@
 
 .review__title {
   color: #ffffff;
-  font-family: "airbnb_cereal_appbold";
+  font-family: "airbnb_cereal_appmedium";
   font-size: 7vw;
   margin: 0;
 }

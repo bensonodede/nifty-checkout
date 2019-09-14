@@ -1,78 +1,53 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Helmet } from "react-helmet";
 
 // Import components
+import { Loader } from "../../loader";
 import { ORDER_QUERY } from "../../graphql/query";
 
 // Import styles
 import "./styles.css";
-import ReviewLoader from "../review/ReviewLoader";
+import { withRouter } from "react-router-dom";
+import { BottomModal } from "../../modal";
 
 class Waiting extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      polling: true
-    };
-  }
-
-  componentWillMount() {
-    // Get URL parameters
-    let { storeName, humanId } = this.props.match.params;
-
-    if (!this.props.location.state || !this.props.location.state.orderId) {
-      this.props.history.push(`/${storeName}/${humanId}`);
-    }
-  }
   render() {
     // Get URL parameters
     let { storeName, humanId } = this.props.match.params;
 
     // Get order ID
-    let orderId;
-
-    if (!this.props.location.state || !this.props.location.state.orderId) {
-      this.props.history.push(`/${storeName}/${humanId}`);
-    } else {
-      orderId = this.props.location.state.orderId;
-    }
+    let { orderId } = this.props;
 
     // Render component
     return (
-      <div>
-        {/* Document title */}
-        <Helmet>
-          <title>Waiting for payment - {storeName}</title>
-        </Helmet>
-
+      <BottomModal {...this.props} toggleModal={null}>
         {/* Poll for order */}
         <Query
           fetchPolicy={"network-only"}
           query={ORDER_QUERY}
-          pollInterval={400}
-          variables={{
-            id: orderId
-          }}
-          onCompleted={data => {
-            if (data.order) {
-              // If order status is 0, redirect to success page
-              if (!data.order.status) {
+          pollInterval={1000}
+          variables={{ id: orderId }}
+          onCompleted={async result => {
+            // If order exists
+            if (!!result.order) {
+              // Get order status
+              let { status } = result.order;
+
+              // If order status is successful
+              if (status === 0) {
                 this.props.history.push(`/${storeName}/${humanId}/success`);
               }
-            }
 
-            // Redirect to product page
-            else {
-              this.props.history.push(`/${storeName}/${humanId}`);
+              // If payment is cancelled or times out
+            } else {
+              window.location.reload();
             }
           }}
         >
           {({ error }) => {
             // Error state
             if (error) {
-              this.props.history.push(`/${storeName}/${humanId}`);
+              console.log(error);
             }
 
             /********** Return component  **********/
@@ -82,16 +57,21 @@ class Waiting extends Component {
                 <h1 className="waiting__title">
                   Waiting to confirm your payment.
                 </h1>
-                <ReviewLoader />
+                {/********** Loader **********/}
+                <div className="confirm__loader-container">
+                  <div className="confirm__loader">
+                    <Loader />
+                  </div>
+                </div>
               </div>
             );
 
             /********** End Return component **********/
           }}
         </Query>
-      </div>
+      </BottomModal>
     );
   }
 }
 
-export default Waiting;
+export default withRouter(Waiting);

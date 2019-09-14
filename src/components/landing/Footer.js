@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="landing__footer-logo">
       <img
         className={"landing__footer-logo-img"}
-        alt={"finn-logo"}
+        alt={"finn logo"}
         src={
           "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
         }

@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "title": "Dashboard",
+    "link": "dashboard"
+  },
+
+  {
+    "id": 2,
+    "title": "Store",
+    "link": ""
+  },
+
+  {
+    "id": 3,
+    "title": "Profile",
+    "link": "profile"
+  },
+
+  {
+    "id": 4,
+    "title": "Help",
+    "link": "help"
+  }
+]

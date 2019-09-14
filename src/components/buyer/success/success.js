@@ -7,7 +7,12 @@ const Success = props => {
   let { storeName, humanId } = props.match.params;
   return (
     <div className="App-container success">
-      <h1 className="success__title">Thanks, your order was successful.</h1>
+      <h1 className="success__title">
+        Thanks, your order was successful.
+        <span role="img" aria-label="hand">
+          🎉
+        </span>
+      </h1>
       <p className="success__text">
         We've sent you an <span className="success__text--bold">SMS </span>
         with the receipt and our contact info. We'll contact you in{" "}
@@ -15,7 +20,7 @@ const Success = props => {
         a pickup or delivery.
       </p>
 
-      {/* Error button */}
+      {/* Go back button */}
       <button
         onClick={() => props.history.push(`/${storeName}/${humanId}`)}
         className="success__btn"
@@ -37,15 +42,6 @@ const Success = props => {
           <span className="success__text--bold success--pink">Finn.</span>
         </Link>
       </p>
-
-      {/*  Success image */}
-      <img
-        className="success__img"
-        alt={"no_internet"}
-        src={
-          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382183/web_assets/pablo-good-job.png"
-        }
-      />
     </div>
   );
 };

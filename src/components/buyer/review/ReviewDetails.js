@@ -7,7 +7,7 @@ import { PulseBtn } from "../../button";
 import { Icon } from "react-icons-kit";
 import { arrow_right } from "react-icons-kit/ikons/arrow_right";
 
-const ImgLoaded = props => {
+const ReviewDetails = props => {
   // Destructure props
   let {
     // Data props
@@ -22,7 +22,7 @@ const ImgLoaded = props => {
   } = props;
 
   // Get product details
-  let { name, price } = productData.productByHumanId;
+  let { name, price } = productData;
 
   // Format price and convert to string
   price = numeral(price).format("'0,0'");
@@ -76,4 +76,4 @@ const ImgLoaded = props => {
   );
 };
 
-export default ImgLoaded;
+export default ReviewDetails;

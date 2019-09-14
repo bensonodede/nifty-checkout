@@ -81,9 +81,12 @@ const PRODUCT_HUMANID_QUERY = gql`
   }
 `;
 
+// Poll M-pesa payment status
+
+
 export {
   LOGIN_QUERY,
-  ORDER_QUERY,
+  ORDER_QUERY,  
   PRODUCTS_FEED_QUERY,
   PRODUCT_QUERY,
   PRODUCT_HUMANID_QUERY

@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100vw;
 }
 
 .waiting__title {
-  margin: 15vh 0vw;
+  margin: 18vw 0vw;
   font-family: "airbnb_cereal_appmedium";
   text-align: center;
   font-size: 8vw;

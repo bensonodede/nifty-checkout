@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LazyLoad from "react-lazy-load";
 
 // Import styles
 import "./styles.css";
@@ -29,6 +30,7 @@ class ImgLoader extends Component {
     let position = src.indexOf("upload/") + 7;
 
     // Insert transformations and optimizations for placeholder
+    // Poor quality image
     let placeholder = [
       src.slice(0, position),
       "q_1,f_auto/",
@@ -36,6 +38,7 @@ class ImgLoader extends Component {
     ].join("");
 
     // Insert image transformations and optimizations
+    // Optimal quality image
     let image = [src.slice(0, position), "q_auto/", src.slice(position)].join(
       ""
     );
@@ -50,22 +53,32 @@ class ImgLoader extends Component {
 
     return (
       <div className="img__container">
+        {/* Load in the placeholder image */}
         {loaded ? null : (
-          <img
-            onLoad={() => {
-              this.setState({ placeholderLoaded: true });
-            }}
-            alt={placeholder}
-            src={placeholder}
+          <LazyLoad
             className={`img__placeholder ${className}`}
-          />
+            onContentVisible={() => {
+              console.log("I've been lazy loaded");
+            }}
+          >
+            <img
+              onLoad={() => {
+                this.setState({ placeholderLoaded: true });
+              }}
+              alt={placeholder}
+              src={placeholder}
+              className={`img__placeholder ${className}`}
+            />
+          </LazyLoad>
         )}
 
+        {/* Once placeholder is fully loaded, begin to load optimal image */}
         {placeholderLoaded ? (
           <img
             onLoad={() => {
               // Set image loaded state
               this.setState({ loaded: true }, () => {
+                // Execute function after load, if any.
                 if (onLoad) {
                   onLoad();
                 }

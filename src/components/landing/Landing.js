@@ -42,9 +42,9 @@ class Landing extends Component {
           <div className="landing__logo-container">
             <img
               className={"landing__logo"}
-              alt={"finn-logo"}
+              alt={"finn logo"}
               src={
-                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_charcoal.png"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
               }
             />
           </div>
@@ -55,7 +55,7 @@ class Landing extends Component {
           <div className="hero__img-container">
             <img
               className="hero__img"
-              alt={"landing_header"}
+              alt={"finn hero"}
               src={
                 "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625948/web_assets/pablo-delete-confirmation.png"
               }
@@ -113,7 +113,7 @@ class Landing extends Component {
             <div className="faq__img-container">
               <img
                 className="faq__img"
-                alt={"landing_header"}
+                alt={"finn questions"}
                 src={
                   "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625895/web_assets/pablo-animal-care.png"
                 }
@@ -127,7 +127,6 @@ class Landing extends Component {
                 to={{
                   pathname: "/faq",
                   state: {
-                    modal: true,
                     item
                   }
                 }}

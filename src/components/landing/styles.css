@@ -1,9 +1,10 @@
 .landing__logo-container {
   overflow: hidden;
-  width: 10vw;
-  margin-top: 6vw;
-  margin-bottom: 8vw;
-  margin-left: 2vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10vw;
+  margin-bottom: 10vw;
 }
 
 .landing__logo {

@@ -10,7 +10,7 @@ const Demo = () => (
       {/* Product demo mockup */}
       <img
         className="demo__mockup"
-        alt={"demo__mockup"}
+        alt={"demo mockup"}
         src={
           "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566397303/web_assets/iphone_x_mockup.png"
         }

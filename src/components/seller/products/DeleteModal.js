@@ -1,6 +1,5 @@
 import React from "react";
 import { Mutation } from "react-apollo";
-import { Helmet } from "react-helmet";
 
 // Import components
 import { BottomModal } from "../../modal";
@@ -14,8 +13,7 @@ import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 import "./styles.css";
 
 const DeleteModal = props => {
-  let { name, id, imgUrl } = props.location.state;
-  let { storeName } = props.match.params;
+  let { name, id, imgUrl } = props.item;
 
   // Run mutation to delete product
   const handleDelete = async mutate => {
@@ -28,60 +26,56 @@ const DeleteModal = props => {
   };
 
   return (
-    <div>
-      {/* Document title */}
-      <Helmet>
-        <title>Delete confirmation - {storeName}</title>
-      </Helmet>
-      <Mutation
-        mutation={DELETE_PRODUCT}
-        onCompleted={data => {
-          console.log(data);
-          // Redirect to store product page
-          props.history.push(`/${storeName}/products`);
-        }}
-        update={(cache, { data: { deleteProduct } }) => {
-          // Get mutation typename
-          let { __typename } = deleteProduct;
+    <BottomModal {...props}>
+      <div>
+        <Mutation
+          mutation={DELETE_PRODUCT}
+          onCompleted={data => {
+            console.log(data);
+            // Redirect to store product page
+            props.toggleModal();
+          }}
+          update={(cache, { data: { deleteProduct } }) => {
+            // Get mutation typename
+            let { __typename } = deleteProduct;
 
-          try {
-            // Query cache
-            const data = cache.readQuery({
-              query: PRODUCTS_FEED_QUERY,
-              variables: {
-                type: __typename
-              }
-            });
+            try {
+              // Query cache
+              const data = cache.readQuery({
+                query: PRODUCTS_FEED_QUERY,
+                variables: {
+                  type: __typename
+                }
+              });
 
-            // Remove deleted product from array of cached products
-            const productsArr = data.productsByStore.filter(
-              product => product.id !== deleteProduct.id
-            );
+              // Remove deleted product from array of cached products
+              const productsArr = data.productsByStore.filter(
+                product => product.id !== deleteProduct.id
+              );
 
-            // Write new array to cache
-            cache.writeQuery({
-              query: PRODUCTS_FEED_QUERY,
-              variables: {
-                type: __typename
-              },
-              data: {
-                productsByStore: productsArr
-              }
-            });
-          } catch (error) {
-            console.log(error);
-          }
-        }}
-      >
-        {(mutate, { loading, error }) => {
-          // Handle errors
-          if (error) {
-            console.log(error);
-          }
+              // Write new array to cache
+              cache.writeQuery({
+                query: PRODUCTS_FEED_QUERY,
+                variables: {
+                  type: __typename
+                },
+                data: {
+                  productsByStore: productsArr
+                }
+              });
+            } catch (error) {
+              console.log(error);
+            }
+          }}
+        >
+          {(mutate, { loading, error }) => {
+            // Handle errors
+            if (error) {
+              console.log(error);
+            }
 
-          /* Delete modal component */
-          return (
-            <BottomModal {...props.history}>
+            /* Delete modal component */
+            return (
               <div>
                 <div className="product-modal__header">
                   <p className="product-modal__header-text">{name}</p>
@@ -115,7 +109,7 @@ const DeleteModal = props => {
                       {/* Cancel button */}
 
                       <button
-                        onClick={props.history.goBack}
+                        onClick={() => props.toggleModal()}
                         className="delete-modal__btn"
                       >
                         Cancel
@@ -125,11 +119,11 @@ const DeleteModal = props => {
                   )}
                 </div>
               </div>
-            </BottomModal>
-          );
-        }}
-      </Mutation>
-    </div>
+            );
+          }}
+        </Mutation>
+      </div>
+    </BottomModal>
   );
 };
 export default DeleteModal;
