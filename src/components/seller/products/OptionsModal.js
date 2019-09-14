@@ -40,7 +40,7 @@ const OptionsModal = props => {
           {/* Edit product link  */}
           <Link
             to={{
-              pathname: `/${storeName}/products/${id}/edit`,
+              pathname: `/${storeName}/dashboard/${id}/edit`,
               state: { name, imgUrl, price }
             }}
             className="product-modal__row"

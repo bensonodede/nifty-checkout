@@ -9,8 +9,10 @@ import InfiniteScroll from "react-infinite-scroller";
 import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 // Import components
+import { Menu } from "../menu";
 import { Error } from "../../error";
 import { Loader, ImgLoader } from "../../loader";
+import { AuthUserContext } from "../../session";
 
 // Import styles
 import "./styles.css";
@@ -49,114 +51,129 @@ class Home extends Component {
           <title>Abc business</title>
         </Helmet>
 
-        <div className="home">
-          <Query
-            query={PRODUCTS_FEED_QUERY}
-            variables={{
-              storeName,
-              first: 4,
-              skip: 0,
-              orderBy: "updatedAt_DESC"
-            }}
-          >
-            {({ loading, error, data, fetchMore }) => {
-              // Error state
-              if (error) {
-                return <Error />;
-              }
+        {/*  */}
+        <AuthUserContext.Consumer>
+          {authUser => {
+            console.log(authUser);
 
-              // Loading state
-              if (loading) {
-                return <ProductLoader />;
-              }
+            return (
+              <div className="home">
+                {/*  */}
+                {authUser ? <Menu /> : null}
+                <Query
+                  query={PRODUCTS_FEED_QUERY}
+                  variables={{
+                    storeName,
+                    first: 4,
+                    skip: 0,
+                    orderBy: "updatedAt_DESC"
+                  }}
+                >
+                  {({ loading, error, data, fetchMore }) => {
+                    // Error state
+                    if (error) {
+                      return <Error />;
+                    }
 
-              return (
-                /* Infinite scroll list */
-                <div>
-                  {/* Store title */}
-                  <div className="home__header">
-                    <h1 className="home__title">
-                      <span className="home__title--very-light">Hey you,</span>
-                      <br />
-                      <span className="home__title--light">welcome to</span>
-                      <br />
-                      {storeName}.{" "}
-                      <span
-                        role="img"
-                        aria-label="hand"
-                        className="home__emoji"
-                      >
-                        🤗
-                      </span>
-                    </h1>
-                  </div>
-                  {/* End store title */}
-                  <InfiniteScroll
-                    pageStart={0}
-                    initialLoad={true}
-                    useWindow={false}
-                    hasMore={this.state.hasMore}
-                    loader={<ProductLoader key={0} />}
-                    loadMore={() => {
-                      fetchMore({
-                        variables: {
-                          storeName,
-                          first: 4,
-                          skip: data.productsByStore.length,
-                          orderBy: "updatedAt_DESC"
-                        },
-                        updateQuery: (prev, { fetchMoreResult }) => {
-                          // Add new items to previously fetched array
-                          if (
-                            !fetchMoreResult ||
-                            fetchMoreResult.productsByStore.length === 0
-                          ) {
-                            this.setState({ hasMore: false });
-                            return prev;
-                          }
+                    // Loading state
+                    if (loading) {
+                      return <ProductLoader />;
+                    }
 
-                          return Object.assign({}, prev, {
-                            productsByStore: [
-                              ...prev.productsByStore,
-                              ...fetchMoreResult.productsByStore
-                            ]
-                          });
-                        }
-                      });
-                    }}
-                  >
-                    {/* Store grid */}
-                    <Masonry
-                      breakpointCols={breakpointCols}
-                      className="home__masonry-grid"
-                      columnClassName="home__masonry-grid_column"
-                    >
-                      {/* Store grid item */}
-                      {data.productsByStore.map(item => (
-                        <Link
-                          key={item.id}
-                          to={{
-                            pathname: `/${storeName}/${item.humanId}`
+                    return (
+                      /* Infinite scroll list */
+                      <div>
+                        {/* Store title */}
+                        <div className="home__header">
+                          <h1 className="home__title">
+                            <span className="home__title--very-light">
+                              Hey you,
+                            </span>
+                            <br />
+                            <span className="home__title--light">
+                              welcome to
+                            </span>
+                            <br />
+                            {storeName}.{" "}
+                            <span
+                              role="img"
+                              aria-label="hand"
+                              className="home__emoji"
+                            >
+                              🤗
+                            </span>
+                          </h1>
+                        </div>
+                        {/* End store title */}
+                        <InfiniteScroll
+                          pageStart={0}
+                          initialLoad={true}
+                          useWindow={false}
+                          hasMore={this.state.hasMore}
+                          loader={<ProductLoader key={0} />}
+                          loadMore={() => {
+                            fetchMore({
+                              variables: {
+                                storeName,
+                                first: 4,
+                                skip: data.productsByStore.length,
+                                orderBy: "updatedAt_DESC"
+                              },
+                              updateQuery: (prev, { fetchMoreResult }) => {
+                                // Add new items to previously fetched array
+                                if (
+                                  !fetchMoreResult ||
+                                  fetchMoreResult.productsByStore.length === 0
+                                ) {
+                                  this.setState({ hasMore: false });
+                                  return prev;
+                                }
+
+                                return Object.assign({}, prev, {
+                                  productsByStore: [
+                                    ...prev.productsByStore,
+                                    ...fetchMoreResult.productsByStore
+                                  ]
+                                });
+                              }
+                            });
                           }}
                         >
-                          <div className="home__grid-item">
-                            <ImgLoader
-                              src={item.imgUrl}
-                              alt={item.name}
-                              className={"home__grid-img"}
-                            />
-                          </div>
-                        </Link>
-                      ))}
-                    </Masonry>
-                    {/* End store grid */}
-                  </InfiniteScroll>
-                </div>
-                /* End Infinte scroll */
-              );
-            }}
-          </Query>
-        </div>
+                          {/* Store grid */}
+                          <Masonry
+                            breakpointCols={breakpointCols}
+                            className="home__masonry-grid"
+                            columnClassName="home__masonry-grid_column"
+                          >
+                            {/* Store grid item */}
+                            {data.productsByStore.map(item => (
+                              <Link
+                                key={item.id}
+                                to={{
+                                  pathname: `/${storeName}/${item.humanId}`
+                                }}
+                              >
+                                <div className="home__grid-item">
+                                  <ImgLoader
+                                    src={item.imgUrl}
+                                    alt={item.name}
+                                    className={"home__grid-img"}
+                                  />
+                                </div>
+                              </Link>
+                            ))}
+                          </Masonry>
+                          {/* End store grid */}
+                        </InfiniteScroll>
+                      </div>
+                      /* End Infinte scroll */
+                    );
+                  }}
+                </Query>
+              </div>
+            );
+          }}
+        </AuthUserContext.Consumer>
       </div>
     );
   }

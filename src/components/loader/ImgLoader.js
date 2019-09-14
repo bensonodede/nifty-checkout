@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LazyLoad from "react-lazy-load";
 
 // Import styles
 import "./styles.css";
@@ -54,14 +55,21 @@ class ImgLoader extends Component {
       <div className="img__container">
         {/* Load in the placeholder image */}
         {loaded ? null : (
-          <img
-            onLoad={() => {
-              this.setState({ placeholderLoaded: true });
-            }}
-            alt={placeholder}
-            src={placeholder}
+          <LazyLoad
             className={`img__placeholder ${className}`}
-          />
+            onContentVisible={() => {
+              console.log("I've been lazy loaded");
+            }}
+          >
+            <img
+              onLoad={() => {
+                this.setState({ placeholderLoaded: true });
+              }}
+              alt={placeholder}
+              src={placeholder}
+              className={`img__placeholder ${className}`}
+            />
+          </LazyLoad>
         )}
 
         {/* Once placeholder is fully loaded, begin to load optimal image */}

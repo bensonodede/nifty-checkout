@@ -16,6 +16,7 @@ import ProductCard from "./ProductCard";
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
 import { Menu } from "../menu";
+import { CopyLink } from "../copyLink";
 
 // Import styles
 import "../../../styles/index.css";
@@ -146,7 +147,7 @@ class ProductPage extends Component {
                     <div>
                       {/********** Products header **********/}
 
-                      <div className="header header--product">
+                      <div className="header">
                         <h1 className="header__title">Welcome</h1>
                         <p className="header__text">
                           Keep track of and manage all your products. Happy
@@ -162,6 +163,9 @@ class ProductPage extends Component {
                       </div>
 
                       {/********** Products header end **********/}
+
+                      {/* Copy Store link */}
+                      <CopyLink />
 
                       {/********** Products page list **********/}
 

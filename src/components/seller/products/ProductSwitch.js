@@ -16,7 +16,10 @@ class ProductSwitch extends Component {
       <div>
         <Switch>
           <Route exact path="/:storeName/dashboard" component={Products} />
-          <Route path="/:storeName/products/:id/edit" component={EditProduct} />
+          <Route
+            path="/:storeName/dashboard/:id/edit"
+            component={EditProduct}
+          />
 
           {/* Error 404 component */}
           <Route component={PageNotFound} />

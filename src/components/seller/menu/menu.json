@@ -1,18 +1,24 @@
 [
   {
     "id": 1,
-    "title": "Home",
+    "title": "Dashboard",
     "link": "dashboard"
   },
 
   {
     "id": 2,
+    "title": "Store",
+    "link": ""
+  },
+
+  {
+    "id": 3,
     "title": "Profile",
     "link": "profile"
   },
 
   {
-    "id": 3,
+    "id": 4,
     "title": "Help",
     "link": "help"
   }

@@ -2,9 +2,6 @@
   height: 96vh;
 }
 
-.header--product {
-  margin-bottom: 10vw;
-}
 .product__list {
   display: flex;
   flex-direction: column;
