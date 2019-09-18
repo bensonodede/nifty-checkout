@@ -51,14 +51,12 @@ class Home extends Component {
           <title>Abc business</title>
         </Helmet>
 
-        {/*  */}
+        {/* Check auth state */}
         <AuthUserContext.Consumer>
           {authUser => {
-            console.log(authUser);
-
             return (
               <div className="home">
-                {/*  */}
+                {/* Render menu if logged in */}
                 {authUser ? <Menu /> : null}
                 <Query
                   query={PRODUCTS_FEED_QUERY}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800207/web_assets/Feature-store.png",
+    "header": "Give your instagram store a new home",
+    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+  },
+
+  {
+    "id": 2,
+    "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800210/web_assets/Feature-mpesa.png",
+    "header": "One-click mpesa checkouts",
+    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+  },
+
+  {
+    "id": 3,
+    "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800205/web_assets/Feature-SMS.png",
+    "header": "Automate receipts and thank you messages",
+    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+  },
+
+  {
+    "id": 4,
+    "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800212/web_assets/feature-dashboard.png",
+    "header": "Clean, simple dashboard to manage your products",
+    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+  }
+]

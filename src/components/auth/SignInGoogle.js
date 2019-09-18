@@ -31,9 +31,7 @@ class SignInGoogleBase extends Component {
           {/* Social icon */}
           <img
             className="social__icon"
-            src={
-              "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566399102/web_assets/google.svg"
-            }
+            src={require("../../images/google-icon.svg")}
             alt="google-logo"
           />
 

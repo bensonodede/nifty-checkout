@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const Signup = () => (
   <div className="signup">
-    <h1 className="signup__title">Ready to get started?</h1>
+    <p className="signup__text">Try Finn now</p>
+    <h1 className="signup__title">Start selling in just 5 minutes.</h1>
 
     <div className="signup__btn-container">
       <Link to="/login">

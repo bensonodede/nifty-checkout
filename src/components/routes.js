@@ -27,6 +27,7 @@ class Routes extends Component {
           {/* Common routes */}
           <Route exact path="/" component={Landing} />
           <Route path="/faq" component={Faq} />
+          <Route path="/talk" component={Talk} />
 
           {/* Seller routes */}
           <Route path="/login" component={Login} />

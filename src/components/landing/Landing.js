@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 // Import components
-import Demo from "./Demo";
-import How from "./How";
+import Features from "./Features";
 import Pricing from "./Pricing";
 import Signup from "./Signup";
 import Footer from "./Footer";
@@ -13,7 +12,7 @@ import Footer from "./Footer";
 // Import styles
 import "./styles.css";
 
-// Import questions
+// Import json files
 const faq = require("./faq.json");
 
 class Landing extends Component {
@@ -88,17 +87,9 @@ class Landing extends Component {
 
           {/********** End hero section **********/}
 
-          {/* Product demo section */}
-
-          <Demo />
-
-          {/* How section */}
-
-          <How />
-
           {/* Features section */}
 
-          {/* <Features /> */}
+          <Features />
 
           {/* Pricing section */}
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <div className="landing__footer">
@@ -14,9 +15,15 @@ const Footer = () => (
       />
     </div>
 
-    {/* Footer links  */}
-    <div className="landing__footer-links">
-      {/* <p className="landing__footer-text">Help</p> */}
+    {/* Footer body */}
+    <div className="landing__footer-body">
+      {/* Footer row */}
+      <Link to={"/talk"}>
+        <div className="landing__footer-row">
+          <p className="landing__footer-text">Talk to us</p>
+        </div>
+      </Link>
+      {/* End Footer row */}
     </div>
   </div>
 );

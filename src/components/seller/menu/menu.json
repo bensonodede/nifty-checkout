@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "title": "Store",
-    "link": "",
-    "exact": true
+    "title": "Dashboard",
+    "link": "dashboard",
+    "exact": false
   },
 
   {
     "id": 2,
-    "title": "Dashboard",
-    "link": "dashboard",
-    "exact": false
+    "title": "Store",
+    "link": "",
+    "exact": true
   },
 
   {
