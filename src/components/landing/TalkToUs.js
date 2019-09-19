@@ -1,16 +1,12 @@
 import React from "react";
 
 // Import components
-import { Menu } from "../menu";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
 
-const Talk = () => {
+const TalkToUs = () => {
   return (
     <div className="App-container help">
-      {/* Render menu */}
-      <Menu />
-
       {/* Help logo */}
       <div className="help__img-container">
         <img
@@ -48,4 +44,4 @@ const Talk = () => {
     </div>
   );
 };
-export default Talk;
+export default TalkToUs;

@@ -18,7 +18,7 @@ const Footer = () => (
     {/* Footer body */}
     <div className="landing__footer-body">
       {/* Footer row */}
-      <Link to={"/talk"}>
+      <Link to={"/talk-to-us"}>
         <div className="landing__footer-row">
           <p className="landing__footer-text">Talk to us</p>
         </div>
