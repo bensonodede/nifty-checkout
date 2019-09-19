@@ -3,27 +3,27 @@
     "id": 1,
     "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800207/web_assets/Feature-store.png",
     "header": "Give your instagram store a new home",
-    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+    "description": "\"DM/call to order\" can be frustrating. Wow your customers with a fluid, well-designed shopping experience."
   },
 
   {
     "id": 2,
     "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800210/web_assets/Feature-mpesa.png",
-    "header": "One-click mpesa checkouts",
-    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+    "header": "One click mpesa checkouts",
+    "description": "Reduce purchasing friction. Make it simple for customers to pay for what they want."
   },
 
   {
     "id": 3,
     "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800205/web_assets/Feature-SMS.png",
     "header": "Automate receipts and thank you messages",
-    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+    "description": "Don't leave your customers in the dark. Increase their trust by immediately thanking them for their purchase, issuing a receipt and providing all your contact details."
   },
 
   {
     "id": 4,
     "imgUrl": "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1568800212/web_assets/feature-dashboard.png",
     "header": "Clean, simple dashboard to manage your products",
-    "description": "Blah blah blah blah blah blah blah blah blah blah blah"
+    "description": "Track and manage all your products. You can also preview of each product to make sure everything looks just right."
   }
 ]

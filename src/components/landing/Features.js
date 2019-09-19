@@ -5,8 +5,8 @@ const data = require("./features.json");
 
 const Features = () => (
   <div className="features">
-    <div className="divider" />
-    <h1 className="features__title">Features</h1>
+    {/* <div className="divider" />
+    <h1 className="features__title">Features</h1> */}
 
     {/* Map each feature item */}
     {data.map(item => (

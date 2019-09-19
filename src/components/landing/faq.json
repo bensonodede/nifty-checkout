@@ -1,12 +1,25 @@
 [
   {
     "id": 1,
-    "question": "How much does it cost to start using finn?",
-    "answer": "It's free to sign up and start using. We only charge a 2.5% fee for sales made through finn. M-pesa charges also apply."
+    "question": "Is Finn right for me?",
+    "answer": "Finn is not for everyone. If you're having a hard time selling your products on social media and you are stuck with \" Call/DM to order \" as your only option, we made finn just for you."
   },
+
   {
     "id": 2,
+    "question": "How much does it cost to start using finn?",
+    "answer": "It's free to sign up and start using. We only charge a 6.5% + 5 kes fee for sales made through finn."
+  },
+
+  {
+    "id": 3,
     "question": "Do I need an M-pesa paybill to use this service?",
     "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
+  },
+
+  {
+    "id": 4,
+    "question": "Do you handle shipping?",
+    "answer": "Currently, we don't handle shipping. We simply don't have the capacity to run a delivery operation that is cost-effective and works great. We love our users, it would be a shame to disappoint you and your customers with a delivery service that sucks. For these reasons, we have chosen not to provide shipping options."
   }
 ]

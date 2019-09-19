@@ -254,8 +254,10 @@
 }
 
 .pricing__warn {
-  color: #f36b7f;
+  color: #ffffff;
   font-family: "airbnb_cereal_appmedium";
+  background-color: #f36b7f;
+  padding: 1.2vw 1.5vw;
 }
 
 /********** FAQ section **********/
@@ -298,6 +300,15 @@
 
 .faq__page {
   margin-top: 5vh;
+}
+
+.faq__icon {
+  color: #484848;
+  width: 10vw;
+  height: auto;
+  box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.12);
+  border-radius: 5vw;
+  margin-bottom: 6vw;
 }
 
 .faq__sub-title {
