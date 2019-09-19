@@ -20,7 +20,7 @@ const Pricing = () => (
     <div className="pricing__card">
       <h1 className="pricing__sub-title">Pay low fees</h1>
       <p className="pricing__text">
-        Finn is free to sign up. We charge each merchant a{" "}
+        Finn is free to sign up. We charge a{" "}
         <span className="pricing__warn">6.5% + 5 kes</span> fee per transaction.
       </p>
     </div>

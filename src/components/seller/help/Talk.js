@@ -10,6 +10,7 @@ const Talk = () => {
   return (
     <AuthUserContext.Consumer>
       {authUser => {
+        console.log(authUser);
         return (
           <div className="App-container help">
             {/* Render menu if logged in */}

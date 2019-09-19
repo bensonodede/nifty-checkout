@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "question": "Is Finn right for me?",
+    "question": "Is finn right for me?",
     "answer": "Finn is not for everyone. If you're having a hard time selling your products on social media and you are stuck with \"Call/DM to order\" as your only option, we made finn just for you."
   },
 
@@ -13,7 +13,7 @@
 
   {
     "id": 3,
-    "question": "Do I need an M-pesa paybill to use this service?",
+    "question": "Do I need an m-pesa paybill to use this service?",
     "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
   },
 
