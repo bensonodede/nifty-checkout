@@ -435,7 +435,8 @@
 .features__img {
   object-fit: cover;
   width: 87vw;
-  height: auto;
+  height: 87vw;
+  background-color: #e5e5e5;
 }
 
 .features__title {
