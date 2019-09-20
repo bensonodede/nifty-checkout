@@ -48,7 +48,7 @@ class Home extends Component {
       <div>
         {/* Document title */}
         <Helmet>
-          <title>Abc business</title>
+          <title>{storeName}</title>
         </Helmet>
 
         {/* Check auth state */}

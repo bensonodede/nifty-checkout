@@ -34,7 +34,7 @@ const Profile = props => {
           </div>
 
           {/* Help title */}
-          <h1 className="help__title">Abc business</h1>
+          <h1 className="help__title">{storeName}</h1>
 
           {/********** Profile body **********/}
           <div className="profile__body">
