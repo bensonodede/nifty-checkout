@@ -1,3 +1,68 @@
+diff --git a/node_modules/react-icons-kit/ionicons/iosClose.js b/node_modules/react-icons-kit/ionicons/iosClose.js
+index e49f051..cc419a4 100644
+--- a/node_modules/react-icons-kit/ionicons/iosClose.js
++++ b/node_modules/react-icons-kit/ionicons/iosClose.js
+@@ -3,4 +3,34 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosClose = exports.iosClose = { "viewBox": "0 0 512 512", "children": [{ "name": "style", "attribs": { "type": "text/css" }, "children": [] }, { "name": "g", "attribs": {}, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z" }, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z" }, "children": [] }] }] }] };
+\ No newline at end of file
++var iosClose = (exports.iosClose = {
++  viewBox: "0 0 512 512",
++  children: [
++    { name: "style", attribs: { type: "text/css" }, children: [] },
++    {
++      name: "g",
++      attribs: {},
++      children: [
++        {
++          name: "path",
++          attribs: {
++            class: "st0",
++            d:
++              "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z"
++          },
++          children: [
++            {
++              name: "path",
++              attribs: {
++                class: "st0",
++                d:
++                  "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z"
++              },
++              children: []
++            }
++          ]
++        }
++      ]
++    }
++  ]
++});
+diff --git a/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js b/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
+index c1ca9c7..868d15e 100644
+--- a/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
++++ b/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
+@@ -3,4 +3,17 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosCloseEmpty = exports.iosCloseEmpty = { "viewBox": "0 0 512 512", "children": [{ "name": "style", "attribs": { "type": "text/css" }, "children": [] }, { "name": "polygon", "attribs": { "class": "st0", "points": "340.2,160 255.8,244.3 171.8,160.4 160,172.2 244,256 160,339.9 171.8,351.6 255.8,267.8 340.2,352 \r\n\t352,340.3 267.6,256 352,171.8 " }, "children": [] }] };
+\ No newline at end of file
++var iosCloseEmpty = (exports.iosCloseEmpty = {
++  viewBox: "0 0 512 512",
++  children: [
++    { name: "style", attribs: { type: "text/css" }, children: [] },
++    {
++      name: "polygon",
++      attribs: {
++        points:
++          "340.2,160 255.8,244.3 171.8,160.4 160,172.2 244,256 160,339.9 171.8,351.6 255.8,267.8 340.2,352 \r\n\t352,340.3 267.6,256 352,171.8 "
++      },
++      children: []
++    }
++  ]
++});
 diff --git a/node_modules/react-icons-kit/ionicons/iosCloseOutline.js b/node_modules/react-icons-kit/ionicons/iosCloseOutline.js
 index 4596428..bd97e21 100644
 --- a/node_modules/react-icons-kit/ionicons/iosCloseOutline.js

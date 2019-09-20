@@ -11,8 +11,8 @@
 # production
 /build
 
-# firebase hosting cache
-.*/
+# hidden folders
+.*
 
 # misc
 .DS_Store
