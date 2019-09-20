@@ -1,6 +1,0 @@
-{
-  "projects": {
-    "prod": "magic-finn",
-    "dev": "magic-finn-dev"
-  }
-}
