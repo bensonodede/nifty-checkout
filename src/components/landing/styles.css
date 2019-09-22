@@ -237,14 +237,14 @@
   border-radius: 3vw;
   padding: 8vw 6vw;
   margin: 12vw 0vw;
-  border: solid 0.5px #787878;
+  border: 1px solid #c2c2c2;
 }
 
 .pricing__header {
   padding: 0vw 1vw;
   padding-bottom: 8vw;
   margin-bottom: 10vw;
-  border-bottom: solid 0.2px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5;
 }
 
 .pricing__sub-text {
