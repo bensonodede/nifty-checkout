@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "question": "How much does it cost to start using finn?",
-    "answer": "It's free to sign up and start using. We only charge a 2.5% fee for sales made through finn. M-pesa charges also apply."
+    "question": "How do I rename my store?",
+    "answer": "We are currently working on this. You should be able to rename your store in a few days."
   },
   {
     "id": 2,
-    "question": "Do I need an M-pesa paybill to use this service?",
-    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
+    "question": "I want to change the emoji on my store page.",
+    "answer": "We're working on an update to let you do just that. We'll notify you when it's up."
   }
 ]

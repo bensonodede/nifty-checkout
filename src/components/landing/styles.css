@@ -233,31 +233,57 @@
   height: auto;
 }
 
-.pricing__card {
-  margin-bottom: 15vw;
+.pricing__table {
+  border-radius: 3vw;
+  padding: 8vw 6vw;
+  margin: 12vw 0vw;
+  border: solid 0.5px #787878;
+}
+
+.pricing__header {
+  padding: 0vw 1vw;
+  padding-bottom: 8vw;
+  margin-bottom: 10vw;
+  border-bottom: solid 0.2px #e5e5e5;
+}
+
+.pricing__sub-text {
+  font-family: "airbnb_cereal_applight";
+  font-size: 4.5vw;
+  color: #484848;
+  margin: 4vw 0vw;
 }
 
 .pricing__sub-title {
   font-family: "airbnb_cereal_appmedium";
-  font-size: 6vw;
-  margin: 0vw;
+  font-size: 7.5vw;
   color: #484848;
+  margin: 0vw;
+}
+
+.pricing__currency {
+  font-size: 4vw;
+}
+
+.pricing__row {
+  display: flex;
+  flex-direction: row;
+  margin: 7.5vw 0vw;
 }
 
 .pricing__text {
-  font-family: "airbnb_cereal_appbook";
-  font-size: 4.8vw;
-  line-height: 7.8vw;
+  font-family: "airbnb_cereal_applight";
+  font-size: 4.5vw;
+  line-height: 6.8vw;
   color: #787878;
   margin: 0;
-  margin-top: 4vw;
 }
 
-.pricing__warn {
-  color: #ffffff;
-  font-family: "airbnb_cereal_appmedium";
-  background-color: #f36b7f;
-  padding: 1.2vw 1.5vw;
+.pricing__icon {
+  margin-right: 5vw;
+  width: 5vw;
+
+  color: #4dd284;
 }
 
 /********** FAQ section **********/

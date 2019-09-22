@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "feature": "List unlimited products"
+  },
+
+  {
+    "id": 2,
+    "feature": "Automatic receipts sent to your customers"
+  },
+  {
+    "id": 3,
+    "feature": "SMS alerts for new orders"
+  },
+  {
+    "id": 4,
+    "feature": "Receive your payments in 24hrs"
+  },
+  {
+    "id": 5,
+    "feature": "24/7 attentive, empathetic customer care"
+  }
+]

@@ -1,4 +1,9 @@
 import React from "react";
+import Icon from "react-icons-kit";
+import { checkmark } from "react-icons-kit/ionicons/checkmark";
+
+// Import pricing data
+const data = require("./pricing.json");
 
 const Pricing = () => (
   <div className="pricing">
@@ -16,22 +21,29 @@ const Pricing = () => (
       />
     </div>
 
-    {/* Pricing sub-section */}
-    <div className="pricing__card">
-      <h1 className="pricing__sub-title">Pay low fees</h1>
-      <p className="pricing__text">
-        Finn is free to sign up. We charge a{" "}
-        <span className="pricing__warn">6.5% + 5 kes</span> fee per transaction.
-      </p>
-    </div>
+    {/* Pricing table */}
+    <div className="pricing__table">
+      <div className="pricing__header">
+        <h1 className="pricing__sub-text">For every transaction</h1>
+        <h1 className="pricing__sub-title">
+          2.5% + 5 <span className="pricing__currency">KES</span>
+        </h1>
+      </div>
 
-    {/* Pricing sub-section */}
-    <div className="pricing__card">
-      <h1 className="pricing__sub-title">Get paid quickly</h1>
-      <p className="pricing__text">
-        We send your money to your preferred M-pesa enabled phone number{" "}
-        <span className="pricing__warn">everyday</span> before 10am.
-      </p>
+      {/* Map pricing benefits */}
+      {data.map(item => (
+        <div key={item.id} className="pricing__row">
+          {/* pricing icon */}
+          <div className="pricing__icon-container">
+            <div className="pricing__icon">
+              <Icon icon={checkmark} size={"100%"} />
+            </div>
+          </div>
+
+          {/* pricing text */}
+          <h3 className="pricing__text">{item.feature}</h3>
+        </div>
+      ))}
     </div>
   </div>
 );
