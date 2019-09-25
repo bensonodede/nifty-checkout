@@ -6,18 +6,26 @@
 
   {
     "id": 2,
-    "feature": "Automatic receipts sent to your customers"
+    "feature": "Your own \"link in bio\""
   },
+
   {
     "id": 3,
-    "feature": "SMS alerts for new orders"
+    "feature": "Automatic receipts sent to your customers"
   },
+
   {
     "id": 4,
-    "feature": "Receive your payments in 24hrs"
+    "feature": "SMS alerts for new orders"
   },
+
   {
     "id": 5,
+    "feature": "Receive your payments in 24hrs"
+  },
+
+  {
+    "id": 6,
     "feature": "24/7 attentive, empathetic customer care"
   }
 ]

@@ -29,7 +29,7 @@ const HomeLoader = () => (
       <Loader key={0} />
     </div>
   </div>
-);
+); 
 
 class Home extends Component {
   constructor(props) {

@@ -15,7 +15,7 @@ const Success = props => {
         </span>
       </h1>
       <p className="success__text">
-        We've sent you an <span className="success__text--bold">SMS </span>
+        We'll send you an <span className="success__text--bold">SMS </span>
         with the receipt and our contact info. We'll contact you in{" "}
         <span className="success__text--bold">1 hour or less </span> to arrange
         a pickup or delivery.
