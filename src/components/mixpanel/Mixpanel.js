@@ -1,7 +1,16 @@
 import mixpanel from "mixpanel-browser";
 
-// Initialize mixpanel
-mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN);
+// Define production domain
+let productionHost = "magicfinn.com";
+
+// Check if site is using production domain or development domain
+if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
+  // Initialize DEVELOPMENT DOMAIN mixpanel
+  mixpanel.init(process.env.REACT_APP_DEV_MIXPANEL_TOKEN);
+} else {
+  // Initialize PRODUCTION DOMAIN mixpanel
+  mixpanel.init(process.env.REACT_APP_PROD_MIXPANEL_TOKEN);
+}
 
 // Check if app is running in production
 let env_check = process.env.NODE_ENV === "production";

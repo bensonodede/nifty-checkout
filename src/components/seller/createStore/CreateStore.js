@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
-import Cookies from "js-cookie";
 import { Mixpanel } from "../../mixpanel";
 
 //Import components
