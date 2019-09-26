@@ -95,7 +95,6 @@ class Login extends Component {
         {/* Auth user */}
         <AuthUserContext.Consumer>
           {authUser => {
-            console.log(authUser);
             /* Destructure uid and make it global */
             let uid;
             if (authUser) {
