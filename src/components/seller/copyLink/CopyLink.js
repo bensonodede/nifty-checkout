@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Mixpanel } from "../../mixpanel";
 
 // Import components
 import { Icon } from "react-icons-kit";
@@ -26,7 +27,13 @@ class CopyLink extends Component {
 
   /********** Copy store link **********/
   copyStoreLink = () => {
+    // Track link copy
+    Mixpanel.track("Store link copied");
+
+    // Copy store link to clipboard
     navigator.clipboard.writeText(this.state.storeLink);
+
+    // Toggle copy button text
     this.setState({ copyText: "Copied!" }, () => {
       setTimeout(() => this.setState({ copyText: "Copy store link" }), 800);
     });

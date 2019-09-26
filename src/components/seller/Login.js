@@ -77,7 +77,7 @@ class Login extends Component {
     // If User does NOT have a store, redirect to 'create-store page'
     else {
       // Track new sign up
-      Mixpanel.track("New signup");
+      Mixpanel.track("Login without store");
 
       // Redirect to signup page
       history.push("/signup");
@@ -95,22 +95,29 @@ class Login extends Component {
         {/* Auth user */}
         <AuthUserContext.Consumer>
           {authUser => {
+            console.log(authUser);
             /* Destructure uid and make it global */
             let uid;
             if (authUser) {
               uid = authUser.uid;
 
-              /* Destructure profile */
-              let { displayName, email, providerId } = authUser.providerData;
+              /* Destructure login info */
+              let { providerData, metadata } = authUser,
+                { displayName, email, providerId } = providerData[0],
+                { creationTime, lastSignInTime } = metadata;
 
               // Identify user in Mixpanel
               Mixpanel.identify(uid);
 
               // Set user profile in Mixpanel
+              //? Reason: mixpanel does not accept formated syntax without quotations
+              // prettier-ignore
               Mixpanel.people.set({
-                name: displayName,
-                email: email,
-                providerId: providerId
+                "name": displayName,
+                "$email": email,
+                "$provider_ID": providerId,
+                "$creation_time":creationTime,
+                "$last_sign_in_time": lastSignInTime
               });
             }
 

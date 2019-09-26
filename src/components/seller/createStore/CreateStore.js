@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
 import Cookies from "js-cookie";
+import { Mixpanel } from "../../mixpanel";
 
 //Import components
 import { AuthUserContext, withAuthorization } from "../../session";
@@ -73,8 +74,8 @@ class CreateStore extends Component {
             onCompleted={async data => {
               let { storeName } = data.createStore;
 
-              // Set user store name to global cookie
-              await Cookies.set("userStore", storeName);
+              // Track new store
+              Mixpanel.track("Created store");
 
               // Redirect to store product page
               this.props.history.push(`/${storeName}/products`);

@@ -1,5 +1,14 @@
 import gql from "graphql-tag";
 
+// User count
+const USER_COUNT_QUERY = gql`
+  query UserCountQuery {
+    userCount {
+      count
+    }
+  }
+`;
+
 // Login a user
 const LOGIN_QUERY = gql`
   query LoginQuery($uid: String!) {
@@ -83,10 +92,10 @@ const PRODUCT_HUMANID_QUERY = gql`
 
 // Poll M-pesa payment status
 
-
 export {
+  USER_COUNT_QUERY,
   LOGIN_QUERY,
-  ORDER_QUERY,  
+  ORDER_QUERY,
   PRODUCTS_FEED_QUERY,
   PRODUCT_QUERY,
   PRODUCT_HUMANID_QUERY

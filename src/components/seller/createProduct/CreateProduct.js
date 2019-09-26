@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Mutation } from "react-apollo";
+import { Mixpanel } from "../../mixpanel";
 
 // Import components
 import { withAuthorization } from "../../session";
@@ -54,6 +55,9 @@ class CreateProduct extends Component {
       <Mutation
         mutation={CREATE_PRODUCT}
         onCompleted={data => {
+          // Track product creation
+          Mixpanel.track("Created product");
+
           // Redirect to store product page
           this.props.history.push(`/${storeName}/dashboard`);
         }}
