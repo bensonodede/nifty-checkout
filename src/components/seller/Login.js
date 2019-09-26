@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { Helmet } from "react-helmet";
-import Cookies from "js-cookie";
+import { Mixpanel } from "../mixpanel";
 
 // Import higher order components
 import { withFirebase } from "../firebase";
@@ -68,14 +68,18 @@ class Login extends Component {
     if (stores[0]) {
       let { storeName } = stores[0];
 
-      // Set user store name to global cookie
-      await Cookies.set("userStore", storeName);
+      // Track new login
+      Mixpanel.track("Login");
 
       history.push(`/${storeName}/dashboard`);
     }
 
     // If User does NOT have a store, redirect to 'create-store page'
     else {
+      // Track new sign up
+      Mixpanel.track("New signup");
+
+      // Redirect to signup page
       history.push("/signup");
     }
   };
@@ -95,6 +99,19 @@ class Login extends Component {
             let uid;
             if (authUser) {
               uid = authUser.uid;
+
+              /* Destructure profile */
+              let { displayName, email, providerId } = authUser.providerData;
+
+              // Identify user in Mixpanel
+              Mixpanel.identify(uid);
+
+              // Set user profile in Mixpanel
+              Mixpanel.people.set({
+                name: displayName,
+                email: email,
+                providerId: providerId
+              });
             }
 
             return (
