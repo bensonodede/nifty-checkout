@@ -11,9 +11,15 @@ import Routes from "./components/Routes";
 // Import server url environment variables
 let serverUrl;
 
-if (process.env.NODE_ENV === "development") {
+// Define production domain
+let productionHost = "magicfinn.com";
+
+// Check if site is using production domain or development domain
+if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
+  // Initialize DEVELOPMENT DOMAIN prisma server
   serverUrl = process.env.REACT_APP_DEV_SERVER_URL;
 } else {
+  // Initialize PRODUCTION DOMAIN prisma server
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
 }
 

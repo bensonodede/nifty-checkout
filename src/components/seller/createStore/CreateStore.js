@@ -77,7 +77,7 @@ class CreateStore extends Component {
               Mixpanel.track("Created store");
 
               // Redirect to store product page
-              this.props.history.push(`/${storeName}/products`);
+              this.props.history.push(`/${storeName}/dashboard`);
             }}
           >
             {(createStore, { loading, error }) => {
