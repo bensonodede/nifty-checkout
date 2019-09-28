@@ -2,23 +2,22 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { Helmet } from "react-helmet";
-import { Mixpanel } from "../mixpanel";
+import { Mixpanel } from "../../mixpanel";
 
 // Import higher order components
-import { withFirebase } from "../firebase";
+import { withFirebase } from "../../firebase";
 
 // Import GraphQL login query
-import { LOGIN_QUERY } from "../graphql/query";
+import { LOGIN_QUERY } from "../../graphql/query";
 
 // Import components
-import { Loader } from "../loader";
-import { AuthUserContext } from "../session";
-import { SignInGoogle, SignInFacebook, SignInTwitter } from "../auth";
+import { Loader } from "../../loader";
+import { Error } from "../../error";
+import { AuthUserContext } from "../../session";
+import { SignInGoogle, SignInFacebook, SignInTwitter } from "../../auth";
 
 // Import styles
-import "../../styles/index.css";
-import "../../styles/seller/Login.css";
-import { Error } from "../error";
+import "./styles.css";
 
 // Review page loader
 const LoginLoader = () => (
@@ -148,7 +147,10 @@ class Login extends Component {
                   return (
                     <div className="App-container">
                       {/* Login logo */}
-                      <div className="login__logo-container">
+                      <div
+                        className="login__logo-container"
+                        onClick={() => this.props.history.push(`/`)}
+                      >
                         <img
                           src={
                             "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
@@ -157,6 +159,7 @@ class Login extends Component {
                           className="login__logo"
                         />
                       </div>
+
                       {/* Login header */}
                       <div className="login__header">
                         {/* Login title */}
@@ -167,7 +170,7 @@ class Login extends Component {
                       </div>
 
                       {/* Social auth components */}
-                      <div className="login__list">
+                      <div>
                         <SignInGoogle />
                         <SignInFacebook />
                         <SignInTwitter />

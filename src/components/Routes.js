@@ -9,7 +9,7 @@ import { PageNotFound } from "./error";
 
 // Import seller page component
 import createStore from "./seller/createStore";
-import Login from "./seller/Login";
+import Login from "./seller/login";
 import ProductSwitch from "./seller/products";
 import CreateProduct from "./seller/createProduct";
 import { Profile, EditProfile } from "./seller/profile";

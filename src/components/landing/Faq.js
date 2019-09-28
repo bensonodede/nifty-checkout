@@ -17,11 +17,11 @@ const Faq = props => {
       {/* FAQ component */}
       <div className="App-container faq__page">
         {/* Close icon */}
-
         <div className="faq__icon" onClick={() => props.history.goBack()}>
           <Icon icon={iosCloseEmpty} size={"100%"} />
         </div>
 
+        {/* Render question and answer */}
         <h1 className="faq__sub-title">{question}</h1>
         <p className="faq__text">{answer}</p>
       </div>
