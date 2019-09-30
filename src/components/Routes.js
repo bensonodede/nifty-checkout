@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withAuthentication } from "./session";
 
 // Import common page components
-import { Landing, Faq, TalkToUs } from "./landing";
+import { Landing, Faq, TalkToUs, Privacy } from "./landing";
 import { PageNotFound } from "./error";
 
 // Import seller page component
@@ -29,6 +29,7 @@ class Routes extends Component {
           <Route path="/faq" component={Faq} />
           <Route path="/talk" component={Talk} />
           <Route path="/talk-to-us" component={TalkToUs} />
+          <Route path="/privacy-policy" component={Privacy} />
 
           {/* Seller routes */}
           <Route path="/login" component={Login} />
