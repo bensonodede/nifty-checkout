@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "feature": "Link in bio",
+    "available": true
+  },
+
+  {
+    "id": 2,
+    "feature": "Automatic receipts sent to your customers",
+    "available": true
+  },
+
+  {
+    "id": 3,
+    "feature": "SMS alerts for new orders",
+    "available": true
+  },
+
+  {
+    "id": 4,
+    "feature": "Use your own paybill",
+    "available": true
+  },
+
+  {
+    "id": 5,
+    "feature": "Instant payments",
+    "available": true
+  },
+
+  {
+    "id": 6,
+    "feature": "24/7 attentive, empathetic customer care",
+    "available": true
+  }
+]

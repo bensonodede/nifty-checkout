@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ExifOrientationImg from "react-exif-orientation-img";
 import Cookies from "js-cookie";
 import { Query } from "react-apollo";
 import { Helmet } from "react-helmet";
@@ -159,7 +160,7 @@ class ReviewPage extends Component {
                   </Helmet>
 
                   {/* Image component */}
-                  <img
+                  <ExifOrientationImg
                     onLoad={() => {
                       // Set image loaded state
                       this.setState({ imgLoaded: true }, () => {

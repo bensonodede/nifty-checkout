@@ -7,25 +7,19 @@
 
   {
     "id": 2,
-    "question": "How much does it cost to start using finn?",
-    "answer": "It's free to sign up and start using. We only charge a 2.5% + 5 kes fee for sales made through finn."
+    "question": "Do I need an m-pesa paybill to use this service?",
+    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All your transactions go through our paybill, we then forward the funds to your phone number within 24hrs. \n\nOn the standard and premium plans, you can choose to use your own paybill and have the funds go directly into your account."
   },
 
   {
     "id": 3,
-    "question": "Do I need an m-pesa paybill to use this service?",
-    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
+    "question": "Can I use my own paybill/till number?",
+    "answer": "Yes, you can. This feature is currently being tested but you can contact us to try it out today! \n\nNote: This feature is only available for the standard and premium plans."
   },
 
   {
     "id": 4,
-    "question": "Can I use my own paybill/till number?",
-    "answer": "Unfortunately, this is currently not possible. We may make future updates to enable this."
-  },
-
-  {
-    "id": 5,
     "question": "Do you handle shipping?",
-    "answer": "Currently, we don't handle shipping. We simply don't have the capacity to run a delivery operation that is cost-effective and works great. We love our users, it would be a shame to disappoint you and your customers with a delivery service that sucks. For these reasons, we have chosen not to provide shipping options."
+    "answer": "Currently, we don't handle shipping. We simply don't have the capacity to run a delivery operation that is cost-effective and works great. We love our users, it would be a shame to disappoint you and your customers with a delivery service that sucks. \n\nFor these reasons, we have chosen not to provide shipping options."
   }
 ]

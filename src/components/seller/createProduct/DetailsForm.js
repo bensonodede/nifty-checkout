@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Field } from "formik";
-import v8n from "v8n";
 import { Helmet } from "react-helmet";
+import { Field } from "formik";
+import ExifOrientationImg from "react-exif-orientation-img";
+import v8n from "v8n";
 
 // Import Components
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
@@ -120,7 +121,7 @@ class DetailsForm extends Component {
           <div>
             {/* Image preview */}
             <div>
-              <img
+              <ExifOrientationImg
                 className="product-form__img"
                 src={PREVIEW_URL}
                 alt={values.file.name}

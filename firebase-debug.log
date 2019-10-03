@@ -1,0 +1,34 @@
+[debug] [2019-10-02T23:59:07.766Z] ----------------------------------------------------------------------
+[debug] [2019-10-02T23:59:07.769Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\benso\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2019-10-02T23:59:07.769Z] CLI Version:   7.4.0
+[debug] [2019-10-02T23:59:07.769Z] Platform:      win32
+[debug] [2019-10-02T23:59:07.769Z] Node Version:  v8.11.3
+[debug] [2019-10-02T23:59:07.770Z] Time:          Thu Oct 03 2019 02:59:07 GMT+0300 (E. Africa Standard Time)
+[debug] [2019-10-02T23:59:07.770Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-02T23:59:07.817Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-02T23:59:07.819Z] > authorizing via signed-in user
+[debug] [2019-10-02T23:59:07.819Z] [iam] checking project magic-finn for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-10-02T23:59:07.824Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/magic-finn:testIamPermissions  
+
+[debug] [2019-10-02T23:59:09.636Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-02T23:59:09.638Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/magic-finn  
+ 
+[debug] [2019-10-02T23:59:10.111Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'magic-finn'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-10-02T23:59:10.119Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/magic-finn/versions  
+
+[debug] [2019-10-02T23:59:12.507Z] <<< HTTP RESPONSE 200
+[info] i  hosting[magic-finn]: beginning deploy...
+[info] i  hosting[magic-finn]: found 25 files in build
+[debug] [2019-10-02T23:59:13.303Z] [hosting] hash cache [YnVpbGQ] load error: lines is not defined
+[debug] [2019-10-02T23:59:14.897Z] [hosting] hash cache [YnVpbGQ] stored for 25 files
+[debug] [2019-10-02T23:59:14.897Z] [hosting][hash queue][FINAL]
+[debug] [2019-10-02T23:59:14.897Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/magic-finn/versions/352674cc0799f64d:populateFiles  
+ <request body omitted>
+[debug] [2019-10-02T23:59:17.590Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-02T23:59:17.601Z] [hosting][populate queue][FINAL]
+[debug] [2019-10-02T23:59:17.601Z] [hosting] uploads queued: 10

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LazyLoad from "react-lazy-load";
+import ExifOrientationImg from "react-exif-orientation-img";
 
 // Import styles
 import "./styles.css";
@@ -61,7 +62,7 @@ class ImgLoader extends Component {
               console.log("I've been lazy loaded");
             }}
           >
-            <img
+            <ExifOrientationImg
               onLoad={() => {
                 this.setState({ placeholderLoaded: true });
               }}
@@ -74,7 +75,7 @@ class ImgLoader extends Component {
 
         {/* Once placeholder is fully loaded, begin to load optimal image */}
         {placeholderLoaded ? (
-          <img
+          <ExifOrientationImg
             onLoad={() => {
               // Set image loaded state
               this.setState({ loaded: true }, () => {

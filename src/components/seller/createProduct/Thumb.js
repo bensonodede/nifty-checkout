@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ExifOrientationImg from "react-exif-orientation-img";
 import $ from "jquery";
 import Chocolat from "chocolat";
 
@@ -35,6 +36,7 @@ class Thumb extends Component {
   render() {
     const { file } = this.props;
 
+    console.log(file);
     // If no file has been uploaded, don't show thumbnail
     if (!file) {
       return null;
@@ -43,9 +45,11 @@ class Thumb extends Component {
     // If image file exists, return image
     return (
       <div ref={this.thumb}>
-        <a className="chocolat-image" href={file}>
-          <img src={file} alt={file} className="product-form__thumbnail" />
-        </a>
+        <ExifOrientationImg
+          src={file}
+          alt={file}
+          className="product-form__thumbnail"
+        />
       </div>
     );
   }
