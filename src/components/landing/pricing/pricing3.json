@@ -14,24 +14,18 @@
   {
     "id": 3,
     "feature": "SMS alerts for new orders",
-    "available": false
+    "available": true
   },
 
   {
     "id": 4,
-    "feature": "Use your own paybill",
-    "available": false
-  },
-
-  {
-    "id": 5,
     "feature": "Receive your payments in 24hrs",
     "available": true
   },
 
   {
-    "id": 6,
+    "id": 5,
     "feature": "24/7 attentive, empathetic customer care",
-    "available": false
+    "available": true
   }
 ]

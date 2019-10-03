@@ -8,17 +8,23 @@
   {
     "id": 2,
     "question": "Do I need an m-pesa paybill to use this service?",
-    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All your transactions go through our paybill, we then forward the funds to your phone number within 24hrs. \n\nOn the standard and premium plans, you can choose to use your own paybill and have the funds go directly into your account."
+    "answer": "You don't require an M-pesa paybill to get started. You only need an M-pesa enabled phone number. All the transactions go through our paybill, we then forward the funds to your phone number within 24hrs."
   },
 
   {
     "id": 3,
-    "question": "Can I use my own paybill/till number?",
-    "answer": "Yes, you can. This feature is currently being tested but you can contact us to try it out today! \n\nNote: This feature is only available for the standard and premium plans."
+    "question": "Can I use my own paybill number?",
+    "answer": "Yes, you can. This feature is currently being tested but you can contact us to try it out today! \n\nNote: This feature is only available on the premium plan."
   },
 
   {
     "id": 4,
+    "question": "Does this work with a till number?",
+    "answer": "This service is not compatible with a till number at the moment."
+  },
+
+  {
+    "id": 5,
     "question": "Do you handle shipping?",
     "answer": "Currently, we don't handle shipping. We simply don't have the capacity to run a delivery operation that is cost-effective and works great. We love our users, it would be a shame to disappoint you and your customers with a delivery service that sucks. \n\nFor these reasons, we have chosen not to provide shipping options."
   }

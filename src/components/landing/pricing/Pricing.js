@@ -5,7 +5,7 @@ import Icon from "react-icons-kit";
 import { checkmark, close } from "react-icons-kit/ionicons/";
 
 // Import tab bar styles
-import "../../../node_modules/rmc-tabs/assets/index.css";
+import "../../../../node_modules/rmc-tabs/assets/index.css";
 
 // Import components
 import PricingTable from "./PricingTable";
@@ -13,12 +13,13 @@ import PricingTable from "./PricingTable";
 // Import pricing data
 const PricingPlan1 = require("./pricing1.json");
 const PricingPlan2 = require("./pricing2.json");
+const PricingPlan3 = require("./pricing3.json");
 
-/********** Starter pricing table **********/
+/********** Basic pricing table **********/
 
-const StarterTable = () => (
+const BasicTable = () => (
   <PricingTable
-    name={"Starter"}
+    name={"Basic"}
     productsNo={10}
     transaction={"4% + 5"}
     subscribe={0}
@@ -52,15 +53,15 @@ const StarterTable = () => (
     ))}
   </PricingTable>
 );
-/********** END Starter pricing table **********/
+/********** END Basic pricing table **********/
 
 /********** Standard pricing table **********/
 const StandardTable = () => (
   <PricingTable
     value={true}
     name={"Standard"}
-    transaction={"0"}
-    productsNo={200}
+    transaction={"2% + 5"}
+    productsNo={100}
     subscribe={450}
     description={"Designed to grow your sales."}
     emoji={"🌿"}
@@ -97,14 +98,14 @@ const StandardTable = () => (
 const PremiumTable = () => (
   <PricingTable
     name={"Premium"}
-    transaction={"0"}
+    transaction={"0% + 5"}
     productsNo={"Unlimited"}
     subscribe={900}
     description={"For scaling your business"}
     emoji={"🔥"}
   >
     {/* Pricing plan 2 map features */}
-    {PricingPlan2.map(item => (
+    {PricingPlan3.map(item => (
       <tr key={item.id} className="pricing__row">
         {/* pricing text */}
         <td className="pricing__cell">
@@ -153,7 +154,7 @@ const Pricing = () => (
       <StickyContainer>
         <Tabs
           tabs={[
-            { key: "t1", title: "Starter" },
+            { key: "t1", title: "Basic" },
             { key: "t2", title: "Standard" },
             { key: "t3", title: "Premium" }
           ]}
@@ -198,7 +199,7 @@ const Pricing = () => (
           )}
         >
           <div key="t1">
-            <StarterTable />
+            <BasicTable />
           </div>
           <div key="t2">
             <StandardTable />

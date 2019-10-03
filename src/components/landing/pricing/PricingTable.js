@@ -9,10 +9,12 @@ const PricingTable = props => (
     <tbody>
       <tr>
         <th colSpan={2} className="pricing__table-header">
-          <div className="pricing__table-tile-container">
-            <h1 className="pricing__table-title">{props.name}</h1>
-            {/* {props.value ? <h3>Best value</h3> : null} */}
+          <div className="pricing__table-value-container">
+            {props.value ? (
+              <h3 className="pricing__table-value">Best value</h3>
+            ) : null}
           </div>
+          <h1 className="pricing__table-title">{props.name}</h1>
           {/* Pricing description */}
           <h3 className="pricing__description">
             {props.description}

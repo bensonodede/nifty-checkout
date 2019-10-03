@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 // Import components
 import Features from "./Features";
-import Pricing from "./Pricing";
+import Pricing from "./pricing";
 import Signup from "./Signup";
 import Footer from "./Footer";
 

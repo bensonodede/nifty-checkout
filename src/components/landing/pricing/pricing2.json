@@ -19,18 +19,12 @@
 
   {
     "id": 4,
-    "feature": "Use your own paybill",
+    "feature": "Receive your payments in 24hrs",
     "available": true
   },
 
   {
     "id": 5,
-    "feature": "Instant payments",
-    "available": true
-  },
-
-  {
-    "id": 6,
     "feature": "24/7 attentive, empathetic customer care",
     "available": true
   }
