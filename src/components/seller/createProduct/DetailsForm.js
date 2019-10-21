@@ -130,19 +130,23 @@ class DetailsForm extends Component {
 
             {/* Product name field */}
             <div>
-              <p className="product-form__label">PRODUCT NAME</p>
+              <h3 className="product-form__label">Product name</h3>
               <Field
                 name="name"
                 validate={this.validateName}
                 render={({ field, form }) => (
-                  <GenericInput {...field} {...form} />
+                  <GenericInput
+                    {...field}
+                    {...form}
+                    placeholder={"Awesome sauce"}
+                  />
                 )}
               />
             </div>
 
             {/* Product price field */}
             <div>
-              <p className="product-form__label">PRICE</p>
+              <h3 className="product-form__label">Price</h3>
               <Field
                 name="price"
                 validate={this.validatePrice}
@@ -152,6 +156,7 @@ class DetailsForm extends Component {
                     {...form}
                     mask={numberMask}
                     label={"KSH"}
+                    plac
                   />
                 )}
               />

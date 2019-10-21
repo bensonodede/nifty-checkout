@@ -1,0 +1,25 @@
+.particle__item-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.particle__item {
+  // position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0px;
+  // width: 100%;
+  height: 100%;
+}
+
+.particle__canvas {
+  width: 100%;
+  height: 100%;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // top: 0px;
+}

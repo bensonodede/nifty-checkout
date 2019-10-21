@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Basic",
+    "description": "Perfect for dipping your toes in",
+    "emoji": "🤗",
+    "subscription": 0,
+    "productsNum": 10,
+    "transaction": "4% + 5",
+    "features": [
+      {
+        "id": 1,
+        "feature": "Link in bio",
+        "available": true
+      },
+
+      {
+        "id": 2,
+        "feature": "Automatic receipts sent to your customers",
+        "available": true
+      },
+
+      {
+        "id": 3,
+        "feature": "SMS alerts for new orders",
+        "available": true
+      },
+
+      {
+        "id": 4,
+        "feature": "Receive your payments in 24hrs",
+        "available": true
+      },
+
+      {
+        "id": 5,
+        "feature": "24/7 attentive, empathetic customer care",
+        "available": false
+      }
+    ]
+  },
+
+  {
+    "tag": "Popular",
+    "name": "Standard",
+    "description": "Designed to grow your sales",
+    "emoji": "🌿",
+    "subscription": 450,
+    "productsNum": 100,
+    "transaction": "2% + 5",
+    "features": [
+      {
+        "id": 1,
+        "feature": "Link in bio",
+        "available": true
+      },
+
+      {
+        "id": 2,
+        "feature": "Automatic receipts sent to your customers",
+        "available": true
+      },
+
+      {
+        "id": 3,
+        "feature": "SMS alerts for new orders",
+        "available": true
+      },
+
+      {
+        "id": 4,
+        "feature": "Receive your payments in 24hrs",
+        "available": true
+      },
+
+      {
+        "id": 5,
+        "feature": "24/7 attentive, empathetic customer care",
+        "available": true
+      }
+    ]
+  },
+
+  {
+    "tag": "Best value",
+    "name": "Premium",
+    "description": "For scaling your business",
+    "emoji": "🔥",
+    "subscription": 900,
+    "productsNum": "Unlimited",
+    "transaction": "0% + 5",
+    "features": [
+      {
+        "id": 1,
+        "feature": "Link in bio",
+        "available": true
+      },
+
+      {
+        "id": 2,
+        "feature": "Automatic receipts sent to your customers",
+        "available": true
+      },
+
+      {
+        "id": 3,
+        "feature": "SMS alerts for new orders",
+        "available": true
+      },
+
+      {
+        "id": 4,
+        "feature": "Receive your payments in 24hrs",
+        "available": true
+      },
+
+      {
+        "id": 5,
+        "feature": "24/7 attentive, empathetic customer care",
+        "available": true
+      }
+    ]
+  }
+]

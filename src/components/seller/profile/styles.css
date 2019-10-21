@@ -83,3 +83,16 @@
   background-color: #f36b7f;
   color: #ffffff;
 }
+
+/* Edit profile */
+.edit-profile__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  margin: 0vw;
+  color: #484848;
+  margin: 10vw 0vw 15vw 0vw;
+}
+
+.edit-profile__input-container {
+  margin: 10vw 0vw;
+}

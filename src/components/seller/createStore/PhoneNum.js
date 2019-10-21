@@ -126,7 +126,7 @@ class PhoneNumPage extends Component {
           {/* Phone number input field */}
           <div>
             {/* Phone number input label */}
-            <p className="signup__label">PHONE NUMBER</p>
+            <h3 className="signup__label">PHONE NUMBER</h3>
             <Field
               name="phoneNum"
               validate={this.validatePhoneNum}

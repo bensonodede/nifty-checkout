@@ -36,7 +36,6 @@ class Thumb extends Component {
   render() {
     const { file } = this.props;
 
-    console.log(file);
     // If no file has been uploaded, don't show thumbnail
     if (!file) {
       return null;

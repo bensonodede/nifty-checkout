@@ -37,7 +37,7 @@ class LabelInput extends Component {
             (errors[name] && !focused ? "label-input--error" : "")
           }
         >
-          <p className="label-input__inline-label">{label}</p>
+          <h3 className="label-input__inline-label">{label}</h3>
 
           {/* Input phone number entry */}
           <MaskedInput

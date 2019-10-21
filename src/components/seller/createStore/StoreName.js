@@ -106,13 +106,13 @@ class StoreName extends Component {
           {/* Store name field */}
           <div>
             {/* Field label */}
-            <p className="signup__label">STORE NAME</p>
+            <h3 className="signup__label">STORE NAME</h3>
             <Field
               name="storeName"
               validate={this.validateName}
               render={({ field, form }) => (
                 <GenericMaskedInput
-                  placeholder={"xyzbusiness"}
+                  placeholder={"xyzstore"}
                   mask={s => Array.from(s).map(() => /[A-Za-z0-9_]+/)}
                   {...field}
                   {...form}

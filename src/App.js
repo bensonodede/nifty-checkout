@@ -5,6 +5,9 @@ import { createUploadLink } from "apollo-upload-client";
 import { ApolloProvider } from "react-apollo";
 import Firebase, { FirebaseContext } from "./components/firebase/";
 
+// Import styles
+import "./app.scss";
+
 // Import routes
 import Routes from "./components/Routes";
 

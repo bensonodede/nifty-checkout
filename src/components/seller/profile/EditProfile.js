@@ -4,9 +4,26 @@ import { Formik, Form, Field } from "formik";
 import { Helmet } from "react-helmet";
 
 // Import components
-import { GenericInput } from "../../input";
+import { GenericMaskedInput, LabelInput } from "../../input";
+import { validateName, validatePhoneNum } from "../../validation";
 
 // Import styles
+import "./styles.css";
+
+// Number mask input definition
+const phoneNumMask = [
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  " ",
+  /\d/,
+  /\d/,
+  /\d/,
+  " ",
+  /\d/,
+  /\d/,
+  /\d/
+];
 
 class EditProfile extends Component {
   render() {
@@ -24,8 +41,8 @@ class EditProfile extends Component {
 
         <Formik
           initialValues={{
-            file: ""
-            // name,
+            storeName,
+            phoneNum: "724645546"
             // price
           }}
           validateOnChange={false}
@@ -42,21 +59,44 @@ class EditProfile extends Component {
             <Form>
               <div className="App-container">
                 {/* Page title */}
-                <h1>Edit Profile</h1>
+                <div className="header">
+                  <h1 className="edit-profile__title">Edit Profile</h1>
+                </div>
 
-                {/********** Product name field **********/}
-                <div>
-                  <p className="product-form__label">PROFILE NAME</p>
+                {/********** Product store name field **********/}
+                <div className="edit-profile__input-container">
+                  <h3 className="product-form__label">Store name</h3>
                   <Field
-                    name="name"
-                    // validate={validateName}
+                    name="storeName"
+                    validate={validateName}
                     render={({ field, form }) => (
-                      <GenericInput {...field} {...form} />
+                      <GenericMaskedInput
+                        placeholder={"xyzstore"}
+                        mask={s => Array.from(s).map(() => /[A-Za-z0-9_]+/)}
+                        {...field}
+                        {...form}
+                      />
                     )}
                   />
                 </div>
 
-                {/********** Product name field **********/}
+                {/********** Product phone number field **********/}
+                <div className="edit-profile__input-container">
+                  <h3 className="product-form__label">Phone number</h3>
+                  <Field
+                    name="phoneNum"
+                    validate={validatePhoneNum}
+                    render={({ field, form }) => (
+                      <LabelInput
+                        {...field}
+                        {...form}
+                        label={"+254"}
+                        mask={phoneNumMask}
+                        placeholder={"712 345 678"}
+                      />
+                    )}
+                  />
+                </div>
               </div>
             </Form>
           )}

@@ -12,7 +12,8 @@ class GenericInput extends Component {
       name,
       value,
       errors,
-      validateField
+      validateField,
+      placeholder
     } = this.props;
 
     return (
@@ -25,6 +26,7 @@ class GenericInput extends Component {
             autoComplete="off"
             autoCorrect="off"
             spellCheck="false"
+            placeholder={placeholder}
             // If error, turn input shadow box red
             className={
               "generic-input__entry " +
@@ -39,6 +41,7 @@ class GenericInput extends Component {
             }}
           />
         </div>
+
         {/* Render field error on validation */}
         <p className="input__error-message">{errors[name]}</p>
       </div>

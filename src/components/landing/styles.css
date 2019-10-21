@@ -1,22 +1,7 @@
-.landing__logo-container {
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 8vw;
-  margin-bottom: 8vw;
-}
-
-.landing__logo {
-  object-fit: cover;
-  width: 10vw;
-  height: auto;
-}
-
 .divider {
   margin: auto;
-  width: 10vw;
-  border-bottom: solid 2px #484848;
+  width: 2.3rem;
+  border-bottom: solid 0.15rem #484848;
 }
 
 /********** Menu **********/
@@ -27,77 +12,6 @@
   width: 100vw;
   z-index: 5;
   overflow-x: hidden;
-}
-
-/********** Hero section **********/
-
-.hero__img-container {
-  margin: auto;
-  margin-top: 6vw;
-  overflow: hidden;
-  width: 68.2vw;
-}
-
-.hero__img {
-  object-fit: cover;
-  width: 135vw;
-  height: auto;
-}
-
-.hero__header {
-  align-items: center;
-  padding: 10vw 0vw 5vw 0vw;
-}
-
-.hero__title {
-  margin: 0;
-  font-family: "airbnb_cereal_appmedium";
-  color: #484848;
-  font-size: 8vw;
-  line-height: 10vw;
-  text-align: center;
-}
-
-.hero__text {
-  margin: 0;
-  font-family: "airbnb_cereal_appbook";
-  color: #787878;
-  font-size: 4.8vw;
-  line-height: 6.8vw;
-  padding: 5vw 0vw;
-  text-align: center;
-}
-
-.hero__footer {
-  display: flex;
-  justify-content: center;
-}
-
-.hero__footer-btn {
-  border-radius: 1.2vw;
-  padding: 3.8vw 4.8vw;
-  background-color: #f36b7f;
-  display: inline-block;
-  border: solid 2px #f36b7f;
-  outline: none;
-
-  /* Button text */
-  color: #ffffff;
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.2vw;
-  text-align: center;
-  text-decoration: none;
-}
-
-.hero__footer-btn:active {
-  background-color: #ffffff;
-  color: #f36b7f;
-}
-
-.hero__lottie {
-  width: 8vw;
-  margin: auto;
-  margin-top: 4vh;
 }
 
 /********** FAQ section **********/
@@ -259,57 +173,6 @@
 .landing__footer-icon {
   width: 6vw;
   color: #ffffff;
-}
-
-/********** Feautures section **********/
-
-.features {
-  margin-top: 15vh;
-}
-
-.features__img-container {
-  position: absolute;
-  overflow: hidden;
-  width: 87vw;
-}
-
-.features__img {
-  object-fit: cover;
-  width: 87vw;
-  height: 87vw;
-  background-color: #e5e5e5;
-}
-
-.features__title {
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 8vw;
-  line-height: 10vw;
-  margin-bottom: 15vw;
-  text-align: center;
-  color: #484848;
-}
-
-.features__content {
-  margin-top: 5vw;
-  margin-bottom: 10vw;
-}
-
-.features__sub-title {
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 6vw;
-  line-height: 7.5vw;
-  margin: 0vw;
-  color: #484848;
-}
-
-.features__text {
-  margin: 0;
-  font-family: "airbnb_cereal_appbook";
-  color: #787878;
-  font-size: 4.8vw;
-  line-height: 6.8vw;
-  padding: 5vw 0vw;
-  text-align: left;
 }
 
 /********** Privacy policy section **********/

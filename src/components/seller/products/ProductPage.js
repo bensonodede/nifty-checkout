@@ -207,8 +207,6 @@ class ProductPage extends Component {
                                 orderBy: "updatedAt_DESC"
                               },
                               updateQuery: (prev, { fetchMoreResult }) => {
-                                console.log(fetchMoreResult);
-                                console.log(this.state.hasMore);
                                 // Add new items to previously fetched array
                                 if (
                                   !fetchMoreResult ||
