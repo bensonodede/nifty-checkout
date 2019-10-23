@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 // Import components
 // import { Navbar } from "../navbar";
-import { Hero } from "./hero";
-import { Features } from "./features";
+import Hero from "./hero";
+import Features from "./features";
 import Pricing from "./pricing";
-// import Signup from "./Signup";
-// import Footer from "./Footer";
+import { Questions } from "./questions";
+import SignUp from "./signUp";
+import Footer from "./footer";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
+import "../../styles/animation.scss";
 
 // Import json files
 // const faq = require("./faq.json");
@@ -19,63 +20,31 @@ import "./styles.css";
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <div className="landing">
         {/* Document title */}
         <Helmet>
           <title>Finn - Simple, Beautiful checkouts</title>
         </Helmet>
 
-        <div>
-          {/* Navbar */}
+        {/* Navbar */}
 
-          {/* Hero section */}
-          {/* <Hero /> */}
+        {/* Hero section */}
+        {/* <Hero /> */}
 
-          {/* Features section */}
-          <Features />
+        {/* Features section */}
+        <Features />
 
-          {/* Pricing section */}
-          <Pricing />
+        {/* Pricing section */}
+        <Pricing />
 
-          {/********** FAQ section **********/}
-          {/* <div className="faq">
-            <div className="divider" />
-            <h1 className="faq__title">Common questions </h1> */}
+        {/* Questions section */}
+        <Questions />
 
-          {/* Faq image */}
-          {/* <div className="faq__img-container">
-              <img
-                className="faq__img"
-                alt={"finn questions"}
-                src={
-                  "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625895/web_assets/pablo-animal-care.png"
-                }
-              />
-            </div> */}
-
-          {/* Iterate through questions */}
-          {/* {faq.map(item => (
-              <Link
-                key={item.id}
-                to={{
-                  pathname: "/faq",
-                  state: {
-                    item
-                  }
-                }}
-              >
-                <p className="faq__question">{item.question}</p>
-              </Link>
-            ))}
-          </div> */}
-          {/********** End FAQ section **********/}
-
-          {/* Signup section */}
-          {/* <Signup /> */}
-        </div>
+        {/* Sign up section */}
+        <SignUp />
 
         {/* Footer section */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

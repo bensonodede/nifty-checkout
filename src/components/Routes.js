@@ -40,7 +40,7 @@ class Routes extends Component {
           <Route path="/:storeName/edit-profile" component={EditProfile} />
           <Route exact path="/:storeName/help" component={Help} />
           <Route path="/:storeName/help/questions" component={Questions} />
-          <Route path="/:storeName/help/faq" component={Faq} />
+          {/* <hRoute path="/:storeName/help/faq" component={Faq} /> */}
           <Route path="/:storeName/help/talk" component={Talk} />
 
           {/* Checkout routes */}

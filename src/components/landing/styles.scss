@@ -1,0 +1,38 @@
+.landing {
+  overflow: hidden;
+}
+
+.divider {
+  margin: auto;
+  width: 2.3rem;
+  border-bottom: solid 0.15rem #484848;
+}
+
+/********** Privacy policy section **********/
+.privacy__title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 8vw;
+  line-height: 10vw;
+  margin-bottom: 10vw;
+  text-align: center;
+  color: #484848;
+}
+
+.privacy__sub-title {
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 6vw;
+  line-height: 7.5vw;
+  margin: 0vw;
+  padding-top: 8vw;
+  color: #484848;
+}
+
+.privacy__text {
+  margin: 0;
+  font-family: "airbnb_cereal_appbook";
+  color: #484848;
+  font-size: 4.8vw;
+  line-height: 6.8vw;
+  padding: 5vw 0vw;
+  text-align: left;
+}

@@ -24,6 +24,7 @@
     "numeral": "2.0.6",
     "prop-types": "15.7.2",
     "react": "^16.8.2",
+    "react-animate-on-scroll": "2.1.5",
     "react-apollo": "2.5.2",
     "react-code-input": "3.8.1",
     "react-dom": "^16.8.2",

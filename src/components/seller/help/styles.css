@@ -53,37 +53,6 @@
   height: auto;
 }
 
-/********** Questions styling **********/
-
-.questions {
-  height: 100vh;
-}
-
-.questions__body {
-  padding-top: 15vw;
-}
-
-.questions__row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5vw 0vw;
-  border-bottom: solid #e5e5e5 1px;
-}
-
-.questions__row:active {
-  background-color: #e5e5e5;
-}
-
-.questions__text {
-  margin: 0;
-  font-family: "airbnb_cereal_appbook";
-  color: #f36b7f;
-  font-size: 4.8vw;
-  text-align: left;
-}
-
 /********** Talk styling **********/
 
 .talk__text {

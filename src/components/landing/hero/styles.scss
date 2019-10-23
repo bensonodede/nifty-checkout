@@ -38,22 +38,13 @@
 
 .hero__heading {
   z-index: 2;
-  -webkit-text-fill-color: transparent;
-  background: -webkit-linear-gradient(transparent, transparent),
-    url("../../../images/background-text.svg") no-repeat;
-  background: -o-linear-gradient(transparent, transparent);
-  background-size: auto 350%;
-  background-position: bottom;
-  background-clip: text;
-}
-
-.hero__mock-container {
-  width: 20rem;
-  margin: auto;
-}
-
-.hero__mock {
-  width: 100%;
+  // -webkit-text-fill-color: transparent;
+  // background: -webkit-linear-gradient(transparent, transparent),
+  //   url("../../../images/background-text.svg") no-repeat;
+  // background: -o-linear-gradient(transparent, transparent);
+  // background-size: auto 350%;
+  // background-position: bottom;
+  // background-clip: text;
 }
 
 .particle__container {
@@ -66,8 +57,8 @@
   background-image: url("../../../images/white-box.png");
 
   /* Add the blur effect */
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 
   /* Full height */
   height: 100%;

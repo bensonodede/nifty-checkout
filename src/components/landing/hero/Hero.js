@@ -55,7 +55,7 @@ class Hero extends Component {
             <div className="hero__heading-container container is-centered is-vcentered is-5">
               <h1
                 ref={this.headerRef}
-                className="hero__heading title is-size-3-mobile is-size-2 has-text-centered"
+                className="hero__heading title is-size-4-mobile is-size-2 has-text-centered"
               >
                 Simple, beautiful
                 <br />

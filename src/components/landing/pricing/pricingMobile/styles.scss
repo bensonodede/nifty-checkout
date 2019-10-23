@@ -66,6 +66,7 @@
 
 .pricing__table-mobile-body {
   margin-top: 3rem;
+  display: table;
 }
 
 .pricing__table-mobile-body-cell {
@@ -122,7 +123,9 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-end;
-  width: 5rem;
+  @media only screen and (max-device-width: 425px) {
+    width: 5rem;
+  }
 }
 
 .pricing__table-mobile-body-transaction-currency {
