@@ -7,9 +7,6 @@ import { compose } from "recompose";
 import { Icon } from "react-icons-kit";
 import { facebook } from "react-icons-kit/icomoon/facebook";
 
-// Import styles
-import "./styles.css";
-
 class SignInFacebookBase extends Component {
   constructor() {
     super();
@@ -29,16 +26,17 @@ class SignInFacebookBase extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="social">
         {/* Social buttnon */}
-        <button className="social__btn social__btn--facebook" type="submit">
+        <button
+          className="button social__btn social__btn--facebook"
+          type="submit"
+        >
           {/* Social icon */}
-          <div className="social__icon">
+          <div className="social__icon social__icon--facebook">
             <Icon icon={facebook} size={"100%"} />
           </div>
-
-          {/* Social label */}
-          <p className="social__label">Continue with Facebook</p>
+          Continue with Facebook
         </button>
       </form>
     );

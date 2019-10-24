@@ -7,6 +7,7 @@ import Firebase, { FirebaseContext } from "./components/firebase/";
 
 // Import styles
 import "./app.scss";
+import "./styles/animation.scss";
 
 // Import routes
 import Routes from "./components/Routes";

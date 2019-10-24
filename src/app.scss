@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+.logo__container {
+  margin: auto;
+  width: 2rem;
+}
+
 /***** Customize Bulma variables *****/
 
 // Screen size variables
@@ -12,6 +17,10 @@ $title-family: "Airbnb Cereal App Medium";
 $subtitle-family: "Airbnb Cereal App Book";
 $button-family: "Airbnb Cereal App Medium";
 $family-sans-serif: "Airbnb Cereal App Book";
+
+//
+$size-6: 0.9rem;
+$control-height: 2.7em;
 
 // Color variables
 $primary: #f36b7f;

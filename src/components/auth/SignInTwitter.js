@@ -7,9 +7,6 @@ import { compose } from "recompose";
 import { Icon } from "react-icons-kit";
 import { twitter } from "react-icons-kit/icomoon/twitter";
 
-// Import styles
-import "./styles.css";
-
 class SignInTwitterBase extends Component {
   constructor() {
     super();
@@ -43,14 +40,15 @@ class SignInTwitterBase extends Component {
     return (
       <form className="social" onSubmit={this.onSubmit}>
         {/* Social button */}
-        <button className="social__btn social__btn--twitter" type="submit">
+        <button
+          className="button social__btn social__btn--twitter"
+          type="submit"
+        >
           {/* Social icon */}
-          <div className="social__icon">
+          <div className="social__icon social__icon--twitter">
             <Icon icon={twitter} size={"100%"} />
           </div>
-
-          {/* Social label */}
-          <p className="social__label">Continue with Twitter</p>
+          Continue with Twitter
         </button>
       </form>
     );

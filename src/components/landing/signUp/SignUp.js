@@ -31,10 +31,8 @@ const SignUp = () => (
                 {/* Sign up button column */}
                 <div className="column is-narrow signup__btn-container">
                   <Link to="/login">
-                    <button className="button has-background-primary is-medium">
-                      <p className="is-marginless is-size-6 has-text-white">
-                        Sign up
-                      </p>
+                    <button className="button is-primary is-normal">
+                      <span className="is-size-6 has-text-white">Sign up</span>
                     </button>
                   </Link>
                 </div>

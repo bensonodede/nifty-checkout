@@ -12,7 +12,6 @@ import Footer from "./footer";
 
 // Import styles
 import "./styles.scss";
-import "../../styles/animation.scss";
 
 // Import json files
 // const faq = require("./faq.json");
@@ -29,7 +28,7 @@ class Landing extends Component {
         {/* Navbar */}
 
         {/* Hero section */}
-        {/* <Hero /> */}
+        <Hero />
 
         {/* Features section */}
         <Features />

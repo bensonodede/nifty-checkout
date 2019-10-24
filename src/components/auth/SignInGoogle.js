@@ -3,9 +3,6 @@ import { withFirebase } from "../firebase";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 
-// Import styles
-import "./styles.css";
-
 class SignInGoogleBase extends Component {
   constructor() {
     super();
@@ -27,16 +24,18 @@ class SignInGoogleBase extends Component {
     return (
       <form className="social" onSubmit={this.onSubmit}>
         {/* Social button */}
-        <button className="social__btn" type="submit">
+        <button
+          className="button social__btn social__btn--google"
+          type="submit"
+        >
           {/* Social icon */}
-          <img
-            className="social__icon"
-            src={require("../../images/google-icon.svg")}
-            alt="google-logo"
-          />
-
-          {/* Button label */}
-          <p className="social__label">Continue with Google</p>
+          <span className="social__icon social__icon--google">
+            <img
+              src={require("../../images/google-icon.svg")}
+              alt="google-logo"
+            />
+          </span>
+          Continue with Google
         </button>
       </form>
     );

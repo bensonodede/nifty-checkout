@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { Helmet } from "react-helmet";
+import ScrollAnimation from "react-animate-on-scroll";
 import { Mixpanel } from "../../mixpanel";
 
 // Import higher order components
@@ -17,7 +18,7 @@ import { AuthUserContext } from "../../session";
 import { SignInGoogle, SignInFacebook, SignInTwitter } from "../../auth";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 // Review page loader
 const LoginLoader = () => (
@@ -145,37 +146,49 @@ class Login extends Component {
 
                   /* Render login page */
                   return (
-                    <div className="App-container">
-                      {/* Login logo */}
-                      <div
-                        className="login__logo-container"
-                        onClick={() => this.props.history.push(`/`)}
-                      >
-                        <img
-                          src={
-                            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
-                          }
-                          alt={"logo"}
-                          className="login__logo"
-                        />
-                      </div>
+                    <ScrollAnimation
+                      animateIn={"fadeInUp"}
+                      duration={1}
+                      delay={100}
+                      offset={50}
+                    >
+                      <div className="login">
+                        <div className="container">
+                          <div className="columns is-mobile is-multiline is-centered">
+                            {/* Login logo */}
+                            <div className="column is-10">
+                              <div className="logo__container">
+                                <img
+                                  src={
+                                    "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
+                                  }
+                                  alt={"logo"}
+                                  className="login__logo"
+                                />
+                              </div>
+                            </div>
 
-                      {/* Login header */}
-                      <div className="login__header">
-                        {/* Login title */}
-                        <h1 className="login__title">Let's get started</h1>
-                        <p className="login__sub-title">
-                          Create great online experiences for your customers.
-                        </p>
-                      </div>
+                            <div className="column is-10">
+                              {/* Login title */}
+                              <h1 className="title has-text-centered is-size-4">
+                                Let's get started
+                              </h1>
+                              <p className="has-text-centered has-text-grey-light">
+                                Create great online experiences for your
+                                customers.
+                              </p>
+                            </div>
 
-                      {/* Social auth components */}
-                      <div>
-                        <SignInGoogle />
-                        <SignInFacebook />
-                        <SignInTwitter />
+                            {/* Social auth components */}
+                            <div className="column is-10">
+                              <SignInGoogle />
+                              <SignInFacebook />
+                              <SignInTwitter />
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    </ScrollAnimation>
                   );
                   /* End Render login page */
                 }}

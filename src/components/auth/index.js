@@ -3,6 +3,6 @@ import SignInFacebook from "./SignInFacebook";
 import SignInTwitter from "./SignInTwitter";
 import SignOut from "./SignOut";
 
-import "./styles.css";
+import "./styles.scss";
 
 export { SignInGoogle, SignInFacebook, SignInTwitter, SignOut };

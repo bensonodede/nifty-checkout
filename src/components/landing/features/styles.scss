@@ -1,6 +1,7 @@
 /********** Feautures section **********/
 
 .features {
+  margin-top: 8rem;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -16,7 +17,9 @@
 }
 
 .features__item {
-  padding: 2.5rem 0rem;
+  @media only screen and (min-width: 568px) {
+    padding: 1.8rem 0rem;
+  }
 }
 
 .features__img {
