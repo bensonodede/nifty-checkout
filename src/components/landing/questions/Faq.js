@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import ScrollAnimation from "react-animate-on-scroll";
+
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import components
 import { Icon } from "react-icons-kit";
@@ -16,12 +18,7 @@ const Faq = props => {
       </Helmet>
 
       <div className="container">
-        <ScrollAnimation
-          animateIn={"fadeInUp"}
-          duration={1}
-          delay={100}
-          offset={50}
-        >
+        <FadeInUp>
           {/* FAQ component */}
           <div className="columns is-mobile is-multiline is-centered">
             {/* Close icon */}
@@ -40,7 +37,7 @@ const Faq = props => {
             </div>
             {/* End question and answer */}
           </div>
-        </ScrollAnimation>
+        </FadeInUp>
       </div>
     </div>
   );

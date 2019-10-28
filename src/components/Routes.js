@@ -10,7 +10,7 @@ import { PageNotFound } from "./error";
 // Import seller page component
 import createStore from "./seller/createStore";
 import Login from "./seller/login";
-import ProductSwitch from "./seller/products";
+import Dashboard from "./seller/dashboard";
 import CreateProduct from "./seller/createProduct";
 import { Profile, EditProfile } from "./seller/profile";
 import { Help, Questions, Talk } from "./seller/help";
@@ -35,7 +35,7 @@ class Routes extends Component {
           {/* Seller routes */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />
-          <Route path="/:storeName/dashboard" component={ProductSwitch} />
+          <Route path="/:storeName/dashboard" component={Dashboard} />
           <Route path="/:storeName/add-product" component={CreateProduct} />
           <Route path="/:storeName/profile" component={Profile} />
           <Route path="/:storeName/edit-profile" component={EditProfile} />

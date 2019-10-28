@@ -1,8 +1,8 @@
 import React from "react";
 import { Breakpoint, BreakpointProvider } from "react-socks";
-import ScrollAnimation from "react-animate-on-scroll";
 
 // Import components
+import { FadeInUp } from "../../animations";
 import { PricingMobile } from "./pricingMobile";
 import { PricingDesktop } from "./pricingDesktop";
 
@@ -18,34 +18,24 @@ const Pricing = () => (
         <div className="columns is-multiline is-mobile is-centered">
           {/* Pricing header */}
           <div className="column is-full">
-            <ScrollAnimation
-              animateIn={"fadeInUp"}
-              duration={1}
-              delay={100}
-              offset={50}
-            >
+            <FadeInUp>
               <div className="divider" />
               <h1 className="title is-size-4-mobile has-text-centered">
                 Pricing
               </h1>
-            </ScrollAnimation>
+            </FadeInUp>
           </div>
 
           {/* Pricing image */}
           <div className="column is-10-mobile is-6-tablet is-4-desktop">
-            <ScrollAnimation
-              animateIn={"fadeInUp"}
-              duration={1}
-              delay={100}
-              offset={50}
-            >
+            <FadeInUp>
               <img
                 alt={"Finn pricing"}
                 src={
                   "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625900/web_assets/pablo-coming-soon.png"
                 }
               />
-            </ScrollAnimation>
+            </FadeInUp>
           </div>
           {/* End Pricing image */}
         </div>
@@ -54,26 +44,16 @@ const Pricing = () => (
 
         {/* Mobile pricing table */}
         <Breakpoint medium down>
-          <ScrollAnimation
-            animateIn={"fadeInUp"}
-            duration={1}
-            delay={100}
-            offset={50}
-          >
+          <FadeInUp>
             <PricingMobile />
-          </ScrollAnimation>
+          </FadeInUp>
         </Breakpoint>
 
         {/* Desktop pricing table */}
         <Breakpoint large up>
-          <ScrollAnimation
-            animateIn={"fadeInUp"}
-            duration={1}
-            delay={100}
-            offset={50}
-          >
+          <FadeInUp>
             <PricingDesktop />
-          </ScrollAnimation>
+          </FadeInUp>
         </Breakpoint>
       </div>
     </BreakpointProvider>

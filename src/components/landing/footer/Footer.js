@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ScrollAnimation from "react-animate-on-scroll";
+
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import styles
 import "./styles.scss";
 
 const Footer = () => (
-  <ScrollAnimation animateIn={"fadeInUp"} duration={1} delay={100} offset={50}>
+  <FadeInUp>
     <footer className="footer has-background-grey-dark">
       <div className="columns is-multiline is-centered">
         {/* Footer links & logo container */}
@@ -60,7 +62,7 @@ const Footer = () => (
         {/* End Footer copyright */}
       </div>
     </footer>
-  </ScrollAnimation>
+  </FadeInUp>
 );
 
 export default Footer;

@@ -12,15 +12,19 @@ body {
 // Screen size variables
 $tablet: 568px;
 
-// Font variables
+// Font family variables
 $title-family: "Airbnb Cereal App Medium";
 $subtitle-family: "Airbnb Cereal App Book";
 $button-family: "Airbnb Cereal App Medium";
 $family-sans-serif: "Airbnb Cereal App Book";
 
-//
+// Font size
 $size-6: 0.9rem;
 $control-height: 2.7em;
+
+// Table variables
+$table-head-cell-border-width: 0 0 1px;
+$table-cell-padding: 0.5em 0.3em;
 
 // Color variables
 $primary: #f36b7f;
@@ -47,3 +51,4 @@ $grey-light: #787878;
 @import "~bulma/sass/elements/title.sass";
 @import "~bulma/sass/elements/content.sass";
 @import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/table.sass";

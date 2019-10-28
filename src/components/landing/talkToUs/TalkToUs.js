@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import ScrollAnimation from "react-animate-on-scroll";
 
 // Import components
+import { FadeInUp } from "../../animations";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
 
@@ -18,12 +18,7 @@ const TalkToUs = () => {
       </Helmet>
 
       <div className="container">
-        <ScrollAnimation
-          animateIn={"fadeInUp"}
-          duration={1}
-          delay={100}
-          offset={50}
-        >
+        <FadeInUp>
           <div className="columns is-mobile is-multiline is-centered">
             {/* Talk to us logo */}
             <div className="column is-10">
@@ -68,7 +63,7 @@ const TalkToUs = () => {
             </div>
             {/* End Talk button */}
           </div>
-        </ScrollAnimation>
+        </FadeInUp>
       </div>
     </div>
   );

@@ -170,62 +170,6 @@ a {
   height: 115vh;
 }
 
-/********** Product modal **********/
-
-.product-modal__header {
-  border-bottom: solid 1.2px #e5e5e5;
-  padding: 3vh 6.5vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-modal__header-text {
-  font-family: "airbnb_cereal_appmedium";
-  font-size: 4.8vw;
-  color: #484848;
-  margin: 0;
-}
-
-.product-modal__content {
-  padding: 0vw 6.5vw;
-}
-
-.product-modal__text {
-  font-family: "airbnb_cereal_appbook";
-  color: #787878;
-  font-size: 4.8vw;
-  margin: 0;
-  padding-left: 8vw;
-}
-
-.product-modal__row {
-  display: flex;
-  flex-direction: row;
-  margin: 2vh 0vw;
-  padding: 2vh 0vw;
-  align-items: center;
-}
-
-.product-modal__icon {
-  width: 8vw;
-}
-
-.product-modal__btn {
-  background-color: #ffffff;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28vw;
-  padding: 2.5vw 2vw;
-  margin-bottom: 5vw;
-  text-align: center;
-  border: solid 1.3px #fc5e5e;
-  border-radius: 6px;
-}
-
 /********** Delete modal **********/
 
 .delete-modal__row {

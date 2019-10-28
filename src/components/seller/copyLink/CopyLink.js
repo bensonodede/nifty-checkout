@@ -7,14 +7,14 @@ import { Icon } from "react-icons-kit";
 import { ic_content_copy } from "react-icons-kit/md/ic_content_copy";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 class CopyLink extends Component {
   constructor(props) {
     super(props);
 
+    // Copy text state
     this.state = {
-      // Copy text component
       copyText: "Copy store link",
       storeLink: ""
     };
@@ -44,12 +44,12 @@ class CopyLink extends Component {
     let { copyText } = this.state;
 
     return (
-      <div onClick={() => this.copyStoreLink()} className="copy">
-        <p className="copy__text">{copyText}</p>
-        <div className="copy__icon">
+      <button onClick={() => this.copyStoreLink()} className="button">
+        {copyText}
+        <span className="copy__icon">
           <Icon icon={ic_content_copy} size={"100%"} />
-        </div>
-      </div>
+        </span>
+      </button>
     );
   }
 }

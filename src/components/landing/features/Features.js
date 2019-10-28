@@ -1,5 +1,7 @@
 import React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
+
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import styles
 import "./styles.scss";
@@ -9,17 +11,12 @@ const data = require("./features.json");
 
 const Features = () => (
   <section className="features">
-    <div className="container">
-      <div className="columns is-multiline is-mobile">
-        {/* Map each feature item */}
-        {data.map(item => (
-          <ScrollAnimation
-            key={item.id}
-            animateIn={"fadeInUp"}
-            duration={1}
-            delay={100}
-          >
-            <div className="column is-full features__item">
+    <FadeInUp>
+      <div className="container">
+        <div className="columns is-multiline is-mobile">
+          {/* Map each feature item */}
+          {data.map(item => (
+            <div key={item.id} className="column is-full features__item">
               <div className="columns is-centered is-mobile is-multiline is-variable is-7-tablet">
                 {/* Feature image */}
                 <div className="column is-3-tablet is-9-mobile ">
@@ -40,10 +37,10 @@ const Features = () => (
                 {/* End feature description */}
               </div>
             </div>
-          </ScrollAnimation>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </FadeInUp>
   </section>
 );
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import styles
-import "./styles.css";
+// import "./styles.css";
 
 const PageNotFound = ({ history }) => (
   <div className="App-container page-not-found">

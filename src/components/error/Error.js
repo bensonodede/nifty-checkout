@@ -1,37 +1,37 @@
 import React from "react";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 const Error = () => (
-  <div className="App-container error">
-    {/* Error title */}
-    <h1 className="error__title">Oops, something went wrong.</h1>
+  <div className="error">
+    <div className="container">
+      <div className="columns is-mobile is-multiline is-centered">
+        <div className="column is-10">
+          {/* Error message */}
+          <div className="content">
+            <h1 className="title is-size-5 has-text-centered">
+              Oops, something went wrong.
+            </h1>
 
-    {/* Error button row */}
-    <div className="error__btn-row">
-      {/* Error button */}
-      <button onClick={() => window.location.reload()} className="error__btn">
-        Try again
-      </button>
+            <p className="is-size-6 has-text-centered">
+              There was a problem loading data. <br />
+              Check your internet connection and try again.
+            </p>
+          </div>
+        </div>
 
-      {/* Back button */}
-      <button
-        onClick={() => window.history.back()}
-        className="error__btn error__btn-clear"
-      >
-        Back
-      </button>
+        {/* Error button */}
+        <div className="column is-10 has-text-centered">
+          <button
+            onClick={() => window.location.reload()}
+            className="button is-primary"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
     </div>
-
-    {/* Error image */}
-    <img
-      className="error__img"
-      alt={"no_internet"}
-      src={
-        "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625964/web_assets/pablo-no-connection.png"
-      }
-    />
   </div>
 );
 

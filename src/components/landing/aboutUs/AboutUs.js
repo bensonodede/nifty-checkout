@@ -1,7 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import ScrollAnimation from "react-animate-on-scroll";
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import styles
 import "./styles.scss";
@@ -14,12 +15,7 @@ const AboutUs = () => (
     </Helmet>
 
     <div className="container">
-      <ScrollAnimation
-        animateIn={"fadeInUp"}
-        duration={1}
-        delay={100}
-        offset={50}
-      >
+      <FadeInUp>
         <div className="columns is-mobile is-multiline is-centered">
           <div className="column is-9">
             {/* About title */}
@@ -44,7 +40,7 @@ const AboutUs = () => (
             {/*  */}
           </div>
         </div>
-      </ScrollAnimation>
+      </FadeInUp>
     </div>
   </div>
 );

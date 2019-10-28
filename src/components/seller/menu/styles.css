@@ -1,3 +1,11 @@
+.navbar {
+  border-bottom: solid #e5e5e5 1px;
+}
+
+.navbar__logo {
+  padding: 0rem 0.25rem;
+}
+
 .menu-btn {
   position: fixed;
   margin: auto;

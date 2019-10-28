@@ -29,11 +29,11 @@ class SignInFacebookBase extends Component {
       <form onSubmit={this.onSubmit} className="social">
         {/* Social buttnon */}
         <button
-          className="button social__btn social__btn--facebook"
+          className="button social__btn social__btn--facebook has-text-white"
           type="submit"
         >
           {/* Social icon */}
-          <div className="social__icon social__icon--facebook">
+          <div className="social__icon">
             <Icon icon={facebook} size={"100%"} />
           </div>
           Continue with Facebook

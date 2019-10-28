@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { Helmet } from "react-helmet";
-import ScrollAnimation from "react-animate-on-scroll";
 import { Mixpanel } from "../../mixpanel";
 
 // Import higher order components
@@ -12,6 +11,7 @@ import { withFirebase } from "../../firebase";
 import { LOGIN_QUERY } from "../../graphql/query";
 
 // Import components
+import { FadeInUp } from "../../animations";
 import { Loader } from "../../loader";
 import { Error } from "../../error";
 import { AuthUserContext } from "../../session";
@@ -146,12 +146,7 @@ class Login extends Component {
 
                   /* Render login page */
                   return (
-                    <ScrollAnimation
-                      animateIn={"fadeInUp"}
-                      duration={1}
-                      delay={100}
-                      offset={50}
-                    >
+                    <FadeInUp>
                       <div className="login">
                         <div className="container">
                           <div className="columns is-mobile is-multiline is-centered">
@@ -188,7 +183,7 @@ class Login extends Component {
                           </div>
                         </div>
                       </div>
-                    </ScrollAnimation>
+                    </FadeInUp>
                   );
                   /* End Render login page */
                 }}

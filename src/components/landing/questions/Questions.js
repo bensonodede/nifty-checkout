@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ScrollAnimation from "react-animate-on-scroll";
+
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import styles
 import "./styles.scss";
@@ -16,34 +18,24 @@ const Questions = () => (
       <div className="columns is-multiline is-mobile is-centered">
         {/* Questions title */}
         <div className="column is-full">
-          <ScrollAnimation
-            animateIn={"fadeInUp"}
-            duration={1}
-            delay={100}
-            offset={50}
-          >
+          <FadeInUp>
             <div className="divider" />
             <h1 className="title is-size-4-mobile has-text-centered">
               Common questions
             </h1>
-          </ScrollAnimation>
+          </FadeInUp>
         </div>
 
         {/* Questions image */}
         <div className="column is-10-mobile is-6-tablet is-4-desktop">
-          <ScrollAnimation
-            animateIn={"fadeInUp"}
-            duration={1}
-            delay={100}
-            offset={50}
-          >
+          <FadeInUp>
             <img
               alt={"Finn questions"}
               src={
                 "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1565625895/web_assets/pablo-animal-care.png"
               }
             />
-          </ScrollAnimation>
+          </FadeInUp>
         </div>
         {/* End Pricing image */}
       </div>
@@ -53,13 +45,7 @@ const Questions = () => (
       <div className="columns is-mobile is-centered">
         <div className="column is-10-mobile is-10-tablet is-11-desktop">
           {data.map(item => (
-            <ScrollAnimation
-              key={item.id}
-              animateIn={"fadeInUp"}
-              duration={1}
-              delay={100}
-              offset={50}
-            >
+            <FadeInUp>
               <Link
                 to={{
                   pathname: "/faq",
@@ -72,7 +58,7 @@ const Questions = () => (
                   <p className="questions__text">{item.question}</p>
                 </div>
               </Link>
-            </ScrollAnimation>
+            </FadeInUp>
           ))}
         </div>
       </div>

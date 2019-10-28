@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 const EmptyState = props => (
   <div className="App-container product__empty">

@@ -41,11 +41,11 @@ class SignInTwitterBase extends Component {
       <form className="social" onSubmit={this.onSubmit}>
         {/* Social button */}
         <button
-          className="button social__btn social__btn--twitter"
+          className="button social__btn social__btn--twitter has-text-white"
           type="submit"
         >
           {/* Social icon */}
-          <div className="social__icon social__icon--twitter">
+          <div className="social__icon">
             <Icon icon={twitter} size={"100%"} />
           </div>
           Continue with Twitter

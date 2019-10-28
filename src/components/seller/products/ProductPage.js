@@ -15,12 +15,12 @@ import InfiniteScroll from "react-infinite-scroller";
 import ProductCard from "./ProductCard";
 import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/ikons/plus";
-import { Menu } from "../menu";
+import { Menu, Navbar } from "../menu";
 import { CopyLink } from "../copyLink";
 
 // Import styles
 import "../../../styles/index.css";
-import "./styles.css";
+import "./styles.scss";
 
 // Product loader component
 const ProductLoader = () => (
@@ -139,110 +139,101 @@ class ProductPage extends Component {
 
               return (
                 /********** Render products **********/
-                <div>
+                <div className="dashboard">
                   {/* Menu */}
-                  <Menu />
+                  {/* <Menu /> */}
+                  <Navbar />
 
                   {data.productsByStore[0] ? (
-                    <div>
-                      {/********** Products header **********/}
-
-                      <div className="header">
-                        <h1 className="header__title">Welcome</h1>
-                        <p className="header__text">
-                          Keep track of and manage all your products. Happy
-                          selling!
-                          <span
-                            role="img"
-                            aria-label="100"
-                            className="dashboard__emoji"
-                          >
-                            💯
-                          </span>
-                        </p>
-                      </div>
-
-                      {/********** Products header end **********/}
-
-                      {/* Copy Store link */}
-                      <CopyLink />
-
-                      {/********** Products page list **********/}
-
-                      <div className="product__list">
-                        {/* Add product */}
-                        <Link
-                          to={`/${storeName}/add-product`}
-                          style={{ textDecoration: "none" }}
-                        >
-                          <div className="product__add-item">
-                            <div>
-                              {/* Add product plus icon */}
-                              <div className="product__plus-icon">
-                                <Icon
-                                  icon={plus}
-                                  size={"100%"}
-                                  style={{ color: "#d5d5d5" }}
-                                />
-                              </div>
-                              <p className="product__add-item-text">Add new</p>
-                            </div>
+                    <div className="">
+                      <div className="container">
+                        <div className="columns is-mobile is-multiline is-centered">
+                          {/********** Products header **********/}
+                          <div className="column is-10-mobile is-11-tablet is-11-desktop">
+                            <h1 className="title is-size-4">Dashboard</h1>
                           </div>
-                        </Link>
+                          {/********** Products header end **********/}
+                        </div>
 
-                        {/* Infinite scroll list */}
+                        {/********** Products page list **********/}
 
-                        <InfiniteScroll
-                          pageStart={0}
-                          initialLoad={false}
-                          useWindow={true}
-                          hasMore={this.state.hasMore}
-                          loader={<ProductLoader key={0} />}
-                          loadMore={() => {
-                            fetchMore({
-                              variables: {
-                                storeName,
-                                first: 5,
-                                skip: data.productsByStore.length,
-                                orderBy: "updatedAt_DESC"
-                              },
-                              updateQuery: (prev, { fetchMoreResult }) => {
-                                // Add new items to previously fetched array
-                                if (
-                                  !fetchMoreResult ||
-                                  fetchMoreResult.productsByStore.length === 0
-                                ) {
-                                  this.setState({ hasMore: false });
-                                  return prev;
-                                }
-
-                                return Object.assign({}, prev, {
-                                  productsByStore: [
-                                    ...prev.productsByStore,
-                                    ...fetchMoreResult.productsByStore
-                                  ]
-                                });
-                              }
-                            });
-                          }}
-                        >
-                          {/* Render all products */}
-                          {data.productsByStore.map(item => (
-                            <div
-                              onClick={() => {
-                                this.setState({ item }, () => {
-                                  this.toggleOptionsModal(item);
-                                });
-                              }}
-                              key={item.id}
-                            >
-                              <ProductCard {...item} storeName={storeName} />
+                        <div className="product__list">
+                          {/* Add product */}
+                          {/* <Link
+                            to={`/${storeName}/add-product`}
+                            style={{ textDecoration: "none" }}
+                          >
+                            <div className="product__add-item">
+                              <div> */}
+                          {/* Add product plus icon */}
+                          {/* <div className="product__plus-icon">
+                                  <Icon
+                                    icon={plus}
+                                    size={"100%"}
+                                    style={{ color: "#d5d5d5" }}
+                                  />
+                                </div>
+                                <p className="product__add-item-text">
+                                  Add new
+                                </p>
+                              </div>
                             </div>
-                          ))}
-                        </InfiniteScroll>
-                      </div>
+                          </Link> */}
 
-                      {/********** Products page list end **********/}
+                          {/* Infinite scroll list */}
+
+                          {/* <InfiniteScroll
+                            pageStart={0}
+                            initialLoad={false}
+                            useWindow={true}
+                            hasMore={this.state.hasMore}
+                            loader={<ProductLoader key={0} />}
+                            loadMore={() => {
+                              fetchMore({
+                                variables: {
+                                  storeName,
+                                  first: 5,
+                                  skip: data.productsByStore.length,
+                                  orderBy: "updatedAt_DESC"
+                                },
+                                updateQuery: (prev, { fetchMoreResult }) => {
+                                  // Add new items to previously fetched array
+                                  if (
+                                    !fetchMoreResult ||
+                                    fetchMoreResult.productsByStore.length === 0
+                                  ) {
+                                    this.setState({ hasMore: false });
+                                    return prev;
+                                  }
+
+                                  return Object.assign({}, prev, {
+                                    productsByStore: [
+                                      ...prev.productsByStore,
+                                      ...fetchMoreResult.productsByStore
+                                    ]
+                                  });
+                                }
+                              });
+                            }}
+                          > */}
+                          {/* Render all products */}
+                          {/* {data.productsByStore.map(item => (
+                              <div
+                                onClick={() => {
+                                  this.setState({ item }, () => {
+                                    this.toggleOptionsModal(item);
+                                  });
+                                }}
+                                key={item.id}
+                              >
+                                <ProductCard {...item} storeName={storeName} />
+                              </div>
+                            ))}
+                          </InfiniteScroll> */}
+                        </div>
+
+                        {/********** Products page list end **********/}
+                      </div>
                     </div>
                   ) : (
                     /********** Empty state **********/

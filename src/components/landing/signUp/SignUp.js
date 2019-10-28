@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ScrollAnimation from "react-animate-on-scroll";
+
+// Import components
+import { FadeInUp } from "../../animations";
 
 // Import styles
 import "./styles.scss";
@@ -9,7 +11,7 @@ const SignUp = () => (
   <section className="signup">
     <div className="container">
       {/***** Start parent container *****/}
-      <ScrollAnimation animateIn={"fadeInUp"} duration={1} delay={100}>
+      <FadeInUp>
         <div className="columns is-mobile is-multiline is-centered">
           <div className="column is-8-mobile is-8-tablet is-8-desktop signup__background">
             {/***** Start child container *****/}
@@ -42,7 +44,8 @@ const SignUp = () => (
             {/***** End child container *****/}
           </div>
         </div>
-      </ScrollAnimation>
+      </FadeInUp>
+
       {/***** End parent container *****/}
     </div>
   </section>

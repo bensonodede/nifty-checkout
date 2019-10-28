@@ -1,23 +1,11 @@
 import React, { Component } from "react";
-import ScrollAnimation from "react-animate-on-scroll";
-import Lottie from "react-lottie";
 
 // Import components
-import { Particle } from "../../particle";
+import { FadeInUp } from "../../animations";
 import { Navbar } from "../../navbar";
 
 // Import styles
 import "./styles.scss";
-
-// Define lottie options
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: require("../../../images/arrow-down-charcoal.json"),
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice"
-  }
-};
 
 class Hero extends Component {
   constructor(props) {
@@ -42,13 +30,8 @@ class Hero extends Component {
           <Navbar />
         </div>
 
-        {/* Hero body */}
-        <ScrollAnimation
-          animateIn={"fadeInUp"}
-          duration={1}
-          delay={300}
-          offset={50}
-        >
+        <FadeInUp>
+          {/* Hero body */}
           <div className="hero-body">
             <div className="container">
               {/* Hero text */}
@@ -74,7 +57,8 @@ class Hero extends Component {
               {/*End hero button */}
             </div>
           </div>
-        </ScrollAnimation>
+          {/* End hero body */}
+        </FadeInUp>
       </section>
     );
   }

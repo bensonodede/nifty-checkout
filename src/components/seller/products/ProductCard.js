@@ -3,7 +3,7 @@ import numeral from "numeral";
 import { ImgLoader } from "../../loader";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 // Product card
 const ProductCard = props => {

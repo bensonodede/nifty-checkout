@@ -2,18 +2,18 @@ import React from "react";
 import { Mutation } from "react-apollo";
 
 // Import components
-import { BottomModal } from "../../modal";
-import { Loader } from "../../loader";
+import { Modal } from "../../../modal";
+import { Loader } from "../../../loader";
 
 // Import graphql operations
-import { DELETE_PRODUCT } from "../../graphql/mutation";
-import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
+import { DELETE_PRODUCT } from "../../../graphql/mutation";
+import { PRODUCTS_FEED_QUERY } from "../../../graphql/query";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
-const DeleteModal = props => {
-  let { name, id, imgUrl } = props.item;
+const DeleteModal = ({ data, isDeleteOpen, toggleModalDelete }) => {
+  const { id, imgUrl, name } = data;
 
   // Run mutation to delete product
   const handleDelete = async mutate => {
@@ -26,14 +26,14 @@ const DeleteModal = props => {
   };
 
   return (
-    <BottomModal {...props}>
+    <Modal isOpen={isDeleteOpen} toggleModal={toggleModalDelete}>
       <div>
         <Mutation
           mutation={DELETE_PRODUCT}
           onCompleted={data => {
             console.log(data);
             // Redirect to store product page
-            props.toggleModal();
+            // toggleModal;
           }}
           update={(cache, { data: { deleteProduct } }) => {
             // Get mutation typename
@@ -76,54 +76,46 @@ const DeleteModal = props => {
 
             /* Delete modal component */
             return (
-              <div>
-                <div className="product-modal__header">
-                  <p className="product-modal__header-text">{name}</p>
+              <div className="delete-modal">
+                {/* Delete confirmation text */}
+                <div className="content">
+                  <h5 className="title is-size-5 is-marginless">Delete item</h5>
+                  <p className="is-size-6">
+                    Are you sure you want to delete this item? This action is
+                    permanent and cannot be reversed.
+                  </p>
                 </div>
 
-                {/* Product modal content */}
-                <div className="delete-modal__content">
-                  {/* Delete confirmation text */}
-                  <div>
-                    <p className="delete-modal__text">
-                      Are you sure you want to delete this item?
-                    </p>
+                {loading ? (
+                  <div className="delete-modal__loader-body">
+                    <div className="delete-modal__loader">
+                      <Loader />
+                    </div>
                   </div>
+                ) : (
+                  /* Button row */
+                  <div className="delete-modal__row">
+                    <button
+                      onClick={() => handleDelete(mutate)}
+                      className="button is-primary delete-modal__btn"
+                    >
+                      Delete item
+                    </button>
 
-                  {loading ? (
-                    <div className="delete-modal__loader-body">
-                      <div className="delete-modal__loader">
-                        <Loader />
-                      </div>
-                    </div>
-                  ) : (
-                    /* Button row */
-                    <div className="delete-modal__row">
-                      <button
-                        onClick={() => handleDelete(mutate)}
-                        className="delete-modal__btn delete-modal__btn--warn"
-                      >
-                        Delete
-                      </button>
+                    {/* Cancel button */}
 
-                      {/* Cancel button */}
-
-                      <button
-                        onClick={() => props.toggleModal()}
-                        className="delete-modal__btn"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                    /* End button row */
-                  )}
-                </div>
+                    <button onClick={toggleModalDelete} className="button">
+                      Cancel
+                    </button>
+                  </div>
+                  /* End button row */
+                )}
               </div>
             );
           }}
         </Mutation>
       </div>
-    </BottomModal>
+    </Modal>
   );
 };
 export default DeleteModal;

@@ -22,7 +22,7 @@ import { UPDATE_PRODUCT } from "../../graphql/mutation";
 import { PRODUCTS_FEED_QUERY } from "../../graphql/query";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 // Number mask input definition
 const numberMask = createNumberMask({
