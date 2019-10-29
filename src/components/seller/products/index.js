@@ -1,3 +1,3 @@
-import ProductSwitch from "./ProductSwitch";
+import Products from "./Products";
 
-export default ProductSwitch;
+export default Products;

@@ -11,7 +11,7 @@ const content = () => (
   <div>
     {/*  */}
     <div className="options-popover__row">
-      <h5 className="is-marginless is-size-6">View</h5>
+      <h5 className="is-marginless is-size-6">Preview</h5>
     </div>
 
     {/*  */}
