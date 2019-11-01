@@ -15,13 +15,9 @@ const Thumb = ({ file }) => {
 
   // If image file exists, return image
   return (
-    <div className="container">
-      <div className="columns is-multiline">
-        <div className="column is-11-mobile is-4-desktop is-5-tablet">
-          <ExifOrientationImg src={preview} alt={preview} className="thumb" />
-        </div>
-      </div>
-    </div>
+    <>
+      <ExifOrientationImg src={preview} alt={preview} className="thumb" />
+    </>
   );
 };
 

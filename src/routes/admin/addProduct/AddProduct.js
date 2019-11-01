@@ -9,8 +9,7 @@ import { Mixpanel } from "components/mixpanel";
 import { withAuthorization } from "components/session";
 
 // Import form pages
-import { ImageForm } from "./containers";
-import DetailsForm from "./DetailsForm";
+import { ImageForm, DetailsForm } from "./containers";
 
 // Import graphql operation
 import { CREATE_PRODUCT } from "components/graphql/mutation";

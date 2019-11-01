@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Field } from "formik";
 import { Helmet } from "react-helmet";
 
@@ -12,7 +12,7 @@ import "./styles.scss";
 import { validateImage } from "components/validation";
 
 // Upload image component
-const ImageForm = ({ match, isValid }) => {
+const ImageForm = ({ match, history, isValid }) => {
   // Get store name
   let { storeName } = match.params;
 
@@ -52,6 +52,10 @@ const ImageForm = ({ match, isValid }) => {
             <div className="image-form__footer">
               <div className="column is-10-mobile is-10-tablet has-text-right">
                 <button
+                  type="button"
+                  onClick={() =>
+                    history.push(`/${storeName}/admin/add-product/details`)
+                  }
                   disabled={!isValid}
                   className={`${
                     isValid ? `` : `disabled`

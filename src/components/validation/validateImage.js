@@ -3,7 +3,6 @@ import v8n from "v8n";
 /********** Image validation function **********/
 
 const validateImage = value => {
-  console.log(value);
   return new Promise((resolve, reject) => {
     // Check for an object
     const validation = v8n().object();

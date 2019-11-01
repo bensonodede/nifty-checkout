@@ -9,24 +9,30 @@ import Thumb from "./Thumb";
 import "./styles.scss";
 
 const ImageRemove = ({ resetForm, value }) => (
-  <div className="image-remove">
-    <button
-      className="image-remove__btn button is-small is-primary is-outlined"
-      onClick={async () => {
-        await URL.revokeObjectURL(value);
-        resetForm({ file: "" });
-      }}
-    >
-      {/* Remove image icon */}
-      <span className="image-remove__icon">
-        <Icon icon={ic_delete} size={"100%"} />
-      </span>
+  <div className="container">
+    <div className="image-remove">
+      <div className="columns is-multiline">
+        <div className="column is-11-mobile is-4-desktop is-5-tablet">
+          <button
+            className="image-remove__btn button is-small is-primary is-outlined"
+            onClick={() => {
+              URL.revokeObjectURL(value);
+              resetForm({ file: "" });
+            }}
+          >
+            {/* Remove image icon */}
+            <span className="image-remove__icon">
+              <Icon icon={ic_delete} size={"100%"} />
+            </span>
 
-      {/* Remove image text */}
-      <span>Remove</span>
-    </button>
+            {/* Remove image text */}
+            <span>Remove</span>
+          </button>
 
-    <Thumb file={value} />
+          <Thumb file={value} />
+        </div>
+      </div>
+    </div>
   </div>
 );
 

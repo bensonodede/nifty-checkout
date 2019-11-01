@@ -1,0 +1,14 @@
+.details-form {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  overflow-x: hidden;
+}
+
+.details-form__img {
+  object-fit: cover;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  border: solid 1px #e5e5e5;
+  background-color: #e5e5e5;
+}
