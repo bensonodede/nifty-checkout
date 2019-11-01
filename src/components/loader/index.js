@@ -1,4 +1,4 @@
-import Loader from "./Loader";
+import SimpleLoader from "./simpleLoader";
 import ImgLoader from "./ImgLoader";
 
-export { Loader, ImgLoader };
+export { SimpleLoader, ImgLoader };

@@ -1,3 +1,4 @@
 import Toast from "./Toast";
+import useToast from "./useToast";
 
-export default Toast;
+export { Toast, useToast };

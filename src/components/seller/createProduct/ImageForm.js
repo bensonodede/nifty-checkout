@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import v8n from "v8n";
 
 // Import Components
-import Thumb from "./Thumb";
+import Thumb from "components/thumb";
 
 // Import icons
 import { Icon } from "react-icons-kit";
@@ -13,7 +13,6 @@ import { iosCloudUploadOutline } from "react-icons-kit/ionicons/iosCloudUploadOu
 import { iosTrashOutline } from "react-icons-kit/ionicons/iosTrashOutline";
 
 // Import styles
-import "../../../styles/index.css";
 import "./styles.css";
 
 // Upload image component

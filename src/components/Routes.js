@@ -8,6 +8,7 @@ import { Landing, Faq, TalkToUs, AboutUs, Privacy } from "./landing";
 import { PageNotFound } from "./error";
 
 // Import seller page component
+import SellerRoutes from "./seller";
 import Dashboard from "./seller/dashboard";
 import Products from "./seller/products";
 import createStore from "./seller/createStore";
@@ -34,7 +35,7 @@ class Routes extends Component {
           <Route path="/privacy-policy" component={Privacy} />
 
           {/* Seller routes */}
-          <Route path="/:storeName/dashboard" component={Dashboard} />
+          <Route path="/:storeName/admin" component={SellerRoutes} />
           <Route path="/:storeName/products" component={Products} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={createStore} />

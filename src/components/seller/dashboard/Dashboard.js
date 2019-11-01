@@ -14,14 +14,17 @@ const Dashboard = ({ match }) => {
   let { storeName } = match.params;
 
   return (
-    <FadeInUp>
-      <SellerNav />
-      <div className="dashboard">
-        {/* Document title */}
-        <Helmet>
-          <title>Dashboard - {storeName}</title>
-        </Helmet>
+    <>
+      {/* Document title */}
+      <Helmet>
+        <title>Dashboard - {storeName}</title>
+      </Helmet>
 
+      {/* Navbar */}
+      <SellerNav />
+
+      {/* Dashboard */}
+      <div className="dashboard">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
             {/* Dashboard header */}
@@ -45,9 +48,9 @@ const Dashboard = ({ match }) => {
             {/* Dashboard overview items */}
             <div className="column is-10">
               <div className="container">
-                <div className="columns is-multiline">
-                  {/*  */}
-                  <div className="column is-two-thirds">
+                <div className="columns is-multiline is-centered is-desktop">
+                  {/* Order Card */}
+                  <div className="column is-two-thirds-desktop">
                     <Card>
                       <div className="dashboard__overview">
                         <div className="content">
@@ -57,9 +60,9 @@ const Dashboard = ({ match }) => {
                       </div>
                     </Card>
                   </div>
-                  {/*  */}
+                  {/* End Order Card  */}
 
-                  {/*  */}
+                  {/* Earnings Card */}
                   <div className="column">
                     <Card>
                       <div className="dashboard__overview">
@@ -70,10 +73,10 @@ const Dashboard = ({ match }) => {
                       </div>
                     </Card>
                   </div>
-                  {/*  */}
+                  {/* End Earnings Card */}
 
-                  {/*  */}
-                  <div className="column is-two-thirds">
+                  {/* Products Card */}
+                  <div className="column is-two-thirds-desktop">
                     <Card>
                       <div className="dashboard__overview">
                         <div className="content">
@@ -83,7 +86,7 @@ const Dashboard = ({ match }) => {
                       </div>
                     </Card>
                   </div>
-                  {/*  */}
+                  {/* End Products Card */}
 
                   {/*  */}
                   <div className="column">
@@ -109,7 +112,7 @@ const Dashboard = ({ match }) => {
           </div>
         </div>
       </div>
-    </FadeInUp>
+    </>
   );
 };
 
