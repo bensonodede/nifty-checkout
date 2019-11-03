@@ -1,9 +1,5 @@
 import React from "react";
 import Lottie from "react-lottie";
-import { CSSTransition } from "react-transition-group";
-
-// Import loader styles
-import "./styles.scss";
 
 // Define lottie options
 const defaultOptions = {
@@ -17,22 +13,15 @@ const defaultOptions = {
 
 // Loader component
 const SimpleLoader = () => (
-  <CSSTransition
-    in={true}
-    appear={true}
-    mountOnEnter={true}
-    unmountOnExit={true}
-    classNames="loader-animation"
-    timeout={1000}
-  >
-    <div className="columns is-multiline is-mobile is-centered">
-      <div className="column is-3-mobile is-2-tablet is-1-desktop">
+  <div className="column is-10 is-paddingless">
+    <div className="columns is-centered is-mobile">
+      <div className="column is-3-mobile is-2-tablet is-1-desktop is-paddingless">
         <div className="loader">
           <Lottie options={defaultOptions} isClickToPauseDisabled={true} />
         </div>
       </div>
     </div>
-  </CSSTransition>
+  </div>
 );
 
 export default SimpleLoader;

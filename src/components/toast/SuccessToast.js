@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
-//
+// Import components
 import { Toast, useToast } from "components/toast";
 
-const ErrorToast = () => {
+const SuccessToast = ({ text }) => {
   // Destructure hooks
   const [isOpen, toggleToast] = useToast(false);
 
@@ -13,12 +13,10 @@ const ErrorToast = () => {
   }, []);
 
   return (
-    <>
-      <Toast isOpen={isOpen} toggleToast={toggleToast}>
-        An error occurred
-      </Toast>
-    </>
+    <Toast isOpen={isOpen} toggleToast={toggleToast}>
+      {text}
+    </Toast>
   );
 };
 
-export default ErrorToast;
+export default SuccessToast;

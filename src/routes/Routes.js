@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-// Import auth component
-import { withAuthentication } from "../components/session";
-
 // Import common page components
-import Landing from "./common/landing";
+import Common from "./common";
 
 // Import admin page components
 import Admin from "./admin";
@@ -18,9 +15,9 @@ class Routes extends Component {
       <BrowserRouter>
         <Switch>
           {/* Common routes */}
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Common} />
 
-          {/* Seller routes */}
+          {/* Admin routes */}
           <Route path="/:storeName/admin" component={Admin} />
 
           {/* Checkout routes */}
@@ -33,4 +30,4 @@ class Routes extends Component {
 }
 
 // Wrap routes in authentication provider
-export default withAuthentication(Routes);
+export default Routes;

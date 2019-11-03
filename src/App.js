@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { createUploadLink } from "apollo-upload-client";
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from "@apollo/react-hooks";
 import Firebase, { FirebaseContext } from "./components/firebase/";
 
 // Import styles
 import "./app.scss";
-import "./styles/animation.scss";
 
 // Import routes
 import Routes from "./routes";

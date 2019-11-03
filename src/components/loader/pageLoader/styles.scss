@@ -1,0 +1,63 @@
+.page-loader {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/***** Simple-Loader Animations *****/
+
+.simple-loader-animation-appear,
+.simple-loader-animation-enter {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
+.simple-loader-animation-appear-active,
+.simple-loader-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease 0ms;
+}
+
+.simple-loader-animation-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.simple-loader-animation-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 500ms ease 0s;
+}
+
+/***** Simple-loader Animations *****/
+
+/***** Page-loader Animations *****/
+
+.page-loader-animation-appear,
+.page-loader-animation-enter {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
+.page-loader-animation-appear-active,
+.page-loader-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease 100ms;
+}
+
+.page-loader-animation-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.page-loader-animation-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 500ms ease 0s;
+}
+
+/***** Page-loader Animations *****/

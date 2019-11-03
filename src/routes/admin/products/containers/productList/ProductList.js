@@ -8,7 +8,7 @@ import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
 
 // Import components
 import { SimpleLoader } from "components/loader";
-import ErrorToast from "./ErrorToast";
+import { ErrorToast } from "components/toast";
 import { Icon } from "react-icons-kit";
 import { ic_add } from "react-icons-kit/md/ic_add";
 

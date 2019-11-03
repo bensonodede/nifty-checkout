@@ -100,7 +100,7 @@ class DetailsForm extends Component {
               </div>
 
               {/* Product price field */}
-              <div className="column">
+              <div className="column is-10">
                 <h5 className="details-form__label">Price</h5>
                 {/* <Field
                   name="price"
