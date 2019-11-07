@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Field } from "formik";
 import ExifOrientationImg from "react-exif-orientation-img";
-import v8n from "v8n";
 
 // Import Components
-import createNumberMask from "text-mask-addons/dist/createNumberMask";
-import { LabelInput, GenericInput } from "components/input";
+import { GenericInput, LabelInput } from "components/input";
+import { PriceMask } from "components/inputMask";
+import FooterForm from "../footerForm";
 
 // Import Styles
 import "./styles.scss";
@@ -14,149 +14,106 @@ import "./styles.scss";
 // Import functions
 import { validateName } from "components/validation";
 
-// Number mask input definition
-const numberMask = createNumberMask({
-  prefix: "",
-  suffix: "",
-  allowDecimal: true
-});
-
-// Check for a string with at least one character
-const validation = v8n()
-  .string()
-  .minLength(1);
-
-class DetailsForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nameValid: false,
-      priceValid: false
-    };
-  }
-
-  /********** Validate price field **********/
-
-  componentWillMount() {
-    let { file } = this.props.values;
-    let { storeName } = this.props.match.params;
-
-    // If file value is empty, redirect to upload image page
-    if (file === "" || file === undefined) {
-      // this.props.history.push(`/${storeName}/admin/add-product/image`);
+const DetailsForm = ({
+  // Get store name
+  match: {
+    params: { storeName }
+  },
+  history: { push },
+  values: { file },
+  loading,
+  isValid,
+  // Destructure touched props as aliases
+  touched: { file: touchedFile, name: touchedName, price: touchedPrice }
+}) => {
+  // Redirect if image is missing
+  useEffect(() => {
+    if (!file) {
+      push(`/${storeName}/admin/add-product/image`);
     }
+  }, []);
+
+  // Custom validation
+  const formValid = !!(isValid && touchedFile && touchedName && touchedPrice);
+
+  // Declare gloabl URL for image preview
+  let PREVIEW_URL = "";
+
+  // Assign image preview URL if file exists
+  if (file) {
+    PREVIEW_URL = URL.createObjectURL(file);
   }
+  return (
+    <>
+      {/* Document title */}
+      <Helmet title={`Add details - ${storeName}`} />
 
-  render() {
-    let { values, loading } = this.props;
-    let { nameValid, priceValid } = this.state;
-    let { storeName } = this.props.match.params;
-
-    // Declare gloabl URL for image preview
-    let PREVIEW_URL = "";
-
-    // Assign image preview URL if file exists
-    if (values.file) {
-      PREVIEW_URL = URL.createObjectURL(values.file);
-    }
-    return (
-      <>
-        {/* Document title */}
-        <Helmet>
-          <title>Add details - {storeName}</title>
-        </Helmet>
-
-        {/* Page body */}
-        <div className="container">
-          <div className="details-form">
-            <div className="columns is-mobile is-multiline is-centered">
-              {/* Page header */}
-              <div className="column is-10">
-                <h1 className="title is-size-4 is-marginless">
-                  What are you selling?
-                </h1>
-              </div>
-
-              {/* Form field */}
-
-              {/* Image preview */}
-              <div className="column is-10">
-                <ExifOrientationImg
-                  className="details-form__img"
-                  src={PREVIEW_URL}
-                  alt={values.file.name}
-                />
-              </div>
-
-              {/* Product name field */}
-              <div className="column is-10">
-                <h5 className="details-form__label">Product name</h5>
-                <Field
-                  name="name"
-                  validate={validateName}
-                  component={GenericInput}
-                  placeholder={"awesome sauce"}
-                />
-              </div>
-
-              {/* Product price field */}
-              <div className="column is-10">
-                <h5 className="details-form__label">Price</h5>
-                {/* <Field
-                  name="price"
-                  validate={validateName}
-                  component={LabelInput}
-                  placeholder={"Awesome sauce"}
-                  mask={numberMask}
-                  label={"KSH"}
-                /> */}
-                {/* <Field
-                  name="price"
-                  validate={this.validatePrice}
-                  render={({ field, form }) => (
-                    <LabelInput
-                      {...field}
-                      {...form}
-                      mask={numberMask}
-                      label={"KSH"}
-                      plac
-                    />
-                  )}
-                /> */}
-              </div>
-              {/* End Product price field */}
+      {/* Page body */}
+      <div className="container">
+        <div className="details-form">
+          <div className="columns is-mobile is-multiline is-centered">
+            {/* Page header */}
+            <div className="column is-10">
+              <h1 className="title is-size-4 is-marginless">
+                What are you selling?
+              </h1>
             </div>
+
+            {/* Image preview */}
+            <div className="column is-10">
+              <ExifOrientationImg
+                className="details-form__img"
+                src={PREVIEW_URL}
+                alt={file.name}
+              />
+            </div>
+
+            {/* Product name field */}
+            <div className="column is-10">
+              <div className="columns">
+                <div className="column is-6-tablet is-5-desktop">
+                  <h1 className="is-size-6">Product name</h1>
+                  <Field
+                    name="name"
+                    validate={validateName}
+                    component={GenericInput}
+                    placeholder={"awesome sauce"}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Product price field */}
+            <div className="column is-10">
+              <div className="columns">
+                <div className="column is-6-tablet is-5-desktop">
+                  <h1 className="is-size-6">Price</h1>
+                  <Field
+                    name="price"
+                    validate={validateName}
+                    component={LabelInput}
+                    placeholder={"1,000"}
+                    mask={PriceMask}
+                    label={"KSH"}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* End Product price field */}
           </div>
         </div>
+      </div>
 
-        {/* Page footer */}
-        {/* {loading ? (
-          <div className="footer__loader-container">
-            <div className="footer__loader-body">
-              <div className="footer__loader">
-                <SimpleLoader />
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="footer">
-            <div className="footer__body">
-              <button
-                type="submit"
-                className={
-                  nameValid && priceValid
-                    ? "footer__btn"
-                    : "footer__btn footer__btn--disabled"
-                }
-                disabled={!(nameValid && priceValid) || loading}
-              >
-                Done
-              </button>
-            </div>
-          </div>
-        )} */}
-      </>
-    );
-  }
-}
+      {/* Page footer */}
+      <FooterForm
+        valid={formValid}
+        loading={loading}
+        onPress={null}
+        btnText={"Done"}
+        btnType={"submit"}
+      />
+    </>
+  );
+};
+
 export default DetailsForm;

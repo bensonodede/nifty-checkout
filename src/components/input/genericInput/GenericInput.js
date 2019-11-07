@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 const GenericInput = ({ form, field, placeholder }) => {
   // Destructure props
@@ -25,16 +25,20 @@ const GenericInput = ({ form, field, placeholder }) => {
           }`}
           value={value}
           onChange={async event => {
+            // Get input value
             let val = event.target.value;
+
+            // Set value to field
             await setFieldValue(name, val);
+
+            // Set field to touched
             await setFieldTouched(name, true);
+
+            // Run field validation
             validateField(name);
           }}
         />
       </div>
-
-      {/* Render field error on validation */}
-      {/* <p className="input__error-message">{errors[name]}</p> */}
     </>
   );
 };

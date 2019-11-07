@@ -34,7 +34,8 @@ const link = createUploadLink({
 const client = new ApolloClient({
   // Point client to server address
   link,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  connectToDevTools: true
 });
 
 class App extends Component {

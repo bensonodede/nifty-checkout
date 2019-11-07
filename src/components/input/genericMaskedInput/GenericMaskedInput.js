@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MaskedInput from "react-text-mask";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 class GenericMaskedInput extends Component {
   constructor() {

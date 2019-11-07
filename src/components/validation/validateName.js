@@ -3,22 +3,19 @@ import v8n from "v8n";
 /********** Name validation function  **********/
 
 const validateName = param => {
-  return new Promise((resolve, reject) => {
-    // Check for a string with at least one character
-    const validation = v8n()
-      .string()
-      .minLength(1);
+  // Check for a string with at least one character
+  const validation = v8n()
+    .string()
+    .minLength(1);
 
-    if (!validation.test(param)) {
-      const error = " ";
-      reject(error);
-    }
+  let error;
 
-    // If input value passes validation, set ERROR state
-    else {
-      resolve();
-    }
-  });
+  // Run value through test
+  if (!validation.test(param)) {
+    error = "Enter at least 1 character";
+  }
+
+  return error;
 };
 
 export default validateName;

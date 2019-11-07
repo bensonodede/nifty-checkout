@@ -7,10 +7,12 @@ import { ic_cloud_upload } from "react-icons-kit/md/ic_cloud_upload";
 // Import styles
 import "./styles.scss";
 
-// Import functions
-import { validateImage } from "components/validation";
-
-const ImageUpload = ({ name, validateField, setFieldValue }) => (
+const ImageUpload = ({
+  name,
+  validateField,
+  setFieldValue,
+  setFieldTouched
+}) => (
   <div className="container">
     <div className="columns is-multiline">
       <div className="column is-11-mobile is-4-desktop is-5-tablet">
@@ -43,6 +45,9 @@ const ImageUpload = ({ name, validateField, setFieldValue }) => (
 
             // Set image file to field
             await setFieldValue("file", file);
+
+            // Set field to touched
+            await setFieldTouched(name, true);
 
             // Validate field
             validateField(name);

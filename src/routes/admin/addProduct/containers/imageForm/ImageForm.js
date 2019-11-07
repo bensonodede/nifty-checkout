@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 // Import Components
 import { ImageInput } from "components/input";
+import FooterForm from "../footerForm";
 
 // Import styles
 import "./styles.scss";
@@ -12,16 +13,18 @@ import "./styles.scss";
 import { validateImage } from "components/validation";
 
 // Upload image component
-const ImageForm = ({ match, history, isValid }) => {
+const ImageForm = ({ match, history, isValid, dirty }) => {
+  // Custom validation
+  // ? Dirty fix for 'validate on mount'
+  const imageValid = !!(isValid && dirty);
+
   // Get store name
   let { storeName } = match.params;
 
   return (
     <>
       {/* Document title */}
-      <Helmet>
-        <title>Add a photo - {storeName}</title>
-      </Helmet>
+      <Helmet title={`Add a photo - ${storeName}`} />
 
       {/* Page body */}
       <div className="container">
@@ -49,23 +52,15 @@ const ImageForm = ({ match, history, isValid }) => {
             </div>
 
             {/* Page footer */}
-            <div className="image-form__footer">
-              <div className="column is-10-mobile is-10-tablet has-text-right">
-                <button
-                  type="button"
-                  onClick={() =>
-                    history.push(`/${storeName}/admin/add-product/details`)
-                  }
-                  disabled={!isValid}
-                  className={`${
-                    isValid ? `` : `disabled`
-                  } button has-background-grey-darker has-text-white`}
-                >
-                  <span>Next</span>
-                </button>
-              </div>
-            </div>
-            {/* End Page footer */}
+            <FooterForm
+              valid={imageValid}
+              loading={null}
+              onPress={() =>
+                history.push(`/${storeName}/admin/add-product/details`)
+              }
+              btnText={"Next"}
+              btnType={"button"}
+            />
           </div>
         </div>
       </div>

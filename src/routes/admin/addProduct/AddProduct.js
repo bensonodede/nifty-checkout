@@ -1,50 +1,49 @@
-import React, { Component } from "react";
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { Mutation } from "react-apollo";
 import { useMutation } from "@apollo/react-hooks";
 
-// Import components
-import { Mixpanel } from "components/mixpanel";
-import { withAuthorization } from "components/session";
-
-// Import form pages
+// Import pages
 import { ImageForm, DetailsForm } from "./containers";
 
-// Import graphql operation
-import { CREATE_PRODUCT } from "components/graphql/mutation";
-import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
+// Import hooks
+import useAddProduct from "./useAddProduct/";
 
 const AddProduct = ({ match }) => {
-  // Destructure hooks
-  const [createProduct, { data }] = useMutation(CREATE_PRODUCT, {
-    update(
-      cache,
-      {
-        data: { createProduct }
-      }
-    ) {
-      // Get data from cache
-      const data = cache.readQuery({
-        query: PRODUCTS_FEED_QUERY
-      });
+  const [loading, addProduct] = useAddProduct();
 
-      // Update apollo cache after mutation
-      cache.writeQuery({
-        query: PRODUCTS_FEED_QUERY,
-        data: {
-          productsByStore: [createProduct, ...data.productsByStore]
-        }
-      });
-    }
-  });
+  // Destructure hooks
+  // const [createProduct, { loading, error, data }] = useMutation(
+  //   CREATE_PRODUCT,
+  //   {
+  //     update(
+  //       cache,
+  //       {
+  //         data: { createProduct }
+  //       }
+  //     ) {
+  //       // Get data from cache
+  //       const data = cache.readQuery({
+  //         query: PRODUCTS_FEED_QUERY
+  //       });
+
+  //       // Update apollo cache after mutation
+  //       cache.writeQuery({
+  //         query: PRODUCTS_FEED_QUERY,
+  //         data: {
+  //           productsByStore: [createProduct, ...data.productsByStore]
+  //         }
+  //       });
+  //     }
+  //   }
+  // );
 
   // Prevent submission on enter press
-  const onKeyPress = event => {
-    if (event.which === 13 /* Enter */) {
-      event.preventDefault();
-    }
-  };
+  // const onKeyPress = event => {
+  //   if (event.which === 13 /* Enter */) {
+  //     event.preventDefault();
+  //   }
+  // };
 
   // Store name
   let { storeName } = match.params;
@@ -60,14 +59,14 @@ const AddProduct = ({ match }) => {
     await actions.setSubmitting(true);
 
     // Run mutation to create store
-    await createProduct({
-      variables: {
-        name,
-        price,
-        file,
-        storeName
-      }
-    });
+    // await createProduct({
+    //   variables: {
+    //     name,
+    //     price,
+    //     file,
+    //     storeName
+    //   }
+    // });
 
     // Set form submitting state to false
     await actions.setSubmitting(false);
@@ -75,12 +74,12 @@ const AddProduct = ({ match }) => {
 
   return (
     <>
-      {/* Formik form start */}
+      {/* Formik form  */}
       <Formik
         initialValues={{ file: "", name: "", price: "" }}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={(values, actions) => handleSubmit(values, actions)}
+        onSubmit={values => addProduct(values, storeName)}
       >
         {FormikProps => (
           <Form>
@@ -106,6 +105,8 @@ const AddProduct = ({ match }) => {
                     // loading={loading}
                     {...FormikProps}
                     {...props}
+                    loading={loading}
+                    // error={error}
                   />
                 )}
               />
@@ -117,4 +118,4 @@ const AddProduct = ({ match }) => {
   );
 };
 
-export default withAuthorization(AddProduct);
+export default AddProduct;

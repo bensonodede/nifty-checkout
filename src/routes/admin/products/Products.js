@@ -24,11 +24,11 @@ const Products = ({ match }) => {
       {/* <SellerNav /> */}
 
       {/* Products page */}
-      <div className="products">
-        <div className="container">
-          <ProductList />
-        </div>
-      </div>
+      {/* <div className="products">
+        <div className="container"> */}
+      <ProductList />
+      {/* </div>
+      </div> */}
     </>
   );
 };
