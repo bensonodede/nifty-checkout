@@ -205,7 +205,7 @@ class ProductPage extends Component {
                                     this.setState({ hasMore: false });
                                     return prev;
                                   }
-
+ 
                                   return Object.assign({}, prev, {
                                     productsByStore: [
                                       ...prev.productsByStore,

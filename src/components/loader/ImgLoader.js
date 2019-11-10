@@ -53,14 +53,12 @@ class ImgLoader extends Component {
     let { onLoad, className } = this.props;
 
     return (
-      <div className="img__container">
+      <>
         {/* Load in the placeholder image */}
         {loaded ? null : (
           <LazyLoad
             className={`img__placeholder ${className}`}
-            onContentVisible={() => {
-              console.log("I've been lazy loaded");
-            }}
+          
           >
             <ExifOrientationImg
               onLoad={() => {
@@ -90,7 +88,7 @@ class ImgLoader extends Component {
             className={loaded ? `img__loaded ${className}` : "img__loading"}
           />
         ) : null}
-      </div>
+      </>
     );
   }
 }

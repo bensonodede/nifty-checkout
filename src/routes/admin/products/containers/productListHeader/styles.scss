@@ -1,0 +1,13 @@
+.product-list-header__add-icon {
+  color: #f36b7f;
+  width: 1rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.15rem;
+}
+
+button:hover,
+:focus {
+  .product-list-header__add-icon {
+    color: #fff;
+  }
+}

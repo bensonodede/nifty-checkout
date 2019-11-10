@@ -41,6 +41,16 @@ const PRODUCTS_FEED_QUERY = gql`
       name
       price
       imgUrl
+      updatedAt
+    }
+  }
+`;
+
+// Get number of products in a store
+const PRODUCTS_COUNT = gql`
+  query productsByStoreCount($storeName: String!) {
+    productsByStoreCount(storeName: $storeName) {
+      count
     }
   }
 `;
@@ -97,6 +107,7 @@ export {
   LOGIN_QUERY,
   ORDER_QUERY,
   PRODUCTS_FEED_QUERY,
+  PRODUCTS_COUNT,
   PRODUCT_QUERY,
   PRODUCT_HUMANID_QUERY
 };
