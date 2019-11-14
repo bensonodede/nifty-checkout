@@ -48,8 +48,10 @@ const ProductListHeader = ({ match, history }) => {
       {/* Add product button */}
       <div className="column has-text-right">
         <button
-          onClick={() => history.push(`/${storeName}/admin/add-product`)}
-          className="button is-small is-primary is-outlined"
+          onClick={() => {
+            history.push(`/${storeName}/admin/add-product`);
+          }}
+          className={"button is-small is-primary is-outlined"}
         >
           <span className="product-list-header__add-icon">
             <Icon icon={ic_add} size={"100%"} />

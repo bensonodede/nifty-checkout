@@ -56,7 +56,7 @@ const ProductList = ({ match }) => {
       <div className="column is-10">
         <InfiniteScroll
           pageStart={0}
-          initialLoad={false}
+          initialLoad={true}
           useWindow={true}
           hasMore={hasMore}
           loader={<SimpleLoader key={0} />}

@@ -29,6 +29,18 @@
   box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(131, 131, 131, 0.5);
 }
 
+.toast__info {
+  display: flex;
+  flex-direction: row;
+}
+
+.toast__emoji {
+  width: 1.35rem;
+  height: auto;
+  margin-right: 1rem;
+  object-fit: contain;
+}
+
 .toast__icon-container {
   display: flex;
   justify-content: center;

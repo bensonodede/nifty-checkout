@@ -15,7 +15,7 @@ const Modal = ({ isOpen, toggleModal, children }) =>
         in={isOpen}
         classNames="modal__background-animation"
         timeout={500}
-        onClick={() => toggleModal}
+        onClick={toggleModal}
       >
         <div className="modal__background">
           {/* Modal card */}

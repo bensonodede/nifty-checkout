@@ -1,76 +1,39 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { useMutation } from "@apollo/react-hooks";
+import { withApollo } from "@apollo/react-hoc";
+import { Mixpanel } from "components/mixpanel";
 
 // Import pages
 import { ImageForm, DetailsForm } from "./containers";
 
-// Import hooks
-import useAddProduct from "./useAddProduct/";
+// Import functions
+import addProductMutation from "./addProductMutation";
+import addProductCache from "./addProductCache";
 
-const AddProduct = ({ match }) => {
-  const [loading, addProduct] = useAddProduct();
+// Import components
+import { SuccessToast, ErrorToast } from "components/toast";
 
-  // Destructure hooks
-  // const [createProduct, { loading, error, data }] = useMutation(
-  //   CREATE_PRODUCT,
-  //   {
-  //     update(
-  //       cache,
-  //       {
-  //         data: { createProduct }
-  //       }
-  //     ) {
-  //       // Get data from cache
-  //       const data = cache.readQuery({
-  //         query: PRODUCTS_FEED_QUERY
-  //       });
-
-  //       // Update apollo cache after mutation
-  //       cache.writeQuery({
-  //         query: PRODUCTS_FEED_QUERY,
-  //         data: {
-  //           productsByStore: [createProduct, ...data.productsByStore]
-  //         }
-  //       });
-  //     }
-  //   }
-  // );
-
-  // Prevent submission on enter press
-  // const onKeyPress = event => {
-  //   if (event.which === 13 /* Enter */) {
-  //     event.preventDefault();
-  //   }
-  // };
+const AddProduct = ({ match, history, client }) => {
+  // Destructure mutation function
+  const { loading, error, data, _addProductMutation } = addProductMutation();
 
   // Store name
   let { storeName } = match.params;
 
-  // Handle form submission
-  const handleSubmit = async (values, actions, authUser) => {
-    let { file, name, price } = values;
+  // Success toast
+  if (data) {
+    // Handle mixpanel event
+    Mixpanel.track("Created product");
 
-    // Remove commas from string and convert to float
-    price = await parseFloat(price.replace(",", ""));
+    // Update cache
+    addProductCache({ client, storeName, data });
 
-    // Set form submitting state to true
-    await actions.setSubmitting(true);
-
-    // Run mutation to create store
-    // await createProduct({
-    //   variables: {
-    //     name,
-    //     price,
-    //     file,
-    //     storeName
-    //   }
-    // });
-
-    // Set form submitting state to false
-    await actions.setSubmitting(false);
-  };
+    // Redirect after toast animation
+    setTimeout(() => {
+      history.push(`/${storeName}/admin/products`);
+    }, 2000);
+  }
 
   return (
     <>
@@ -79,7 +42,7 @@ const AddProduct = ({ match }) => {
         initialValues={{ file: "", name: "", price: "" }}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={values => addProduct(values, storeName)}
+        onSubmit={values => _addProductMutation(values, storeName)}
       >
         {FormikProps => (
           <Form>
@@ -102,7 +65,6 @@ const AddProduct = ({ match }) => {
                 path="/:storeName/admin/add-product/details"
                 render={props => (
                   <DetailsForm
-                    // loading={loading}
                     {...FormikProps}
                     {...props}
                     loading={loading}
@@ -114,8 +76,19 @@ const AddProduct = ({ match }) => {
           </Form>
         )}
       </Formik>
+
+      {/* On mutation complete */}
+      {data && (
+        <SuccessToast
+          text={"Product created"}
+          emoji={require("images/thumbs-up-sign_emoji.png")}
+        />
+      )}
+
+      {/* Error state */}
+      {error && <ErrorToast text={"No internet connection"} />}
     </>
   );
 };
 
-export default AddProduct;
+export default withApollo(AddProduct);

@@ -6,7 +6,6 @@ a {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.5rem;
-  border: solid 1px #e5e5e5;
   object-fit: cover;
 }
 
@@ -21,7 +20,7 @@ a {
 }
 
 .options-modal__body {
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.5rem;
 }
 
 .options-modal__content {
@@ -31,7 +30,7 @@ a {
 .options-modal__row {
   display: flex;
   flex-direction: row;
-  padding: 0.75rem 0rem;
+  padding: 0.5rem 0rem;
   align-items: center;
   color: #484848;
 }

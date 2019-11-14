@@ -1,120 +1,94 @@
 import React from "react";
-import { Mutation } from "react-apollo";
+import { compose } from "recompose";
+import { withRouter } from "react-router-dom";
+import { withApollo } from "@apollo/react-hoc";
+import { Mixpanel } from "components/mixpanel";
 
 // Import components
 import { Modal } from "components/modal";
-import { SimpleLoader } from "components/loader";
+import { SuccessToast, ErrorToast } from "components/toast";
 
-// Import graphql operations
-import { DELETE_PRODUCT } from "components/graphql/mutation";
-import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
+// Import functions
+import deleteProductMutation from "./deleteProductMutation";
+import deleteProductCache from "./deleteProductCache";
 
 // Import styles
 import "./styles.scss";
 
-const DeleteModal = ({ data, isDeleteOpen, toggleModalDelete }) => {
-  const { id, imgUrl } = data;
+const DeleteModal = ({
+  item,
+  isDeleteOpen,
+  toggleDeleteModal,
+  client,
+  match
+}) => {
+  // Destructure delete function
+  const {
+    loading,
+    error,
+    data,
+    _deleteProductMutation
+  } = deleteProductMutation();
 
-  // Run mutation to delete product
-  const handleDelete = async mutate => {
-    await mutate({
-      variables: {
-        id,
-        imgUrl
-      }
-    });
-  };
+  // Destructure props
+  const { id, imgUrl } = item;
+  const { storeName } = match.params;
+
+  // Success state
+  if (data) {
+    // Handle mixpanel event
+    Mixpanel.track("Deleted product");
+
+    // Handle cache update after toast animation
+    setTimeout(() => {
+      deleteProductCache({ client, storeName, data });
+    }, 2000);
+  }
 
   return (
-    <Modal isOpen={isDeleteOpen} toggleModal={toggleModalDelete}>
-      <div>
-        <Mutation
-          mutation={DELETE_PRODUCT}
-          onCompleted={data => {
-            // Redirect to store product page
-            // toggleModal;
-          }}
-          update={(cache, { data: { deleteProduct } }) => {
-            // Get mutation typename
-            let { __typename } = deleteProduct;
+    <Modal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
+      <div className="delete-modal">
+        {/* Delete confirmation text */}
+        <div className="content">
+          <h5 className="title is-size-5 is-marginless">Delete item</h5>
+          <p className="is-size-6">
+            Are you sure you want to delete this item? This action is permanent
+            and cannot be reversed.
+          </p>
+        </div>
 
-            try {
-              // Query cache
-              const data = cache.readQuery({
-                query: PRODUCTS_FEED_QUERY,
-                variables: {
-                  type: __typename
-                }
-              });
+        {/* Button row */}
+        <div className="delete-modal__row">
+          {/* Delete button */}
+          <button
+            onClick={() => _deleteProductMutation(id, imgUrl)}
+            className={`button is-primary delete-modal__btn
+            ${loading ? `is-loading` : ``}
+            `}
+          >
+            Delete item
+          </button>
 
-              // Remove deleted product from array of cached products
-              const productsArr = data.productsByStore.filter(
-                product => product.id !== deleteProduct.id
-              );
-
-              // Write new array to cache
-              cache.writeQuery({
-                query: PRODUCTS_FEED_QUERY,
-                variables: {
-                  type: __typename
-                },
-                data: {
-                  productsByStore: productsArr
-                }
-              });
-            } catch (error) {
-              console.log(error);
-            }
-          }}
-        >
-          {(mutate, { loading, error }) => {
-            // Handle errors
-            if (error) {
-              console.log(error);
-            }
-
-            /* Delete modal component */
-            return (
-              <div className="delete-modal">
-                {/* Delete confirmation text */}
-                <div className="content">
-                  <h5 className="title is-size-5 is-marginless">Delete item</h5>
-                  <p className="is-size-6">
-                    Are you sure you want to delete this item? This action is
-                    permanent and cannot be reversed.
-                  </p>
-                </div>
-
-                {loading ? (
-                  <div className="delete-modal__loader-body">
-                    <div className="delete-modal__loader">
-                      <SimpleLoader />
-                    </div>
-                  </div>
-                ) : (
-                  /* Button row */
-                  <div className="delete-modal__row">
-                    <button
-                      onClick={() => handleDelete(mutate)}
-                      className="button is-primary delete-modal__btn"
-                    >
-                      Delete item
-                    </button>
-
-                    {/* Cancel button */}
-                    <button onClick={toggleModalDelete} className="button">
-                      Cancel
-                    </button>
-                  </div>
-                  /* End button row */
-                )}
-              </div>
-            );
-          }}
-        </Mutation>
+          {/* Cancel button */}
+          <button onClick={toggleDeleteModal} className="button">
+            Cancel
+          </button>
+        </div>
+        {/* End button row */}
       </div>
+
+      {/* On mutation complete */}
+      {data && (
+        <SuccessToast
+          text={"Product deleted"}
+          emoji={require("images/victory-hand-sign_emoji.png")}
+        />
+      )}
+
+      {/* Error state */}
+      {error && <ErrorToast text={"No internet connection"} />}
     </Modal>
   );
 };
 
-export default DeleteModal;
+export default compose(withApollo, withRouter)(DeleteModal);
