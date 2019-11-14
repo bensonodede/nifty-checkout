@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 10rem;
+  background-color: #ffffff;
   border: solid 1px #e5e5e5;
   border-radius: 0.3rem;
   box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
@@ -11,6 +12,7 @@
   border-bottom: solid 1px #e5e5e5;
   padding: 0.75rem 1rem;
   color: #787878;
+  cursor: pointer;
 }
 
 .options-popover__row:hover {

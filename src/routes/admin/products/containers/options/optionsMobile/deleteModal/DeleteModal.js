@@ -5,12 +5,11 @@ import { withApollo } from "@apollo/react-hoc";
 import { Mixpanel } from "components/mixpanel";
 
 // Import components
-import { Modal } from "components/modal";
+import { BottomModal } from "components/modal";
 import { SuccessToast, ErrorToast } from "components/toast";
 
 // Import functions
-import deleteProductMutation from "./deleteProductMutation";
-import deleteProductCache from "./deleteProductCache";
+import { deleteProductMutation, deleteProductCache } from "../../utils";
 
 // Import styles
 import "./styles.scss";
@@ -42,11 +41,11 @@ const DeleteModal = ({
     // Handle cache update after toast animation
     setTimeout(() => {
       deleteProductCache({ client, storeName, data });
-    }, 2000);
+    }, 1900);
   }
 
   return (
-    <Modal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
+    <BottomModal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
       <div className="delete-modal">
         {/* Delete confirmation text */}
         <div className="content">
@@ -87,7 +86,7 @@ const DeleteModal = ({
 
       {/* Error state */}
       {error && <ErrorToast text={"No internet connection"} />}
-    </Modal>
+    </BottomModal>
   );
 };
 

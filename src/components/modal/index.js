@@ -1,5 +1,5 @@
-import BottomModal from "./bottomModal/BottomModal";
 import useModal from "./useModal";
-import Modal from "./Modal";
+import BottomModal from "./bottomModal";
+import CenterModal from "./centerModal";
 
-export { BottomModal, useModal, Modal };
+export { useModal, BottomModal, CenterModal };

@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
 // Import components
-import { Modal } from "components/modal";
+import { BottomModal } from "components/modal";
 import { Icon } from "react-icons-kit";
 import { ic_delete } from "react-icons-kit/md/ic_delete";
 import { ic_edit } from "react-icons-kit/md/ic_edit";
@@ -23,7 +23,7 @@ const OptionsModal = ({
   let { storeName } = match.params;
 
   return (
-    <Modal isOpen={isOptionsOpen} toggleModal={toggleOptionsModal}>
+    <BottomModal isOpen={isOptionsOpen} toggleModal={toggleOptionsModal}>
       <div>
         {/* Options-modal header */}
         <div className="options-modal__header">
@@ -92,7 +92,7 @@ const OptionsModal = ({
         </div>
         {/* End product modal content  */}
       </div>
-    </Modal>
+    </BottomModal>
   );
 };
 

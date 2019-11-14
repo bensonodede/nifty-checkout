@@ -1,6 +1,8 @@
 import React from "react";
-import SimpleLoader from "../simpleLoader";
 import { CSSTransition } from "react-transition-group";
+
+// Import components
+import Loader from "../loader";
 
 // Import styles
 import "./styles.scss";
@@ -18,7 +20,9 @@ const PageLoader = ({ text }) => (
           classNames="simple-loader-animation"
           timeout={1500}
         >
-          <SimpleLoader />
+          <div className="column is-10">
+            <Loader />
+          </div>
         </CSSTransition>
 
         {/* Loader text */}

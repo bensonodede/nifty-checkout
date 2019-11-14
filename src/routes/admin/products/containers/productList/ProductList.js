@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
 
 // Import components
-import { SimpleLoader } from "components/loader";
+import { Loader, PageLoader } from "components/loader";
 import { ErrorState } from "components/pageState";
 import ProductItem from "../productItem";
 import ProductListHeader from "../productListHeader";
@@ -42,7 +42,7 @@ const ProductList = ({ match }) => {
 
   // Loading state
   if (loading) {
-    return <SimpleLoader />;
+    return <PageLoader text={"We're setting things up for you."} />;
   }
 
   return (
@@ -59,7 +59,7 @@ const ProductList = ({ match }) => {
           initialLoad={true}
           useWindow={true}
           hasMore={hasMore}
-          loader={<SimpleLoader key={0} />}
+          loader={<Loader key={0} />}
           loadMore={() =>
             loadMoreProducts({ storeName, fetchMore, data, setHasMore })
           }

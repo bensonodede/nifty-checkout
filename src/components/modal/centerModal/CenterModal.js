@@ -7,30 +7,30 @@ import Modal from "../Modal";
 // Import styles
 import "./styles.scss";
 
-const BottomModal = ({ isOpen, toggleModal, children }) => (
+const CenterModal = ({ isOpen, toggleModal, children }) => (
   <Modal isOpen={isOpen} toggleModal={toggleModal}>
     {/* Modal background */}
     <CSSTransition
       appear={true}
       unmountOnExit={true}
       in={isOpen}
-      classNames="bottom-modal__background-animation"
+      classNames="center-modal__background-animation"
       timeout={500}
       onClick={toggleModal}
     >
-      <div className="bottom-modal__background">
+      <div className="center-modal__background">
         {/* Modal card */}
         <CSSTransition
           appear={true}
           unmountOnExit={true}
           in={isOpen}
-          classNames="bottom-modal__card-animation"
+          classNames="center-modal__card-animation"
           timeout={500}
           onClick={e => {
             e.stopPropagation();
           }}
         >
-          <div className="bottom-modal__card">{children}</div>
+          <div className="center-modal__card">{children}</div>
         </CSSTransition>
         {/* End Modal card */}
       </div>
@@ -39,4 +39,4 @@ const BottomModal = ({ isOpen, toggleModal, children }) => (
   </Modal>
 );
 
-export default BottomModal;
+export default CenterModal;

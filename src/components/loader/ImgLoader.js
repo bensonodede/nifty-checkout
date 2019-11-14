@@ -4,7 +4,7 @@ import LazyLoad from "react-lazy-load";
 import ExifOrientationImg from "react-exif-orientation-img";
 
 // Import styles
-import "./styles.css";
+import "./styles.scss";
 
 class ImgLoader extends Component {
   // Declare default props
@@ -56,10 +56,7 @@ class ImgLoader extends Component {
       <>
         {/* Load in the placeholder image */}
         {loaded ? null : (
-          <LazyLoad
-            className={`img__placeholder ${className}`}
-          
-          >
+          <LazyLoad className={`img__placeholder ${className}`}>
             <ExifOrientationImg
               onLoad={() => {
                 this.setState({ placeholderLoaded: true });

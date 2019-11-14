@@ -5,7 +5,7 @@ const usePopover = initial => {
   const [show, setShow] = useState(initial);
 
   // Toggle modal function
-  const togglePopover = useCallback(() => setShow(status => !status));
+  const togglePopover = useCallback(() => setShow(!show));
 
   // Return state and toggle function
   return [show, togglePopover];

@@ -14,6 +14,7 @@ const Popover = ({
       isOpen={show}
       align={"end"}
       position={position}
+      disableReposition={false}
       content={content}
       containerClassName={popoverClass}
       onClickOutside={onClickOutside}
