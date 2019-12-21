@@ -1,6 +1,6 @@
 import v8n from "v8n";
 
-/********** Name validation function  **********/
+/********** Phone number validation function  **********/
 
 const validatePhoneNum = param => {
   // Check for a string with 11 characters (account for 2 spaces from text-mask)

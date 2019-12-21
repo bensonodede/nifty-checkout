@@ -7,13 +7,13 @@ import OptionsMobile from "./optionsMobile";
 
 const Options = ({ data }) => (
   <BreakpointProvider>
-    {/* Mobile delete  */}
-    <Breakpoint medium down>
+    {/* Mobile options  */}
+    <Breakpoint tablet down>
       <OptionsMobile data={data} />
     </Breakpoint>
 
-    {/* Desktop delete */}
-    <Breakpoint large up>
+    {/* Desktop options */}
+    <Breakpoint desktop up>
       <OptionsDesktop data={data} />
     </Breakpoint>
   </BreakpointProvider>

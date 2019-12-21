@@ -1,13 +1,5 @@
 .dashboard {
-  overflow: hidden;
-  padding: 3rem 0rem;
-}
-
-.dashboard__heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  overflow-x: hidden;
 }
 
 .dashboard__emoji {

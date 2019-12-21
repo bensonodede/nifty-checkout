@@ -17,6 +17,12 @@
   }
 }
 
+.loader--light {
+  & .path {
+    stroke: #ffffff;
+  }
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);

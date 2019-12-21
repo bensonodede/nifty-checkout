@@ -1,16 +1,16 @@
 import { useState, useCallback } from "react";
 
-const useModal = initial => {
+const useMobileNavbar = initial => {
   // useModal state
   const [isOpen, setIsOpen] = useState(initial);
 
   // Toggle modal function
-  const toggleModal = useCallback(() => {
+  const toggleMobileNavbar = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
   // Return state and toggle function
-  return [isOpen, toggleModal];
+  return [isOpen, toggleMobileNavbar];
 };
 
-export default useModal;
+export default useMobileNavbar;

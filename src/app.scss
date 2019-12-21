@@ -16,7 +16,7 @@ $tablet: 568px;
 $title-family: "Airbnb Cereal App Medium";
 $subtitle-family: "Airbnb Cereal App Book";
 $button-family: "Airbnb Cereal App Medium";
-$family-sans-serif: "Airbnb Cereal App Book";
+$family-sans-serif: "Airbnb Cereal App Light";
 
 // Font size
 $size-6: 0.9rem;
@@ -48,7 +48,6 @@ $grey-light: #787878;
 @import "~bulma/sass/layout/footer.sass";
 
 // Bulma components
-@import "~bulma/sass/components/navbar.sass";
 
 // Bulma elements
 @import "~bulma/sass/elements/container.sass";
@@ -56,3 +55,16 @@ $grey-light: #787878;
 @import "~bulma/sass/elements/content.sass";
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/table.sass";
+
+// Route with fixed menu wrapper
+.route-wrapper {
+  @include mobile {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  @include desktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}

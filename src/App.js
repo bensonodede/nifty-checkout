@@ -4,6 +4,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { createUploadLink } from "apollo-upload-client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import Firebase, { FirebaseContext } from "./components/firebase/";
+import { setDefaultBreakpoints, BreakpointProvider } from "react-socks";
 
 // Import styles
 import "./app.scss";
@@ -26,6 +27,15 @@ if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
 }
 
+// App screen breakpoints
+setDefaultBreakpoints([
+  { mobile: 0 },
+  { tablet: 568 },
+  { desktop: 1024 },
+  { widescreen: 1216 },
+  { fullhd: 1408 }
+]);
+
 const link = createUploadLink({
   uri: serverUrl
 });
@@ -46,8 +56,11 @@ class App extends Component {
         <ApolloProvider client={client}>
           {/* Firebase Provider allows Firebase API access to children */}
           <FirebaseContext.Provider value={new Firebase()}>
-            {/* App Routes */}
-            <Routes />
+            {/* Breakpoint provider */}
+            <BreakpointProvider>
+              {/* App Routes */}
+              <Routes />
+            </BreakpointProvider>
           </FirebaseContext.Provider>
         </ApolloProvider>
       </div>

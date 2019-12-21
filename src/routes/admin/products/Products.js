@@ -4,8 +4,6 @@ import { Helmet } from "react-helmet";
 // Import components
 import { ProductList } from "./containers";
 
-// import SellerNav from "../../../components/seller/sellerNav";
-
 // Import styles
 import "./styles.scss";
 
@@ -16,15 +14,10 @@ const Products = ({ match }) => {
   return (
     <>
       {/* Document title */}
-      <Helmet>
-        <title>Products - {storeName}</title>
-      </Helmet>
-
-      {/* Nav bar */}
-      {/* <SellerNav /> */}
+      <Helmet title={`Products - ${storeName}`} />
 
       {/* Products page */}
-      <div className="products">
+      <div className="products route-wrapper">
         <div className="container">
           <ProductList />
         </div>

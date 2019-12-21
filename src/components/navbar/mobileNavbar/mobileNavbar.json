@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "title": "Home",
+    "link": "",
+    "exact": true
+  },
+
+  {
+    "id": 2,
+    "title": "Orders",
+    "link": "/orders",
+    "exact": true
+  },
+
+  {
+    "id": 3,
+    "title": "Products",
+    "link": "/products",
+    "exact": false
+  },
+
+  {
+    "id": 4,
+    "title": "Profile",
+    "link": "/profile",
+    "exact": true
+  },
+
+  {
+    "id": 5,
+    "title": "Help",
+    "link": "/help",
+    "exact": true
+  }
+]

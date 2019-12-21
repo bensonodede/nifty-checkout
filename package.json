@@ -57,6 +57,7 @@
     "rmc-tabs": "1.2.29",
     "simple-flexbox": "2.3.0",
     "text-mask-addons": "3.8.0",
+    "use-state-with-callback": "1.0.18",
     "v8n": "1.2.3"
   },
   "scripts": {

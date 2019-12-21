@@ -1,0 +1,61 @@
+.desktop-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 0rem 2rem;
+}
+
+/***** Navbar LOGO *****/
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.navbar-logo__img {
+  width: 2rem;
+  height: auto;
+}
+
+/***** Navbar LINKS *****/
+
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+}
+
+/***** Navbar ITEM *****/
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 0rem;
+  margin: 0rem 0.75rem;
+}
+
+.navbar-item:hover,
+.navbar-item--active {
+  border-bottom: 3px solid #f36b7f;
+  margin-top: 3px;
+}
+
+/***** Navbar PROFILE *****/
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-profile:hover,
+.navbar-profile--active {
+  border-bottom: 3px solid #f36b7f;
+  margin-top: 3px;
+}
+
+.navbar-profile__icon {
+  width: 2rem;
+  color: #484848;
+}

@@ -4,8 +4,11 @@ import React from "react";
 import "./styles.scss";
 
 // Loader component
-const Loader = () => (
-  <svg className="loader" viewBox="0 0 50 50">
+const Loader = ({ isLight }) => (
+  <svg
+    className={`loader` + (isLight ? ` loader--light` : ``)}
+    viewBox="0 0 50 50"
+  >
     <circle
       className="path"
       cx="25"

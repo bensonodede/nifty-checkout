@@ -8,7 +8,6 @@ import {
   ProductsCard,
   FeatureCard
 } from "./containers";
-// import SellerNav from "../sellerNav";
 
 // Import styles
 import "./styles.scss";
@@ -20,15 +19,10 @@ const Dashboard = ({ match }) => {
   return (
     <>
       {/* Document title */}
-      <Helmet>
-        <title>Dashboard - {storeName}</title>
-      </Helmet>
-
-      {/* Navbar */}
-      {/* <SellerNav /> */}
+      <Helmet title={`Dashboard - ${storeName}`} />
 
       {/* Dashboard */}
-      <div className="dashboard">
+      <div className="dashboard route-wrapper">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
             {/* Dashboard header */}
@@ -36,11 +30,6 @@ const Dashboard = ({ match }) => {
               <div className="content">
                 <div className="dashboard__heading">
                   <h1 className="title is-size-3 is-marginless">Hello</h1>
-                  <img
-                    className={"dashboard__emoji"}
-                    src={require("../../../images/waving-hand-sign_emoji.png")}
-                    alt={"waving-hand"}
-                  />
                 </div>
 
                 <p className="has-text-grey-light">

@@ -1,22 +1,22 @@
 import React from "react";
+import { Breakpoint } from "react-socks";
 
-// Import styles
-import "./styles.scss";
+// Import components
+import DesktopNavbar from "./desktopNavbar";
+import MobileNavbar from "./mobileNavbar";
 
 const Navbar = () => (
-  <nav className="navbar">
-    <div className="navbar-brand">
-      <div className="navbar-item">
-        <img
-          className="navbar__logo"
-          alt={"finn logo"}
-          src={
-            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-          }
-        />
-      </div>
-    </div>
-  </nav>
+  <>
+    {/* Mobile Navbar */}
+    <Breakpoint tablet down>
+      <MobileNavbar />
+    </Breakpoint>
+
+    {/* Desktop navbar */}
+    <Breakpoint desktop up>
+      <DesktopNavbar />
+    </Breakpoint>
+  </>
 );
 
 export default Navbar;

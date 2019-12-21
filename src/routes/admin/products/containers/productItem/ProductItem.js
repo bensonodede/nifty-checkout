@@ -18,7 +18,14 @@ const ProductItem = ({ item }) => {
       <td>
         <div className="product-item__info">
           {/* Product image */}
-          <ImgLoader src={imgUrl} alt={name} className="product-item__img" />
+          <div className={"product-item__img-container"}>
+            <ImgLoader
+              transform={""}
+              src={imgUrl}
+              alt={name}
+              className={"product-item__img"}
+            />
+          </div>
 
           {/* Product content */}
           <div className="content product-item__content">
