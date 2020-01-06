@@ -2,9 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #ffffff;
-  border-bottom: 1px solid #e4e4e4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 0rem 2rem;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #e4e4e4;
+  z-index: 1;
 }
 
 /***** Navbar LOGO *****/
@@ -32,15 +37,15 @@
 .navbar-item {
   display: flex;
   align-items: center;
-  padding: 1.25rem 0rem;
+  padding: 1rem 0rem;
   margin: 0rem 0.75rem;
+  height: 2rem;
   cursor: pointer;
 }
 
 .navbar-item:hover,
 .navbar-item--active {
   border-bottom: 3px solid #f36b7f;
-  margin-top: 3px;
 }
 
 /***** Navbar PROFILE *****/
@@ -48,15 +53,18 @@
 .navbar-profile {
   display: flex;
   align-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 1rem 0rem;
+  margin: 0rem 0.75rem;
+  cursor: pointer;
 }
 
 .navbar-profile:hover,
 .navbar-profile--active {
   border-bottom: 3px solid #f36b7f;
-  margin-top: 3px;
 }
 
 .navbar-profile__icon {
-  width: 2rem;
   color: #484848;
 }

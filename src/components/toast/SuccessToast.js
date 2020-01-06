@@ -10,12 +10,7 @@ const SuccessToast = ({ timing, text, emoji }) => {
   // Toggle toast on load
   useEffect(() => {
     toggleToast();
-
-    // Toggle after a certain time
-    setTimeout(() => {
-      toggleToast();
-    }, timing);
-  }, [timing]);
+  }, []);
 
   return (
     <Toast isOpen={isOpen} toggleToast={toggleToast} emoji={emoji}>

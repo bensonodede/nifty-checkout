@@ -1,4 +1,5 @@
 import React from "react";
+import numeral from "numeral";
 import { useMutation } from "@apollo/react-hooks";
 
 // Import components
@@ -44,8 +45,8 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
               <div className="order-product__tally">
                 <h5 className="is-size-6 is-marginless">{name}</h5>
                 <h5 className="is-size-7 is-marginless has-text-grey-light">
-                  {price} <span className="order-product__currency">KES</span> ×
-                  1
+                  {`${numeral(price).format("'0,0'")}`}{" "}
+                  <span className="order-product__currency">KES</span> × 1
                 </h5>
               </div>
             </div>
@@ -53,7 +54,8 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
             {/* Order product tallied price */}
             <div>
               <h5 className="title is-size-5 is-marginless">
-                {amount} <span className="order-product__currency">KES</span>
+                {`${numeral(amount).format("'0,0'")}`}{" "}
+                <span className="order-product__currency">KES</span>
               </h5>
             </div>
           </div>

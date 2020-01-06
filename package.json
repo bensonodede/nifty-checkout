@@ -42,6 +42,7 @@
     "react-masonry-css": "1.0.12",
     "react-particles-js": "2.7.0",
     "react-popper": "1.3.4",
+    "react-router": "5.1.2",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
     "react-socks": "2.1.0",

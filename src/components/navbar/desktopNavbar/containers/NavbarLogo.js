@@ -6,7 +6,7 @@ const NavbarLogo = ({ match }) => {
   let { storeName } = match.params;
 
   return (
-    <NavLink to={`/${storeName}/admin/profile`} className="navbar-logo">
+    <NavLink to={`/${storeName}/admin`} className="navbar-logo">
       <img
         className="navbar-logo__img"
         src={
