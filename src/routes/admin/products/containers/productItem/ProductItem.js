@@ -40,8 +40,8 @@ const ProductItem = ({ item }) => {
       </td>
 
       {/* Desktop: Price cell */}
-      <td>
-        <div className="is-hidden-touch">
+      <td className="is-hidden-touch">
+        <div>
           <div className="product-item__price">
             <h5 className="is-marginless is-size-6">
               {`${numeral(price).format("'0,0'")}`}
@@ -52,8 +52,8 @@ const ProductItem = ({ item }) => {
       </td>
 
       {/* Desktop: Last modified cell */}
-      <td>
-        <div className="is-hidden-touch">
+      <td className="is-hidden-touch">
+        <div>
           <div className="product-item__date">
             <h5 className="is-marginless is-size-6">
               {`${moment(updatedAt).format("MMM Do, YYYY")}`}

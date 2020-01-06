@@ -1,0 +1,14 @@
+.orders-list__select {
+  appearance: none;
+  padding: 0.5rem 2rem;
+  background-color: #ffffff;
+  border: solid 1px #e5e5e5;
+}
+
+.orders-list__select::-ms-expand {
+  display: none;
+}
+
+.orders-list__select:focus {
+  outline: none;
+}

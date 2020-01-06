@@ -64,7 +64,7 @@ class ImageForm extends Component {
     this._isValid(file);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // Declare props variables
     let nextVal = nextProps.values.file;
     let val = this.props.values.file;

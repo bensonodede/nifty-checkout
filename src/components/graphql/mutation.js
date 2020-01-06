@@ -95,10 +95,22 @@ const CREATE_ORDER = gql`
     }
   }
 `;
+
+// Update an order
+const TOGGLE_ORDER_STATUS = gql`
+  mutation ToggleOrderStatus($id: String!, $orderStatus: Int!) {
+    toggleOrderStatus(id: $id, orderStatus: $orderStatus) {
+      id
+      orderStatus
+    }
+  }
+`;
+
 export {
   CREATE_STORE,
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
-  CREATE_ORDER
+  CREATE_ORDER,
+  TOGGLE_ORDER_STATUS
 };

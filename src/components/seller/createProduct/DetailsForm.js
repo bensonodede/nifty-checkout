@@ -82,7 +82,7 @@ class DetailsForm extends Component {
     return this._isPriceValid(value);
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let { file } = this.props.values;
     let { storeName } = this.props.match.params;
 

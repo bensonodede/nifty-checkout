@@ -27,19 +27,20 @@ const Toast = ({ isOpen, emoji, toggleToast, children }) =>
             <div className="column is-11-mobile is-6-tablet is-3-desktop">
               <div className="toast">
                 <div className="toast__info">
-                  {/* Toast emoji */}
-                  {emoji && (
-                    <img src={emoji} alt={"emoji"} className={"toast__emoji"} />
-                  )}
-
                   {/* Toast content */}
                   <h5 className="has-text-white is-marginless is-size-6">
+                    <span
+                      role="img"
+                      aria-label="emoji"
+                      className="toast__emoji"
+                    >
+                      {emoji}
+                    </span>{" "}
                     {children}
                   </h5>
                 </div>
 
                 {/* Toast close button */}
-
                 <div className="toast__icon-container">
                   <div className="toast__icon" onClick={toggleToast}>
                     <Icon icon={ic_close} size={"100%"} />

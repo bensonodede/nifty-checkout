@@ -58,7 +58,14 @@ $grey-light: #787878;
 
 // Route with fixed menu wrapper
 .route-wrapper {
+  overflow: hidden;
+
   @include mobile {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  @include tablet {
     padding-top: 7rem;
     padding-bottom: 5rem;
   }

@@ -62,7 +62,7 @@ class StoreName extends Component {
     this._isValid(val);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // Declare props variables
     let nextVal = nextProps.values.storeName;
     let val = this.props.values.storeName;

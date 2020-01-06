@@ -10,7 +10,7 @@
     "id": 2,
     "title": "Orders",
     "link": "/orders",
-    "exact": true
+    "exact": false
   },
 
   {

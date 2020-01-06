@@ -14,7 +14,7 @@ const Products = ({ match }) => {
   return (
     <>
       {/* Document title */}
-      <Helmet title={`Products - ${storeName}`} />
+      <Helmet title={`Products - ${storeName}`} defer={false} />
 
       {/* Products page */}
       <div className="products route-wrapper">

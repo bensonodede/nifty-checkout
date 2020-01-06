@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
 // Import components
-import { Toast, useToast } from "components/toast";
+import { Toast, useToast } from "./index";
 
-const ErrorToast = ({ text }) => {
+const ErrorToast = ({ text, emoji }) => {
   // Destructure hooks
   const [isOpen, toggleToast] = useToast(false);
 
@@ -13,7 +13,7 @@ const ErrorToast = ({ text }) => {
   }, []);
 
   return (
-    <Toast isOpen={isOpen} toggleToast={toggleToast}>
+    <Toast isOpen={isOpen} toggleToast={toggleToast} emoji={emoji}>
       {text}
     </Toast>
   );

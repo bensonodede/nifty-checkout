@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
 // Import components
-import { Toast, useToast } from "components/toast";
+import { Toast, useToast } from "./index";
 
-const SuccessToast = ({ text, emoji }) => {
+const SuccessToast = ({ timing, text, emoji }) => {
   // Destructure hooks
   const [isOpen, toggleToast] = useToast(false);
 
@@ -11,10 +11,11 @@ const SuccessToast = ({ text, emoji }) => {
   useEffect(() => {
     toggleToast();
 
+    // Toggle after a certain time
     setTimeout(() => {
       toggleToast();
-    }, 1550);
-  }, []);
+    }, timing);
+  }, [timing]);
 
   return (
     <Toast isOpen={isOpen} toggleToast={toggleToast} emoji={emoji}>

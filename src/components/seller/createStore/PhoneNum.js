@@ -79,7 +79,7 @@ class PhoneNumPage extends Component {
     this._isValid(phoneNum);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let { storeName } = nextProps.values;
 
     if (storeName === "" || storeName === undefined) {

@@ -18,7 +18,7 @@ const PageLoader = ({ text }) => (
           mountOnEnter={true}
           unmountOnExit={true}
           classNames="simple-loader-animation"
-          timeout={1500}
+          timeout={250}
         >
           <div className="column is-10">
             <Loader />
@@ -32,7 +32,7 @@ const PageLoader = ({ text }) => (
           mountOnEnter={true}
           unmountOnExit={true}
           classNames="page-loader-animation"
-          timeout={1500}
+          timeout={250}
         >
           <div className="column is-10 is-paddingless">
             <h5 className="is-size-6 has-text-centered is-marginless">
