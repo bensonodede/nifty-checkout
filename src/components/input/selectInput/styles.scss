@@ -1,0 +1,36 @@
+.select-input-container {
+  //   box-shadow: 0 0 5px rgb(0, 85, 255);
+
+  //   align-items: center;
+
+  //   margin: 0;
+
+  //   border-radius: 0.25rem;
+}
+
+.select-input__control {
+  border: solid #e5e5e5 1.2px !important;
+}
+
+.select-input__control--is-focused {
+  box-shadow: 0 0 5px rgb(0, 85, 255) !important;
+  border-color: transparent !important;
+}
+
+.select-input__value-container {
+  padding: 0.45rem 1rem !important;
+}
+
+.select-input__placeholder {
+  font-size: 0.95rem !important;
+}
+
+.select-input__indicator {
+  padding: 0rem 0.75rem !important;
+}
+
+.select-input__indicator-separator {
+  background-color: #e5e5e5 !important;
+  margin: 0.7rem 0rem !important;
+  width: 1.85px !important;
+}

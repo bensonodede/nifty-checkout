@@ -1,0 +1,29 @@
+/********** Feautures section **********/
+
+.features {
+  margin-top: 8rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.features__content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  // padding-left: 5rem;
+}
+
+.features__item {
+  @media only screen and (min-width: 568px) {
+    padding: 1.8rem 0rem;
+  }
+}
+
+.features__img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}

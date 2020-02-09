@@ -1,0 +1,244 @@
+diff --git a/node_modules/react-icons-kit/ionicons/iosClose.js b/node_modules/react-icons-kit/ionicons/iosClose.js
+index e49f051..cc419a4 100644
+--- a/node_modules/react-icons-kit/ionicons/iosClose.js
++++ b/node_modules/react-icons-kit/ionicons/iosClose.js
+@@ -3,4 +3,34 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosClose = exports.iosClose = { "viewBox": "0 0 512 512", "children": [{ "name": "style", "attribs": { "type": "text/css" }, "children": [] }, { "name": "g", "attribs": {}, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z" }, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z" }, "children": [] }] }] }] };
+\ No newline at end of file
++var iosClose = (exports.iosClose = {
++  viewBox: "0 0 512 512",
++  children: [
++    { name: "style", attribs: { type: "text/css" }, children: [] },
++    {
++      name: "g",
++      attribs: {},
++      children: [
++        {
++          name: "path",
++          attribs: {
++            class: "st0",
++            d:
++              "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z"
++          },
++          children: [
++            {
++              name: "path",
++              attribs: {
++                class: "st0",
++                d:
++                  "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\tS484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2\r\n\t\tl11.8,11.8L267.6,256L352,340.2z"
++              },
++              children: []
++            }
++          ]
++        }
++      ]
++    }
++  ]
++});
+diff --git a/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js b/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
+index c1ca9c7..868d15e 100644
+--- a/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
++++ b/node_modules/react-icons-kit/ionicons/iosCloseEmpty.js
+@@ -3,4 +3,17 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosCloseEmpty = exports.iosCloseEmpty = { "viewBox": "0 0 512 512", "children": [{ "name": "style", "attribs": { "type": "text/css" }, "children": [] }, { "name": "polygon", "attribs": { "class": "st0", "points": "340.2,160 255.8,244.3 171.8,160.4 160,172.2 244,256 160,339.9 171.8,351.6 255.8,267.8 340.2,352 \r\n\t352,340.3 267.6,256 352,171.8 " }, "children": [] }] };
+\ No newline at end of file
++var iosCloseEmpty = (exports.iosCloseEmpty = {
++  viewBox: "0 0 512 512",
++  children: [
++    { name: "style", attribs: { type: "text/css" }, children: [] },
++    {
++      name: "polygon",
++      attribs: {
++        points:
++          "340.2,160 255.8,244.3 171.8,160.4 160,172.2 244,256 160,339.9 171.8,351.6 255.8,267.8 340.2,352 \r\n\t352,340.3 267.6,256 352,171.8 "
++      },
++      children: []
++    }
++  ]
++});
+diff --git a/node_modules/react-icons-kit/ionicons/iosCloseOutline.js b/node_modules/react-icons-kit/ionicons/iosCloseOutline.js
+index 4596428..bd97e21 100644
+--- a/node_modules/react-icons-kit/ionicons/iosCloseOutline.js
++++ b/node_modules/react-icons-kit/ionicons/iosCloseOutline.js
+@@ -1,6 +1,63 @@
+ "use strict";
+-
++/* eslint-disable */
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosCloseOutline = exports.iosCloseOutline = { "viewBox": "0 0 512 512", "children": [{ "name": "style", "attribs": { "type": "text/css" }, "children": [] }, { "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\t\tS484.3,190.1,403.1,108.9z M390.8,390.8c-74.3,74.3-195.3,74.3-269.6,0c-74.3-74.3-74.3-195.3,0-269.6s195.3-74.3,269.6,0\r\n\t\t\tC465.2,195.5,465.2,316.5,390.8,390.8z" }, "children": [{ "name": "path", "attribs": { "class": "st0", "d": "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\t\tS484.3,190.1,403.1,108.9z M390.8,390.8c-74.3,74.3-195.3,74.3-269.6,0c-74.3-74.3-74.3-195.3,0-269.6s195.3-74.3,269.6,0\r\n\t\t\tC465.2,195.5,465.2,316.5,390.8,390.8z" }, "children": [] }] }] }] }, { "name": "polygon", "attribs": { "class": "st0", "points": "340.2,160 255.8,244.2 171.8,160.4 160,172.2 244,256 160,339.8 171.8,351.6 255.8,267.8 340.2,352 \r\n\t\t352,340.2 267.6,256 352,171.8 \t" }, "children": [{ "name": "polygon", "attribs": { "class": "st0", "points": "340.2,160 255.8,244.2 171.8,160.4 160,172.2 244,256 160,339.8 171.8,351.6 255.8,267.8 340.2,352 \r\n\t\t352,340.2 267.6,256 352,171.8 \t" }, "children": [] }] }] }] };
+\ No newline at end of file
++var iosCloseOutline = (exports.iosCloseOutline = {
++  viewBox: "0 0 512 512",
++  children: [
++    { name: "style", attribs: { type: "text/css" }, children: [] },
++    {
++      name: "g",
++      attribs: {},
++      children: [
++        {
++          name: "g",
++          attribs: {},
++          children: [
++            {
++              name: "g",
++              attribs: {},
++              children: [
++                {
++                  name: "path",
++                  attribs: {
++                    d:
++                      "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\t\tS484.3,190.1,403.1,108.9z M390.8,390.8c-74.3,74.3-195.3,74.3-269.6,0c-74.3-74.3-74.3-195.3,0-269.6s195.3-74.3,269.6,0\r\n\t\t\tC465.2,195.5,465.2,316.5,390.8,390.8z"
++                  },
++                  children: [
++                    {
++                      name: "path",
++                      attribs: {
++                        d:
++                          "M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0\r\n\t\t\tS484.3,190.1,403.1,108.9z M390.8,390.8c-74.3,74.3-195.3,74.3-269.6,0c-74.3-74.3-74.3-195.3,0-269.6s195.3-74.3,269.6,0\r\n\t\t\tC465.2,195.5,465.2,316.5,390.8,390.8z"
++                      },
++                      children: []
++                    }
++                  ]
++                }
++              ]
++            }
++          ]
++        },
++        {
++          name: "polygon",
++          attribs: {
++            points:
++              "340.2,160 255.8,244.2 171.8,160.4 160,172.2 244,256 160,339.8 171.8,351.6 255.8,267.8 340.2,352 \r\n\t\t352,340.2 267.6,256 352,171.8 \t"
++          },
++          children: [
++            {
++              name: "polygon",
++              attribs: {
++                points:
++                  "340.2,160 255.8,244.2 171.8,160.4 160,172.2 244,256 160,339.8 171.8,351.6 255.8,267.8 340.2,352 \r\n\t\t352,340.2 267.6,256 352,171.8 \t"
++              },
++              children: []
++            }
++          ]
++        }
++      ]
++    }
++  ]
++});
+diff --git a/node_modules/react-icons-kit/ionicons/iosHelpOutline.js b/node_modules/react-icons-kit/ionicons/iosHelpOutline.js
+index 6052172..502c8dc 100644
+--- a/node_modules/react-icons-kit/ionicons/iosHelpOutline.js
++++ b/node_modules/react-icons-kit/ionicons/iosHelpOutline.js
+@@ -3,4 +3,101 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-var iosHelpOutline = exports.iosHelpOutline = { "viewBox": "0 0 512 512", "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "path", "attribs": { "d": "M256,48C141.1,48,48,141.1,48,256c0,114.9,93.1,208,208,208c114.9,0,208-93.1,208-208C464,141.1,370.9,48,256,48z\r\n\t\t\t\t M256,446.7c-105.1,0-190.7-85.5-190.7-190.7c0-105.1,85.5-190.7,190.7-190.7c105.1,0,190.7,85.5,190.7,190.7\r\n\t\t\t\tC446.7,361.1,361.1,446.7,256,446.7z" }, "children": [{ "name": "path", "attribs": { "d": "M256,48C141.1,48,48,141.1,48,256c0,114.9,93.1,208,208,208c114.9,0,208-93.1,208-208C464,141.1,370.9,48,256,48z\r\n\t\t\t\t M256,446.7c-105.1,0-190.7-85.5-190.7-190.7c0-105.1,85.5-190.7,190.7-190.7c105.1,0,190.7,85.5,190.7,190.7\r\n\t\t\t\tC446.7,361.1,361.1,446.7,256,446.7z" }, "children": [] }] }] }] }] }] }, { "name": "g", "attribs": {}, "children": [{ "name": "g", "attribs": {}, "children": [{ "name": "path", "attribs": { "d": "M259.6,146c-43.2,0-67.3,20.3-67.6,62.2h18.8c-0.6-30.4,15.5-46.5,47.9-46.5c23.2,0,42.6,16.2,42.6,39.8\r\n\t\t\tc0,15.3-8.3,27.7-19.4,38.1c-22.6,20.8-29,36-30.1,64.5h19c1.1-25.8,0.5-30.7,23.3-53.3c15.2-14.2,25.9-28.3,25.9-50.2\r\n\t\t\tC320,166.4,292.6,146,259.6,146z" }, "children": [{ "name": "path", "attribs": { "d": "M259.6,146c-43.2,0-67.3,20.3-67.6,62.2h18.8c-0.6-30.4,15.5-46.5,47.9-46.5c23.2,0,42.6,16.2,42.6,39.8\r\n\t\t\tc0,15.3-8.3,27.7-19.4,38.1c-22.6,20.8-29,36-30.1,64.5h19c1.1-25.8,0.5-30.7,23.3-53.3c15.2-14.2,25.9-28.3,25.9-50.2\r\n\t\t\tC320,166.4,292.6,146,259.6,146z" }, "children": [] }] }, { "name": "path", "attribs": { "d": "M260.3,332.3c-9.4,0-17,7.5-17,16.8c0,9.3,7.6,16.9,17,16.9c9.4,0,17-7.5,17-16.9C277.3,339.8,269.7,332.3,260.3,332.3z" }, "children": [{ "name": "path", "attribs": { "d": "M260.3,332.3c-9.4,0-17,7.5-17,16.8c0,9.3,7.6,16.9,17,16.9c9.4,0,17-7.5,17-16.9C277.3,339.8,269.7,332.3,260.3,332.3z" }, "children": [] }] }] }] }] }] };
+\ No newline at end of file
++var iosHelpOutline = (exports.iosHelpOutline = {
++  viewBox: "0 0 512 512",
++  children: [
++    {
++      name: "g",
++      attribs: {},
++      children: [
++        {
++          name: "g",
++          attribs: {},
++          children: [
++            {
++              name: "g",
++              attribs: {},
++              children: [
++                {
++                  name: "g",
++                  attribs: {},
++                  children: [
++                    {
++                      name: "g",
++                      attribs: {},
++                      children: [
++                        {
++                          name: "path",
++                          attribs: {
++                            d:
++                              "M256,48C141.1,48,48,141.1,48,256c0,114.9,93.1,208,208,208c114.9,0,208-93.1,208-208C464,141.1,370.9,48,256,48z\r\n\t\t\t\t M256,446.7c-105.1,0-190.7-85.5-190.7-190.7c0-105.1,85.5-190.7,190.7-190.7c105.1,0,190.7,85.5,190.7,190.7\r\n\t\t\t\tC446.7,361.1,361.1,446.7,256,446.7z"
++                          },
++                          children: [
++                            {
++                              name: "path",
++                              attribs: {
++                                d:
++                                  "M256,48C141.1,48,48,141.1,48,256c0,114.9,93.1,208,208,208c114.9,0,208-93.1,208-208C464,141.1,370.9,48,256,48z\r\n\t\t\t\t M256,446.7c-105.1,0-190.7-85.5-190.7-190.7c0-105.1,85.5-190.7,190.7-190.7c105.1,0,190.7,85.5,190.7,190.7\r\n\t\t\t\tC446.7,361.1,361.1,446.7,256,446.7z"
++                              },
++                              children: []
++                            }
++                          ]
++                        }
++                      ]
++                    }
++                  ]
++                }
++              ]
++            }
++          ]
++        },
++        {
++          name: "g",
++          attribs: {},
++          children: [
++            {
++              name: "g",
++              attribs: {},
++              children: [
++                {
++                  name: "path",
++                  attribs: {
++                    d:
++                      "M259.6,146c-43.2,0-67.3,20.3-67.6,62.2h18.8c-0.6-30.4,15.5-46.5,47.9-46.5c23.2,0,42.6,16.2,42.6,39.8\r\n\t\t\tc0,15.3-8.3,27.7-19.4,38.1c-22.6,20.8-29,36-30.1,64.5h19c1.1-25.8,0.5-30.7,23.3-53.3c15.2-14.2,25.9-28.3,25.9-50.2\r\n\t\t\tC320,166.4,292.6,146,259.6,146z"
++                  },
++                  children: [
++                    {
++                      name: "path",
++                      attribs: {
++                        d:
++                          "M259.6,146c-43.2,0-67.3,20.3-67.6,62.2h18.8c-0.6-30.4,15.5-46.5,47.9-46.5c23.2,0,42.6,16.2,42.6,39.8\r\n\t\t\tc0,15.3-8.3,27.7-19.4,38.1c-22.6,20.8-29,36-30.1,64.5h19c1.1-25.8,0.5-30.7,23.3-53.3c15.2-14.2,25.9-28.3,25.9-50.2\r\n\t\t\tC320,166.4,292.6,146,259.6,146z"
++                      },
++                      children: []
++                    }
++                  ]
++                },
++                {
++                  name: "path",
++                  attribs: {
++                    d:
++                      "M260.3,332.3c-9.4,0-17,7.5-17,16.8c0,9.3,7.6,16.9,17,16.9c9.4,0,17-7.5,17-16.9C277.3,339.8,269.7,332.3,260.3,332.3z"
++                  },
++                  children: [
++                    {
++                      name: "path",
++                      attribs: {
++                        d:
++                          "M260.3,332.3c-9.4,0-17,7.5-17,16.8c0,9.3,7.6,16.9,17,16.9c9.4,0,17-7.5,17-16.9C277.3,339.8,269.7,332.3,260.3,332.3z"
++                      },
++                      children: []
++                    }
++                  ]
++                }
++              ]
++            }
++          ]
++        }
++      ]
++    }
++  ]
++});

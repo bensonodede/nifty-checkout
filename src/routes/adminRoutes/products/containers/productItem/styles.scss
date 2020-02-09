@@ -1,0 +1,95 @@
+/***** Info cell *****/
+
+.product-item__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product-item__img-container {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding-bottom: 3rem;
+  height: 0;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.product-item__img {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.product-item__content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.8rem;
+}
+
+/***** Price cell *****/
+
+.product-item__price {
+  display: flex;
+  height: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product-item__price--mobile {
+  padding: 0.35rem 0rem;
+}
+
+.product-item__price-currency--mobile {
+  font-size: 0.9em;
+}
+
+.product-item__price-currency {
+  font-size: 0.75em;
+  padding-left: 0.25em;
+}
+
+/***** Modified cell *****/
+
+.product-item__date {
+  display: flex;
+  height: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/***** Option cell *****/
+
+.product-item__option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.product-item__icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.product-item__icon {
+  width: 1.5rem;
+  color: #787878;
+  padding: 0.5rem;
+  border-radius: 3rem;
+}
+
+.product-item__icon:active {
+  background-color: #e5e5e5;
+}

@@ -1,0 +1,53 @@
+/* Book font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Book";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealBook.woff") format("woff");
+}
+
+/* Light font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealLight.woff") format("woff");
+}
+
+/* Medium font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealMedium.woff") format("woff");
+}
+
+/* Bold font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealBold.woff") format("woff");
+}
+
+/* Extra-bold font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Extra Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealExtraBold.woff") format("woff");
+}
+
+/* Black font face */
+
+@font-face {
+  font-family: "Airbnb Cereal App Black";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/AirbnbCerealApp/AirbnbCerealBlack.woff") format("woff");
+}

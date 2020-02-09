@@ -1,0 +1,22 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.edit-product-footer {
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    margin: 0;
+  }
+
+  margin: 2rem 0rem;
+}
+
+.edit-product-field {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.edit-product-field__label {
+  margin-bottom: 0.75rem !important;
+}

@@ -1,0 +1,193 @@
+.review {
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+/********** Loader styling **********/
+.review__loader-container {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.review__loader {
+  width: 40vw;
+  height: auto;
+}
+
+/********** Review details styling **********/
+.review__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0vw 6.5vw;
+  width: 87vw;
+  height: 42vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0),
+    rgb(0, 0, 0) 65%
+  );
+  z-index: 1;
+}
+
+.review__header {
+  margin: 0;
+}
+
+.review__title {
+  color: #ffffff;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 7vw;
+  margin: 0;
+}
+
+.review__sub-title {
+  color: #ffffff;
+  font-family: "airbnb_cereal_appbook";
+  font-size: 5.5vw;
+  margin: 3vw 0vw;
+}
+
+.review__currency {
+  font-family: "airbnb_cereal_appbook";
+  font-size: 3.6vw;
+  margin-left: 1vw;
+}
+
+/********** Image styling **********/
+.review__img-loading {
+  opacity: 0;
+  width: 100vw;
+  height: 85vh;
+}
+
+.review__img {
+  animation: fadeInImg cubic-bezier(0.23, 1, 0.32, 1) 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.7s;
+  animation-delay: 0.1s;
+  width: 100vw;
+  height: 85vh;
+  position: relative;
+  object-fit: cover;
+  background-color: #e5e5e5;
+}
+
+@-o-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*********** Footer styling **********/
+
+.review__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 6.5vw 0vw;
+  bottom: 0;
+  width: 87vw;
+}
+
+.review__btn {
+  background-color: #f36b7f;
+  box-shadow: 0 0 4px 1px #f36b7f;
+}
+
+.review__icon {
+  color: #ffffff;
+  width: 8vw;
+}
+
+/********** Transition animations **********/
+
+/* Header transition */
+
+.transition__header-appear,
+.transition__header-enter {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+}
+
+.transition__header-appear-active,
+.transition__header-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 700ms ease 300ms;
+}
+
+.transition__header-exit {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.transition__header-exit-active {
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+  transition: all 800ms ease-out 500ms;
+}
+
+/* Button Transition */
+
+.transition__footer-appear,
+.transition__footer-enter {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+}
+
+.transition__footer-appear-active,
+.transition__footer-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 700ms ease 500ms;
+}
+
+.transition__footer-exit {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.transition__footer-exit-active {
+  opacity: 0;
+  transform: scale3d(2, 2, 2);
+  transition: all 800ms ease-out 500ms;
+}

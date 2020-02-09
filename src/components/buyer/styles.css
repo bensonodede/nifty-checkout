@@ -1,0 +1,21 @@
+/* Button Transition */
+
+.checkout-appear,
+.checkout-enter {
+  opacity: 0;
+}
+
+.checkout-appear-active,
+.checkout-enter-active {
+  opacity: 1;
+  transition: all 400ms ease-out;
+}
+
+.checkout-exit {
+  opacity: 1;
+}
+
+.checkout-exit-active {
+  opacity: 0;
+  transition: all 400ms ease-out;
+}

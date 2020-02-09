@@ -1,0 +1,38 @@
+.social {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+
+// Social button
+
+.social__btn {
+  width: 18rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.social__btn--google {
+  background-color: #ffffff;
+}
+.social__btn--facebook {
+  background-color: #4267b2;
+  border-color: #4267b2;
+}
+.social__btn--twitter {
+  background-color: #1da1f2;
+  border-color: #1da1f2;
+}
+
+// Social icon
+
+.social__icon {
+  width: 0.9rem;
+  padding-right: 0.8rem;
+}
+
+.social__icon--google {
+  display: flex;
+}

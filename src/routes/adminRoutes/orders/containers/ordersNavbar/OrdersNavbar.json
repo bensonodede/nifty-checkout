@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "ALL",
+    "link": "",
+    "exact": true
+  },
+
+  {
+    "id": 2,
+    "title": "PENDING",
+    "link": "/pending",
+    "exact": true
+  },
+
+  {
+    "id": 3,
+    "title": "FULFILLED",
+    "link": "/fulfilled",
+    "exact": false
+  }
+]

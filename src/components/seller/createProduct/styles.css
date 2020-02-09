@@ -1,0 +1,21 @@
+.product-form__label {
+  color: #787878;
+  font-family: "airbnb_cereal_applight";
+  font-size: 4.5vw;
+  padding-left: 1vw;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
+}
+
+/*********** Details form  *********/
+
+.product-form__img {
+  object-fit: cover;
+  width: 20vw;
+  height: 20vw;
+  border: solid 1px #e5e5e5;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #e5e5e5;
+}

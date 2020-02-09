@@ -1,0 +1,20 @@
+.store-name {
+  height: 100vh;
+}
+
+.header__sub-title {
+  margin-top: 2vw;
+}
+.signup__label {
+  color: #787878;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 3.8vw;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
+}
+
+/* For the code input */
+
+input:focus {
+  box-shadow: 0 0 5px rgb(81, 238, 146);
+}

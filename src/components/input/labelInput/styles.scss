@@ -1,0 +1,56 @@
+.label-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.1rem;
+  margin: 0;
+  border: solid #e5e5e5 1.2px;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.label-input--focus {
+  box-shadow: 0 0 5px rgb(0, 85, 255);
+}
+
+.label-input--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}
+
+.label-input__entry {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #484848;
+}
+
+.label-input__entry:focus {
+  box-shadow: none;
+}
+
+.label-input__inline-label {
+  margin: 0;
+  padding: 0rem 0.75rem;
+  border-right: solid #e5e5e5 1.5px;
+  font-size: 0.95rem;
+  color: #787878;
+  text-align: center;
+  font-family: "Airbnb Cereal App Light";
+}
+
+/********** Label Input placeholder **********/
+
+::-webkit-input-placeholder {
+  color: #d5d5d5;
+}
+::-moz-placeholder {
+  color: #d5d5d5;
+}
+:-ms-input-placeholder {
+  color: #d5d5d5;
+}
+::placeholder {
+  color: #d5d5d5;
+}

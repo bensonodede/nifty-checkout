@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "emoji": "🚚",
+    "title": "Pickup/delivery policy",
+    "description": "How do you make deliveries or arrange for pickups of purchased items?",
+    "label": " PICKUP/DELIVERY POLICY",
+    "field": "policyDelivery"
+  },
+  {
+    "id": 2,
+    "emoji": "🚫",
+    "title": "Refunds and return policy",
+    "description": "Describe how you handle returns and the circumstances in which you would issue a refund.",
+    "label": "REFUNDS AND RETURN POLICY",
+    "field": "policyReturns"
+  }
+]

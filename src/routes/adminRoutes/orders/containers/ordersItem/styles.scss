@@ -1,0 +1,55 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.orders-item:active {
+  background-color: #e4e4e4;
+}
+
+.orders-item__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.orders-item__img-container {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding-bottom: 3rem;
+  height: 0;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.orders-item__img {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.orders-item__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0.8rem;
+}
+
+.orders-item__status {
+  display: flex;
+  margin-top: 0.35rem !important;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.15rem;
+  background-color: #f3eb6b;
+  color: #484848 !important;
+  @include desktop {
+    margin-top: 0 !important;
+  }
+}
+
+.orders-item__status--fulfilled {
+  background-color: #8cf8a5;
+}

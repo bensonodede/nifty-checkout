@@ -1,0 +1,24 @@
+.textarea-input {
+  display: flex;
+  margin: 0px 2px;
+}
+
+.textarea-input__entry {
+  resize: none;
+  overflow: auto;
+  width: 100%;
+  border: solid 1.2px #e5e5e5;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #484848;
+}
+
+.textarea-input__entry:focus {
+  box-shadow: 0 0 5px rgb(0, 85, 255);
+}
+
+.textarea-input__entry--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}

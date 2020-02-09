@@ -1,0 +1,26 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.orders-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e4e4;
+  @include desktop {
+    border-bottom: none;
+  }
+}
+
+.orders-navbar-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem 0rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.orders-navbar-item:hover,
+.orders-navbar-item--active {
+  color: #f36b7f !important;
+  border-bottom: 3px solid #f36b7f;
+}

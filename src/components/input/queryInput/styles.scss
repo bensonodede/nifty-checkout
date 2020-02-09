@@ -1,0 +1,18 @@
+.query-input__loader {
+  margin-right: 1rem;
+}
+
+.query-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.query-message-text {
+  color: #356ee1;
+}
+
+.query-message-text--error {
+  color: #ee5151;
+}

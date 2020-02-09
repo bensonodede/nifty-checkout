@@ -1,0 +1,53 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.confirm-modal {
+  @include mobile {
+    width: auto;
+  }
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem;
+  padding-top: 3rem;
+  width: 28rem;
+}
+
+.confirm-modal__list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-modal__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0.75rem 0rem;
+}
+
+.confirm-modal-footer__button {
+  @include mobile {
+    margin: 0.5rem 0rem;
+  }
+  margin: 0rem 1rem;
+}
+
+.confirm-modal-footer {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0rem;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 2rem 0rem;
+}
+
+.confirm-modal__icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  margin-right: 0.75rem;
+}

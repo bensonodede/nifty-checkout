@@ -1,0 +1,111 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.create-store-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  position: fixed;
+  right: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1;
+}
+.create-store-navbar__logo {
+  width: 2rem;
+  height: auto;
+}
+
+.create-store-field {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.create-store-field-label {
+  margin-bottom: 0.75rem !important;
+}
+
+.create-store-footer {
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+  }
+}
+
+.intro-desktop-illustration {
+  position: fixed;
+  bottom: 0;
+  right: -5%;
+  width: 45rem;
+  z-index: -1;
+}
+
+/***** Device styling *****/
+
+.device-container {
+  display: flex;
+}
+
+.device {
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem 1rem 0rem 0rem;
+  border: solid 1.5px #e5e5e5;
+  border-bottom: none;
+  padding: 2rem 2rem;
+  width: 100%;
+  height: 5rem;
+}
+
+.device-address-bar {
+  background-color: #f8f8f8;
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 2rem;
+  border: solid 1.5px #e5e5e5;
+  border-radius: 5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.device-address-bar__icon {
+  color: #787878;
+  width: 0.75rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.1rem;
+}
+
+.device-store-header {
+  margin-top: 1rem;
+}
+
+// Policy page
+.policy-field {
+  padding-bottom: 2rem;
+}
+
+.policy-accordion-header__emoji {
+  margin-right: 0.35rem;
+}
+
+.policy-field__description {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #484848;
+  padding: 1rem 1rem;
+  margin-bottom: 2rem !important;
+  border-radius: 0.5rem;
+}
+
+.policy-field__help-icon {
+  width: 1.25rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}

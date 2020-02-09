@@ -1,0 +1,36 @@
+.questions {
+  margin-top: 6rem;
+  overflow: hidden;
+}
+
+.questions__body {
+  padding: 0rem 1.5rem;
+}
+
+.questions__row {
+  border-bottom: solid 1px #e5e5e5;
+  padding: 1.15rem 0rem;
+}
+
+.questions__text {
+  margin: 0;
+  color: #f36b7f;
+}
+
+/********** FAQ page **********/
+.faq {
+  padding-top: 2rem;
+  overflow: hidden;
+}
+
+.faq__icon {
+  color: #484848;
+  width: 2.25rem;
+  height: auto;
+  border-radius: 3rem;
+  box-shadow: 0 0 12px 1px rgba(72, 72, 72, 0.12);
+}
+
+.faq__content {
+  white-space: pre-wrap;
+}

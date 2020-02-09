@@ -1,0 +1,64 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+// Profile list
+
+.home-list {
+  margin: 2rem 0rem;
+
+  display: grid;
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem 2rem;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2rem;
+  }
+}
+
+// Profile item
+
+.home-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  cursor: pointer;
+
+  border: solid 1px #e5e5e5;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
+}
+
+.home-item:active {
+  background-color: #e4e4e4;
+}
+
+.home-item__content {
+  margin: 0.5rem 0rem;
+}
+
+.home-item__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0rem;
+}
+
+.home-item__icon {
+  color: #484848;
+  width: 1.25rem;
+  margin-left: 0.15rem;
+}
+
+.home-item__emoji {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}

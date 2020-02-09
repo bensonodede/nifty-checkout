@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+}
+
+.logo__container {
+  margin: auto;
+  width: 2rem;
+}
+
+/***** Customize Bulma variables *****/
+
+// Font family variables
+$title-family: "Airbnb Cereal App Medium";
+$subtitle-family: "Airbnb Cereal App Book";
+$button-family: "Airbnb Cereal App Medium";
+$family-sans-serif: "Airbnb Cereal App Light";
+
+// Font size
+// $size-6: 0.9rem;
+$control-height: 2.7em;
+
+// Table variables
+$table-head-cell-border-width: 0 0 1px;
+$table-cell-padding: 0.5em 0.3em;
+
+// Navbar variables
+$navbar-item-hover-color: inherit;
+$navbar-item-hover-background-color: inherit;
+
+// Color variables
+$primary: #f36b7f;
+$grey-darker: #484848;
+$grey-light: #787878;
+
+/***** Import Bulma sass modules *****/
+
+// Bulma base modules
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/helpers.sass";
+@import "~bulma/sass/base/generic.sass";
+
+// Bulma layout
+@import "~bulma/sass/grid/columns.sass";
+@import "~bulma/sass/layout/hero.sass";
+@import "~bulma/sass/layout/footer.sass";
+
+// Bulma components
+
+// Bulma elements
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/elements/content.sass";
+@import "~bulma/sass/elements/table.sass";
+
+// Route with fixed menu wrapper
+.route-wrapper {
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  @include tablet {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  @include desktop {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+  }
+}

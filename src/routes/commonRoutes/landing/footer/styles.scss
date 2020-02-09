@@ -1,0 +1,29 @@
+.footer {
+  overflow: hidden;
+  padding-bottom: 1.5rem;
+}
+
+.footer__logo-container {
+  width: 1.8rem;
+  height: auto;
+  margin: auto;
+}
+
+.footer__logo {
+  width: 100%;
+  object-fit: cover;
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  @media (max-width: 480px) {
+    display: block;
+    flex-direction: column;
+    justify-items: center;
+  }
+}

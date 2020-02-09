@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "Preview",
+    "link": "/preview"
+  },
+
+  {
+    "id": 2,
+    "name": "Edit",
+    "link": "/edit"
+  },
+
+  {
+    "id": 3,
+    "name": "Delete",
+    "link": "/delete"
+  }
+]

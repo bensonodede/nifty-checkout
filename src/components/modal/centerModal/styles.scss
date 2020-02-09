@@ -1,0 +1,74 @@
+.center-modal__background {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/***** Background Modal Animations *****/
+
+.center-modal__background-animation-appear,
+.center-modal__background-animation-enter {
+  opacity: 0;
+}
+
+.center-modal__background-animation-appear-active,
+.center-modal__background-animation-enter-active {
+  opacity: 1;
+  transition: all 600ms ease 0ms;
+}
+
+.center-modal__background-animation-exit {
+  opacity: 1;
+}
+
+.center-modal__background-animation-exit-active {
+  opacity: 0;
+  transition: all 450ms ease 50ms;
+}
+
+/***** End Background Modal Animations *****/
+
+.center-modal__card {
+  display: flex;
+  position: fixed;
+  align-self: center;
+  background-color: #ffffff;
+  border-radius: 0.65rem;
+  z-index: 12;
+}
+
+/***** Modal Card Animations *****/
+
+.center-modal__card-animation-appear,
+.center-modal__card-animation-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.center-modal__card-animation-appear-active,
+.center-modal__card-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 400ms ease 0ms;
+}
+
+.center-modal__card-animation-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.center-modal__card-animation-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 400ms ease 0s;
+}
+
+/***** End Modal Card Animations *****/
