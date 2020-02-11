@@ -42,7 +42,6 @@ const OrdersList = ({ match, orderStatus }) => {
 
   // Error state
   if (error) {
-    console.log(error);
     return <ErrorToast text={"No internet connection"} emoji={"💩"} />;
   }
 

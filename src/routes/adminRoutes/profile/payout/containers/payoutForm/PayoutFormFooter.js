@@ -1,10 +1,10 @@
 import React from "react";
 
-// Import components
+//
 import Button from "components/button";
 
-const EditProductFooter = ({ onClick, isDisabled, isLoading }) => (
-  <div className="edit-product-footer">
+const PayoutFormFooter = ({ isDisabled, isLoading }) => (
+  <div className="payout-form-footer">
     <Button
       type={"submit"}
       isDisabled={isDisabled}
@@ -16,4 +16,4 @@ const EditProductFooter = ({ onClick, isDisabled, isLoading }) => (
   </div>
 );
 
-export default EditProductFooter;
+export default PayoutFormFooter;

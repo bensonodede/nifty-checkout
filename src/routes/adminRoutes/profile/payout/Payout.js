@@ -2,26 +2,28 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 // Import components
-import { StoreHeader, StoreForm } from "./containers";
+import { PayoutHeader, PayoutForm } from "./containers";
 
 // Import styles
 import "./styles.scss";
 
-const Store = ({ match }) => {
+const Payout = ({ match }) => {
   // Destructure store name params
   let { storeUsername } = match.params;
 
   return (
     <>
       {/* Page title */}
-      <Helmet title={`Edit store info · ${storeUsername}`} defer={false} />
+      <Helmet title={`Edit payout info · ${storeUsername}`} defer={false} />
 
-      {/* Store page */}
+      {/* Payout page */}
       <div className="route-wrapper">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
-            <StoreHeader />
-            <StoreForm />
+            <div className="column is-10-mobile is-6-tablet is-4-desktop">
+              <PayoutHeader />
+              <PayoutForm />
+            </div>
           </div>
         </div>
       </div>
@@ -29,4 +31,4 @@ const Store = ({ match }) => {
   );
 };
 
-export default Store;
+export default Payout;

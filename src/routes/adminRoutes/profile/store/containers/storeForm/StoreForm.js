@@ -49,6 +49,7 @@ const StoreForm = ({ match }) => {
         initialValues={{
           storeName,
           storeUsername,
+          // Add whitespaces and remove country code
           phoneNumber: phoneNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 "),
           policyReturns,
           policyDelivery

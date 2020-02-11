@@ -56,6 +56,25 @@ const UPDATE_STORE_INFO = gql`
   }
 `;
 
+// Update payout
+const UPDATE_PAYOUT = gql`
+  mutation UpdatePayout(
+    $id: String!
+    $payoutMethod: String!
+    $payoutNumber: String!
+  ) {
+    updatePayout(
+      id: $id
+      payoutMethod: $payoutMethod
+      payoutNumber: $payoutNumber
+    ) {
+      id
+      payoutMethod
+      payoutNumber
+    }
+  }
+`;
+
 // Create a product
 const CREATE_PRODUCT = gql`
   mutation CreateProduct(
@@ -107,6 +126,8 @@ const UPDATE_PRODUCT = gql`
       name
       price
       description
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -154,11 +175,15 @@ const TOGGLE_ORDER_STATUS = gql`
 `;
 
 export {
+  // Store mutations
   CREATE_STORE,
   UPDATE_STORE_INFO,
+  UPDATE_PAYOUT,
+  // Product mutations
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
+  // Order mutations
   CREATE_ORDER,
   TOGGLE_ORDER_STATUS
 };

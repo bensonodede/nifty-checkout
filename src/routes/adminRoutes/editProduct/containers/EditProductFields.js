@@ -23,12 +23,7 @@ const EditProductFields = ({ dirty, isValid, loading }) => (
     ))}
 
     {/* Edit footer */}
-    <EditProductFooter
-      onClick={null}
-      type={"submit"}
-      isDisabled={!(dirty && isValid)}
-      isLoading={loading}
-    />
+    <EditProductFooter isDisabled={!(dirty && isValid)} isLoading={loading} />
   </>
 );
 

@@ -15,7 +15,7 @@ const HomeItemContent = ({ title, subtitle }) => (
     </div>
 
     {/* Home item sub-title */}
-    <p className="is-marginless">{subtitle}</p>
+    <p className="is-marginless has-text-grey-light">{subtitle}</p>
   </div>
 );
 
