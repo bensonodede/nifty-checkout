@@ -2,10 +2,11 @@ import React from "react";
 
 // Import components
 import Card from "components/card";
+import Button from "components/button";
 import { Icon } from "react-icons-kit";
 import { ic_account_circle } from "react-icons-kit/md/ic_account_circle";
 
-const OrderContact = ({ phoneNum, phoneNumMask }) => (
+const OrderContact = ({ phoneNumber, phoneNumberMask }) => (
   <div className="column is-10-mobile is-10-tablet is-4-desktop">
     <Card>
       <div className="order-contact">
@@ -22,19 +23,16 @@ const OrderContact = ({ phoneNum, phoneNumMask }) => (
 
             {/* Order contact phone number */}
             <div>
-              <h5 className="is-size-6 is-marginless">{phoneNumMask}</h5>
+              <h5 className="is-size-6 is-marginless">{phoneNumberMask}</h5>
             </div>
           </div>
         </div>
 
-        {/*  */}
+        {/* Initiate phone call */}
         <div className="order-contact__section">
-          <button
-            onClick={() => window.open(`tel:+${phoneNum}`)}
-            className="button is-primary is-fullwidth is-outlined"
-          >
+          <Button onClick={() => window.open(`tel:+${phoneNumber}`)} isOutline>
             Get in touch
-          </button>
+          </Button>
         </div>
       </div>
     </Card>

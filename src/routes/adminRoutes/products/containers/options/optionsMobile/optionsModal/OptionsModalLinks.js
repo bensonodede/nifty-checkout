@@ -8,7 +8,11 @@ import { ic_edit } from "react-icons-kit/md/ic_edit";
 import { ic_delete } from "react-icons-kit/md/ic_delete";
 
 const OptionsPreviewLink = ({ storeUsername, humanId }) => (
-  <Link to={`/${storeUsername}/${humanId}`}>
+  <div
+    onClick={() =>
+      window.open(`https://${storeUsername}.magicfinn.com/product/${humanId}`)
+    }
+  >
     <div className="options-modal__row">
       {/* Options modal link icon */}
       <div className="options-modal__icon-container">
@@ -20,7 +24,7 @@ const OptionsPreviewLink = ({ storeUsername, humanId }) => (
       {/* Options modal content */}
       <h5 className="options-modal__content is-size-6">Preview</h5>
     </div>
-  </Link>
+  </div>
 );
 
 const OptionsEditLink = ({ storeUsername, id }) => (

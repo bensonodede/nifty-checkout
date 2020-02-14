@@ -90,23 +90,10 @@ const PRODUCT_QUERY = gql`
   }
 `;
 
-// Get a product by humanId
-const PRODUCT_HUMANID_QUERY = gql`
-  query ProdcutByHumanIdQuery($storeName: String!, $humanId: String!) {
-    productByHumanId(storeName: $storeName, humanId: $humanId) {
-      id
-      humanId
-      name
-      price
-      imgUrl
-    }
-  }
-`;
-
 // Get an order by orderId
-const ORDER_ORDERID_QUERY = gql`
-  query OrderByOrderIdQuery($storeName: String!, $orderId: Int!) {
-    orderByOrderId(storeName: $storeName, orderId: $orderId) {
+const ORDER_BY_ORDERID_QUERY = gql`
+  query OrderByOrderIdQuery($storeUsername: String!, $orderId: Int!) {
+    orderByOrderId(storeUsername: $storeUsername, orderId: $orderId) {
       id
       orderId
       orderStatus
@@ -115,7 +102,7 @@ const ORDER_ORDERID_QUERY = gql`
       payment {
         id
         mpesaReceiptNumber
-        phoneNum
+        phoneNumber
         amount
       }
       product {
@@ -131,14 +118,14 @@ const ORDER_ORDERID_QUERY = gql`
 // Get all products from a store
 const ORDERS_FEED_QUERY = gql`
   query OrdersByStoreQuery(
-    $storeName: String!
+    $storeUsername: String!
     $orderStatus: Int
     $first: Int
     $skip: Int
     $orderBy: OrdersOrderByInput
   ) {
     ordersByStore(
-      storeName: $storeName
+      storeUsername: $storeUsername
       orderStatus: $orderStatus
       first: $first
       skip: $skip
@@ -166,8 +153,7 @@ export {
   PRODUCTS_FEED_QUERY,
   PRODUCTS_COUNT,
   PRODUCT_QUERY,
-  PRODUCT_HUMANID_QUERY,
   // Orders query
-  ORDER_ORDERID_QUERY,
+  ORDER_BY_ORDERID_QUERY,
   ORDERS_FEED_QUERY
 };

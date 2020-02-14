@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/react-hooks";
 // Import components
 import Card from "components/card";
 import { ImgLoader } from "components/loader";
+import Button from "components/button";
 
 // Import graphql operations
 import { TOGGLE_ORDER_STATUS } from "components/graphql/mutation";
@@ -78,7 +79,7 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
 
           {/***** SECTION 4 *****/}
           <div className="order-product__section">
-            <button
+            <Button
               onClick={() =>
                 // Run mutation to update order
                 mutate({
@@ -88,12 +89,12 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
                   }
                 })
               }
-              className={`${
-                loading ? `is-loading ` : ``
-              }button is-primary is-fullwidth`}
+              isLoading={loading}
+              isLight={!orderStatus ? true : false}
+              isOutline={orderStatus ? true : false}
             >
               Mark as {orderStatus ? <>pending</> : <>fulfilled</>}
-            </button>
+            </Button>
           </div>
         </div>
       </Card>

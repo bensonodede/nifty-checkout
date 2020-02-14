@@ -14,9 +14,7 @@
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
+.btn:active {
   color: #356ee1;
   border: solid 1px #356ee1;
   background-color: #ffffff;
@@ -24,29 +22,22 @@
 }
 
 .btn--outline {
-  border: solid 1px #356ee1;
-  color: #356ee1;
+  border: solid 1px #484848;
+  color: #484848;
   background-color: #ffffff;
   outline: none;
 }
 
-.btn--outline:hover,
-.btn--outline:active,
-.btn--outline:focus {
+.btn--outline:active {
+  background-color: #484848;
+  border: solid 1px #484848;
   color: #ffffff;
-  border: solid 1px #356ee1;
-  background-color: #356ee1;
-  outline: none;
 }
 
 .btn--is-small {
   padding: 0.45rem 0.75rem;
   font-size: 0.9rem;
   border-radius: 0.2rem;
-}
-
-.btn--is-loading {
-  background-color: #356ee1 !important;
 }
 
 .btn--full-width {

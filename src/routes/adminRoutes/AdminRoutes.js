@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { compose } from "recompose";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 
 // Import components
 import { withFirebase } from "components/firebase";
@@ -15,6 +15,7 @@ import AddProduct from "./addProduct";
 import EditProduct from "./editProduct";
 import Orders from "./orders";
 import Profile from "./profile";
+import Help from "./help";
 
 const AdminRoutes = ({ firebase, history }) => {
   // Destructure firebase auth hook
@@ -34,10 +35,17 @@ const AdminRoutes = ({ firebase, history }) => {
           <Route path={"/create-store"} component={CreateStore} />
 
           {/* Dashboard/Home route */}
-          <NavbarRoute
+          {/* <NavbarRoute
             exact
             path={"/:storeUsername/admin"}
             component={Dashboard}
+          /> */}
+
+          {/* Home redirect route */}
+          <Redirect
+            exact
+            from={"/:storeUsername/admin"}
+            to={"/:storeUsername/admin/products"}
           />
 
           {/* Product list route */}
@@ -70,6 +78,9 @@ const AdminRoutes = ({ firebase, history }) => {
             path={"/:storeUsername/admin/profile"}
             component={Profile}
           />
+
+          {/* Help route */}
+          <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />
         </Switch>
       ) : null}
     </>

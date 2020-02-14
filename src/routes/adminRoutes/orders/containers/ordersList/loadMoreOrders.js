@@ -1,11 +1,11 @@
 const loadMoreOrders = param => {
   // Destructure params
-  let { storeName, orderStatus, fetchMore, data, setHasMore } = param;
+  let { storeUsername, orderStatus, fetchMore, data, setHasMore } = param;
 
   // Run fetch more query
   fetchMore({
     variables: {
-      storeName,
+      storeUsername,
       orderStatus,
       first: 8,
       skip: data.ordersByStore.length,

@@ -41,11 +41,12 @@
   margin: 0rem 0.75rem;
   height: 2rem;
   cursor: pointer;
+  color: #484848;
 }
 
 .navbar-item:hover,
 .navbar-item--active {
-  border-bottom: 3px solid #f36b7f;
+  border-bottom: 3px solid #356ee1;
 }
 
 /***** Navbar PROFILE *****/
@@ -58,13 +59,14 @@
   padding: 1rem 0rem;
   margin: 0rem 0.75rem;
   cursor: pointer;
+  color: #484848;
 }
 
 .navbar-profile:hover,
 .navbar-profile--active {
-  border-bottom: 3px solid #f36b7f;
+  border-bottom: 3px solid #356ee1;
 }
 
 .navbar-profile__icon {
-  color: #484848;
+  color: inherit;
 }

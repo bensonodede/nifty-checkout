@@ -39,18 +39,18 @@ const OrdersRoutes = () => (
   <Switch>
     <OrdersNavbarRoute
       exact
-      path="/:storeName/admin/orders"
+      path="/:storeUsername/admin/orders"
       component={OrdersAll}
     />
     <OrdersNavbarRoute
-      path="/:storeName/admin/orders/pending"
+      path="/:storeUsername/admin/orders/pending"
       component={OrdersPending}
     />
     <OrdersNavbarRoute
-      path="/:storeName/admin/orders/fulfilled"
+      path="/:storeUsername/admin/orders/fulfilled"
       component={OrdersFulfilled}
     />
-    <Route path={"/:storeName/admin/orders/:orderId"} component={Order} />
+    <Route path={"/:storeUsername/admin/orders/:orderId"} component={Order} />
   </Switch>
 );
 

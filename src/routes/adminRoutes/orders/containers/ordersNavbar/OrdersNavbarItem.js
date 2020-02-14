@@ -6,12 +6,12 @@ import "./styles.scss";
 
 const OrdersNavbarItem = ({ item, match }) => {
   // Destructure route params
-  let { storeName } = match.params;
+  let { storeUsername } = match.params;
 
   return (
     <NavLink
       exact={item.exact}
-      to={`/${storeName}/admin/orders${item.link}`}
+      to={`/${storeUsername}/admin/orders${item.link}`}
       className="orders-navbar-item"
       activeClassName="orders-navbar-item--active"
     >

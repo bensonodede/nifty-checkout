@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useQuery } from "@apollo/react-hooks";
 
 // Import Graphql query
-import { ORDER_ORDERID_QUERY } from "components/graphql/query";
+import { ORDER_BY_ORDERID_QUERY } from "components/graphql/query";
 
 // Import components
 import { PageLoader } from "components/loader";
@@ -17,12 +17,12 @@ import "./styles.scss";
 
 const Order = ({ match }) => {
   // Destructure route params
-  let { storeName, orderId } = match.params;
+  let { storeUsername, orderId } = match.params;
 
   // Run gql query for order
-  const { loading, error, data } = useQuery(ORDER_ORDERID_QUERY, {
+  const { loading, error, data } = useQuery(ORDER_BY_ORDERID_QUERY, {
     variables: {
-      storeName,
+      storeUsername,
       orderId: Number(orderId)
     }
   });
@@ -39,10 +39,10 @@ const Order = ({ match }) => {
 
   // Destructure data
   let { payment, product, id, orderStatus } = data.orderByOrderId;
-  let { phoneNum } = payment;
+  let { phoneNumber } = payment;
 
   // Format phone number for readability
-  const phoneNumMask = phoneNum.replace(
+  const phoneNumberMask = phoneNumber.replace(
     /^(\d{3})(\d{3})(\d{3})(\d{3})$/g,
     "+$1 ($2) $3 $4"
   );
@@ -68,7 +68,10 @@ const Order = ({ match }) => {
             />
 
             {/* Order contact */}
-            <OrderContact phoneNum={phoneNum} phoneNumMask={phoneNumMask} />
+            <OrderContact
+              phoneNumber={phoneNumber}
+              phoneNumberMask={phoneNumberMask}
+            />
           </div>
         </div>
       </div>

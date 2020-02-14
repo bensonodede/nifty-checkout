@@ -22,11 +22,11 @@ const OrdersList = ({ match, orderStatus }) => {
   const [hasMore, setHasMore] = useState(true);
 
   // Destructure route params
-  let { storeName } = match.params;
+  let { storeUsername } = match.params;
 
   const { loading, error, data, fetchMore } = useQuery(ORDERS_FEED_QUERY, {
     variables: {
-      storeName,
+      storeUsername,
       orderStatus,
       first: 8,
       skip: 0,
@@ -55,7 +55,7 @@ const OrdersList = ({ match, orderStatus }) => {
         loader={<ListLoader key={0} />}
         loadMore={() =>
           loadMoreOrders({
-            storeName,
+            storeUsername,
             orderStatus,
             fetchMore,
             data,

@@ -27,8 +27,7 @@ const Button = ({
       (isOutline ? ` btn--outline` : ``) +
       (isDisabled ? ` btn--disabled` : ``) +
       (isFullWidth ? ` btn--full-width` : ``) +
-      (isSmall ? ` btn--is-small` : ``) +
-      (isLoading ? ` btn--is-loading` : ``)
+      (isSmall ? ` btn--is-small` : ``)
     }
     onClick={() => {
       if (onClick) {

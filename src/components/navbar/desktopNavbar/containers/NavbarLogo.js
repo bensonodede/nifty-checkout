@@ -3,10 +3,10 @@ import { NavLink, withRouter } from "react-router-dom";
 
 const NavbarLogo = ({ match }) => {
   // Destructure params
-  let { storeName } = match.params;
+  let { storeUsername } = match.params;
 
   return (
-    <NavLink to={`/${storeName}/admin`} className="navbar-logo">
+    <NavLink to={`/${storeUsername}/admin`} className="navbar-logo">
       <img
         className="navbar-logo__img"
         src={

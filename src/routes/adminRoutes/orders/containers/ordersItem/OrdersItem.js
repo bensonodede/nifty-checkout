@@ -10,7 +10,7 @@ import "./styles.scss";
 
 const OrdersItem = ({ item, match, history }) => {
   // Destructure route params
-  let { storeName } = match.params;
+  let { storeUsername } = match.params;
 
   // Destructure item
   let { orderId, orderStatus, createdAt } = item;
@@ -20,7 +20,7 @@ const OrdersItem = ({ item, match, history }) => {
 
   return (
     <tr
-      onClick={() => history.push(`/${storeName}/admin/orders/${orderId}`)}
+      onClick={() => history.push(`/${storeUsername}/admin/orders/${orderId}`)}
       className="orders-item"
     >
       <td>
