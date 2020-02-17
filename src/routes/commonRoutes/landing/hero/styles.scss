@@ -1,5 +1,17 @@
-.hero__btn-container {
-  margin-top: 1.8rem;
-  display: flex;
-  justify-content: center;
+@import "~bulma/sass/utilities/mixins.sass";
+
+.hero--custom-title {
+  @include mobile {
+    font-size: 3rem;
+  }
+  @include tablet {
+    font-size: 4rem;
+  }
+  @include desktop {
+    font-size: 5rem;
+  }
+}
+
+.hero--custom-footer {
+  padding: 0rem 1.5rem;
 }

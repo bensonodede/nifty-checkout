@@ -9,7 +9,7 @@ import NavbarRoute from "./NavbarRoute";
 
 // Import routes
 import CreateStore from "./createStore";
-import Dashboard from "./dashboard";
+// import Dashboard from "./dashboard";
 import Products from "./products";
 import AddProduct from "./addProduct";
 import EditProduct from "./editProduct";
@@ -24,9 +24,10 @@ const AdminRoutes = ({ firebase, history }) => {
   // If NOT authenticated, redirect to login screen
   useEffect(() => {
     if (!!!authUser && !initializing) {
+      console.log("Not logged in");
       history.push("/login");
     }
-  }, [authUser, initializing]);
+  }, [authUser]);
 
   return (
     <>

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 // Import landing page components
 import Hero from "./hero";
 import Features from "./features";
+import Mpesa from "./mpesa";
 import Pricing from "./pricing";
 import { Questions } from "./questions";
 import SignUp from "./signUp";
@@ -22,17 +23,17 @@ const Landing = () => (
     {/* Features section */}
     <Features />
 
-    {/* Pricing section */}
-    <Pricing />
+    {/* M-pesa section */}
+    <Mpesa />
 
     {/* Questions section */}
-    <Questions />
+    {/* <Questions /> */}
 
     {/* Sign up section */}
-    <SignUp />
+    {/* <SignUp /> */}
 
     {/* Footer section */}
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

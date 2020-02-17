@@ -8,18 +8,23 @@
   overflow: hidden;
 }
 
-.features__content {
+.features__grid {
+  display: grid;
+  grid-template-columns: 38%;
+  grid-column-gap: 8rem;
+  align-items: center;
   justify-content: center;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  // padding-left: 5rem;
+  grid-auto-flow: column;
+  margin: 8rem 0rem;
 }
 
-.features__item {
-  @media only screen and (min-width: 568px) {
-    padding: 1.8rem 0rem;
-  }
+// Alternate grid item positions for every other grid
+.features__grid:nth-child(odd) .features__grid-item:nth-of-type(2) {
+  grid-column-start: 1;
+}
+
+.features__grid-item {
+  align-items: center;
 }
 
 .features__img {
