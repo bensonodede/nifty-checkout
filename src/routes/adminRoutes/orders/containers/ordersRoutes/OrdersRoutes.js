@@ -8,6 +8,7 @@ import OrdersFulfilled from "./OrdersFulfilled";
 import Order from "../order";
 
 // Import components
+import { withAuthorization } from "components/session";
 import OrdersHeader from "../ordersHeader";
 import OrdersNavbar from "../ordersNavbar";
 
@@ -54,4 +55,4 @@ const OrdersRoutes = () => (
   </Switch>
 );
 
-export default OrdersRoutes;
+export default withAuthorization(OrdersRoutes);

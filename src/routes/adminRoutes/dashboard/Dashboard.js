@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { compose } from "recompose";
 
 // Import components
-import { useAuth } from "components/session";
+import { withAuthorization, useAuth } from "components/session";
 import { withFirebase } from "components/firebase";
 import {
   OrderCard,
@@ -74,4 +75,4 @@ const Dashboard = ({ match, firebase }) => {
   );
 };
 
-export default withFirebase(Dashboard);
+export default compose(withFirebase, withAuthorization)(Dashboard);

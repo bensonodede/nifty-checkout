@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 // Import components
+import { withAuthorization } from "components/session";
 import { ProductList } from "./containers";
 
 // Import styles
@@ -26,4 +27,4 @@ const Products = ({ match }) => {
   );
 };
 
-export default Products;
+export default withAuthorization(Products);

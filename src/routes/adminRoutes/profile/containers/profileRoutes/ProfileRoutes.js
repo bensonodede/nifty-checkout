@@ -2,9 +2,9 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 // Import components
-import Home from "./home";
-import Store from "./store";
-import Payout from "./payout";
+import Home from "../home";
+import Store from "../store";
+import Payout from "../payout";
 
 const ProfileRoutes = () => (
   <Switch>

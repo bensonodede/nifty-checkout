@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
-import { compose } from "recompose";
-import { Route, Switch, withRouter, Redirect } from "react-router-dom";
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // Import components
-import { withFirebase } from "components/firebase";
-import { useAuth } from "components/session";
+import { withAuthentication } from "components/session";
 import NavbarRoute from "./NavbarRoute";
 
 // Import routes
@@ -17,74 +15,47 @@ import Orders from "./orders";
 import Profile from "./profile";
 import Help from "./help";
 
-const AdminRoutes = ({ firebase, history }) => {
-  // Destructure firebase auth hook
-  const { initializing, authUser } = useAuth(firebase);
+const AdminRoutes = ({ firebase, history }) => (
+  <Switch>
+    {/* Create-store route */}
+    <Route path={"/create-store"} component={CreateStore} />
 
-  // If NOT authenticated, redirect to login screen
-  useEffect(() => {
-    if (!!!authUser && !initializing) {
-      history.push("/login");
-    }
-  }, [authUser]);
-
-  return (
-    <>
-      {!!!authUser && !initializing ? null : (
-        <Switch>
-          <Route path={"/create-store"} component={CreateStore} />
-
-          {/* Dashboard/Home route */}
-          {/* <NavbarRoute
+    {/* Dashboard/Home route */}
+    {/* <NavbarRoute
             exact
             path={"/:storeUsername/admin"}
             component={Dashboard}
           /> */}
 
-          {/* Home redirect route */}
-          <Redirect
-            exact
-            from={"/:storeUsername/admin"}
-            to={"/:storeUsername/admin/products"}
-          />
+    {/* Home redirect route */}
+    <Redirect
+      exact
+      from={"/:storeUsername/admin"}
+      to={"/:storeUsername/admin/products"}
+    />
+    {/* Product list route */}
+    <NavbarRoute
+      exact
+      path={"/:storeUsername/admin/products"}
+      component={Products}
+    />
+    {/* Add product route */}
+    <NavbarRoute
+      path={"/:storeUsername/admin/products/add"}
+      component={AddProduct}
+    />
+    {/* Edit product route */}
+    <NavbarRoute
+      path={"/:storeUsername/admin/products/edit/:id"}
+      component={EditProduct}
+    />
+    {/* Orders route */}
+    <NavbarRoute path={"/:storeUsername/admin/orders"} component={Orders} />
+    {/* Profile route */}
+    <NavbarRoute path={"/:storeUsername/admin/profile"} component={Profile} />
+    {/* Help route */}
+    <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />
+  </Switch>
+);
 
-          {/* Product list route */}
-          <NavbarRoute
-            exact
-            path={"/:storeUsername/admin/products"}
-            component={Products}
-          />
-
-          {/* Add product route */}
-          <NavbarRoute
-            path={"/:storeUsername/admin/products/add"}
-            component={AddProduct}
-          />
-
-          {/* Edit product route */}
-          <NavbarRoute
-            path={"/:storeUsername/admin/products/edit/:id"}
-            component={EditProduct}
-          />
-
-          {/* Orders route */}
-          <NavbarRoute
-            path={"/:storeUsername/admin/orders"}
-            component={Orders}
-          />
-
-          {/* Profile route */}
-          <NavbarRoute
-            path={"/:storeUsername/admin/profile"}
-            component={Profile}
-          />
-
-          {/* Help route */}
-          <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />
-        </Switch>
-      )}
-    </>
-  );
-};
-
-export default compose(withFirebase, withRouter)(AdminRoutes);
+export default withAuthentication(AdminRoutes);

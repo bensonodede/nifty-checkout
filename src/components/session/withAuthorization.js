@@ -30,18 +30,14 @@ const withAuthorization = Component => {
       return (
         <AuthUserContext.Consumer>
           {authUser =>
-            condition(authUser) ? (
-              <Component {...this.props} />
-            ) : (
-              <p>{authUser.uid}</p>
-            )
+            condition(authUser) ? <Component {...this.props} /> : null
           }
         </AuthUserContext.Consumer>
       );
     }
   }
 
-  // Provide firebase and react-2router props
+  // Provide firebase and react-router props
   // Return withAuthorization HOC
   return compose(withRouter, withFirebase)(WithAuthorization);
 };

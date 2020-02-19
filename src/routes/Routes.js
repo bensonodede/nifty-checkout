@@ -1,11 +1,14 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
+// Import route components
+import { withFirebase } from "components/firebase";
+
 // Import page route components
 import CommonRoutes from "./commonRoutes";
 import AdminRoutes from "./adminRoutes";
 
-const Routes = ({ props }) => (
+const Routes = () => (
   <BrowserRouter>
     <>
       <CommonRoutes />
@@ -14,4 +17,4 @@ const Routes = ({ props }) => (
   </BrowserRouter>
 );
 
-export default Routes;
+export default withFirebase(Routes);

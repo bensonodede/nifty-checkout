@@ -1,6 +1,7 @@
 import React from "react";
 
 // Import components
+import { withAuthorization } from "components/session";
 import Button from "components/button";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
@@ -37,4 +38,4 @@ const Help = () => (
   </div>
 );
 
-export default Help;
+export default withAuthorization(Help);

@@ -1,12 +1,14 @@
 import React from "react";
+import { compose } from "recompose";
 import { Formik, Form } from "formik";
 import { withApollo } from "@apollo/react-hoc";
 import { Mixpanel } from "components/mixpanel";
 
 // Import components
+import { withAuthorization } from "components/session";
+import { SuccessToast, ErrorToast } from "components/toast";
 import AddProductContext from "./AddProductContext";
 import AddProductRoutes from "./AddProductRoutes";
-import { SuccessToast, ErrorToast } from "components/toast";
 
 // Import functions
 import { addProductMutation, addProductCache } from "./utils";
@@ -61,4 +63,4 @@ const AddProduct = ({ match, history, client }) => {
   );
 };
 
-export default withApollo(AddProduct);
+export default compose(withApollo, withAuthorization)(AddProduct);

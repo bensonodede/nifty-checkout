@@ -1,11 +1,12 @@
 // Import packages
 import React, { useEffect } from "react";
+import { compose } from "recompose";
 import { Formik, Form } from "formik";
 import { Persist } from "formik-persist";
 import { useMutation } from "@apollo/react-hooks";
 
 // Import components
-import { useAuth } from "components/session";
+import { withAuthorization, useAuth } from "components/session";
 import { withFirebase } from "components/firebase";
 import { useModal } from "components/modal";
 import { ErrorToast, SuccessToast } from "components/toast";
@@ -79,4 +80,4 @@ const CreateStore = ({ firebase, history }) => {
   );
 };
 
-export default withFirebase(CreateStore);
+export default compose(withFirebase, withAuthorization)(CreateStore);
