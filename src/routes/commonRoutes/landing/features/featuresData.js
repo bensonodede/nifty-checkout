@@ -11,7 +11,7 @@ const featuresData = [
   {
     id: 2,
     imgUrl:
-      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1581945476/web_assets/feature-social-media.png",
+      "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1582040905/web_assets/feature-social-media.png",
     header: 'Never say \n "Text/Call me to order" \n to another soul. Ever.',
     description:
       "Drive traffic to your store from your social media. We have a great one click checkout."

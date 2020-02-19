@@ -12,6 +12,7 @@ const useAuth = firebase => {
 
   // Set current user to state
   const onChange = authUser => {
+    console.log("State change: " + authUser);
     setState({ initializing: false, authUser });
   };
 

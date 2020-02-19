@@ -24,14 +24,13 @@ const AdminRoutes = ({ firebase, history }) => {
   // If NOT authenticated, redirect to login screen
   useEffect(() => {
     if (!!!authUser && !initializing) {
-      console.log("Not logged in");
       history.push("/login");
     }
   }, [authUser]);
 
   return (
     <>
-      {!!authUser && !initializing ? (
+      {!!!authUser && !initializing ? null : (
         <Switch>
           <Route path={"/create-store"} component={CreateStore} />
 
@@ -83,7 +82,7 @@ const AdminRoutes = ({ firebase, history }) => {
           {/* Help route */}
           <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />
         </Switch>
-      ) : null}
+      )}
     </>
   );
 };

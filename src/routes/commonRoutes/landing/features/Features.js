@@ -25,7 +25,7 @@ const Features = () => (
 
           {/* Feature description */}
           <div className="features__grid-item">
-            <h1 className="title is-size-1-desktop is-marginless">
+            <h1 className="title is-size-2-desktop is-marginless">
               {item.header}
             </h1>
             <p className="is-size-5">{item.description}</p>
