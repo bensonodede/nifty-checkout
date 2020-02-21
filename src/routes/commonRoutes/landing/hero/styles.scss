@@ -1,17 +1,106 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .hero--custom-title {
+  display: inline;
   @include mobile {
     font-size: 3rem;
   }
   @include tablet {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   @include desktop {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 
+.hero-signup {
+  cursor: pointer;
+  display: inline-flex;
+  color: #356ee1;
+}
+
+.hero-signup:hover {
+  color: #1b50bb;
+}
+
+.hero-signup__icons {
+  flex-shrink: 0;
+  display: inline-flex;
+  margin-left: 0.25rem;
+  animation: 3s ease 0.03s infinite bounce-right;
+
+  @include mobile {
+    width: 2.5rem;
+  }
+  @include tablet {
+    width: 3rem;
+  }
+  @include desktop {
+    width: 3rem;
+  }
+}
+
+// Hero sign up chevron bounce right animation
+@keyframes bounce-right {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  40% {
+    transform: translate3d(9px, 0px, 0px);
+  }
+
+  60% {
+    transform: translate3d(4px, 0px, 0px);
+  }
+}
+
+// Hero footer
+
 .hero--custom-footer {
-  padding: 0rem 1.5rem;
+  position: fixed;
+  bottom: 0;
+  align-self: center;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: #ffffff;
+
+  border: solid 1px #e5e5e5;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
+}
+
+.hero--custom-footer:active {
+  box-shadow: none;
+}
+
+// Hero footer animations
+
+.hero--custom-footer__animation-appear,
+.hero--custom-footer__animation-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.hero--custom-footer__animation-appear-active,
+.hero--custom-footer__animation-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 200ms ease 0ms;
+}
+
+.hero--custom-footer__animation-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.hero--custom-footer__animation-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 200ms ease 0s;
 }

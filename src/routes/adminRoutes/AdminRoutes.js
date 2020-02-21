@@ -15,7 +15,7 @@ import Orders from "./orders";
 import Profile from "./profile";
 import Help from "./help";
 
-const AdminRoutes = ({ firebase, history }) => (
+const AdminRoutes = () => (
   <Switch>
     {/* Create-store route */}
     <Route path={"/create-store"} component={CreateStore} />

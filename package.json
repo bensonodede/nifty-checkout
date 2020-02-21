@@ -38,6 +38,7 @@
     "react-icons-kit": "1.2.1",
     "react-infinite-scroll-component": "5.0.1",
     "react-infinite-scroller": "1.2.4",
+    "react-intersection-observer": "8.25.3",
     "react-lazy-load": "3.0.13",
     "react-lottie": "1.2.3",
     "react-masonry-css": "1.0.12",

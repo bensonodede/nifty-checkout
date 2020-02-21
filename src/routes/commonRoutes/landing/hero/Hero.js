@@ -1,35 +1,31 @@
 import React from "react";
+import { useInView } from "react-intersection-observer";
 
 // Import components
+import { HeroBody, HeroFooter } from "./containers";
 
 // Import styles
 import "./styles.scss";
 
-const Hero = () => (
-  <section className="hero is-fullheight">
-    {/* Middle section */}
-    <div className="hero-body">
-      <div className="container">
-        {/* Hero title */}
-        <h1 className="title hero--custom-title">
-          Hi, this is finn. <br /> It's a simple way to start and run an online
-          store.
-        </h1>
-      </div>
-    </div>
+const Hero = ({ featuresRef }) => {
+  // Monitor elements in view
+  const [ref, inView] = useInView({
+    // When 0.8 of section is in view, trigger callback
+    threshold: 0.8
+  });
 
-    {/* Hero Footer section */}
-    <div className="hero-foot hero--custom-footer">
-      <div className="container">
-        <h1 className="title is-size-5-mobile is-size-4-tablet is-size-3-desktop">
-          Check it out{" "}
-          <span role="img" aria-label="emoji">
-            👇
-          </span>
-        </h1>
-      </div>
-    </div>
-  </section>
-);
+  return (
+    <section ref={ref} className="hero is-fullheight">
+      {/* Hero body */}
+      <HeroBody />
 
+      {/* Hero footer */}
+      <HeroFooter
+        inView={inView}
+        // Scroll to feature section
+        onClick={() => window.scrollTo(0, featuresRef.current.offsetTop)}
+      />
+    </section>
+  );
+};
 export default Hero;

@@ -6,7 +6,7 @@ import { Persist } from "formik-persist";
 import { useMutation } from "@apollo/react-hooks";
 
 // Import components
-import { withAuthorization, useAuth } from "components/session";
+import { withAuthorization, AuthUserContext } from "components/session";
 import { withFirebase } from "components/firebase";
 import { useModal } from "components/modal";
 import { ErrorToast, SuccessToast } from "components/toast";
@@ -26,9 +26,6 @@ const initialFormValues = require("./initialFormValues.json");
 const CreateStore = ({ firebase, history }) => {
   // Destructure hooks
   const [isOpen, toggleModal] = useModal(false);
-  const {
-    authUser: { uid }
-  } = useAuth(firebase);
   const [mutate, { error, data }] = useMutation(CREATE_STORE);
 
   // Close modal if error occurs
@@ -49,34 +46,48 @@ const CreateStore = ({ firebase, history }) => {
   }
 
   return (
-    <>
-      <Formik
-        initialValues={initialFormValues}
-        validateOnChange={false}
-        validateOnBlur={false}
-        onSubmit={(values, actions) => {
-          toggleModal();
-          mutate({ variables: { ...values, ...{ uid } } });
-          actions.resetForm();
-        }}
-      >
-        {FormikProps => (
-          <Form>
-            <CreateStoreRoutes FormikProps={FormikProps} />
-            <Persist name="create-store-form" />
-          </Form>
-        )}
-      </Formik>
+    <AuthUserContext.Consumer>
+      {authUser => (
+        <>
+          <Formik
+            initialValues={initialFormValues}
+            validateOnChange={false}
+            validateOnBlur={false}
+            onSubmit={(values, actions) => {
+              // Open loading modal
+              toggleModal();
 
-      {/* Loading modal */}
-      <CreateStoreModal isOpen={isOpen} />
+              // Get uid
+              let { uid } = authUser;
 
-      {/* Error toast */}
-      {error && <ErrorToast emoji={"💩"} text={"No internet connection"} />}
+              // Add uid to 'values' object and run create store mutation
+              mutate({ variables: { ...values, ...{ uid } } });
 
-      {/* Success toast */}
-      {data && <SuccessToast emoji={"🎉"} text={"Success. Store created"} />}
-    </>
+              // Reset form values
+              actions.resetForm();
+            }}
+          >
+            {FormikProps => (
+              <Form>
+                <CreateStoreRoutes FormikProps={FormikProps} />
+                <Persist name="create-store-form" />
+              </Form>
+            )}
+          </Formik>
+
+          {/* Loading modal */}
+          <CreateStoreModal isOpen={isOpen} />
+
+          {/* Error toast */}
+          {error && <ErrorToast emoji={"💩"} text={"No internet connection"} />}
+
+          {/* Success toast */}
+          {data && (
+            <SuccessToast emoji={"🎉"} text={"Success. Store created"} />
+          )}
+        </>
+      )}
+    </AuthUserContext.Consumer>
   );
 };
 

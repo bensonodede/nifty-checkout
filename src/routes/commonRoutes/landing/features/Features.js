@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Import styles
 import "./styles.scss";
@@ -6,8 +6,8 @@ import "./styles.scss";
 // Import features data
 import featuresData from "./featuresData";
 
-const Features = () => (
-  <section className="features hero">
+const Features = React.forwardRef((props, ref) => (
+  <section ref={ref} className="features hero">
     <div className="container">
       {/* Feature items */}
       {featuresData.map(item => (
@@ -34,6 +34,6 @@ const Features = () => (
       ))}
     </div>
   </section>
-);
+));
 
 export default Features;

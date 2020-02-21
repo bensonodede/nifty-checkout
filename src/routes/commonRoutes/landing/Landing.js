@@ -1,40 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Helmet } from "react-helmet";
 
 // Import landing page components
 import Hero from "./hero";
 import Features from "./features";
 import Mpesa from "./mpesa";
-import Pricing from "./pricing";
-import { Questions } from "./questions";
-import SignUp from "./signUp";
-import Footer from "./footer";
+// import Pricing from "./pricing";
+// import { Questions } from "./questions";
+// import SignUp from "./signUp";
+// import Footer from "./footer";
 
-const Landing = () => (
-  <div className="landing">
-    {/* Document title */}
-    <Helmet title={"Finn · Simple, Beautiful online stores"} />
+const Landing = () => {
+  // Create ref for feature section
+  const featuresRef = useRef(null);
 
-    {/* Navbar */}
+  return (
+    <>
+      {/* Document title */}
+      <Helmet title={"Finn · Simple, Beautiful online stores"} />
 
-    {/* Hero section */}
-    <Hero />
+      {/* Navbar */}
 
-    {/* Features section */}
-    <Features />
+      {/* Hero section */}
+      <Hero featuresRef={featuresRef} />
 
-    {/* M-pesa section */}
-    <Mpesa />
+      {/* Features section */}
+      <Features ref={featuresRef} />
 
-    {/* Questions section */}
-    {/* <Questions /> */}
+      {/* M-pesa section */}
+      <Mpesa />
 
-    {/* Sign up section */}
-    {/* <SignUp /> */}
+      {/* Questions section */}
+      {/* <Questions /> */}
 
-    {/* Footer section */}
-    {/* <Footer /> */}
-  </div>
-);
+      {/* Sign up section */}
+      {/* <SignUp /> */}
 
+      {/* Footer section */}
+      {/* <Footer /> */}
+    </>
+  );
+};
 export default Landing;
