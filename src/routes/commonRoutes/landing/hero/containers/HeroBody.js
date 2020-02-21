@@ -18,13 +18,14 @@ const HeroBody = () => (
           <br />
 
           {/* Hero sub-title */}
-          <h1 className="title is-marginless hero--custom-title">
-            It's a simple way to start and run an online store. {/*  */}
+          <h1 className="title is-marginless has-text-grey-light hero--custom-title">
+            It's a simple way to start and run an online store.{" "}
+            {/* Sign up link */}
             <Link
               to={"/login"}
               className="title has-text-centered is-marginless hero--custom-title hero-signup"
             >
-              Sign up
+              Get started
               <span className="hero-signup__icons">
                 <Icon icon={chevronRight} size={"100%"} />
                 <Icon icon={chevronRight} size={"100%"} />

@@ -9,7 +9,7 @@
     font-size: 3.5rem;
   }
   @include desktop {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -30,13 +30,13 @@
   animation: 3s ease 0.03s infinite bounce-right;
 
   @include mobile {
-    width: 2.5rem;
+    width: 3rem;
   }
   @include tablet {
-    width: 3rem;
+    width: 3.5rem;
   }
   @include desktop {
-    width: 3rem;
+    width: 4.5rem;
   }
 }
 
