@@ -10,35 +10,29 @@ import Mpesa from "./mpesa";
 // import SignUp from "./signUp";
 // import Footer from "./footer";
 
-const Landing = () => {
-  // Create ref for feature section
-  const featuresRef = useRef(null);
+const Landing = () => (
+  <>
+    {/* Document title */}
+    <Helmet title={"Finn · Simple, Beautiful online stores"} />
 
-  return (
-    <>
-      {/* Document title */}
-      <Helmet title={"Finn · Simple, Beautiful online stores"} />
+    {/* Hero section */}
+    <Hero />
 
-      {/* Navbar */}
+    {/* Features section */}
+    <Features />
 
-      {/* Hero section */}
-      <Hero featuresRef={featuresRef} />
+    {/* M-pesa section */}
+    {/* <Mpesa /> */}
 
-      {/* Features section */}
-      <Features ref={featuresRef} />
+    {/* Questions section */}
+    {/* <Questions /> */}
 
-      {/* M-pesa section */}
-      <Mpesa />
+    {/* Sign up section */}
+    {/* <SignUp /> */}
 
-      {/* Questions section */}
-      {/* <Questions /> */}
+    {/* Footer section */}
+    {/* <Footer /> */}
+  </>
+);
 
-      {/* Sign up section */}
-      {/* <SignUp /> */}
-
-      {/* Footer section */}
-      {/* <Footer /> */}
-    </>
-  );
-};
 export default Landing;

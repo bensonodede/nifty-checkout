@@ -1,65 +1,27 @@
 @import "~bulma/sass/utilities/mixins.sass";
-
-.hero--custom-title {
-  display: inline;
-  @include mobile {
-    font-size: 3rem;
-  }
-  @include tablet {
-    font-size: 3.5rem;
-  }
-  @include desktop {
-    font-size: 4.5rem;
-  }
+.hero {
+  overflow: hidden;
 }
 
-.hero-signup {
-  cursor: pointer;
-  display: inline-flex;
-  color: #356ee1;
-}
-
-.hero-signup:hover {
-  color: #1b50bb;
-}
-
-.hero-signup__icons {
-  flex-shrink: 0;
-  display: inline-flex;
-  margin-left: 0.25rem;
-  animation: 3s ease 0.03s infinite bounce-right;
-
-  @include mobile {
-    width: 3rem;
-  }
-  @include tablet {
-    width: 3.5rem;
-  }
-  @include desktop {
-    width: 4.5rem;
-  }
-}
-
-// Hero sign up chevron bounce right animation
-@keyframes bounce-right {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translate3d(0px, 0px, 0px);
-  }
-
-  40% {
-    transform: translate3d(9px, 0px, 0px);
-  }
-
-  60% {
-    transform: translate3d(4px, 0px, 0px);
-  }
+.hero-head {
+  padding: 0rem 1.25rem;
 }
 
 // Hero footer
+.hero-footer__image {
+  display: flex;
+  width: auto;
+  max-width: 100%;
+  @include mobile {
+    margin: -2px auto;
+  }
+  @include tablet {
+    margin: -2px auto;
+  }
+  @include desktop {
+    margin: -3px auto;
+  }
+}
 
 .hero--custom-footer {
   position: fixed;

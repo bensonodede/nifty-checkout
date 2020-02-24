@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
+
+// Import components
+import { FeaturesDescription, FeaturesImage } from "./containers";
 
 // Import styles
 import "./styles.scss";
@@ -9,29 +12,18 @@ import featuresData from "./featuresData";
 const Features = React.forwardRef((props, ref) => (
   <section ref={ref} className="features hero">
     <div className="container">
-      {/* Feature items */}
-      {featuresData.map(item => (
-        <div key={item.id} className="features__grid">
-          {/* Feature image */}
-          <div className="features__grid-item">
-            <div className="features__img-container">
-              <img
-                className="features__img"
-                alt={`feature-${item.header}`}
-                src={item.imgUrl}
-              />
-            </div>
-          </div>
+      <div className="columns is-mobile is-multiline is-centered">
+        {/* Feature items */}
+        {featuresData.map(({ id, header }) => (
+          <div key={id} className="column is-10">
+            {/* Feature description */}
+            <FeaturesDescription header={header} />
 
-          {/* Feature description */}
-          <div className="features__grid-item">
-            <h1 className="title is-size-2-desktop is-marginless">
-              {item.header}
-            </h1>
-            <p className="is-size-5">{item.description}</p>
+            {/* Feature image */}
+            <FeaturesImage />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 ));

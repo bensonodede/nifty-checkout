@@ -1,24 +1,30 @@
 import React from "react";
-import { CSSTransition } from "react-transition-group";
+import { Breakpoint } from "react-socks";
 
 const HeroFooter = ({ inView, onClick }) => (
-  <CSSTransition
-    appear={true}
-    unmountOnExit={true}
-    in={inView}
-    classNames="hero--custom-footer__animation"
-    timeout={500}
-    onClick={onClick}
-  >
-    <div className="hero--custom-footer">
-      <h5 className="title is-size-6-mobile is-size-4-tablet is-size-6-desktop is-marginless">
-        What can I do with finn?{" "}
-        <span role="img" aria-label="emoji">
-          👇
-        </span>
-      </h5>
-    </div>
-  </CSSTransition>
+  <div className="hero-foot">
+    {/* Tablet and desktop illustration */}
+    <Breakpoint tablet up>
+      <img
+        className="hero-footer__image"
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582555458/web_assets/Group_of_people-desktop.png"
+        }
+        alt={"A group of illustrated characters"}
+      />
+    </Breakpoint>
+
+    {/* Mobile illustration */}
+    <Breakpoint mobile only>
+      <img
+        className="hero-footer__image"
+        src={
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582555457/web_assets/Group_of_people-mobile.png"
+        }
+        alt={"A group of illustrated characters"}
+      />
+    </Breakpoint>
+  </div>
 );
 
 export default HeroFooter;
