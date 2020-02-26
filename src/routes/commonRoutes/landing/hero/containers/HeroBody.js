@@ -17,7 +17,7 @@ const HeroBody = () => (
             </h1>
 
             {/* Hero sub-title */}
-            <p className="has-text-centered is-size-6">
+            <p className="has-text-centered is-size-5">
               Give your customers a delightful shopping experience.
             </p>
 

@@ -1,34 +1,50 @@
-/********** Feautures section **********/
-
 .features {
-  padding-top: 8rem;
-  background-color: #000000;
+  padding: 8rem 0rem;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
 
-.features__grid {
-  display: grid;
-  grid-template-columns: 38%;
-  grid-column-gap: 8rem;
-  align-items: center;
-  justify-content: center;
-  grid-auto-flow: column;
-  margin: 8rem 0rem;
+.features__list {
+  padding: 0;
 }
 
-// Alternate grid item positions for every other grid
-.features__grid:nth-child(odd) .features__grid-item:nth-of-type(2) {
-  grid-column-start: 1;
-}
-
-.features__grid-item {
+.features__list-item {
+  list-style-type: none;
+  display: flex;
   align-items: center;
 }
 
-.features__img {
-  width: 100%;
-  object-fit: cover;
-  height: auto;
+.features__list-icon {
+  width: 1.5rem;
+  margin-right: 1.5rem;
+  color: #00d38c;
 }
+
+//
+.feature-img {
+  width: 45%;
+  margin-right: 14%;
+}
+
+.feature-img--right {
+  margin-right: 0;
+  margin-left: 14%;
+}
+
+.feature-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 0rem;
+}
+
+.feature-divider {
+  height: 1px;
+  width: 50%;
+  margin: 2.5rem 0rem;
+  background-color: #e5e5e5;
+}
+
+//

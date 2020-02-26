@@ -1,28 +1,23 @@
 import React from "react";
 
 // Import components
-import { FeaturesDescription, FeaturesImage } from "./containers";
+import { FeatureStore, FeatureSocial, FeatureDashboard } from "./containers";
 
 // Import styles
 import "./styles.scss";
-
-// Import features data
-import featuresData from "./featuresData";
 
 const Features = React.forwardRef((props, ref) => (
   <section ref={ref} className="features hero">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
-        {/* Feature items */}
-        {featuresData.map(({ id, header }) => (
-          <div key={id} className="column is-10">
-            {/* Feature description */}
-            <FeaturesDescription header={header} />
+        {/*  */}
+        <FeatureStore />
 
-            {/* Feature image */}
-            <FeaturesImage />
-          </div>
-        ))}
+        {/*  */}
+        <FeatureSocial />
+
+        {/*  */}
+        <FeatureDashboard />
       </div>
     </div>
   </section>

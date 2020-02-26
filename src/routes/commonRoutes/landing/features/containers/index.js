@@ -1,4 +1,5 @@
-import FeaturesImage from "./FeaturesImage";
-import FeaturesDescription from "./FeaturesDescription";
+import FeatureStore from "./FeatureStore";
+import FeatureSocial from "./FeatureSocial";
+import FeatureDashboard from "./FeatureDashboard";
 
-export { FeaturesImage, FeaturesDescription };
+export { FeatureStore, FeatureSocial, FeatureDashboard };

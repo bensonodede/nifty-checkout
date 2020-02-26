@@ -1,5 +1,14 @@
-/********** Pricing section **********/
 .pricing {
-  margin-top: 6rem;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  background-color: #000000;
+  width: 100%;
+  padding: 2rem 4rem;
+  margin-bottom: 5rem;
+}
+
+.pricing__img {
+  width: 3rem;
+  display: flex;
+  object-fit: cover;
 }
