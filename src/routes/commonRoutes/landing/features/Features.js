@@ -12,10 +12,12 @@ import featuresData from "./featuresData";
 const Features = () => (
   <section className="features hero">
     <div className="container">
-      {/* List of features */}
-      {featuresData.map(item => (
-        <FeatureItem item={item} />
-      ))}
+      <div className="features__item-container">
+        {/* List of features */}
+        {featuresData.map(item => (
+          <FeatureItem item={item} />
+        ))}
+      </div>
     </div>
   </section>
 );

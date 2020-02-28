@@ -1,12 +1,25 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
 .features {
-  padding: 8rem 0rem;
+  @include mobile {
+  }
+  @include tablet {
+  }
+  @include desktop {
+  }
+
+  // padding: 8rem 0rem;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
 
 //
+.features__item-container :nth-child(even) {
+  // background-color: #000000;
+}
 
+//
 .feature-item {
   padding: 5rem 0rem;
 }
