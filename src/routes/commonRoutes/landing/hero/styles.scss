@@ -11,6 +11,10 @@
 
 // Hero body
 
+.hero-body--custom {
+  margin: 0rem auto 6rem auto;
+}
+
 .hero-body--column {
   display: flex;
   flex-direction: column;

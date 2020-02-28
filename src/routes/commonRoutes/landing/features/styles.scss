@@ -5,31 +5,45 @@
   overflow: hidden;
 }
 
-.features__list {
+//
+
+.feature-item {
+  padding: 5rem 0rem;
+}
+
+.feature-item__divider {
+  height: 1px;
+  width: 50%;
+  margin: 2.5rem 0rem;
+  background-color: #e5e5e5;
+}
+
+.feature-item__list {
   padding: 0;
 }
 
-.features__list-item {
+.feature-item__list-item {
   list-style-type: none;
   display: flex;
   align-items: center;
 }
 
-.features__list-icon {
+.feature-item__list-icon {
   width: 1.5rem;
   margin-right: 1.5rem;
   color: #00d38c;
 }
 
 //
+
 .feature-img {
   width: 45%;
-  margin-right: 14%;
+  margin-right: 10%;
 }
 
 .feature-img--right {
   margin-right: 0;
-  margin-left: 14%;
+  margin-left: 10%;
 }
 
 .feature-container {

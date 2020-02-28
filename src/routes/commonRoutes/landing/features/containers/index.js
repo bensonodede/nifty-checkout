@@ -1,5 +1,3 @@
-import FeatureStore from "./FeatureStore";
-import FeatureSocial from "./FeatureSocial";
-import FeatureDashboard from "./FeatureDashboard";
+import FeatureItem from "./FeatureItem";
 
-export { FeatureStore, FeatureSocial, FeatureDashboard };
+export { FeatureItem };

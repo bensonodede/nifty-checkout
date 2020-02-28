@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "components/button";
 
-// Import components
-
 const HeroBody = () => (
-  <div className="hero-body is-paddingless">
+  <div className="hero-body hero-body--custom is-paddingless">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
         <div className="column is-10">
