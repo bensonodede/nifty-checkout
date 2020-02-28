@@ -8,7 +8,7 @@ const FeatureItem = ({ item: { id, image, title, description, features } }) => (
   <div className="feature-item">
     <div
       key={id}
-      className="columns is-mobile is-multiline is-centered is-vcentered is-variable is-8-desktop"
+      className="columns is-mobile is-multiline is-centered is-vcentered is-variable is-4-tablet is-8-desktop"
     >
       {/* Feature Image */}
       <FeatureImage image={image} />
