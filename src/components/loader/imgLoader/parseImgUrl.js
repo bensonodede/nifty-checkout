@@ -4,6 +4,11 @@ const parseImgUrl = ({ transform, src }) => {
   // Get position of 'upload/' in link
   let position = src.indexOf("upload/") + 7;
 
+  //? If transform is empty (Catch in prop types definition)
+  if (!transform) {
+    transform = "";
+  }
+
   // Optimal quality image transform
   let image = [
     src.slice(0, position),

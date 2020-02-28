@@ -6,7 +6,7 @@ const HeroBody = () => (
   <div className="hero-body hero-body--custom is-paddingless">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
-        <div className="column is-10">
+        <div className="column is-10-mobile is-12-tablet is-10-desktop">
           <div className="hero-body--column">
             {/* Hero title */}
             <h1 className="title is-size-2-mobile is-size-3-tablet is-size-1-desktop is-marginless has-text-centered">
@@ -15,7 +15,7 @@ const HeroBody = () => (
             </h1>
 
             {/* Hero sub-title */}
-            <p className="has-text-centered is-size-5">
+            <p className="has-text-centered has-text-grey-light is-size-6-mobile is-size-5-tablet is-size-5-desktop">
               Give your customers a delightful shopping experience.
             </p>
 

@@ -7,7 +7,7 @@ import { HeroHeader, HeroBody, HeroFooter } from "./containers";
 import "./styles.scss";
 
 const Hero = () => (
-  <section className="hero is-fullheight">
+  <section className="hero">
     {/* Hero header */}
     <HeroHeader />
 

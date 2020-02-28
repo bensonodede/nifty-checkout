@@ -12,7 +12,15 @@
 // Hero body
 
 .hero-body--custom {
-  margin: 0rem auto 6rem auto;
+  @include mobile {
+    margin: 5rem auto;
+  }
+
+  @include tablet {
+    margin: 6rem auto;
+  }
+
+  margin: 8rem auto;
 }
 
 .hero-body--column {
@@ -22,6 +30,21 @@
 }
 
 // Hero footer
+
+.hero-foot--custom {
+  @include mobile {
+    padding: 2rem 0.75rem;
+  }
+
+  @include tablet {
+    padding: 2rem 1rem;
+  }
+
+  @include desktop {
+    padding: 2rem 1.5rem;
+  }
+  padding: 2rem 1.5rem;
+}
 
 .hero-footer__image {
   display: flex;

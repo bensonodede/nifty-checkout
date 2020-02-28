@@ -9,8 +9,8 @@ import "./styles.scss";
 // Import data
 import featuresData from "./featuresData";
 
-const Features = React.forwardRef((props, ref) => (
-  <section ref={ref} className="features hero">
+const Features = () => (
+  <section className="features hero">
     <div className="container">
       {/* List of features */}
       {featuresData.map(item => (
@@ -18,6 +18,6 @@ const Features = React.forwardRef((props, ref) => (
       ))}
     </div>
   </section>
-));
+);
 
 export default Features;
