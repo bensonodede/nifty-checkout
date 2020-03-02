@@ -1,3 +1,4 @@
+import FeaturesHeader from "./FeaturesHeader";
 import FeatureItem from "./FeatureItem";
 
-export { FeatureItem };
+export { FeaturesHeader, FeatureItem };

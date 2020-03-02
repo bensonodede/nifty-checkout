@@ -5,7 +5,7 @@ const featuresData = [
     title: "A beautiful store. \n For selling beautiful things.",
     description: "A store that's just as beautiful as your brand.",
     image:
-      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582663070/web_assets/feature-beautiful-store.png",
+      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-beautiful-store.png",
 
     features: [
       {
@@ -30,7 +30,7 @@ const featuresData = [
     description:
       "Sell where your customers are. Send them to your store and we'll handle the rest.",
     image:
-      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582718329/web_assets/feature-social.png",
+      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-social.png",
 
     features: [
       {
@@ -54,7 +54,7 @@ const featuresData = [
     title: "Have it one place. \n Not all over the place.",
     description: "A clean, simple dashboard to manage everything.",
     image:
-      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582749151/web_assets/features-dashboard.png",
+      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-dashboard.png",
 
     features: [
       {
@@ -77,7 +77,8 @@ const featuresData = [
     id: "04",
     title: "The best payment experience for you and your customers.",
     description: "It's so simple it kinda works like magic.",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-payment.png",
     features: [
       {
         id: 41,
@@ -85,7 +86,7 @@ const featuresData = [
       },
       {
         id: 42,
-        text: "Accept credit cards (Coming soon)"
+        text: "Accept paypal and credit cards (Coming soon)"
       },
       {
         id: 43,

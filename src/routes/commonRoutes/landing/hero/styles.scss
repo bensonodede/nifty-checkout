@@ -20,6 +20,10 @@
     margin: 6rem auto;
   }
 
+  @include desktop {
+    margin: 8rem auto;
+  }
+
   margin: 8rem auto;
 }
 
@@ -31,24 +35,8 @@
 
 // Hero footer
 
-.hero-foot--custom {
-  @include mobile {
-    padding: 2rem 0.75rem;
-  }
-
-  @include tablet {
-    padding: 2rem 1rem;
-  }
-
-  @include desktop {
-    padding: 2rem 1.5rem;
-  }
-  padding: 2rem 1.5rem;
-}
-
 .hero-footer__image {
   display: flex;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   margin: auto;
 }

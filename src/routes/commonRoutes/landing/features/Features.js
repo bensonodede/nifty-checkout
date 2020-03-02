@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import components
-import { FeatureItem } from "./containers";
+import { FeaturesHeader, FeatureItem } from "./containers";
 
 // Import styles
 import "./styles.scss";
@@ -12,10 +12,13 @@ import featuresData from "./featuresData";
 const Features = () => (
   <section className="features hero">
     <div className="container">
+      {/* Features header */}
+      <FeaturesHeader />
+
       <div className="features__item-container">
         {/* List of features */}
         {featuresData.map(item => (
-          <FeatureItem item={item} />
+          <FeatureItem key={item.id} item={item} />
         ))}
       </div>
     </div>

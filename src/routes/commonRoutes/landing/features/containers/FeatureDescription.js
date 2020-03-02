@@ -5,17 +5,21 @@ import { Icon } from "react-icons-kit";
 import { checkmark } from "react-icons-kit/ionicons/checkmark";
 
 const FeatureDescription = ({ id, title, description, features }) => (
-  <div className="column is-10-mobile is-5-tablet is-5-desktop">
+  <div className="column is-9-mobile is-5-tablet is-5-desktop">
     {/* Feature number */}
-    <h1 className="title is-size-3-desktop is-marginless has-text-grey-lighter">
+    <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop is-marginless has-text-grey-lighter">
       {id}
     </h1>
 
     {/* Feature title */}
-    <h1 className="title is-size-2-desktop">{title}</h1>
+    <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop">
+      {title}
+    </h1>
 
     {/* Feature description */}
-    <p className="is-size-5-desktop has-text-grey-light">{description}</p>
+    <p className="is-size-6-mobile is-size-6-tablet is-size-5-desktop has-text-grey-light">
+      {description}
+    </p>
 
     {/* Feature divider */}
     <hr className="feature-item__divider" />
