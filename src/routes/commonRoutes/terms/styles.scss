@@ -1,0 +1,12 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.terms-title {
+  margin-bottom: 10rem !important;
+  @include mobile {
+    margin-bottom: 6rem !important;
+  }
+}
+
+.terms-item {
+  margin: 4rem 0rem;
+}

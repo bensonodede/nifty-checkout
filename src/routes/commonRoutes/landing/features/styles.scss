@@ -1,26 +1,17 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.features {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
 .features__header {
   @include mobile {
-    margin: 6rem 0rem 4rem 0rem;
+    margin: 4rem 0rem 4rem 0rem;
   }
 
   @include tablet {
-    margin: 8rem 0rem 5rem 0rem;
+    margin: 5rem 0rem 5rem 0rem;
   }
 
   @include desktop {
-    margin: 10rem 0rem 8rem 0rem;
+    margin: 10rem 0rem 6rem 0rem;
   }
-
-  margin: 8rem 0rem 5rem 0rem;
-  padding: 0rem 1.25rem;
 }
 
 // Features items
@@ -28,14 +19,12 @@
   @include mobile {
     flex-direction: row;
   }
-
   @include tablet {
     flex-direction: row-reverse;
   }
   @include desktop {
     flex-direction: row-reverse;
   }
-  flex-direction: row-reverse;
 }
 
 .feature-item {
@@ -48,7 +37,6 @@
   @include desktop {
     padding: 5rem 0rem;
   }
-  padding: 5rem 0rem;
 }
 
 .feature-item__divider {
@@ -70,17 +58,17 @@
 
 .feature-item__list-icon {
   @include mobile {
-    width: 1.25rem;
+    width: 1rem;
+    margin-right: 1rem;
   }
   @include tablet {
-    width: 1.25rem;
+    width: 1.15rem;
+    margin-right: 1rem;
   }
   @include desktop {
     width: 1.5rem;
   }
-  width: 1.5rem;
   flex-shrink: 0;
-  margin-right: 1.5rem;
   color: #00d38c;
 }
 

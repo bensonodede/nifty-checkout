@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 
 // Import landing page components
 import Hero from "./hero";
 import Features from "./features";
 import Pricing from "./pricing";
+import SignUp from "./signUp";
+// import Footer from "./footer";
 
 const Landing = () => (
   <>
@@ -19,6 +21,11 @@ const Landing = () => (
 
     {/* Pricing section */}
     <Pricing />
+
+    {/* Sign up section */}
+    <SignUp />
+
+    {/* Footer section */}
   </>
 );
 
