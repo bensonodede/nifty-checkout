@@ -7,7 +7,7 @@ const FeaturesHeader = () => (
       Africa.
     </p>
 
-    <h1 className="title is-size-3-mobile is-size-3-tablet is-size-1-desktop">
+    <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop">
       That's why we built finn.
     </h1>
 

@@ -9,7 +9,7 @@ const HeroBody = () => (
         <div className="column is-10-mobile is-12-tablet is-10-desktop">
           <div className="hero-body--column">
             {/* Hero title */}
-            <h1 className="title is-size-3-mobile is-size-3-tablet is-size-1-desktop is-marginless has-text-centered">
+            <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop is-marginless has-text-centered">
               Simple, beautiful online stores.
               <br />
             </h1>
