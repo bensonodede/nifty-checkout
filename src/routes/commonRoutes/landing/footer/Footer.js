@@ -7,43 +7,39 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 const Footer = () => (
-  <footer className="footer has-background-grey-dark">
+  <footer className="footer has-background-white">
     <div className="columns is-multiline is-centered">
+      {/* Footer divider */}
+      <hr className="footer__divider" />
+
+      {/* Footer logo */}
+      <div className="column is-full">
+        <h1 className="title is-size-5-mobile is-size-5-tablet is-size-4-desktop has-text-centered">
+          finn.
+        </h1>
+      </div>
+
       {/* Footer links & logo container */}
       <div className="column is-8">
         <div className="columns is-multiline is-centered">
-          {/* Footer logo */}
-          <div className="column is-full">
-            <div className="footer__logo-container">
-              <img
-                className={"footer__logo"}
-                alt={"Finn logo"}
-                src={
-                  "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-                }
-              />
-            </div>
-          </div>
-          {/* End Footer logo */}
-
           {/* Footer link list */}
           <div className="column has-text-centered-mobile is-8-tablet is-5-desktop ">
             <div className="content footer__list">
-              <Link to={"/talk-to-us"} className="has-text-white">
-                <p>Talk to us</p>
+              <Link to={"/talk-to-us"}>
+                <p className="is-size-6">Talk to us</p>
               </Link>
 
-              {/* <Link to={"/about-us"} className="has-text-white">
-                  <p>About us</p>
-                </Link>
+              <Link to={"/about-us"}>
+                <p>About us</p>
+              </Link>
 
-                <Link to={"/"} className="has-text-white">
-                  <p>Terms</p>
-                </Link>
+              <Link to={"/terms"}>
+                <p>Terms</p>
+              </Link>
 
-                <Link to={"/"} className="has-text-white">
-                  <p>Privacy</p>
-                </Link> */}
+              <Link to={"/privacy"}>
+                <p>Privacy</p>
+              </Link>
             </div>
           </div>
           {/* End footer link list */}
@@ -53,8 +49,8 @@ const Footer = () => (
 
       {/* Footer copyright */}
       <div className="column is-8">
-        <div className="content is-size-7-mobile is-size-7 has-text-light has-text-centered">
-          <p>© 2019 Finn. All rights reserved.</p>
+        <div className="content is-size-7-mobile is-size-7 has-text-centered">
+          <p>© 2020 Finn. All rights reserved.</p>
         </div>
       </div>
       {/* End Footer copyright */}

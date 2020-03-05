@@ -6,7 +6,7 @@ import Hero from "./hero";
 import Features from "./features";
 import Pricing from "./pricing";
 import SignUp from "./signUp";
-// import Footer from "./footer";
+import Footer from "./footer";
 
 const Landing = () => (
   <>
@@ -26,6 +26,7 @@ const Landing = () => (
     <SignUp />
 
     {/* Footer section */}
+    <Footer />
   </>
 );
 

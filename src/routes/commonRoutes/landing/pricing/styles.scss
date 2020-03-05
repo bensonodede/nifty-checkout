@@ -1,26 +1,5 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.pricing-content {
-  // padding: 4rem 2rem;
-  // @include mobile {
-  //   border-radius: 0.75rem;
-  // }
-  // @include tablet {
-  //   border-radius: 1.25rem;
-  // }
-  // @include desktop {
-  //   border-radius: 1.25rem;
-  // }
-
-  // // Background image styling
-  // background-blend-mode: overlay;
-  // background-color: rgba(0, 0, 0, 0.15);
-  // background-image: url("https://res.cloudinary.com/dzxuz9zc9/image/upload/v1583267662/web_assets/thanos-pal-DOvDEXmau9o-unsplash.jpg");
-  // background-repeat: no-repeat;
-  // background-position: 50% 50%;
-  // background-size: cover;
-}
-
 .pricing-content__container {
   margin-top: 4rem;
   display: flex;
@@ -48,14 +27,7 @@
   align-items: center;
   box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
   border-radius: 1rem;
-  // width: 100%;
   padding: 3.5rem 4rem;
-  // @include mobile {
-  //   padding: 3.5rem 2rem;
-  // }
-  // @include desktop {
-  //   padding: 3.5rem 4rem;
-  // }
 }
 
 .pricing-content__main {
@@ -81,5 +53,5 @@
 
 .pricing-content__and {
   flex-shrink: 0;
-  margin: 2rem 3rem;
+  margin: 1rem 3rem;
 }

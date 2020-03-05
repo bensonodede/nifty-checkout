@@ -3,18 +3,11 @@
   padding-bottom: 1.5rem;
 }
 
-.footer__logo-container {
-  width: 1.8rem;
-  height: auto;
-  margin: auto;
-}
-
-.footer__logo {
-  width: 100%;
-  object-fit: cover;
-  width: 100%;
-  object-fit: cover;
-  height: auto;
+.footer__divider {
+  background-color: #d9d9d9;
+  height: 1px;
+  width: 90%;
+  margin: 1rem auto 2.5rem auto;
 }
 
 .footer__list {
