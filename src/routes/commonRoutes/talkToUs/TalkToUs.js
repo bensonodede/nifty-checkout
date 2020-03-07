@@ -1,7 +1,9 @@
 import React from "react";
+import { Breakpoint } from "react-socks";
 import { Helmet } from "react-helmet";
 
 // Import components
+import Button from "components/button";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
 
@@ -12,45 +14,31 @@ const TalkToUs = () => {
   return (
     <>
       {/* Document title */}
-      <Helmet>
-        <title>Finn - Talk to us</title>
-      </Helmet>
+      <Helmet title={"Finn · Talk to us"} />
 
       {/* Talk to us Page */}
-      <div className="talk">
+      <div className="route-wrapper">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
-            {/* Talk to us logo */}
-            <div className="column is-10">
-              <div className="talk__img-container">
-                <img
-                  alt={"Finn logo"}
-                  src={
-                    "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382649/web_assets/finn_pink.png"
-                  }
-                />
-              </div>
-            </div>
-
             {/* Talk to us content */}
             <div className="column is-10-mobile is-8-tablet is-7-desktop">
-              {/* Talk to us title */}
-              <h1 className="title is-size-4 has-text-centered">
+              <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop has-text-centered">
                 Hey there, talk to us.
               </h1>
 
-              {/* Talk to us text */}
-              <p className="has-text-centered">
+              <p className="has-text-grey-light is-size-6-mobile is-size-6-tablet is-size-5-desktop has-text-centered">
                 We love listening to you. Don't be shy, click the button below
-                to start a conversation with us on
-                <strong> whatsapp.</strong>
+                to start a conversation with us on{" "}
+                <span className="title is-size-6-mobile is-size-6-tablet is-size-5-desktop">
+                  whatsapp.
+                </span>
               </p>
             </div>
 
             {/* Talk to us button */}
             <div className="column is-10 talk__btn-column">
-              <button
-                className="button is-primary"
+              <Button
+                className="talk__button"
                 onClick={() =>
                   (window.location.href = "https://wa.me/254747645546")
                 }
@@ -59,9 +47,28 @@ const TalkToUs = () => {
                 <span className="talk__btn-icon">
                   <Icon icon={socialWhatsappOutline} size={"100%"} />
                 </span>
-              </button>
+              </Button>
             </div>
             {/* End Talk button */}
+
+            <Breakpoint mobile only>
+              <img
+                src={
+                  "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1582555457/web_assets/Group_of_people-mobile.png"
+                }
+                alt={"Group of people illustration"}
+                className="talk__footer-img"
+              />
+            </Breakpoint>
+            <Breakpoint tablet up>
+              <img
+                src={
+                  "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1582555458/web_assets/Group_of_people-desktop.png"
+                }
+                alt={"Group of people illustration"}
+                className="talk__footer-img"
+              />
+            </Breakpoint>
           </div>
         </div>
       </div>

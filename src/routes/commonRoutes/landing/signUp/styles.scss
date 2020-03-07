@@ -1,36 +1,33 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.signup {
+.signup-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
   padding: 3rem 3rem;
+  background-color: #356ee1;
+  margin: 5rem 0rem;
   @include mobile {
     margin: 2.5rem 0rem 0rem 0rem;
   }
-  margin: 5rem 0rem;
-
-  // Background image styling
-  background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.15);
-  background-image: url("https://res.cloudinary.com/dzxuz9zc9/image/upload/v1583252399/web_assets/tim-gouw-Krh85nEqOQc-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
 }
 
-.signup__title {
+.signup-section__emoji {
+  margin: 1rem 0rem 2rem 0rem !important;
+}
+
+.signup-section__title {
   margin: 1rem 0rem 3rem 0rem !important;
 }
 
-.signup__button {
+.signup-section__button {
   background-color: #000000;
   border: solid 1px #000000;
 }
 
-.signup__button:active {
+.signup-section__button:active {
   background-color: transparent;
   border: solid 1px #ffffff;
   color: #ffffff;

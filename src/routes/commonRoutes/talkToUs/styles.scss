@@ -1,21 +1,26 @@
 .talk {
-  margin-top: 2rem;
-  padding-bottom: 2rem;
-  overflow: hidden;
-}
-
-.talk__img-container {
-  margin: auto;
-  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .talk__btn-column {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .talk__btn-icon {
-  width: 1.1rem;
+  width: 1.15rem;
   margin-left: 0.5rem;
   padding-bottom: 0.25rem;
+}
+
+.talk__footer-img {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
 }

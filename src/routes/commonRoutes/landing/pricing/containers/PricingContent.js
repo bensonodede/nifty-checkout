@@ -1,9 +1,5 @@
 import React from "react";
 
-// Import components
-import { Icon } from "react-icons-kit";
-import { androidAdd } from "react-icons-kit/ionicons/androidAdd";
-
 const PricingContent = () => (
   <>
     {/* Pricing title */}
@@ -15,14 +11,7 @@ const PricingContent = () => (
     <div className="pricing-content__container">
       {/* Monthly fee */}
       <div className="pricing-content__item">
-        <h5 className="title is-size-5-mobile is-size-4-tablet is-size-4-desktop is-marginless has-text-centered">
-          A fixed monthly fee
-        </h5>
-        <p className="is-size-6 has-text-centered has-text-grey-light">
-          No contracts. <br /> No strings attached.
-        </p>
-
-        {/*  */}
+        {/* Pricing item body */}
         <div className="pricing-content__main">
           <h1 className="pricing-content__price title is-size-3-mobile is-size-2-tablet is-size-1-desktop is-marginless">
             800 <span className="pricing-content__currency">KES</span>
@@ -32,6 +21,7 @@ const PricingContent = () => (
           </h5>
         </div>
 
+        {/* Pricing item footer */}
         <p className="is-size-6 has-text-centered has-text-grey-light is-marginless">
           You can cancel anytime. We are pretty sure you'll love it though.{" "}
           <br />
@@ -50,14 +40,7 @@ const PricingContent = () => (
 
       {/* Transaction fees */}
       <div className="pricing-content__item">
-        <h5 className="title is-size-5-mobile is-size-5-tablet is-size-4-desktop is-marginless has-text-centered">
-          Tiny transaction fees
-        </h5>
-        <p className="is-size-6 has-text-centered has-text-grey-light">
-          No surprises. <br /> No hidden fees.
-        </p>
-
-        {/*  */}
+        {/* Pricing item body */}
         <div className="pricing-content__main">
           <h1 className="pricing-content__price title is-size-3-mobile is-size-2-tablet is-size-1-desktop has-text-centered is-marginless">
             5 <span className="pricing-content__currency">KES</span>
@@ -67,6 +50,7 @@ const PricingContent = () => (
           </h5>
         </div>
 
+        {/* Pricing item footer */}
         <p className="is-size-6 has-text-centered has-text-grey-light is-marginless">
           You can cancel anytime. We are pretty sure you'll love it though.{" "}
           <br />
@@ -75,7 +59,6 @@ const PricingContent = () => (
           </span>
         </p>
       </div>
-      {/*  */}
     </div>
   </>
 );

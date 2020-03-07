@@ -29,8 +29,8 @@ const Footer = () => (
                 <p className="is-size-6">Talk to us</p>
               </Link>
 
-              <Link to={"/about-us"}>
-                <p>About us</p>
+              <Link to={"/about"}>
+                <p>About</p>
               </Link>
 
               <Link to={"/terms"}>
