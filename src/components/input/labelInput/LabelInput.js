@@ -30,6 +30,9 @@ const LabelInput = ({
 
         {/* Input phone number entry */}
         <MaskedInput
+          onKeyPress={e => {
+            e.key === "Enter" && e.preventDefault();
+          }}
           onFocus={() => {
             setIsFocused(true);
           }}

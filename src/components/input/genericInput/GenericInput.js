@@ -10,8 +10,7 @@ const GenericInput = ({
   validateField,
   name,
   value,
-  placeholder,
-  onEnterKeyPress
+  placeholder
 }) => (
   <div className="generic-input">
     {/* Text input */}
@@ -27,7 +26,9 @@ const GenericInput = ({
         errors[name] ? `generic-input__entry--error` : ``
       }`}
       value={value}
-      onKeyDown={onEnterKeyPress}
+      onKeyPress={e => {
+        e.key === "Enter" && e.preventDefault();
+      }}
       onChange={async event => {
         // Get input value
         let val = event.target.value;

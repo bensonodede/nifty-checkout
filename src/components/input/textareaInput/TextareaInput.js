@@ -17,6 +17,9 @@ const TextareaInput = ({
 }) => (
   <div className="textarea-input">
     <TextareaAutosize
+      onKeyPress={e => {
+        e.key === "Enter" && e.preventDefault();
+      }}
       type="text"
       autoComplete="off"
       autoCorrect="off"

@@ -48,6 +48,9 @@ const QueryInput = ({
         }
       >
         <MaskedInput
+          onKeyPress={e => {
+            e.key === "Enter" && e.preventDefault();
+          }}
           onFocus={() => {
             setIsFocused(true);
           }}
