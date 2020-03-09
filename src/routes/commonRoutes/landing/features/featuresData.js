@@ -3,7 +3,8 @@ const featuresData = [
   {
     id: "01",
     title: "A beautiful store. \n For selling beautiful things.",
-    description: "A store that's just as beautiful as your brand.",
+    description:
+      "It's not just about selling stuff on the internet, it's about building a lasting brand.",
     image:
       "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-beautiful-store.png",
 
@@ -28,14 +29,14 @@ const featuresData = [
     id: "02",
     title: 'Never say \n "Text/Call to order" \n again.',
     description:
-      "Sell where your customers are. Send them to your store and we'll handle the rest.",
+      "The easier it is for your customers to buy, the more sales you'll see.",
     image:
       "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-social.png",
 
     features: [
       {
         id: 21,
-        text: "Integrate with social media channels"
+        text: "Connect with your social media"
       },
       {
         id: 22,
@@ -51,15 +52,16 @@ const featuresData = [
   // Feature dashboard
   {
     id: "03",
-    title: "Have it one place. \n Not all over the place.",
-    description: "A clean, simple dashboard to manage everything.",
+    title: "Have it all in one place. \n Not all over the place.",
+    description:
+      "A clean, simple dashboard to manage products, orders and payments.",
     image:
       "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-dashboard.png",
 
     features: [
       {
         id: 31,
-        text: ""
+        text: "Product and order management"
       },
       {
         id: 32,
@@ -76,7 +78,8 @@ const featuresData = [
   {
     id: "04",
     title: "The best payment experience for you and your customers.",
-    description: "It's so simple it kinda works like magic.",
+    description:
+      "Payments kinda suck, we've made it so simple it kinda works like magic.",
     image:
       "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-payment.png",
     features: [

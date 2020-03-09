@@ -11,9 +11,9 @@ const HeroFooter = () => (
             <img
               className="hero-footer__image"
               src={
-                "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1582925826/web_assets/landing-hero-mobile.png"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582925826/web_assets/landing-hero-mobile.png"
               }
-              alt={"Product images"}
+              alt={"Hero banner"}
             />
           </Breakpoint>
 
@@ -22,9 +22,9 @@ const HeroFooter = () => (
             <img
               className="hero-footer__image"
               src={
-                "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1582905033/web_assets/landing-hero-desktop.png"
+                "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1582905033/web_assets/landing-hero-desktop.png"
               }
-              alt={"Product images"}
+              alt={"Hero banner"}
             />
           </Breakpoint>
         </div>

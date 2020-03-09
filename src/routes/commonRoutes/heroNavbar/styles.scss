@@ -1,0 +1,28 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.hero-navbar {
+  @include mobile {
+    padding: 1rem 0rem;
+    margin: 0rem 1.5rem;
+  }
+  @include tablet {
+    padding: 1.5rem 0rem;
+    margin: 0rem 2.5rem;
+  }
+  @include desktop {
+    padding: 1.5rem 0rem;
+    margin: 0rem 2.5rem;
+  }
+}
+
+.hero-navbar__logo {
+  @include mobile {
+    width: 2.5rem;
+  }
+  @include tablet {
+    width: 3rem;
+  }
+  @include desktop {
+    width: 3rem;
+  }
+}

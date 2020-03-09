@@ -1,6 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+// Import components
+import HeroNavbar from "../heroNavbar";
+
 // Import styles
 import "./styles.scss";
 
@@ -9,7 +12,11 @@ const About = () => (
     {/* Document title */}
     <Helmet title={"Finn · About Finn"} />
 
-    <div className="route-wrapper">
+    {/* Navigation bar */}
+    <HeroNavbar />
+
+    {/* About page */}
+    <div className="route-wrapper-landing">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered is-vcentered">
           {/* About content */}
@@ -17,20 +24,20 @@ const About = () => (
             {/* About title */}
             <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop has-text-centered-mobile">
               Hey, Wassup?{" "}
+              <span role="img" aria-label="pointing finger">
+                👋
+              </span>
             </h1>
 
             {/* About sub-title */}
             <p className="has-text-grey-light is-size-6-mobile is-size-6-tablet is-size-5-desktop has-text-centered-mobile">
-              Finn is a tiny team. So tiny that it's just one person.{" "}
-              <span role="img" aria-label="waving-hand">
-                😂
-              </span>
-              <br />
-              The mission is to
+              Finn is a tiny team. So tiny that it's just one person. Our
+              mission is to create tools that make it fun and simple to run an
+              online business.
             </p>
           </div>
 
-          {/* about image */}
+          {/* About image */}
           <div className="column is-6-mobile is-3-tablet is-3-desktop">
             <img
               src={
@@ -47,6 +54,25 @@ const About = () => (
             </h5>
           </div>
           {/* End about image */}
+
+          {/* About footer */}
+          <div className="about__footer">
+            <p className="has-text-grey-light is-size-6-mobile is-size-6-tablet is-size-5-desktop has-text-centered-mobile is-marginless">
+              Wanna work with me? Send me an email{" "}
+              <a
+                className="title is-size-6-mobile is-size-6-tablet is-size-5-desktop"
+                href="mailto:bensonodede@gmail.com?Subject=Work%20at%20finn"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                here
+              </a>{" "}
+              <span role="img" aria-label="pointing finger">
+                👈
+              </span>
+            </p>
+          </div>
+          {/* End about footer*/}
         </div>
       </div>
     </div>

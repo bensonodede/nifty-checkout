@@ -3,3 +3,13 @@
   color: #b5b5b5;
   font-family: "Airbnb Cereal App Light";
 }
+
+.about__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
+  border-radius: 1rem;
+  padding: 1.25rem 2rem;
+  margin: 2rem;
+}

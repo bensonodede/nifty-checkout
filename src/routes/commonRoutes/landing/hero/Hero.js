@@ -1,15 +1,16 @@
 import React from "react";
 
 // Import components
-import { HeroHeader, HeroBody, HeroFooter } from "./containers";
+import HeroNavbar from "../../heroNavbar";
+import { HeroBody, HeroFooter } from "./containers";
 
 // Import styles
 import "./styles.scss";
 
 const Hero = () => (
   <section className="hero">
-    {/* Hero header */}
-    <HeroHeader />
+    {/* Hero navbar*/}
+    <HeroNavbar />
 
     {/* Hero body */}
     <HeroBody />

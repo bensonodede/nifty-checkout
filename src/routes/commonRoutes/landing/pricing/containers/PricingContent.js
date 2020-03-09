@@ -52,10 +52,9 @@ const PricingContent = () => (
 
         {/* Pricing item footer */}
         <p className="is-size-6 has-text-centered has-text-grey-light is-marginless">
-          You can cancel anytime. We are pretty sure you'll love it though.{" "}
-          <br />
+          Just to cover the cost of moving money. <br />
           <span aria-label="heart emoji" role="img">
-            🎉
+            😅
           </span>
         </p>
       </div>

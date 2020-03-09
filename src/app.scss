@@ -82,3 +82,23 @@ $grey-lighter: #d9d9d9;
     padding-bottom: 5rem;
   }
 }
+
+// Landing routes wrapper
+.route-wrapper-landing {
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @include tablet {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @include desktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}

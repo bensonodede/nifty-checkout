@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Import components
 import Button from "components/button";
@@ -26,7 +27,9 @@ const SignUp = () => (
               </h1>
 
               {/* Signup Button */}
-              <Button className="signup-section__button">Sign up</Button>
+              <Link to={"/login"}>
+                <Button className="signup-section__button">Sign up</Button>
+              </Link>
             </div>
           </div>
         </div>
