@@ -2,12 +2,13 @@ import React from "react";
 
 const CreateStoreNavbar = () => (
   <div className="create-store-navbar">
-    {/* <img
-      src={require("images/finn_pink.png")}
-      alt={"logo"}
+    <img
+      src={
+        "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583742008/web_assets/finn-logo.png"
+      }
+      alt={"finn logo"}
       className={"create-store-navbar__logo"}
-    /> */}
-    <h1 className="title is-size-5 is-marginless">finn.</h1>
+    />
   </div>
 );
 

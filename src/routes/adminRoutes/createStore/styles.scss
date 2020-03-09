@@ -12,8 +12,15 @@
   z-index: 1;
 }
 .create-store-navbar__logo {
-  width: 2rem;
-  height: auto;
+  @include mobile {
+    width: 2.5rem;
+  }
+  @include tablet {
+    width: 3rem;
+  }
+  @include desktop {
+    width: 3rem;
+  }
 }
 
 .create-store-field {
