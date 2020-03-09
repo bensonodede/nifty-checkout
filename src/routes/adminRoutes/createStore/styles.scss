@@ -4,12 +4,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem 1.25rem;
-  position: fixed;
-  right: 0;
-  left: 0;
+  justify-content: flex-start;
   background-color: #ffffff;
   z-index: 1;
+  @include mobile {
+    padding: 1rem 0rem;
+    margin: 0rem 1rem;
+  }
+  @include tablet {
+    padding: 1.5rem 0rem;
+    margin: 0rem 2.5rem;
+  }
+  @include desktop {
+    padding: 1.5rem 0rem;
+    margin: 0rem 2.5rem;
+  }
 }
 .create-store-navbar__logo {
   @include mobile {
@@ -93,7 +102,8 @@
 
 // Policy page
 .policy-field {
-  padding-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 
 .policy-accordion-header__emoji {
