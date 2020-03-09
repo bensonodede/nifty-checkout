@@ -1,8 +1,26 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.login__logo {
+  margin-bottom: 2rem;
+  @include mobile {
+    width: 2.5rem;
+  }
+  @include tablet {
+    width: 3rem;
+  }
+  @include desktop {
+    width: 3rem;
+  }
+}
+
 .login-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  margin-top: 2rem;
 }
 
 .login-social__list {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }

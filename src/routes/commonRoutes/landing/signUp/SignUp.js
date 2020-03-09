@@ -28,7 +28,7 @@ const SignUp = () => (
 
               {/* Signup Button */}
               <Link to={"/login"}>
-                <Button className="signup-section__button">Sign up</Button>
+                <Button className="signup-section__button">Get started</Button>
               </Link>
             </div>
           </div>
