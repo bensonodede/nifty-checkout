@@ -74,7 +74,6 @@
 .navbar-profile--active {
   border-bottom: 3px solid #356ee1;
   color: #484848;
-  margin-bottom: -3px;
 }
 
 .navbar-profile__icon {
@@ -116,9 +115,10 @@
   z-index: 1;
   top: 100%;
   left: 80%;
+  margin-top: 15px !important;
   margin-left: -60px !important;
 
-  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opacity: */
   opacity: 0;
   transition: opacity 0.75s;
 }
