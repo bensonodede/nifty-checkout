@@ -46,42 +46,48 @@ const OrdersList = ({ match, orderStatus }) => {
   }
 
   return (
-    <div className="orders-list">
-      <InfiniteScroll
-        pageStart={0}
-        initialLoad={true}
-        useWindow={true}
-        hasMore={hasMore}
-        loader={<ListLoader key={0} />}
-        loadMore={() =>
-          loadMoreOrders({
-            storeUsername,
-            orderStatus,
-            fetchMore,
-            data,
-            setHasMore
-          })
-        }
-      >
-        <table className="table is-fullwidth">
-          {/* Desktop: Table header */}
-          <thead className="is-hidden-touch">
-            <tr>
-              <th>Order</th>
-              <th>Status</th>
-              <th>Order placed</th>
-            </tr>
-          </thead>
+    <>
+      {data.ordersByStore.length === 0 ? (
+        <p>There are no orders here yet.</p>
+      ) : (
+        <div className="orders-list">
+          <InfiniteScroll
+            pageStart={0}
+            initialLoad={true}
+            useWindow={true}
+            hasMore={hasMore}
+            loader={<ListLoader key={0} />}
+            loadMore={() =>
+              loadMoreOrders({
+                storeUsername,
+                orderStatus,
+                fetchMore,
+                data,
+                setHasMore
+              })
+            }
+          >
+            <table className="table is-fullwidth">
+              {/* Desktop: Table header */}
+              <thead className="is-hidden-touch">
+                <tr>
+                  <th>Order</th>
+                  <th>Status</th>
+                  <th>Order placed</th>
+                </tr>
+              </thead>
 
-          {/* Table body */}
-          <tbody>
-            {data.ordersByStore.map(item => (
-              <OrdersItem key={item.id} item={item} />
-            ))}
-          </tbody>
-        </table>
-      </InfiniteScroll>
-    </div>
+              {/* Table body */}
+              <tbody>
+                {data.ordersByStore.map(item => (
+                  <OrdersItem key={item.id} item={item} />
+                ))}
+              </tbody>
+            </table>
+          </InfiniteScroll>
+        </div>
+      )}
+    </>
   );
 };
 

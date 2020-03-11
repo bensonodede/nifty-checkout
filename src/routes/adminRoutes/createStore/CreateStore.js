@@ -53,20 +53,18 @@ const CreateStore = ({ firebase, history }) => {
             initialValues={initialFormValues}
             validateOnChange={false}
             validateOnBlur={false}
-            onSubmit={(values, actions, e) => {
-              console.log(values);
-              console.log(e);
-              // // Open loading modal
-              // toggleModal();
+            onSubmit={(values, actions) => {
+              // Open loading modal
+              toggleModal();
 
-              // // Get uid
-              // let { uid } = authUser;
+              // Get uid
+              let { uid } = authUser;
 
-              // // Add uid to 'values' object and run create store mutation
-              // mutate({ variables: { ...values, ...{ uid } } });
+              // Add uid to 'values' object and run create store mutation
+              mutate({ variables: { ...values, ...{ uid } } });
 
-              // // Reset form values
-              // actions.resetForm();
+              // Reset form values
+              actions.resetForm();
             }}
           >
             {FormikProps => (

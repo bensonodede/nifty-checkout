@@ -2,7 +2,7 @@ import React from "react";
 
 // Import components
 import { Icon } from "react-icons-kit";
-import { iosArrowDown } from "react-icons-kit/ionicons/iosArrowDown";
+import { ic_expand_more } from "react-icons-kit/md/ic_expand_more";
 
 const MobileNavbarBtn = ({ toggleMobileNavbar, isOpen }) => (
   <div className="mobile-navbar-btn">
@@ -11,14 +11,14 @@ const MobileNavbarBtn = ({ toggleMobileNavbar, isOpen }) => (
       <img
         className={"mobile-navbar-btn__img"}
         src={
-          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583742008/web_assets/finn-favicon-logo.png"
         }
         alt={"finn logo"}
       />
 
       {/* Navbar button icon */}
       <div className={`mobile-navbar-btn__icon${isOpen ? ` open ` : ``}`}>
-        <Icon icon={iosArrowDown} size={"100%"} />
+        <Icon icon={ic_expand_more} size={"100%"} />
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ import { PageLoader, ListLoader } from "components/loader";
 import { ErrorState } from "components/pageState";
 import ProductItem from "../productItem";
 import ProductListHeader from "../productListHeader";
+import ProductListEmpty from "../productListEmpty";
 
 // Import functions
 import loadMoreProducts from "./loadMoreProducts";
@@ -46,46 +47,52 @@ const ProductList = ({ match }) => {
   }
 
   return (
-    <div className="columns is-multiline is-mobile is-centered">
-      {/* Product list header */}
-      <div className="column is-10">
-        <ProductListHeader />
-      </div>
+    <>
+      {data.productsByStore.length === 0 ? (
+        <ProductListEmpty />
+      ) : (
+        <div className="columns is-multiline is-mobile is-centered">
+          {/* Product list header */}
+          <div className="column is-10">
+            <ProductListHeader />
+          </div>
 
-      {/* Product list */}
-      <div className="column is-10">
-        <InfiniteScroll
-          pageStart={0}
-          initialLoad={true}
-          useWindow={true}
-          hasMore={hasMore}
-          loader={<ListLoader key={0} />}
-          loadMore={() =>
-            loadMoreProducts({ storeUsername, fetchMore, data, setHasMore })
-          }
-        >
-          <table className="table is-fullwidth">
-            {/* Desktop: Table header */}
-            <thead className="is-hidden-touch">
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Last modified</th>
-                <th></th>
-              </tr>
-            </thead>
+          {/* Product list */}
+          <div className="column is-10">
+            <InfiniteScroll
+              pageStart={0}
+              initialLoad={true}
+              useWindow={true}
+              hasMore={hasMore}
+              loader={<ListLoader key={0} />}
+              loadMore={() =>
+                loadMoreProducts({ storeUsername, fetchMore, data, setHasMore })
+              }
+            >
+              <table className="table is-fullwidth">
+                {/* Desktop: Table header */}
+                <thead className="is-hidden-touch">
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Last modified</th>
+                    <th></th>
+                  </tr>
+                </thead>
 
-            {/* Table body */}
-            <tbody>
-              {data.productsByStore.map(item => (
-                <ProductItem key={item.id} item={item} />
-              ))}
-            </tbody>
-          </table>
-        </InfiniteScroll>
-      </div>
-      {/* End product list */}
-    </div>
+                {/* Table body */}
+                <tbody>
+                  {data.productsByStore.map(item => (
+                    <ProductItem key={item.id} item={item} />
+                  ))}
+                </tbody>
+              </table>
+            </InfiniteScroll>
+          </div>
+          {/* End product list */}
+        </div>
+      )}
+    </>
   );
 };
 

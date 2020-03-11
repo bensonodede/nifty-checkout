@@ -10,7 +10,7 @@ const NavbarLogo = ({ match }) => {
       <img
         className="navbar-logo__img"
         src={
-          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1566382652/web_assets/finn_pink.png"
+          "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583742008/web_assets/finn-logo.png"
         }
         alt={"finn logo"}
       />

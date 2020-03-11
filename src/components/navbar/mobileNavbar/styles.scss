@@ -37,7 +37,7 @@
 .mobile-navbar-btn__icon {
   display: flex;
   align-items: center;
-  width: 0.9rem;
+  width: 1.25rem;
   height: auto;
   color: #484848;
 
@@ -102,4 +102,21 @@
 
 .mobile-navbar-item--active {
   color: #484848 !important;
+}
+
+/***** Mobile navbar store link *****/
+
+.mobile-store-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 0rem;
+  color: #dbdbdb !important;
+}
+
+.mobile-store-link__emoji {
+  margin-left: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 1.75rem;
 }
