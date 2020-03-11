@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import components
-import { NavbarLinks, NavbarProfile } from "./containers";
+import { NavbarLinks, NavbarProfile, NavbarStoreLink } from "./containers";
 
 // Import styles
 import "./styles.scss";
@@ -11,8 +11,13 @@ const DesktopNavbar = () => (
     {/* Navbar links */}
     <NavbarLinks />
 
-    {/* Navbar profile */}
-    <NavbarProfile />
+    <div className="desktop-navbar__right">
+      {/* Navbar profile */}
+      <NavbarProfile />
+
+      {/* Navbar go to store */}
+      <NavbarStoreLink />
+    </div>
   </div>
 );
 
