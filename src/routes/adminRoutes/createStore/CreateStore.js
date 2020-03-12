@@ -1,5 +1,6 @@
 // Import packages
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { compose } from "recompose";
 import { Formik, Form } from "formik";
 import { Persist } from "formik-persist";
@@ -23,7 +24,7 @@ import "./styles.scss";
 // Initial form values
 const initialFormValues = require("./initialFormValues.json");
 
-const CreateStore = ({ firebase, history }) => {
+const CreateStore = ({ history, match }) => {
   // Destructure hooks
   const [isOpen, toggleModal] = useModal(false);
   const [mutate, { error, data }] = useMutation(CREATE_STORE);
@@ -45,10 +46,16 @@ const CreateStore = ({ firebase, history }) => {
     }, 2500);
   }
 
+  // Destructure route params
+  let { storeUsername } = match.params;
+
   return (
     <AuthUserContext.Consumer>
       {authUser => (
         <>
+          {/* Document title */}
+          <Helmet title={`Create your store · ${storeUsername}`} />
+
           <Formik
             initialValues={initialFormValues}
             validateOnChange={false}
