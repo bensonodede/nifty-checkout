@@ -6,21 +6,21 @@ import { Mixpanel } from "components/mixpanel";
 
 // Import components
 import Button from "components/button";
-import { CenterModal } from "components/modal";
-import { ErrorToast, SuccessToast } from "components/toast";
+import { BottomModal } from "components/modal";
+import { SuccessToast, ErrorToast } from "components/toast";
+
+// Import functions
+import { deleteProductMutation, deleteProductCache } from "../../../utils";
 
 // Import styles
 import "./styles.scss";
-
-// Import functions
-import { deleteProductMutation, deleteProductCache } from "../../utils";
 
 const DeleteModal = ({
   item,
   isDeleteOpen,
   toggleDeleteModal,
-  match,
-  client
+  client,
+  match
 }) => {
   // Destructure delete function
   const {
@@ -42,12 +42,12 @@ const DeleteModal = ({
     // Handle cache update after toast animation
     setTimeout(() => {
       deleteProductCache({ client, storeUsername, data });
-    }, 1950);
+    }, 1900);
   }
 
   return (
-    <CenterModal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
-      <div className="delete-modal--desktop">
+    <BottomModal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
+      <div className="delete-modal">
         {/* Delete confirmation text */}
         <div className="content">
           <h5 className="title is-size-5 is-marginless">Delete item</h5>
@@ -58,13 +58,13 @@ const DeleteModal = ({
         </div>
 
         {/* Button row */}
-        <div className="delete-modal__row--desktop">
+        <div className="delete-modal__row">
           {/* Delete button */}
           <Button
             onClick={() => _deleteProductMutation(id, imgUrl)}
-            className={"delete-modal__btn"}
             isLoading={loading}
             isLight
+            className={"delete-modal__btn"}
           >
             Delete item
           </Button>
@@ -77,12 +77,12 @@ const DeleteModal = ({
         {/* End button row */}
       </div>
 
-      {/* Success state */}
+      {/* On mutation complete */}
       {data && <SuccessToast text={"Product deleted"} emoji={"✌"} />}
 
       {/* Error state */}
       {error && <ErrorToast text={"No internet connection"} emoji={"💩"} />}
-    </CenterModal>
+    </BottomModal>
   );
 };
 

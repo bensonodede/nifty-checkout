@@ -16,14 +16,14 @@ const ProductListEmpty = ({ match, history }) => {
       <div className="column is-10">
         <div className="product-list-empty">
           {/* List Empty Emoji */}
-          <h1 className="title has-text-centered is-size-2-mobile is-size-2-tablet is-size-1-desktop">
+          <h1 className="title has-text-centered is-size-3-mobile is-size-2-tablet is-size-1-desktop">
             <span role="img" aria-label="shrug emoji">
               🤷
             </span>
           </h1>
 
           {/* List title */}
-          <h1 className="title has-text-centered is-marginless is-size-3-mobile is-size-3-tablet is-size-3-desktop">
+          <h1 className="title has-text-centered is-marginless is-size-4-mobile is-size-3-tablet is-size-3-desktop">
             Hmm, looks like there's nothing here yet.
           </h1>
 

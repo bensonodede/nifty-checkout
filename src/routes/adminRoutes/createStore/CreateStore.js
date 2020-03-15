@@ -24,7 +24,7 @@ import "./styles.scss";
 // Initial form values
 const initialFormValues = require("./initialFormValues.json");
 
-const CreateStore = ({ history, match }) => {
+const CreateStore = ({ history }) => {
   // Destructure hooks
   const [isOpen, toggleModal] = useModal(false);
   const [mutate, { error, data }] = useMutation(CREATE_STORE);
@@ -46,15 +46,12 @@ const CreateStore = ({ history, match }) => {
     }, 2500);
   }
 
-  // Destructure route params
-  let { storeUsername } = match.params;
-
   return (
     <AuthUserContext.Consumer>
       {authUser => (
         <>
           {/* Document title */}
-          <Helmet title={`Create your store · ${storeUsername}`} />
+          <Helmet title={`Finn · Create your store`} />
 
           <Formik
             initialValues={initialFormValues}

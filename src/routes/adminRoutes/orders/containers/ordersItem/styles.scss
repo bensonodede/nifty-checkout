@@ -1,7 +1,15 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
+.orders-item {
+  cursor: pointer;
+}
+
+.orders-item:hover {
+  background-color: #f9f9f9;
+}
+
 .orders-item:active {
-  background-color: #e4e4e4;
+  background-color: #e5e5e5;
 }
 
 .orders-item__info {

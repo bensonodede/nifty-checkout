@@ -9,9 +9,9 @@ import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
 // Import components
 import { PageLoader, ListLoader } from "components/loader";
 import { ErrorState } from "components/pageState";
-import ProductItem from "../productItem";
-import ProductListHeader from "../productListHeader";
 import ProductListEmpty from "../productListEmpty";
+import ProductListHeader from "../productListHeader";
+import ProductTable from "../productTable";
 
 // Import functions
 import loadMoreProducts from "./loadMoreProducts";
@@ -69,27 +69,9 @@ const ProductList = ({ match }) => {
                 loadMoreProducts({ storeUsername, fetchMore, data, setHasMore })
               }
             >
-              <table className="table is-fullwidth">
-                {/* Desktop: Table header */}
-                <thead className="is-hidden-touch">
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Last modified</th>
-                    <th></th>
-                  </tr>
-                </thead>
-
-                {/* Table body */}
-                <tbody>
-                  {data.productsByStore.map(item => (
-                    <ProductItem key={item.id} item={item} />
-                  ))}
-                </tbody>
-              </table>
+              <ProductTable data={data} />
             </InfiniteScroll>
           </div>
-          {/* End product list */}
         </div>
       )}
     </>
