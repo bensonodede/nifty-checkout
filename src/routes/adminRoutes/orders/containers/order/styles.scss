@@ -54,7 +54,20 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+.order-product__tally {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.order-product__tally-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .order-product__img-container {
@@ -78,6 +91,22 @@
   border-radius: 0.5rem;
 }
 
+.order-item__img-placeholder {
+  position: absolute;
+  width: 3.75rem;
+  color: #d9d9d9;
+}
+
+.order-item__img-placeholder-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  margin-right: 0.75rem;
+}
+
 .order-contact__section,
 .order-product__section {
   display: flex;
@@ -96,7 +125,4 @@
   width: 3rem;
   color: #484848;
   margin-right: 0.5rem;
-}
-
-.order-contact__number {
 }

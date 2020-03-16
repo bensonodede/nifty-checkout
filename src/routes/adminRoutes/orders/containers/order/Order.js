@@ -10,7 +10,7 @@ import { PageLoader } from "components/loader";
 import { ErrorToast } from "components/toast";
 import OrderHeader from "./OrderHeader";
 import OrderContact from "./OrderContact";
-import OrderProduct from "./OrderProduct";
+import OrderProduct from "./orderProduct";
 
 // Import styles
 import "./styles.scss";

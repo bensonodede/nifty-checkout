@@ -19,6 +19,8 @@
   justify-content: flex-start;
 }
 
+// Image styling
+
 .orders-item__img-container {
   display: block;
   width: 3rem;
@@ -39,6 +41,23 @@
   border-radius: 0.5rem;
 }
 
+.orders-item__img-placeholder {
+  position: absolute;
+  width: 3.75rem;
+  color: #d9d9d9;
+}
+
+.orders-item__img-placeholder-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+}
+
+// Content
+
 .orders-item__content {
   display: flex;
   flex-direction: column;
@@ -46,18 +65,28 @@
   padding-left: 0.8rem;
 }
 
+// Status
+
 .orders-item__status {
-  display: flex;
-  margin-top: 0.35rem !important;
-  padding: 0.3rem 0.4rem;
+  display: inline-flex;
+  margin-top: 0 !important;
+  padding: 0.2rem 0.3rem;
   border-radius: 0.15rem;
   background-color: #f3eb6b;
   color: #484848 !important;
   @include desktop {
-    margin-top: 0 !important;
+    padding: 0.3rem 0.4rem;
   }
 }
 
 .orders-item__status--fulfilled {
   background-color: #8cf8a5;
+}
+
+.orders-item__container {
+  display: flex;
+  height: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
