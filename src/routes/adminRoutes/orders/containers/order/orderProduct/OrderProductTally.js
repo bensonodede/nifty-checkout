@@ -44,9 +44,7 @@ const OrderProductTally = ({ productData, amount }) => {
           <div className="order-product__tally">
             {productData ? (
               <>
-                <h5 className="is-size-6 is-marginless order-product__tally-name">
-                  {name}
-                </h5>
+                <h5 className="is-size-6 is-marginless">{name}</h5>
                 <h5 className="is-size-6 is-marginless has-text-grey-light">
                   {" "}
                   {`${numeral(price).format("'0,0'")}`}{" "}
@@ -55,7 +53,7 @@ const OrderProductTally = ({ productData, amount }) => {
               </>
             ) : (
               <>
-                <h5 className="is-size-6 is-marginless order-product__tally-name">
+                <h5 className="is-size-6 is-marginless">
                   This product was deleted
                 </h5>
               </>

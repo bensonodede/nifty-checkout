@@ -37,8 +37,12 @@
   box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
 }
 
+.home-item:hover {
+  background-color: #f9f9f9;
+}
+
 .home-item:active {
-  background-color: #e4e4e4;
+  background-color: #e5e5e5;
 }
 
 .home-item__content {
@@ -61,4 +65,22 @@
 .home-item__emoji {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.home-footer__logout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-footer__logout {
+  padding: 0.75rem 1rem;
+  border-radius: 0.45rem;
+  border: solid 1.2px #e5e5e5;
+  cursor: pointer;
+}
+
+.home-footer__logout:active {
+  background-color: #e5e5e5;
 }

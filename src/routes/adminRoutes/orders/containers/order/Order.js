@@ -50,7 +50,7 @@ const Order = ({ match }) => {
   return (
     <>
       {/* Page title */}
-      <Helmet title={`Order - #${orderId}`} defer={false} />
+      <Helmet title={`Order · #${orderId}`} defer={false} />
 
       {/* Order Page */}
       <div className="route-wrapper">

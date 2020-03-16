@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useQuery } from "@apollo/react-hooks";
 import { withRouter } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroller";
@@ -47,6 +48,9 @@ const OrdersList = ({ match, orderStatus }) => {
 
   return (
     <>
+      {/* Document title */}
+      <Helmet title={`Orders · ${storeUsername}`} defer={false} />
+
       {data.ordersByStore.length === 0 ? (
         <p>There are no orders here yet.</p>
       ) : (
