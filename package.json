@@ -71,8 +71,6 @@
     "prepare": "patch-package",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "deploy-prod": "firebase use prod && firebase deploy --only hosting",
-    "deploy-dev": "react-scripts build && firebase use dev && firebase deploy --only hosting",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },

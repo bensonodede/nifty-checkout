@@ -7,7 +7,10 @@ const PayoutHeader = () => (
 
     {/* Sub-title */}
     <p className="has-text-grey-light is-size-6">
-      We'll send your earnings to you everyday before 9am.{" "}
+      This is where we'll send all the money you earn from making sales.{" "}
+      <span role="img" aria-label={"emoji"}>
+        💸
+      </span>
     </p>
   </>
 );

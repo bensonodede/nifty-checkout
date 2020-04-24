@@ -6,7 +6,6 @@ const CREATE_STORE = gql`
     $storeName: String!
     $storeUsername: String!
     $phoneNumber: String!
-    $payoutMethod: String!
     $payoutNumber: String!
     $policyDelivery: String!
     $policyReturns: String!
@@ -16,7 +15,6 @@ const CREATE_STORE = gql`
       storeName: $storeName
       storeUsername: $storeUsername
       phoneNumber: $phoneNumber
-      payoutMethod: $payoutMethod
       payoutNumber: $payoutNumber
       policyDelivery: $policyDelivery
       policyReturns: $policyReturns
@@ -56,20 +54,39 @@ const UPDATE_STORE_INFO = gql`
   }
 `;
 
-// Update payout
-const UPDATE_PAYOUT = gql`
-  mutation UpdatePayout(
-    $id: String!
-    $payoutMethod: String!
+// Activate subscription
+const ACTIVATE_SUBSCRIPTION_PLAN = gql`
+  mutation ActivateSubscriptionPlan(
+    $storeUsername: String!
     $payoutNumber: String!
   ) {
-    updatePayout(
-      id: $id
-      payoutMethod: $payoutMethod
+    activateSubscriptionPlan(
+      storeUsername: $storeUsername
       payoutNumber: $payoutNumber
     ) {
       id
-      payoutMethod
+      merchantRequestID
+      checkoutRequestID
+    }
+  }
+`;
+
+const UPDATE_SUBSCRIPTION_PLAN = gql`
+  mutation UpdateSubscriptionPlan($id: String!, $status: String!) {
+    updateSubscriptionPlan(id: $id, status: $status) {
+      id
+      start
+      end
+      status
+    }
+  }
+`;
+
+// Update payout
+const UPDATE_PAYOUT = gql`
+  mutation UpdatePayout($id: String!, $payoutNumber: String!) {
+    updatePayout(id: $id, payoutNumber: $payoutNumber) {
+      id
       payoutNumber
     }
   }
@@ -178,6 +195,8 @@ export {
   // Store mutations
   CREATE_STORE,
   UPDATE_STORE_INFO,
+  ACTIVATE_SUBSCRIPTION_PLAN,
+  UPDATE_SUBSCRIPTION_PLAN,
   UPDATE_PAYOUT,
   // Product mutations
   CREATE_PRODUCT,
@@ -185,5 +204,5 @@ export {
   DELETE_PRODUCT,
   // Order mutations
   CREATE_ORDER,
-  TOGGLE_ORDER_STATUS
+  TOGGLE_ORDER_STATUS,
 };

@@ -29,6 +29,30 @@ const LOGIN_QUERY = gql`
   }
 `;
 
+// Get Store subscription plan
+const STORE_SUBSCRIPTION_PLAN_QUERY = gql`
+  query StoreSubscriptionPlanQuery($storeUsername: String!) {
+    storeSubscriptionPlan(storeUsername: $storeUsername) {
+      id
+      start
+      end
+      status
+    }
+  }
+`;
+
+// Poll for subscription payment
+const SUBSCRIPTION_PLAN_PAYMENT_POLL_QUERY = gql`
+  query SubscriptionPlanPaymentPollQuery($id: String!) {
+    subscriptionPlanPaymentPoll(id: $id) {
+      id
+      merchantRequestID
+      checkoutRequestID
+      mpesaReceiptNumber
+    }
+  }
+`;
+
 // Get store details
 const STORE_QUERY = gql`
   query StoreQuery($storeUsername: String!) {
@@ -37,7 +61,6 @@ const STORE_QUERY = gql`
       storeName
       storeUsername
       phoneNumber
-      payoutMethod
       payoutNumber
       policyReturns
       policyDelivery
@@ -146,14 +169,17 @@ const ORDERS_FEED_QUERY = gql`
 
 export {
   USER_COUNT_QUERY,
-  STORE_USERNAME_EXISTS_QUERY,
   LOGIN_QUERY,
+  // Store query
   STORE_QUERY,
+  STORE_USERNAME_EXISTS_QUERY,
+  STORE_SUBSCRIPTION_PLAN_QUERY,
+  SUBSCRIPTION_PLAN_PAYMENT_POLL_QUERY,
   // Products query
   PRODUCTS_FEED_QUERY,
   PRODUCTS_COUNT,
   PRODUCT_QUERY,
   // Orders query
   ORDER_BY_ORDERID_QUERY,
-  ORDERS_FEED_QUERY
+  ORDERS_FEED_QUERY,
 };

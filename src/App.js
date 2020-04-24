@@ -27,17 +27,17 @@ if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
 }
 
-// App screen breakpoints
+// Website screen breakpoints
 setDefaultBreakpoints([
   { mobile: 0 },
   { tablet: 568 },
   { desktop: 1024 },
   { widescreen: 1216 },
-  { fullhd: 1408 }
+  { fullhd: 1408 },
 ]);
 
 const link = createUploadLink({
-  uri: serverUrl
+  uri: serverUrl,
 });
 
 // Initialize apollo client
@@ -45,7 +45,7 @@ const client = new ApolloClient({
   // Point client to server address
   link,
   cache: new InMemoryCache(),
-  connectToDevTools: true
+  connectToDevTools: true,
 });
 
 class App extends Component {

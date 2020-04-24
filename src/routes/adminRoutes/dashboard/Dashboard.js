@@ -3,13 +3,17 @@ import { Helmet } from "react-helmet";
 import { compose } from "recompose";
 
 // Import components
-import { withAuthorization, useAuth } from "components/session";
+import {
+  withAuthorization,
+  withSubscription,
+  useAuth,
+} from "components/session";
 import { withFirebase } from "components/firebase";
 import {
   OrderCard,
   EarningsCard,
   ProductsCard,
-  FeatureCard
+  FeatureCard,
 } from "./containers";
 
 // Import styles
@@ -75,4 +79,8 @@ const Dashboard = ({ match, firebase }) => {
   );
 };
 
-export default compose(withFirebase, withAuthorization)(Dashboard);
+export default compose(
+  withFirebase,
+  withAuthorization,
+  withSubscription
+)(Dashboard);

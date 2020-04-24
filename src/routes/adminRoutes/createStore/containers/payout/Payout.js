@@ -7,7 +7,6 @@ import PayoutDescripton from "./PayoutDescription";
 
 const Payout = ({
   isValid,
-  values: { payoutMethod },
   touched: { payoutNumber: touchedPayoutNumber }
 }) => (
   <div className="route-wrapper">
@@ -16,10 +15,7 @@ const Payout = ({
         <div className="column is-10-mobile is-8-tablet is-4-desktop">
           <PayoutHeader />
           <PayoutDescripton />
-          <PayoutField
-            payoutMethod={payoutMethod}
-            isValid={!!(isValid && touchedPayoutNumber)}
-          />
+          <PayoutField isValid={!!(isValid && touchedPayoutNumber)} />
         </div>
       </div>
     </div>

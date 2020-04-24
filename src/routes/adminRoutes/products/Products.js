@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { compose } from "recompose";
 
 // Import components
-import { withAuthorization } from "components/session";
+import { withAuthorization, withSubscription } from "components/session";
 import { ProductList } from "./containers";
 
 // Import styles
@@ -27,4 +28,4 @@ const Products = ({ match }) => {
   );
 };
 
-export default withAuthorization(Products);
+export default compose(withAuthorization, withSubscription)(Products);

@@ -1,4 +1,5 @@
 import React from "react";
+import { compose } from "recompose";
 import { Switch, Route } from "react-router-dom";
 
 // Import pages
@@ -8,7 +9,7 @@ import OrdersFulfilled from "./OrdersFulfilled";
 import Order from "../order";
 
 // Import components
-import { withAuthorization } from "components/session";
+import { withAuthorization, withSubscription } from "components/session";
 import OrdersHeader from "../ordersHeader";
 import OrdersNavbar from "../ordersNavbar";
 
@@ -17,7 +18,7 @@ const OrdersNavbarRoute = ({ exact, path, component: Component }) => (
   <Route
     exact={exact}
     path={path}
-    render={props => (
+    render={(props) => (
       <div className="route-wrapper">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
@@ -55,4 +56,4 @@ const OrdersRoutes = () => (
   </Switch>
 );
 
-export default withAuthorization(OrdersRoutes);
+export default compose(withAuthorization, withSubscription)(OrdersRoutes);

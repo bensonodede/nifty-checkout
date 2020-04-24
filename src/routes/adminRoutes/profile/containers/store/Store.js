@@ -20,8 +20,10 @@ const Store = ({ match }) => {
       <div className="route-wrapper">
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
-            <StoreHeader />
-            <StoreForm />
+            <div className="column is-10-mobile is-6-tablet is-4-desktop">
+              <StoreHeader />
+              <StoreForm />
+            </div>
           </div>
         </div>
       </div>

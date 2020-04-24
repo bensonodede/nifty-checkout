@@ -18,7 +18,7 @@ const ProductListEmpty = ({ match, history }) => {
           {/* List Empty Emoji */}
           <h1 className="title has-text-centered is-size-3-mobile is-size-2-tablet is-size-1-desktop">
             <span role="img" aria-label="shrug emoji">
-              🤷
+              🍃
             </span>
           </h1>
 

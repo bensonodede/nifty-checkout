@@ -14,11 +14,18 @@ import EditProduct from "./editProduct";
 import Orders from "./orders";
 import Profile from "./profile";
 import Help from "./help";
+import Subscription from "./subscription";
 
 const AdminRoutes = () => (
   <Switch>
     {/* Create-store route */}
     <Route path={"/create-store"} component={CreateStore} />
+
+    {/* Subscription route */}
+    <Route
+      path={"/:storeUsername/admin/subscription"}
+      component={Subscription}
+    />
 
     {/* Dashboard/Home route */}
     {/* <NavbarRoute

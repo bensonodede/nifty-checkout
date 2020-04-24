@@ -5,7 +5,7 @@ import { withApollo } from "@apollo/react-hoc";
 import { Mixpanel } from "components/mixpanel";
 
 // Import components
-import { withAuthorization } from "components/session";
+import { withAuthorization, withSubscription } from "components/session";
 import { SuccessToast, ErrorToast } from "components/toast";
 import AddProductContext from "./AddProductContext";
 import AddProductRoutes from "./AddProductRoutes";
@@ -43,9 +43,9 @@ const AddProduct = ({ match, history, client }) => {
         initialValues={{ file: "", name: "", price: "", description: "" }}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={values => _addProductMutation(values, storeUsername)}
+        onSubmit={(values) => _addProductMutation(values, storeUsername)}
       >
-        {FormikProps => (
+        {(FormikProps) => (
           <Form>
             <AddProductContext.Provider value={{ loading, error }}>
               <AddProductRoutes FormikProps={FormikProps} />
@@ -63,4 +63,8 @@ const AddProduct = ({ match, history, client }) => {
   );
 };
 
-export default compose(withApollo, withAuthorization)(AddProduct);
+export default compose(
+  withApollo,
+  withAuthorization,
+  withSubscription
+)(AddProduct);

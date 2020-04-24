@@ -3,7 +3,7 @@
     "id": 1,
     "emoji": "🚚",
     "title": "Pickup/delivery policy",
-    "description": "How do you make deliveries or arrange for pickups of purchased items?",
+    "description": "How and when do you make deliveries or arrange for pickups of purchased items?",
     "label": " PICKUP/DELIVERY POLICY",
     "field": "policyDelivery"
   },

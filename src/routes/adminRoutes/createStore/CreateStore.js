@@ -48,7 +48,7 @@ const CreateStore = ({ history }) => {
 
   return (
     <AuthUserContext.Consumer>
-      {authUser => (
+      {(authUser) => (
         <>
           {/* Document title */}
           <Helmet title={`Finn · Create your store`} />
@@ -71,10 +71,10 @@ const CreateStore = ({ history }) => {
               actions.resetForm();
             }}
           >
-            {FormikProps => (
+            {(FormikProps) => (
               <Form>
                 <CreateStoreRoutes FormikProps={FormikProps} />
-                <Persist name="create-store-form" />
+                <Persist name="create-store-form" isSessionStorage={true} />
               </Form>
             )}
           </Formik>

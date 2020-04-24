@@ -1,11 +1,12 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { compose } from "recompose";
 
 // Import styles
 import "./styles.scss";
 
 // Import components
-import { withAuthorization } from "components/session";
+import { withAuthorization, withSubscription } from "components/session";
 import { EditProductHeader, EditProductForm } from "./containers";
 
 const EditProduct = ({ match }) => {
@@ -31,4 +32,4 @@ const EditProduct = ({ match }) => {
   );
 };
 
-export default withAuthorization(EditProduct);
+export default compose(withAuthorization, withSubscription)(EditProduct);

@@ -1,11 +1,18 @@
 import React from "react";
 
 const StoreHeader = () => (
-  <div className="column is-10-mobile is-6-tablet is-4-desktop">
-    <h1 className="edit-store-header title is-size-3 is-marginless">
-      Edit store info
-    </h1>
-  </div>
+  <>
+    {/* Title */}
+    <h1 className="title is-size-3 is-marginless">Edit store info</h1>
+
+    {/* Sub-title */}
+    <p className="has-text-grey-light is-size-6">
+      Keep your all your store details up to date.{" "}
+      <span role="img" aria-label={"emoji"}>
+        💯
+      </span>
+    </p>
+  </>
 );
 
 export default StoreHeader;

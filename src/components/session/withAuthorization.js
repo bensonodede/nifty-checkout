@@ -7,18 +7,20 @@ import AuthUserContext from "./Context";
 import { withFirebase } from "../firebase";
 
 // Check if user is logged in
-const condition = authUser => !!authUser;
+const condition = (authUser) => !!authUser;
 
-const withAuthorization = Component => {
+const withAuthorization = (Component) => {
   class WithAuthorization extends React.Component {
     componentDidMount() {
       // Firebase Auth state listener
-      this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
-        if (!condition(authUser)) {
-          // If User is not signed in, redirect to login page
-          this.props.history.push("/login");
+      this.listener = this.props.firebase.auth.onAuthStateChanged(
+        (authUser) => {
+          if (!condition(authUser)) {
+            // If User is not signed in, redirect to login page
+            this.props.history.push("/login");
+          }
         }
-      });
+      );
     }
 
     // Remove listener to prevent memory leaks
@@ -29,9 +31,7 @@ const withAuthorization = Component => {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {authUser =>
-            condition(authUser) ? <Component {...this.props} /> : null
-          }
+          {(authUser) => condition(authUser) && <Component {...this.props} />}
         </AuthUserContext.Consumer>
       );
     }

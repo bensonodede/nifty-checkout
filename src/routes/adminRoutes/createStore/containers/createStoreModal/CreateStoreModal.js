@@ -1,8 +1,8 @@
 import React from "react";
-import { BottomModal, CenterModal } from "components/modal";
 import { Breakpoint } from "react-socks";
 
 // Import components
+import { BottomModal, CenterModal } from "components/modal";
 import CreateStoreMobileContent from "./CreateStoreMobileContent";
 import CreateStoreDesktopContent from "./CreateStoreDesktopContent";
 

@@ -30,7 +30,7 @@ const QueryInput = ({
   setFieldTouched,
   setFieldError,
   errors,
-  validateField
+  validateField,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isExist, setIsExist] = useState(null);
@@ -48,7 +48,7 @@ const QueryInput = ({
         }
       >
         <MaskedInput
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             e.key === "Enter" && e.preventDefault();
           }}
           onFocus={() => {
@@ -57,7 +57,7 @@ const QueryInput = ({
           onBlur={() => {
             setIsFocused(false);
           }}
-          onChange={async event => {
+          onChange={async (event) => {
             // Get input value
             let val = event.target.value;
 
@@ -69,6 +69,7 @@ const QueryInput = ({
 
             // Set loading state
             await setIsLoading(true);
+            await setFieldError(name, "Loading");
 
             // If input matches initial value
             if (initialValues[name] === val) {
@@ -81,28 +82,32 @@ const QueryInput = ({
             let { data, errors } = await apolloClient.query({
               query,
               variables: { [queryVariable]: val },
-              errorPolicy: "all"
+              errorPolicy: "all",
             });
 
             // Set query error state
             if (errors) {
-              setisQueryError(true);
-              setFieldError(name, "No internet connection");
+              await setisQueryError(true);
+              await setFieldError(name, "No internet connection");
             }
 
-            // Set query data result and field error
             if (data) {
-              setIsExist(data[queryResultName]);
-              setFieldError(name);
+              // Set query data result to state
+              await setIsExist(data[queryResultName]);
 
-              // If exists and not initial, set error
+              // Reset error field
+              await setFieldError(name);
+
+              // If value exists and does not match initial value, set error
               if (data[queryResultName] && !(initialValues[name] === val)) {
-                setFieldError(name, "username is already taken");
+                await setFieldError(name, "username is already taken");
+              }
+
+              // Run field validation
+              else {
+                await validateField(name);
               }
             }
-
-            // Run field validation
-            await validateField(name);
 
             // Set query loading state
             setIsLoading(false);

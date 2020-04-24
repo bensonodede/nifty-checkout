@@ -44,43 +44,41 @@ const StoreForm = ({ match }) => {
   } = data.store;
 
   return (
-    <div className="column is-10-mobile is-6-tablet is-4-desktop">
-      <Formik
-        initialValues={{
-          storeName,
-          storeUsername,
-          // Add whitespaces and remove country code
-          phoneNumber: phoneNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 "),
-          policyReturns,
-          policyDelivery
-        }}
-        validateOnChange={false}
-        validateOnBlur={false}
-        validateOnMount={false}
-        onSubmit={values => {
-          toggleModal();
-        }}
-      >
-        {FormikProps => (
-          <>
-            <Form>
-              <StoreFormFields {...FormikProps} />
-            </Form>
+    <Formik
+      initialValues={{
+        storeName,
+        storeUsername,
+        // Add whitespaces and remove country code
+        phoneNumber: phoneNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 "),
+        policyReturns,
+        policyDelivery
+      }}
+      validateOnChange={false}
+      validateOnBlur={false}
+      validateOnMount={false}
+      onSubmit={values => {
+        toggleModal();
+      }}
+    >
+      {FormikProps => (
+        <>
+          <Form>
+            <StoreFormFields {...FormikProps} />
+          </Form>
 
-            {/* Confirm details modal */}
-            <ConfirmModal
-              isOpen={isOpen}
-              toggleModal={toggleModal}
-              toggleWaitingModal={toggleWaitingModal}
-              {...FormikProps}
-            />
+          {/* Confirm details modal */}
+          <ConfirmModal
+            isOpen={isOpen}
+            toggleModal={toggleModal}
+            toggleWaitingModal={toggleWaitingModal}
+            {...FormikProps}
+          />
 
-            {/* Waiting for store rebuilding modal  */}
-            <WaitingModal isOpen={isWaitingOpen} id={id} {...FormikProps} />
-          </>
-        )}
-      </Formik>
-    </div>
+          {/* Waiting for store rebuilding modal  */}
+          <WaitingModal isOpen={isWaitingOpen} id={id} {...FormikProps} />
+        </>
+      )}
+    </Formik>
   );
 };
 

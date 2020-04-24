@@ -2,65 +2,36 @@ import React from "react";
 import { Field } from "formik";
 
 // Import components
-import {
-  PayoutMethodInput,
-  PhoneNumberInput,
-  TillNumberInput
-} from "./PayoutInputs";
-import {
-  validateName,
-  validatePhoneNumber,
-  validateTillNumber
-} from "components/validation";
+import { LabelInput } from "components/input";
+import { validatePhoneNumber } from "components/validation";
+import { PhoneNumberMask } from "components/inputMask";
 import PayoutFormFooter from "./PayoutFormFooter";
 
-const PayoutFormFields = ({
-  values: { payoutMethod },
-  dirty,
-  isValid,
-  mutationLoading
-}) => (
+// Phone number input component
+const PhoneNumberInput = ({ field, form }) => (
+  <LabelInput
+    {...field}
+    {...form}
+    label={"+254"}
+    mask={PhoneNumberMask}
+    placeholder={"712 345 678"}
+  />
+);
+
+const PayoutFormFields = ({ dirty, isValid, mutationLoading }) => (
   <>
     <div className="create-store-field">
       <h5 className="create-store-field-label title is-size-7 is-marginless">
-        PAYOUT METHOD
+        M-PESA ENABLED PHONE NUMBER
       </h5>
 
-      {/* Payout method input field */}
+      {/* Phone number input field */}
       <Field
-        name="payoutMethod"
-        validate={validateName}
-        component={PayoutMethodInput}
+        name="payoutNumber"
+        validate={validatePhoneNumber}
+        component={PhoneNumberInput}
       />
     </div>
-
-    {payoutMethod === "phoneNumber" ? (
-      <div className="create-store-field">
-        <h5 className="create-store-field-label title is-size-7 is-marginless">
-          M-PESA ENABLED PHONE NUMBER
-        </h5>
-
-        {/* Phone number input field */}
-        <Field
-          name="payoutNumber"
-          validate={validatePhoneNumber}
-          component={PhoneNumberInput}
-        />
-      </div>
-    ) : (
-      <div className="create-store-field">
-        <h5 className="create-store-field-label title is-size-7 is-marginless">
-          M-PESA TILL NUMBER
-        </h5>
-
-        {/* Phone number input field */}
-        <Field
-          name="payoutNumber"
-          validate={validateTillNumber}
-          component={TillNumberInput}
-        />
-      </div>
-    )}
 
     {/* Form footer */}
     <PayoutFormFooter

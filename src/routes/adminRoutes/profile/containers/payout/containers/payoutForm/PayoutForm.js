@@ -40,17 +40,7 @@ const PayoutForm = ({ match, history }) => {
     return <ErrorToast text={"No internet connection"} emoji={"💩"} />;
   }
 
-  let { id, payoutMethod, payoutNumber } = data.store;
-
-  // Remove country code and add whitespaces after every 3 characters
-  if (payoutMethod === "phoneNumber") {
-    payoutNumber = payoutNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 ");
-  }
-
-  // Add whitespace after every 3 characters
-  if (payoutMethod === "tillNumber") {
-    payoutNumber = payoutNumber.replace(/(\d{3})(?=\d)/g, "$1 ");
-  }
+  let { id, payoutNumber } = data.store;
 
   // Redirect after successful mutation
   if (mutationData) {
@@ -63,8 +53,8 @@ const PayoutForm = ({ match, history }) => {
     <>
       <Formik
         initialValues={{
-          payoutMethod,
-          payoutNumber
+          // Add whitespaces and remove country code
+          payoutNumber: payoutNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 ")
         }}
         validateOnBlur={false}
         validateOnMount={false}

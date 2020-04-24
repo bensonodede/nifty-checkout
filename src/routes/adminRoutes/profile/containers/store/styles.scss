@@ -1,11 +1,5 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.edit-store-header {
-  @include desktop {
-    position: fixed;
-  }
-}
-
 .edit-store-footer {
   @include mobile {
     position: fixed;
