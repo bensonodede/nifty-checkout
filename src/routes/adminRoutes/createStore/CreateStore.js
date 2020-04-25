@@ -74,7 +74,7 @@ const CreateStore = ({ history }) => {
             {(FormikProps) => (
               <Form>
                 <CreateStoreRoutes FormikProps={FormikProps} />
-                <Persist name="create-store-form" isSessionStorage={true} />
+                <Persist name="create-store-form" />
               </Form>
             )}
           </Formik>
