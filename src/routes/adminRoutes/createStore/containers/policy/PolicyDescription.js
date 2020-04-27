@@ -11,7 +11,7 @@ const PolicyDescription = () => (
     </p>
 
     <h1 className="has-text-grey-dark is-size-6">
-      (This info will be displayed on every product page)
+      (This info will be displayed on every product page and purchase receipt)
     </h1>
   </>
 );

@@ -11,6 +11,7 @@ import { ErrorToast } from "components/toast";
 // Import graphql operations
 import { STORE_SUBSCRIPTION_PLAN_QUERY } from "components/graphql/query";
 
+//! DOES NOT FETCH LATEST DATE (NEEDS FIX)
 const SubscriptionSuccess = ({ match, history }) => {
   // Destructure route params
   let { storeUsername } = match.params;
@@ -18,6 +19,7 @@ const SubscriptionSuccess = ({ match, history }) => {
   // Query for store subscription plan
   const { loading, error, data } = useQuery(STORE_SUBSCRIPTION_PLAN_QUERY, {
     variables: { storeUsername },
+    fetchPolicy: "network-only",
   });
 
   // Handle loading state

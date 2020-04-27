@@ -24,26 +24,43 @@ const checkStatus = ({
   // Subscription status is ACTIVE
   if (status === "active") {
     if (isExpired(end)) {
-      // Run mutation
+      // Set status to "expired"
       apolloClient
         .mutate({
           variables: { id, status: "expired" },
           mutation: UPDATE_SUBSCRIPTION_PLAN,
         })
+        // Redirect to expired route
         .then((result) => {
           history.push(`/${storeUsername}/admin/subscription/expired`);
         });
     }
   }
 
-  // Subscription status is expired
+  // Subscription status is EXPIRED
   if (status === "expired") {
     history.push(`/${storeUsername}/admin/subscription/expired`);
   }
 
-  // Subscritpion status is NEW
-  if (status === "new") {
-    history.push(`/${storeUsername}/admin/subscription/new`);
+  // Subscritpion status is TRIAL
+  if (status === "trial") {
+    if (isExpired(end)) {
+      // Set status to "trial_expired"
+      apolloClient
+        .mutate({
+          variables: { id, status: "trial_expired" },
+          mutation: UPDATE_SUBSCRIPTION_PLAN,
+        })
+        // Redirect to expired route
+        .then((result) => {
+          history.push(`/${storeUsername}/admin/subscription/trial-expired`);
+        });
+    }
+  }
+
+  // Subscription status is TRIAL_EXPIRED
+  if (status === "trial_expired") {
+    history.push(`/${storeUsername}/admin/subscription/trial-expired`);
   }
 };
 

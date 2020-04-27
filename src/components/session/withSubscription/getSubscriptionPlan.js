@@ -7,6 +7,7 @@ const getSubscriptionPlan = (storeUsername, apolloClient) => {
     query: STORE_SUBSCRIPTION_PLAN_QUERY,
     variables: { storeUsername },
     errorPolicy: "all",
+    fetchPolicy: "network-only",
   });
 };
 

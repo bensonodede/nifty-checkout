@@ -66,9 +66,6 @@ const CreateStore = ({ history }) => {
 
               // Add uid to 'values' object and run create store mutation
               mutate({ variables: { ...values, ...{ uid } } });
-
-              // Reset form values
-              actions.resetForm();
             }}
           >
             {(FormikProps) => (
