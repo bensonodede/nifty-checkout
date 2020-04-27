@@ -20,7 +20,7 @@ const StoreUsernameInput = ({ field, form }) => (
     queryResultName={"usernameExists"}
     queryErrorMessage={"username is not available"}
     placeholder={"kickasskicks"}
-    mask={(s) => Array.from(s).map(() => /[a-z0-9]+/)}
+    mask={(s) => Array.from(s).map(() => /[a-zA-Z0-9]+/)}
   />
 );
 

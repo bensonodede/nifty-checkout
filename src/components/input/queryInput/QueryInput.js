@@ -59,7 +59,7 @@ const QueryInput = ({
           }}
           onChange={async (event) => {
             // Get input value
-            let val = event.target.value;
+            let val = event.target.value.toLowerCase();
 
             // Set value to field
             await setFieldValue(name, val);
