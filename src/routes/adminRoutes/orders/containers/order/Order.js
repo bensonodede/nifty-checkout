@@ -23,8 +23,8 @@ const Order = ({ match }) => {
   const { loading, error, data } = useQuery(ORDER_BY_ORDERID_QUERY, {
     variables: {
       storeUsername,
-      orderId: Number(orderId)
-    }
+      orderId: Number(orderId),
+    },
   });
 
   // Loading state

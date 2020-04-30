@@ -1,14 +1,14 @@
 import { useMutation } from "@apollo/react-hooks";
 
 // Import graphql operations
-import { UPDATE_PAYOUT } from "components/graphql/mutation";
+import { UPDATE_STORE_PAYOUT_INFO } from "components/graphql/mutation";
 
 const editPayoutMutation = () => {
   // Destructure mutation hooks
   const [
     mutate,
     { loading: mutationLoading, error: mutationError, data: mutationData }
-  ] = useMutation(UPDATE_PAYOUT);
+  ] = useMutation(UPDATE_STORE_PAYOUT_INFO);
 
   const _editPayoutMutation = values => {
     // Run mutation to create product

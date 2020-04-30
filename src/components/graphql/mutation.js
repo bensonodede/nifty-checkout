@@ -83,9 +83,9 @@ const UPDATE_SUBSCRIPTION_PLAN = gql`
 `;
 
 // Update payout
-const UPDATE_PAYOUT = gql`
-  mutation UpdatePayout($id: String!, $payoutNumber: String!) {
-    updatePayout(id: $id, payoutNumber: $payoutNumber) {
+const UPDATE_STORE_PAYOUT_INFO = gql`
+  mutation UpdateStorePayoutInfo($id: String!, $payoutNumber: String!) {
+    updateStorePayoutInfo(id: $id, payoutNumber: $payoutNumber) {
       id
       payoutNumber
     }
@@ -197,7 +197,7 @@ export {
   UPDATE_STORE_INFO,
   ACTIVATE_SUBSCRIPTION_PLAN,
   UPDATE_SUBSCRIPTION_PLAN,
-  UPDATE_PAYOUT,
+  UPDATE_STORE_PAYOUT_INFO,
   // Product mutations
   CREATE_PRODUCT,
   UPDATE_PRODUCT,

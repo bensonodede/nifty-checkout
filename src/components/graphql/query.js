@@ -126,7 +126,7 @@ const ORDER_BY_ORDERID_QUERY = gql`
         id
         mpesaReceiptNumber
         phoneNumber
-        amount
+        gross
       }
       product {
         id

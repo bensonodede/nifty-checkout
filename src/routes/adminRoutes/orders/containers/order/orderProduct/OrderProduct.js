@@ -17,7 +17,7 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
   const [mutate, { loading, error, data }] = useMutation(TOGGLE_ORDER_STATUS);
 
   // Destructure payment data
-  const { mpesaReceiptNumber, amount } = paymentData;
+  const { mpesaReceiptNumber, gross } = paymentData;
 
   return (
     <div className="column is-10-mobile is-10-tablet is-6-desktop">
@@ -27,7 +27,7 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
           <h1 className="title is-size-4">Product</h1>
 
           {/* Order product tally */}
-          <OrderProductTally productData={productData} amount={amount} />
+          <OrderProductTally productData={productData} amount={gross} />
 
           {/* Order product payment */}
           <OrderProductPayment mpesaReceiptNumber={mpesaReceiptNumber} />
@@ -48,7 +48,7 @@ const OrderProduct = ({ productData, paymentData, orderStatus, id }) => {
       {/* Success state */}
       {data && (
         <SuccessToast
-          emoji={`${data.toggleOrderStatus.orderStatus ? `🟢` : `🟡`}`}
+          emoji={`${data.toggleOrderStatus.orderStatus ? `🌵` : `🌝`}`}
           text={`Marked as ${
             data.toggleOrderStatus.orderStatus ? `fulfilled` : `pending`
           }`}
