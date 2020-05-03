@@ -2,12 +2,16 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 // Import components
-import { HomeHeader, HomeList, HomeFooter } from "./containers";
+import {
+  ProfileDashboardHeader,
+  ProfileDashboardList,
+  ProfileDashboardFooter,
+} from "./containers";
 
 // Import styles
 import "./styles.scss";
 
-const Home = ({ match }) => {
+const ProfileDashboard = ({ match }) => {
   // Destructure store name params
   let { storeUsername } = match.params;
 
@@ -21,17 +25,17 @@ const Home = ({ match }) => {
         <div className="container">
           <div className="columns is-mobile is-multiline is-centered">
             {/* Profile header */}
-            <HomeHeader />
+            <ProfileDashboardHeader />
 
             {/* Profile List */}
-            <HomeList />
+            <ProfileDashboardList />
 
             {/* Profile footer */}
-            <HomeFooter />
+            <ProfileDashboardFooter />
           </div>
         </div>
       </div>
     </>
   );
 };
-export default Home;
+export default ProfileDashboard;

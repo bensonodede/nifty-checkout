@@ -1,9 +1,9 @@
 import React from "react";
 
-const HomeItemEmoji = ({ emoji }) => (
+const ProfileDashboardItemEmoji = ({ emoji }) => (
   <span role="img" aria-label={"emoji"} className="home-item__emoji">
     {emoji}
   </span>
 );
 
-export default HomeItemEmoji;
+export default ProfileDashboardItemEmoji;

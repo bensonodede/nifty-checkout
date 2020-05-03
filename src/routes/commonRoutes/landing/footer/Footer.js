@@ -14,9 +14,16 @@ const Footer = () => (
 
       {/* Footer logo */}
       <div className="column is-full">
-        <h1 className="title is-size-5-mobile is-size-5-tablet is-size-4-desktop has-text-centered">
+        <img
+          src={
+            "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583742008/web_assets/finn-logo.png"
+          }
+          alt={"finn logo"}
+          className={"footer__logo"}
+        />
+        {/* <h1 className="title is-size-5-mobile is-size-5-tablet is-size-4-desktop has-text-centered">
           finn.
-        </h1>
+        </h1> */}
       </div>
 
       {/* Footer links & logo container */}

@@ -17,18 +17,23 @@ const SignUp = () => (
               {/* Signup Emoji */}
               <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop has-text-centered is-marginless signup-section__emoji">
                 <span aria-label="hands raised emoji" role="img">
-                  🙌
-                </span>{" "}
+                  🙌{" "}
+                </span>
               </h1>
 
               {/* Signup Title */}
-              <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop has-text-centered has-text-white is-marginless signup-section__title">
-                Start selling in just 5 minutes
-              </h1>
+              <div className="signup-section__title">
+                <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop has-text-centered has-text-white is-marginless">
+                  It's easy to get started
+                </h1>
+                <p className="has-text-white has-text-centered">
+                  And it's free. Two things everyone loves.
+                </p>
+              </div>
 
               {/* Signup Button */}
               <Link to={"/login"}>
-                <Button className="signup-section__button">Get started</Button>
+                <Button className="signup-section__button">Try for free</Button>
               </Link>
             </div>
           </div>

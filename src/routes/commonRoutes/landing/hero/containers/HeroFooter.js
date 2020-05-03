@@ -2,7 +2,7 @@ import React from "react";
 import { Breakpoint } from "react-socks";
 
 const HeroFooter = () => (
-  <div className="hero-foot ">
+  <div className="hero-foot">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
         <div className="column is-11-mobile is-12-tablet is-12-desktop">

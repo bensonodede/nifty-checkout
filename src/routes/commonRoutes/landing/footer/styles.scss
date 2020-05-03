@@ -1,3 +1,5 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
 .footer {
   overflow: hidden;
   padding-bottom: 1.5rem;
@@ -8,6 +10,20 @@
   height: 1px;
   width: 90%;
   margin: 1rem auto 2.5rem auto;
+}
+
+.footer__logo {
+  display: flex;
+  margin: auto;
+  @include mobile {
+    width: 2.5rem;
+  }
+  @include tablet {
+    width: 3rem;
+  }
+  @include desktop {
+    width: 3rem;
+  }
 }
 
 .footer__list {

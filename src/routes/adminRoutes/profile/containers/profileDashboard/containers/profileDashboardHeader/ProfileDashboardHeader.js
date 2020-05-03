@@ -4,10 +4,11 @@ import React from "react";
 import { useAuth } from "components/session";
 import { withFirebase } from "components/firebase";
 
-const HomeHeader = ({ firebase }) => {
+const ProfileDashboardHeader = ({ firebase }) => {
   // Firebase auth hook
   const { authUser } = useAuth(firebase);
 
+  // Define global variables
   let displayName, email;
 
   if (authUser) {
@@ -17,6 +18,7 @@ const HomeHeader = ({ firebase }) => {
 
   return (
     <div className="column is-10">
+      {/* Title */}
       <h1 className="title is-size-3">Profile</h1>
 
       {/* Sub title */}
@@ -27,4 +29,4 @@ const HomeHeader = ({ firebase }) => {
   );
 };
 
-export default withFirebase(HomeHeader);
+export default withFirebase(ProfileDashboardHeader);

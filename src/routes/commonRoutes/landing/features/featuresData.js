@@ -11,23 +11,23 @@ const featuresData = [
     features: [
       {
         id: 11,
-        text: "Branded store"
+        text: "Branded store",
       },
       {
         id: 12,
-        text: "Free sub-domain"
+        text: "Free sub-domain",
       },
       {
         id: 13,
-        text: "Custom domains (Coming soon)"
-      }
-    ]
+        text: "Custom domains (Coming soon)",
+      },
+    ],
   },
 
   // Feature social media
   {
     id: "02",
-    title: 'Never say \n "Text/Call to order" \n again.',
+    title: 'Never say \n "DM/Text/Call to order" \n again.',
     description:
       "The easier it is for your customers to buy, the more sales you'll see.",
     image:
@@ -36,17 +36,17 @@ const featuresData = [
     features: [
       {
         id: 21,
-        text: "Connect with your social media"
+        text: "Connect with your social media",
       },
       {
         id: 22,
-        text: "No sign ups"
+        text: "No sign ups",
       },
       {
         id: 23,
-        text: "No checkout forms"
-      }
-    ]
+        text: "No checkout forms",
+      },
+    ],
   },
 
   // Feature dashboard
@@ -61,17 +61,17 @@ const featuresData = [
     features: [
       {
         id: 31,
-        text: "Product and order management"
+        text: "Product and order management",
       },
       {
         id: 32,
-        text: "SMS notifications for new orders"
+        text: "SMS notifications for new orders",
       },
       {
         id: 33,
-        text: "Inventory management (Coming soon)"
-      }
-    ]
+        text: "Inventory management (Coming soon)",
+      },
+    ],
   },
 
   // Feature payments
@@ -79,24 +79,24 @@ const featuresData = [
     id: "04",
     title: "The best payment experience for you and your customers.",
     description:
-      "Payments kinda suck, we've made it so simple it kinda works like magic.",
+      "Payments online kinda suck, we've made it so simple it kinda works like magic.",
     image:
       "https://res.cloudinary.com/dzxuz9zc9/image/upload/q_auto/v1583007506/web_assets/feature-payment.png",
     features: [
       {
         id: 41,
-        text: "One-click M-pesa checkout"
+        text: "One-click M-pesa purchases",
       },
       {
         id: 42,
-        text: "Accept paypal and credit cards (Coming soon)"
+        text: "Accept paypal and credit cards (Coming soon)",
       },
       {
         id: 43,
-        text: "Get paid in 24hrs"
-      }
-    ]
-  }
+        text: "Get paid in 24hrs",
+      },
+    ],
+  },
 ];
 
 export default featuresData;
