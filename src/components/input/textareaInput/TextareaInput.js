@@ -13,13 +13,10 @@ const TextareaInput = ({
   value,
   placeholder,
   minRows,
-  maxRows
+  maxRows,
 }) => (
   <div className="textarea-input">
     <TextareaAutosize
-      onKeyPress={e => {
-        e.key === "Enter" && e.preventDefault();
-      }}
       type="text"
       autoComplete="off"
       autoCorrect="off"
@@ -32,7 +29,7 @@ const TextareaInput = ({
         errors[name] ? `textarea-input__entry--error` : ``
       }`}
       value={value}
-      onChange={async event => {
+      onChange={async (event) => {
         // Get input value
         let val = event.target.value;
 
