@@ -5,7 +5,7 @@ import {
   GenericInput,
   QueryInput,
   LabelInput,
-  TextareaInput
+  TextareaInput,
 } from "components/input";
 import { PhoneNumberMask } from "components/inputMask";
 import { STORE_USERNAME_EXISTS_QUERY } from "components/graphql/query";
@@ -23,7 +23,7 @@ const StoreUsernameInput = ({ field, form }) => (
     queryResultName={"usernameExists"}
     queryErrorMessage={"username is not available"}
     placeholder={"kickasskicks"}
-    mask={s => Array.from(s).map(() => /[a-z0-9]+/)}
+    mask={(s) => Array.from(s).map(() => /[a-zA-Z0-9]+/)}
   />
 );
 
@@ -62,5 +62,5 @@ export {
   StoreUsernameInput,
   PhoneNumberInput,
   PolicyReturnsInput,
-  PolicyDeliveryInput
+  PolicyDeliveryInput,
 };

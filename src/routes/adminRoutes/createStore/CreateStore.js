@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { compose } from "recompose";
 import { Formik, Form } from "formik";
-import { Persist } from "formik-persist";
 import { useMutation } from "@apollo/react-hooks";
 
 // Import components
@@ -70,8 +69,7 @@ const CreateStore = ({ history }) => {
           >
             {(FormikProps) => (
               <Form>
-                <CreateStoreRoutes FormikProps={FormikProps} />
-                <Persist name="create-store-form" />
+                <CreateStoreRoutes FormikProps={FormikProps} />                
               </Form>
             )}
           </Formik>
