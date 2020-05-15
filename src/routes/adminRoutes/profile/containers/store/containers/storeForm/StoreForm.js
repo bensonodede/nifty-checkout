@@ -17,7 +17,7 @@ import { STORE_QUERY } from "components/graphql/query";
 const StoreForm = ({ match }) => {
   // Run store query
   const { loading, error, data } = useQuery(STORE_QUERY, {
-    variables: { storeUsername: match.params.storeUsername }
+    variables: { storeUsername: match.params.storeUsername },
   });
 
   // Instantiate confirm and waiting modal
@@ -40,7 +40,7 @@ const StoreForm = ({ match }) => {
     storeUsername,
     phoneNumber,
     policyReturns,
-    policyDelivery
+    policyDelivery,
   } = data.store;
 
   return (
@@ -51,16 +51,16 @@ const StoreForm = ({ match }) => {
         // Add whitespaces and remove country code
         phoneNumber: phoneNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 "),
         policyReturns,
-        policyDelivery
+        policyDelivery,
       }}
       validateOnChange={false}
       validateOnBlur={false}
       validateOnMount={false}
-      onSubmit={values => {
+      onSubmit={(values) => {
         toggleModal();
       }}
     >
-      {FormikProps => (
+      {(FormikProps) => (
         <>
           <Form>
             <StoreFormFields {...FormikProps} />
@@ -74,7 +74,7 @@ const StoreForm = ({ match }) => {
             {...FormikProps}
           />
 
-          {/* Waiting for store rebuilding modal  */}
+          {/* Waiting for store rebuilding modal */}
           <WaitingModal isOpen={isWaitingOpen} id={id} {...FormikProps} />
         </>
       )}

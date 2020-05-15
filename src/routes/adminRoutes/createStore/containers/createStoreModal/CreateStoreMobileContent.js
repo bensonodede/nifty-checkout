@@ -1,12 +1,12 @@
 import React from "react";
 
 // Import components
-import { Loader } from "components/loader";
+import { ProgressLoader } from "components/loader";
 
 // Import styles
 import "./styles.scss";
 
-const CreateStoreMobileContent = () => (
+const CreateStoreMobileContent = ({ percentageLoading }) => (
   <div className="create-store-modal-mobile">
     <div>
       {/* Create store emoji */}
@@ -29,7 +29,7 @@ const CreateStoreMobileContent = () => (
 
     {/* Create store loader */}
     <div className="create-store-modal-mobile__loader">
-      <Loader />
+      <ProgressLoader percent={percentageLoading} />
     </div>
   </div>
 );

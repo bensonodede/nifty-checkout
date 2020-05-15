@@ -1,5 +1,5 @@
 // Import packages
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { compose } from "recompose";
 import { Formik, Form } from "formik";
@@ -27,6 +27,8 @@ const CreateStore = ({ history }) => {
   // Destructure hooks
   const [isOpen, toggleModal] = useModal(false);
   const [mutate, { error, data }] = useMutation(CREATE_STORE);
+  // Percentage loaded state
+  const [percentageLoading, setPercentageLoading] = useState(0);
 
   // Close modal if error occurs
   useEffect(() => {
@@ -43,6 +45,20 @@ const CreateStore = ({ history }) => {
     setTimeout(() => {
       history.push(`/${data.createStore.storeUsername}/admin`);
     }, 2500);
+  }
+
+  // Progress loader function
+  if (isOpen) {
+    setTimeout(() => {
+      if (percentageLoading < 95 && !error) {
+        setPercentageLoading(percentageLoading + 1);
+      }
+
+      // Set loader to 100%
+      if (data) {
+        setPercentageLoading(100);
+      }
+    }, 1200);
   }
 
   return (
@@ -69,13 +85,16 @@ const CreateStore = ({ history }) => {
           >
             {(FormikProps) => (
               <Form>
-                <CreateStoreRoutes FormikProps={FormikProps} />                
+                <CreateStoreRoutes FormikProps={FormikProps} />
               </Form>
             )}
           </Formik>
 
           {/* Loading modal */}
-          <CreateStoreModal isOpen={isOpen} />
+          <CreateStoreModal
+            percentageLoading={percentageLoading}
+            isOpen={isOpen}
+          />
 
           {/* Error toast */}
           {error && <ErrorToast emoji={"💩"} text={"No internet connection"} />}

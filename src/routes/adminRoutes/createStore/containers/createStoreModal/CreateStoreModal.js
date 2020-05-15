@@ -6,19 +6,19 @@ import { BottomModal, CenterModal } from "components/modal";
 import CreateStoreMobileContent from "./CreateStoreMobileContent";
 import CreateStoreDesktopContent from "./CreateStoreDesktopContent";
 
-const CreateStoreModal = ({ isOpen }) => (
+const CreateStoreModal = ({ percentageLoading, isOpen }) => (
   <>
     {/* Mobile modal */}
     <Breakpoint mobile only>
       <BottomModal isOpen={isOpen} toggleModal={null}>
-        <CreateStoreMobileContent />
+        <CreateStoreMobileContent percentageLoading={percentageLoading} />
       </BottomModal>
     </Breakpoint>
 
     {/* Tablet and desktop modal */}
     <Breakpoint tablet up>
       <CenterModal isOpen={isOpen} toggleModal={null}>
-        <CreateStoreDesktopContent />
+        <CreateStoreDesktopContent percentageLoading={percentageLoading} />
       </CenterModal>
     </Breakpoint>
   </>

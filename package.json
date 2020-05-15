@@ -50,6 +50,7 @@
     "react-scripts": "2.1.5",
     "react-select": "3.0.8",
     "react-socks": "2.0.2",
+    "react-step-progress-bar": "1.0.3",
     "react-sticky": "6.0.3",
     "react-text-mask": "5.4.3",
     "react-textarea-autosize": "7.1.2",
