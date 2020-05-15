@@ -36,7 +36,7 @@ const withSubscription = (Component) => {
     }
 
     render() {
-      return <>{this.state.data && <Component {...this.props} />}</>;
+      return <>{<Component {...this.props} />}</>;
     }
   }
 
