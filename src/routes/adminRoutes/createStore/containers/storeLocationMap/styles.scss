@@ -1,0 +1,8 @@
+.delivery {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* just make scrollbar invisible */
+}

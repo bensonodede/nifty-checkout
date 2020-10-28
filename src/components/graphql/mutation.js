@@ -7,6 +7,10 @@ const CREATE_STORE = gql`
     $storeUsername: String!
     $phoneNumber: String!
     $payoutNumber: String!
+    $storeLocation: LocationInput!
+    $storeLocationAddress: String!
+    $costPerKm: String!
+    $minDeliveryFee: String!
     $policyDelivery: String!
     $policyReturns: String!
     $uid: String!
@@ -16,6 +20,10 @@ const CREATE_STORE = gql`
       storeUsername: $storeUsername
       phoneNumber: $phoneNumber
       payoutNumber: $payoutNumber
+      storeLocation: $storeLocation
+      storeLocationAddress: $storeLocationAddress
+      costPerKm: $costPerKm
+      minDeliveryFee: $minDeliveryFee
       policyDelivery: $policyDelivery
       policyReturns: $policyReturns
       uid: $uid
@@ -97,24 +105,42 @@ const CREATE_PRODUCT = gql`
   mutation CreateProduct(
     $name: String!
     $price: Float!
-    $file: Upload!
+    $imgUrls: [String!]!
     $description: String!
+    $quantity: Float
+    $options: [OptionInput!]!
+    $variants: [VariantInput!]!
     $storeUsername: String!
   ) {
     createProduct(
       name: $name
       price: $price
-      file: $file
+      imgUrls: $imgUrls
       description: $description
+      quantity: $quantity
+      options: $options
+      variants: $variants
       storeUsername: $storeUsername
     ) {
       id
-      humanId
+      createdAt
+      updatedAt
       name
       price
-      imgUrl
-      store {
-        storeUsername
+      imgUrls
+      quantity
+      options {
+        id
+        title
+        tags
+      }
+      variants {
+        id
+        combinations
+        label
+        price
+        publish
+        quantity
       }
     }
   }
@@ -123,36 +149,50 @@ const CREATE_PRODUCT = gql`
 // Update a product
 const UPDATE_PRODUCT = gql`
   mutation UpdateProduct(
-    $id: String!
-    $imgUrl: String!
-    $file: Upload!
     $name: String!
     $price: Float!
+    $imgUrls: [String!]!
     $description: String!
+    $quantity: Float
+    $options: [OptionInput!]!
+    $variants: [VariantInput!]!
+    $id: String!
   ) {
     updateProduct(
-      id: $id
-      imgUrl: $imgUrl
-      file: $file
       name: $name
       price: $price
+      imgUrls: $imgUrls
       description: $description
+      quantity: $quantity
+      options: $options
+      variants: $variants
+      id: $id
     ) {
       id
-      imgUrl
-      name
-      price
-      description
       createdAt
       updatedAt
+      name
+      price
+      imgUrls
+      quantity
+      options {
+        id
+        title
+        tags
+      }
+      variants {
+        id
+        quantity
+        publish
+      }
     }
   }
 `;
 
 // Delete a product
 const DELETE_PRODUCT = gql`
-  mutation DeleteProduct($id: String!, $imgUrl: String!) {
-    deleteProduct(id: $id, imgUrl: $imgUrl) {
+  mutation DeleteProduct($id: String!, $imgUrls: [String!]!) {
+    deleteProduct(id: $id, imgUrls: $imgUrls) {
       id
     }
   }
@@ -191,6 +231,13 @@ const TOGGLE_ORDER_STATUS = gql`
   }
 `;
 
+// Delete cloudinary file
+const DELETE_CLOUDINARY_FILE = gql`
+  mutation DeleteCloudinaryFile($imgUrl: String!) {
+    deleteCloudinaryFile(imgUrl: $imgUrl)
+  }
+`;
+
 export {
   // Store mutations
   CREATE_STORE,
@@ -205,4 +252,5 @@ export {
   // Order mutations
   CREATE_ORDER,
   TOGGLE_ORDER_STATUS,
+  DELETE_CLOUDINARY_FILE,
 };

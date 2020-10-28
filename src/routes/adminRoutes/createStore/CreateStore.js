@@ -10,7 +10,6 @@ import { withAuthorization, AuthUserContext } from "components/session";
 import { withFirebase } from "components/firebase";
 import { useModal } from "components/modal";
 import { ErrorToast, SuccessToast } from "components/toast";
-import { Mixpanel } from "components/mixpanel";
 import { CreateStoreModal } from "./containers";
 import CreateStoreRoutes from "./CreateStoreRoutes";
 
@@ -19,6 +18,7 @@ import { CREATE_STORE } from "components/graphql/mutation";
 
 // Import styles
 import "./styles.scss";
+import { FormikPersist } from "components/form";
 
 // Initial form values
 const initialFormValues = require("./initialFormValues.json");
@@ -39,9 +39,6 @@ const CreateStore = ({ history }) => {
 
   // Redirect to admin page
   if (data) {
-    // Handle mixpanel event
-    Mixpanel.track("Created store");
-
     setTimeout(() => {
       history.push(`/${data.createStore.storeUsername}/admin`);
     }, 2500);
@@ -86,6 +83,9 @@ const CreateStore = ({ history }) => {
             {(FormikProps) => (
               <Form>
                 <CreateStoreRoutes FormikProps={FormikProps} />
+
+                {/* Persist values in local storage */}
+                <FormikPersist name={"create-store"} />
               </Form>
             )}
           </Formik>

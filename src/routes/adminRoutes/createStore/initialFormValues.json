@@ -3,6 +3,10 @@
   "storeUsername": "",
   "phoneNumber": "",
   "payoutNumber": "",
+  "storeLocationAddress": "",
+  "storeLocation": null,
+  "costPerKm": "",
+  "minDeliveryFee": "",
   "policyDelivery": "",
   "policyReturns": ""
 }

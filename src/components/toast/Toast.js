@@ -9,7 +9,7 @@ import "./styles.scss";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
 
-const Toast = ({ isOpen, emoji, toggleToast, children }) =>
+const Toast = ({ isOpen, emoji, toggleToast, onClose, children }) =>
   ReactDOM.createPortal(
     <>
       <CSSTransition
@@ -18,7 +18,7 @@ const Toast = ({ isOpen, emoji, toggleToast, children }) =>
         in={isOpen}
         classNames="toast-animation"
         timeout={500}
-        onClick={e => {
+        onClick={(e) => {
           e.stopPropagation();
         }}
       >
@@ -42,7 +42,19 @@ const Toast = ({ isOpen, emoji, toggleToast, children }) =>
 
                 {/* Toast close button */}
                 <div className="toast__icon-container">
-                  <div className="toast__icon" onClick={toggleToast}>
+                  <div
+                    className="toast__icon"
+                    onClick={() => {
+                      toggleToast();
+
+                      // Run on close callback after exit animation
+                      if (onClose) {
+                        setTimeout(() => {
+                          onClose();
+                        }, 500);
+                      }
+                    }}
+                  >
                     <Icon icon={ic_close} size={"100%"} />
                   </div>
                 </div>

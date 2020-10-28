@@ -2,16 +2,13 @@ import React from "react";
 
 // Import components
 import { SignOut } from "components/auth";
+import Button from "components/button";
 
 const ProfileDashboardFooter = () => (
   <div className="column is-10">
     <SignOut>
       <div className="home-footer__logout-container">
-        <div className="home-footer__logout">
-          <h1 className="title is-size-6 has-text-centered is-marginless">
-            Log out
-          </h1>
-        </div>
+        <Button isOutline>Log out</Button>
       </div>
     </SignOut>
   </div>

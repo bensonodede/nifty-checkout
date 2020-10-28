@@ -70,7 +70,7 @@ const STORE_QUERY = gql`
 
 // Get number of products in a store
 const PRODUCTS_COUNT = gql`
-  query productsByStoreCount($storeUsername: String!) {
+  query ProductsByStoreCount($storeUsername: String!) {
     productsByStoreCount(storeUsername: $storeUsername) {
       count
     }
@@ -78,7 +78,7 @@ const PRODUCTS_COUNT = gql`
 `;
 
 // Get all products from a store
-const PRODUCTS_FEED_QUERY = gql`
+const PRODUCTS_BY_STORE_QUERY = gql`
   query ProductsByStoreQuery(
     $storeUsername: String!
     $first: Int
@@ -92,11 +92,26 @@ const PRODUCTS_FEED_QUERY = gql`
       orderBy: $orderBy
     ) @connection(key: "productsByStore", filter: ["type"]) {
       id
-      humanId
-      name
-      price
-      imgUrl
+      createdAt
       updatedAt
+      name
+      description
+      price
+      imgUrls
+      quantity
+      options {
+        id
+        title
+        tags
+      }
+      variants {
+        id
+        combinations
+        label
+        price
+        publish
+        quantity
+      }
     }
   }
 `;
@@ -105,41 +120,43 @@ const PRODUCTS_FEED_QUERY = gql`
 const PRODUCT_QUERY = gql`
   query ProductQuery($id: String!) {
     product(id: $id) {
+      id
       name
       price
       description
-      imgUrl
-    }
-  }
-`;
-
-// Get an order by orderId
-const ORDER_BY_ORDERID_QUERY = gql`
-  query OrderByOrderIdQuery($storeUsername: String!, $orderId: Int!) {
-    orderByOrderId(storeUsername: $storeUsername, orderId: $orderId) {
-      id
-      orderId
-      orderStatus
-      paymentStatus
-      createdAt
-      payment {
+      imgUrls
+      quantity
+      options {
         id
-        mpesaReceiptNumber
-        phoneNumber
-        gross
+        title
+        tags
       }
-      product {
+      variants {
         id
-        name
-        imgUrl
+        combinations
+        label
         price
+        publish
+        quantity
       }
     }
   }
 `;
 
-// Get all products from a store
-const ORDERS_FEED_QUERY = gql`
+// Get number of Orders in a store
+const ORDERS_COUNT = gql`
+  query OrdersByStoreCount($storeUsername: String!, $orderStatus: Int) {
+    ordersByStoreCount(
+      storeUsername: $storeUsername
+      orderStatus: $orderStatus
+    ) {
+      count
+    }
+  }
+`;
+
+// Get all orders from a store
+const ORDERS_BY_STORE_QUERY = gql`
   query OrdersByStoreQuery(
     $storeUsername: String!
     $orderStatus: Int
@@ -155,14 +172,73 @@ const ORDERS_FEED_QUERY = gql`
       orderBy: $orderBy
     ) @connection(key: "ordersByStore", filter: ["type"]) {
       id
+      createdAt
+      updatedAt
       orderId
       orderStatus
-      createdAt
-      product {
+      total
+      orderProducts {
         id
-        name
-        imgUrl
+        product {
+          id
+          imgUrls
+        }
       }
+    }
+  }
+`;
+
+// Get an order by orderId
+const ORDER_BY_ORDERID_QUERY = gql`
+  query OrderByOrderIdQuery($storeUsername: String!, $orderId: Int!) {
+    orderByOrderId(storeUsername: $storeUsername, orderId: $orderId) {
+      id
+      orderId
+      createdAt
+      orderStatus
+      paymentStatus
+      orderProducts {
+        id
+        product {
+          id
+          name
+          imgUrls
+          price
+          options {
+            id
+            tags
+            title
+          }
+        }
+        variant {
+          id
+          combinations
+          label
+          price
+        }
+        selectedQuantity
+      }
+      payment {
+        id
+        mpesaReceiptNumber
+        phoneNumber
+        gross
+        amount
+        fees
+      }
+      deliveryLocation {
+        lat
+        lng
+      }
+      store {
+        storeLocation {
+          lat
+          lng
+        }
+      }
+      productTotal
+      deliveryFee
+      total
     }
   }
 `;
@@ -176,10 +252,11 @@ export {
   STORE_SUBSCRIPTION_PLAN_QUERY,
   SUBSCRIPTION_PLAN_PAYMENT_POLL_QUERY,
   // Products query
-  PRODUCTS_FEED_QUERY,
+  PRODUCTS_BY_STORE_QUERY,
   PRODUCTS_COUNT,
   PRODUCT_QUERY,
   // Orders query
+  ORDERS_COUNT,
+  ORDERS_BY_STORE_QUERY,
   ORDER_BY_ORDERID_QUERY,
-  ORDERS_FEED_QUERY,
 };

@@ -10,7 +10,7 @@ const GenericInput = ({
   validateField,
   name,
   value,
-  placeholder
+  placeholder,
 }) => (
   <div className="generic-input">
     {/* Text input */}
@@ -26,10 +26,10 @@ const GenericInput = ({
         errors[name] ? `generic-input__entry--error` : ``
       }`}
       value={value}
-      onKeyPress={e => {
+      onKeyPress={(e) => {
         e.key === "Enter" && e.preventDefault();
       }}
-      onChange={async event => {
+      onChange={async (event) => {
         // Get input value
         let val = event.target.value;
 
@@ -40,6 +40,9 @@ const GenericInput = ({
         await setFieldTouched(name, true);
 
         // Run field validation
+        await validateField(name);
+
+        // ? Dirty fix to sync formik-persist with formik state touched and errors
         validateField(name);
       }}
     />

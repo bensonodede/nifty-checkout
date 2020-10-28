@@ -1,0 +1,42 @@
+@import "app.scss";
+
+.order-header {
+  margin-bottom: 3.5rem;
+
+  @include desktop {
+    margin: 0;
+  }
+}
+
+.order-header__status {
+  display: inline-flex;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.15rem;
+  background-color: #f3eb6b;
+  color: #484848 !important;
+  font-size: 0.9rem !important;
+}
+
+.order-header__status--fulfilled {
+  background-color: #8cf8a5;
+}
+
+.order-header__content {
+  margin-top: 0.75rem !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-header__time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 0.75rem;
+}
+
+.order-header__time-icon {
+  display: flex !important;
+  width: 1rem;
+  margin-right: 0.2rem;
+}

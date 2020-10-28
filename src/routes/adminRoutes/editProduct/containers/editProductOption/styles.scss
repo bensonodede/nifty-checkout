@@ -1,0 +1,14 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.add-product-option-footer {
+  @include mobile {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 1rem 1.25rem;
+    margin: 0rem;
+    animation: scaleInTransition 300ms ease 0ms;
+  }
+
+  margin: 2rem 0rem;
+}

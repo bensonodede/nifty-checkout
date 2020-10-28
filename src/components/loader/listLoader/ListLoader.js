@@ -3,15 +3,12 @@ import React from "react";
 // Import components
 import Loader from "../loader";
 
+// Import styles
+import "./styles.scss";
+
 const ListLoader = () => (
   <div className="list-loader">
-    <div className="container">
-      <div className="columns is-mobile is-multiline is-centered">
-        <div className="column is-10">
-          <Loader />
-        </div>
-      </div>
-    </div>
+    <Loader />
   </div>
 );
 

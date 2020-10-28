@@ -1,0 +1,77 @@
+.counter-button {
+  color: #484848;
+  background-color: #ffffff;
+  border: solid 1.5px #484848;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.counter-icon {
+  color: inherit;
+  display: flex !important;
+  width: 0.9rem;
+}
+
+.counter-button:active {
+  color: #ffffff;
+  background-color: #484848;
+}
+
+/***** Input styles *****/
+
+.counter-input__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.counter-input__entry {
+  padding: 0.5rem 0.5rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: #484848;
+  font-family: "Airbnb Cereal App Medium";
+}
+
+.counter-input__entry--focus {
+  box-shadow: 0 0 5px rgb(0, 85, 255);
+}
+
+.counter-input__entry--error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+}
+
+/********** Counter Input placeholder **********/
+
+::-webkit-input-placeholder {
+  color: #d5d5d5;
+}
+::-moz-placeholder {
+  color: #d5d5d5;
+}
+:-ms-input-placeholder {
+  color: #d5d5d5;
+}
+::placeholder {
+  color: #d5d5d5;
+}

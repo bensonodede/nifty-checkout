@@ -1,3 +1,3 @@
-import Orders from "./containers";
+import Orders from "./Orders";
 
 export default Orders;

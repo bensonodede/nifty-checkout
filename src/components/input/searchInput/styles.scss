@@ -1,0 +1,70 @@
+.search-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.1rem;
+  margin: 0;
+  border-radius: 2rem;
+  outline: none;
+  background-color: #f6f6f6;
+}
+
+.search-input--focus {
+  background-color: #f6f6f6;
+}
+
+.search-input__entry {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 0.65rem;
+  font-size: 1rem;
+  color: #484848;
+  background-color: inherit;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.search-input__entry:focus {
+  box-shadow: none;
+}
+
+/********** Search icon **********/
+
+.search-input__search-icon {
+  width: 1.45rem;
+  display: flex !important;
+  margin-left: 0.45rem;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+/********** Clear icon **********/
+
+.search-input__clear-icon {
+  width: 0.9rem;
+  display: flex !important;
+  margin-right: 0.45rem;
+  padding: 0.2rem;
+  flex-shrink: 0;
+  color: #ffffff;
+  background-color: #484848;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+/********** Label Input placeholder **********/
+
+.search-input__entry::-webkit-input-placeholder {
+  color: #c9c9c9;
+}
+.search-input__entry::-moz-placeholder {
+  color: #c9c9c9;
+}
+.search-input__entry:-ms-input-placeholder {
+  color: #c9c9c9;
+}
+.search-input__entry::placeholder {
+  color: #c9c9c9;
+}

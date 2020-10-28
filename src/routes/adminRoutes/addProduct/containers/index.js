@@ -1,4 +1,5 @@
-import Image from "./image";
-import Details from "./details";
+import AddProductDetails from "./addProductDetails";
+import AddProductOptions from "./addProductOptions";
+import AddProductOption from "./addProductOption";
 
-export { Image, Details };
+export { AddProductDetails, AddProductOptions, AddProductOption };

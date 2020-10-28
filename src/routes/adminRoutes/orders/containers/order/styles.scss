@@ -1,122 +1,41 @@
-/***** Order HEADER *****/
-.order-header {
-  margin-bottom: 2.5rem;
+@import "app.scss";
+
+.order-grid {
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.order-header__status {
-  display: inline-flex;
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.15rem;
-  background-color: #f3eb6b;
-  color: #484848 !important;
+.order-grid__first-column {
+  @include desktop {
+    width: 50%;
+    margin-right: 3.5rem;
+  }
 }
 
-.order-header__status--fulfilled {
-  background-color: #8cf8a5;
+.order-grid__second-column {
+  @include desktop {
+    width: 50%;
+    position: sticky;
+    align-self: flex-start;
+    top: 3.5rem;
+  }
 }
 
-.order-header__content {
+/***** Order Card *****/
+
+.order-card {
+  padding: 2rem 1.5rem;
+}
+
+.order-card__wrapper {
+  margin-top: 3.5rem;
+}
+
+.order-card__title {
   margin-top: 0.75rem !important;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.order-header__time {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 0.75rem;
-}
-
-.order-header__time-icon {
-  width: 1rem;
-  margin-right: 0.2rem;
-}
-
-/***** Order PRODUCT *****/
-
-.order-contact,
-.order-product {
-  padding: 1.5rem 1.5rem;
-}
-
-.order-product__content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0rem;
-}
-
-.order-contact__info,
-.order-product__info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.order-product__tally {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.order-product__img-container {
-  display: block;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  padding-bottom: 3rem;
-  height: 0;
-  position: relative;
-  background: #f9f9f9;
-  margin-right: 0.5rem;
-}
-
-.order-product__img {
-  display: flex;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
-.order-item__img-placeholder {
-  position: absolute;
-  width: 3.75rem;
-  color: #d9d9d9;
-}
-
-.order-item__img-placeholder-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
-  width: 3rem;
-  margin-right: 0.75rem;
-}
-
-.order-contact__section,
-.order-product__section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 1rem 0rem;
-}
-
-.order-product__currency {
-  font-size: 0.65rem;
-}
-
-/***** Order CONTACT *****/
-.order-contact__icon {
-  width: 3rem;
-  color: #484848;
-  margin-right: 0.5rem;
+  margin-bottom: 2.5rem !important;
 }

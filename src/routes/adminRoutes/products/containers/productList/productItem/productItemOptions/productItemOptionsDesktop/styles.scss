@@ -1,0 +1,19 @@
+.product-item-options-desktop__btn {
+  border: none;
+  z-index: 2;
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0.3rem;
+  border-radius: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.product-item-options-desktop__btn:active {
+  background-color: #e5e5e5;
+}
+
+.product-item-options-desktop__icon {
+  color: #787878;
+  display: flex !important;
+}

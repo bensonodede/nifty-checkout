@@ -1,4 +1,5 @@
-import EditProductHeader from "./EditProductHeader";
-import EditProductForm from "./EditProductForm";
+import EditProductDetails from "./editProductDetails";
+import EditProductOptions from "./editProductOptions";
+import EditProductOption from "./editProductOption";
 
-export { EditProductHeader, EditProductForm };
+export { EditProductDetails, EditProductOptions, EditProductOption };

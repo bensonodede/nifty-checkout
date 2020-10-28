@@ -4,7 +4,7 @@ import { compose } from "recompose";
 
 // Import components
 import { withAuthorization, withSubscription } from "components/session";
-import { ProductList } from "./containers";
+import { ProductRoutes } from "./containers";
 
 // Import styles
 import "./styles.scss";
@@ -18,12 +18,8 @@ const Products = ({ match }) => {
       {/* Document title */}
       <Helmet title={`Products · ${storeUsername}`} defer={false} />
 
-      {/* Products page */}
-      <div className="products route-wrapper">
-        <div className="container">
-          <ProductList />
-        </div>
-      </div>
+      {/* Products routes */}
+      <ProductRoutes />
     </>
   );
 };

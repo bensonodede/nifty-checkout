@@ -13,7 +13,7 @@ const LabelInput = ({
   setFieldValue,
   setFieldTouched,
   errors,
-  validateField
+  validateField,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -21,16 +21,16 @@ const LabelInput = ({
     <>
       <div
         className={
-          "label-input " +
-          (isFocused ? "label-input--focus " : "") +
-          (errors[name] && !isFocused ? "label-input--error" : "")
+          "label-input" +
+          (isFocused ? " label-input--focus" : "") +
+          (errors[name] && !isFocused ? " label-input--error" : "")
         }
       >
         <h3 className="label-input__inline-label">{label}</h3>
 
-        {/* Input phone number entry */}
+        {/* Masked input entry */}
         <MaskedInput
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             e.key === "Enter" && e.preventDefault();
           }}
           onFocus={() => {
@@ -39,7 +39,7 @@ const LabelInput = ({
           onBlur={() => {
             setIsFocused(false);
           }}
-          onChange={async event => {
+          onChange={async (event) => {
             // Get input value
             let val = event.target.value;
 
@@ -50,6 +50,9 @@ const LabelInput = ({
             await setFieldTouched(name, true);
 
             // Run field validation
+            await validateField(name);
+
+            // ? Dirty fix to sync formik-persist with formik state touched and errors
             validateField(name);
           }}
           value={value}

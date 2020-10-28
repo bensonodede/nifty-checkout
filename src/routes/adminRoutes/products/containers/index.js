@@ -1,3 +1,3 @@
-import ProductList from "./productList";
+import ProductRoutes from "./ProductRoutes";
 
-export { ProductList };
+export { ProductRoutes };

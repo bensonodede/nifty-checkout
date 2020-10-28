@@ -7,6 +7,9 @@ import StoreUsername from "./storeUsername";
 import PhoneNumber from "./phoneNumber";
 import Payout from "./payout";
 import Policy from "./policy";
+import StoreLocation from "./storeLocation";
+import StoreLocationMap from "./storeLocationMap";
+import DeliveryPrice from "./deliveryPrice";
 
 export {
   CreateStoreNavbar,
@@ -16,5 +19,8 @@ export {
   StoreUsername,
   PhoneNumber,
   Payout,
-  Policy
+  Policy,
+  DeliveryPrice,
+  StoreLocation,
+  StoreLocationMap,
 };

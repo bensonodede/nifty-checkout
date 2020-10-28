@@ -1,0 +1,108 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.add-product-details-image-preview {
+  margin-top: 1.25rem;
+  object-fit: cover;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  border: solid 1px #e5e5e5;
+  background-color: #e5e5e5;
+}
+
+.add-product-details-field {
+  margin-top: 1.75rem;
+}
+
+.add-product-details-field__label {
+  margin-bottom: 0.75rem !important;
+}
+
+.add-product-details-options__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-product-details-options-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0.5rem;
+  border-bottom: solid 1px #e5e5e5;
+}
+
+.edit-product-details-options-empty__add-icon {
+  color: inherit;
+  width: 1.25rem;
+  margin-right: 0.3rem;
+}
+
+.add-product-details-options-item:nth-last-of-type(1) {
+  border-bottom: none;
+}
+
+.add-product-details-options__edit-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1rem 0rem;
+}
+
+.add-product-details-options-item:hover {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.add-product-details-options-item:active {
+  background-color: #e5e5e5;
+}
+
+.add-product-details-options-item__info {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.add-product-details-options-item__badge {
+  display: inline-flex;
+  margin: 0 !important;
+  margin-left: 0.65rem !important;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.15rem;
+  background-color: #8cf8a5;
+  color: #484848 !important;
+  @include desktop {
+    padding: 0.3rem 0.4rem;
+  }
+}
+
+.add-product-details-options-item__badge--hidden {
+  background-color: #e5e5e5;
+}
+
+.add-product-details-options-item__icon-wrapper {
+  width: 1.25rem;
+}
+
+.add-product-details-options-item__icon {
+  color: #787878;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+// Details form footer
+.add-product-details-footer {
+  @include mobile {
+    position: fixed;
+    bottom: 0rem;
+    right: 0rem;
+    padding: 1rem 1.25rem;
+    margin: 0rem;
+    animation: scaleInTransition 300ms ease 150ms;
+  }
+
+  margin: 2rem 0rem;
+}

@@ -1,0 +1,51 @@
+@import "app.scss";
+
+.error-404 {
+  margin-top: 2.5rem;
+
+  @include tablet {
+    margin-top: 5rem;
+  }
+
+  @include desktop {
+    margin-top: 7.5rem;
+  }
+}
+
+.error-404__text-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.error-404__img-container {
+  display: block;
+  padding-bottom: 100%;
+  height: 0;
+  width: 100%;
+  position: relative;
+}
+
+.error-404__img {
+  position: absolute;
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+}
+
+.error-404__btn {
+  width: 83.3%;
+  position: fixed;
+  bottom: 1rem;
+  z-index: 1;
+
+  @include tablet {
+    width: fit-content;
+    margin-top: 2rem;
+    position: relative;
+  }
+}

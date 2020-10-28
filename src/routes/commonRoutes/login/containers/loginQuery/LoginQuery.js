@@ -8,10 +8,6 @@ import { ErrorToast } from "components/toast";
 
 // Import GraphQL login query
 import { LOGIN_QUERY } from "components/graphql/query";
-import { Mixpanel } from "components/mixpanel";
-
-// Import functions
-import IdentifyUser from "./IdentifyUser";
 
 const LoginQuery = ({ authUser }) => {
   // Destructure unique user ID
@@ -30,30 +26,21 @@ const LoginQuery = ({ authUser }) => {
   // Error state
   if (error) {
     return <ErrorToast emoji={"💩"} text={"No internet connection"} />;
-  }
-
-  // Identify user in mixpanel
-  IdentifyUser(authUser);
+  }  
 
   // Get User store from data
   let { stores } = data.login;
 
   // Store exists
   if (stores[0]) {
-    let { storeUsername } = stores[0];
-
-    // Track new login
-    Mixpanel.track("Login");
+    let { storeUsername } = stores[0];    
 
     // Redirect to dashboard
     return <Redirect to={`/${storeUsername}/admin/`} />;
   }
 
   // Store does NOT exist
-  else {
-    // Track new sign up
-    Mixpanel.track("Login without store");
-
+  else {    
     // Redirect to create-store page
     return <Redirect to={`/create-store`} />;
   }

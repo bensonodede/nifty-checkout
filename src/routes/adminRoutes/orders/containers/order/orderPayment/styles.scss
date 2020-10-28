@@ -1,0 +1,34 @@
+.order-payment-tally__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0.5rem 0rem;
+}
+
+.order-payment-tally__row-total {
+  margin-bottom: 1.25rem;
+  margin-top: 2rem;
+  border-top: solid 1.25px #e5e5e5;
+  padding: 1.5rem 0rem;
+}
+
+.order-payment-mpesa__row {
+  margin-bottom: 1.5rem;
+}
+
+.order-payment-mpesa__confirm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-payment-mpesa__checkmark-icon {
+  display: flex !important;
+  width: 1.35rem;
+  color: #35e75e;
+  margin-right: 0.5rem;
+}

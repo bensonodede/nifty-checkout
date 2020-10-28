@@ -1,10 +1,8 @@
 import v8n from "v8n";
 
-const validateName = param => {
+const validateName = (param) => {
   // Check for a string with at least one character
-  const validation = v8n()
-    .string()
-    .minLength(1);
+  const validation = v8n().string().minLength(1);
 
   let error;
 

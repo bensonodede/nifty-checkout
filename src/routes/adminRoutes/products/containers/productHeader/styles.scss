@@ -1,0 +1,40 @@
+.product-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  margin-bottom: 2rem;
+}
+
+.product-header__item {
+  padding: 0.5rem 0rem;
+  animation: fadeInUpShortTransition 500ms;
+  -webkit-animation: fadeInUpShortTransition 500ms;
+}
+
+.product-header__add-icon {
+  color: inherit;
+  width: 1.25rem;
+  margin-right: 0.3rem;
+}
+
+.product-header__count-placeholder {
+  position: relative;
+  border-radius: 0.95rem;
+  padding: 0.5rem 0rem;
+  color: #e5e5e5;
+  animation: pulse 1.5s infinite;
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeInUpShortTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

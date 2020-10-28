@@ -8,9 +8,11 @@ import { ORDER_BY_ORDERID_QUERY } from "components/graphql/query";
 // Import components
 import { PageLoader } from "components/loader";
 import { ErrorToast } from "components/toast";
-import OrderHeader from "./OrderHeader";
-import OrderContact from "./OrderContact";
-import OrderProduct from "./orderProduct";
+import OrderHeader from "./orderHeader";
+import OrderProducts from "./orderProducts";
+import OrderPayment from "./orderPayment";
+import OrderCustomer from "./orderCustomer";
+import OrderDelivery from "./orderDelivery";
 
 // Import styles
 import "./styles.scss";
@@ -38,14 +40,8 @@ const Order = ({ match }) => {
   }
 
   // Destructure data
-  let { payment, product, id, orderStatus } = data.orderByOrderId;
-  let { phoneNumber } = payment;
-
-  // Format phone number for readability
-  const phoneNumberMask = phoneNumber.replace(
-    /^(\d{3})(\d{3})(\d{3})(\d{3})$/g,
-    "+$1 ($2) $3 $4"
-  );
+  let { orderByOrderId } = data;
+  let { orderProducts } = data.orderByOrderId;
 
   return (
     <>
@@ -56,22 +52,28 @@ const Order = ({ match }) => {
       <div className="route-wrapper">
         <div className="container">
           <div className="columns is-multiline is-mobile is-centered">
-            {/* Order header */}
-            <OrderHeader data={data.orderByOrderId} />
+            <div className="column is-10-mobile is-6-tablet is-10-desktop">
+              {/* Order Header */}
+              <OrderHeader {...orderByOrderId} />
 
-            {/* Order product*/}
-            <OrderProduct
-              productData={product}
-              paymentData={payment}
-              id={id}
-              orderStatus={orderStatus}
-            />
+              <div className="order-grid">
+                <div className="order-grid__first-column">
+                  {/* Order Products */}
+                  <OrderProducts products={orderProducts} />
 
-            {/* Order contact */}
-            <OrderContact
-              phoneNumber={phoneNumber}
-              phoneNumberMask={phoneNumberMask}
-            />
+                  {/* Order Payments */}
+                  <OrderPayment {...orderByOrderId} />
+
+                  {/* Order Customer */}
+                  <OrderCustomer {...orderByOrderId} />
+                </div>
+
+                <div className="order-grid__second-column">
+                  {/* Order Delivery */}
+                  <OrderDelivery {...orderByOrderId} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

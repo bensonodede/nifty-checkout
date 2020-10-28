@@ -1,3 +1,3 @@
 import OrdersRoutes from "./ordersRoutes";
 
-export default OrdersRoutes;
+export { OrdersRoutes };

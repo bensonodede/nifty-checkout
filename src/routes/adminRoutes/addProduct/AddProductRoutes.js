@@ -1,30 +1,50 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 // Import components
-import { Image, Details } from "./containers";
+import {
+  AddProductDetails,
+  AddProductOptions,
+  AddProductOption,
+} from "./containers";
 
-const AddProductRoutes = ({ FormikProps }) => (
-  <Switch>
-    {/* Product-form redirect */}
-    <Redirect
-      from="/:storeUsername/admin/products/add"
-      exact
-      to="/:storeUsername/admin/products/add/image"
-    />
+const AddProductRoutes = ({ FormikProps }) => {
+  // Get router location
+  let location = useLocation();
 
-    {/* Product-form image route */}
-    <Route
-      path="/:storeUsername/admin/products/add/image"
-      render={props => <Image {...FormikProps} {...props} />}
-    />
+  return (
+    <CSSTransition
+      in={true}
+      appear={true}
+      mountOnEnter={true}
+      unmountOnExit={true}
+      key={location.key}
+      classNames={"fadeUp"}
+      timeout={300}
+    >
+      <Switch location={location}>
+        {/* Add product details route */}
+        <Route
+          exact
+          path="/:storeUsername/admin/products/add-product"
+          render={(props) => <AddProductDetails {...FormikProps} {...props} />}
+        />
 
-    {/* Product-form details route */}
-    <Route
-      path="/:storeUsername/admin/products/add/details"
-      render={props => <Details {...FormikProps} {...props} />}
-    />
-  </Switch>
-);
+        {/* Add product options route */}
+        <Route
+          path="/:storeUsername/admin/products/add-product/options"
+          render={(props) => <AddProductOptions {...FormikProps} {...props} />}
+        />
+
+        {/* Add product option route */}
+        <Route
+          path="/:storeUsername/admin/products/add-product/option/:optionLabel"
+          render={(props) => <AddProductOption {...FormikProps} {...props} />}
+        />
+      </Switch>
+    </CSSTransition>
+  );
+};
 
 export default AddProductRoutes;

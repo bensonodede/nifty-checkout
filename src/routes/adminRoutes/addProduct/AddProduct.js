@@ -1,58 +1,99 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { compose } from "recompose";
 import { Formik, Form } from "formik";
-import { withApollo } from "@apollo/react-hoc";
-import { Mixpanel } from "components/mixpanel";
+import { useMutation } from "@apollo/react-hooks";
+import { FormikPersist } from "components/form";
 
 // Import components
+import AddProductRoutes from "./AddProductRoutes";
+import AddProductContext from "./AddProductContext";
 import { withAuthorization, withSubscription } from "components/session";
 import { SuccessToast, ErrorToast } from "components/toast";
-import AddProductContext from "./AddProductContext";
-import AddProductRoutes from "./AddProductRoutes";
+
+// Import graphql operations
+import { CREATE_PRODUCT } from "components/graphql/mutation";
 
 // Import functions
-import { addProductMutation, addProductCache } from "./utils";
+import {
+  updateProductCache,
+  createVariants,
+  handleSubmit,
+  handleReset,
+} from "./utils";
 
-// Import styles
-import "./styles.scss";
+// Import initial formik values
+import initialValues from "./initialValues";
 
-const AddProduct = ({ match, history, client }) => {
-  // Destructure mutation function
-  const { loading, error, data, _addProductMutation } = addProductMutation();
+const AddProduct = ({ match, history }) => {
+  // Waiting modal state
+  const [showWaitToast, setShowWaitToast] = useState(false);
 
-  // Store name
+  // Destructure Store username
   let { storeUsername } = match.params;
 
-  // Handle success state
-  if (data) {
-    // Handle mixpanel event
-    Mixpanel.track("Created product");
-
-    // Update cache
-    addProductCache({ client, storeUsername, data });
-
-    // Redirect after toast animation
-    setTimeout(() => {
-      history.push(`/${storeUsername}/admin/products`);
-    }, 2000);
-  }
+  // Destructure mutation hooks
+  const [mutate, { loading, error, data }] = useMutation(CREATE_PRODUCT, {
+    // Update product cache
+    update(cache, { data: { createProduct } }) {
+      updateProductCache(cache, createProduct, storeUsername);
+    },
+  });
 
   return (
     <>
       <Formik
-        initialValues={{ file: "", name: "", price: "", description: "" }}
+        enableReinitialize={true}
+        initialValues={initialValues}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={(values) => _addProductMutation(values, storeUsername)}
+        validateOnMount={false}
+        onSubmit={(values, actions) => {
+          if (values.isFilesUploaded) {
+            handleSubmit(values, actions, mutate, storeUsername, initialValues);
+          } else {
+            setShowWaitToast(true);
+          }
+        }}
+        onReset={(values, actions) => {
+          handleReset(values, actions, history, storeUsername);
+        }}
       >
-        {(FormikProps) => (
-          <Form>
-            <AddProductContext.Provider value={{ loading, error }}>
-              <AddProductRoutes FormikProps={FormikProps} />
-            </AddProductContext.Provider>
-          </Form>
-        )}
+        {(FormikProps) => {
+          /***** Create variants on option value change *****/
+          useEffect(() => {
+            // Destructure formik props
+            let { setFieldValue, values } = FormikProps;
+
+            // Create variants
+            let variants = createVariants(values);
+
+            // Set field value to variants
+            setFieldValue("variants", variants);
+          }, [FormikProps.values.options]);
+
+          /* Render Form component */
+          return (
+            <Form>
+              <AddProductContext.Provider value={{ loading }}>
+                <AddProductRoutes FormikProps={FormikProps} />
+              </AddProductContext.Provider>
+              <FormikPersist
+                name={"add-product-form"}
+                isSessionStorage={false}
+              />
+            </Form>
+          );
+        }}
       </Formik>
+
+      {/* Wait for images to upload */}
+      {showWaitToast && (
+        <ErrorToast
+          text={"Wait for images to upload"}
+          emoji={"🙏"}
+          onClose={() => setShowWaitToast(false)}
+        />
+      )}
 
       {/* Success state */}
       {data && <SuccessToast text={"Product created"} emoji={"👍"} />}
@@ -63,8 +104,4 @@ const AddProduct = ({ match, history, client }) => {
   );
 };
 
-export default compose(
-  withApollo,
-  withAuthorization,
-  withSubscription
-)(AddProduct);
+export default compose(withAuthorization, withSubscription)(AddProduct);

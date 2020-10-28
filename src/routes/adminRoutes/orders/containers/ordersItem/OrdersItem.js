@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import OrdersItemStatus from "./OrdersItemStatus";
 import OrdersItemInfo from "./OrdersItemInfo";
 import OrdersItemTime from "./OrdersItemTime";
+import OrdersItemTotal from "./OrdersItemTotal";
 
 // Import styles
 import "./styles.scss";
@@ -14,7 +15,7 @@ const OrdersItem = ({ item, match, history }) => {
   let { storeUsername } = match.params;
 
   // Destructure item
-  let { product, orderId, orderStatus, createdAt } = item;
+  let { orderProducts, orderId, orderStatus, createdAt, total } = item;
 
   return (
     <tr
@@ -24,9 +25,10 @@ const OrdersItem = ({ item, match, history }) => {
       {/* Order info */}
       <td>
         <OrdersItemInfo
-          product={product}
+          product={orderProducts[0].product}
           orderId={orderId}
           orderStatus={orderStatus}
+          createdAt={createdAt}
         />
       </td>
 
@@ -38,6 +40,11 @@ const OrdersItem = ({ item, match, history }) => {
       {/* Order placed time */}
       <td className="is-hidden-touch">
         <OrdersItemTime createdAt={createdAt} />
+      </td>
+
+      {/* Order total */}
+      <td className="is-hidden-touch">
+        <OrdersItemTotal total={total} />
       </td>
     </tr>
   );

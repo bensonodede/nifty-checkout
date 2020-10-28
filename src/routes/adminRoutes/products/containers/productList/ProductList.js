@@ -1,78 +1,110 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import InfiniteScroll from "react-infinite-scroller";
-
-// Import Graphql query
-import { PRODUCTS_FEED_QUERY } from "components/graphql/query";
+import { CSSTransition } from "react-transition-group";
 
 // Import components
 import { PageLoader, ListLoader } from "components/loader";
-import { ErrorState } from "components/pageState";
-import ProductListEmpty from "../productListEmpty";
-import ProductListHeader from "../productListHeader";
-import ProductTable from "../productTable";
+import { ErrorToast } from "components/toast";
+import ProductListEmpty from "./ProductListEmpty";
+import ProductListTableHeader from "./ProductListTableHeader";
+import ProductListTableBody from "./ProductListTableBody";
+import ProductListPagination from "./ProductListPagination";
 
-// Import functions
-import loadMoreProducts from "./loadMoreProducts";
+// Import Graphql operations
+import { PRODUCTS_BY_STORE_QUERY } from "components/graphql/query";
 
 // Import styles
 import "./styles.scss";
 
-const ProductList = ({ match }) => {
-  // More items state
-  const [hasMore, setHasMore] = useState(true);
+const ProductList = ({ match, countQuery }) => {
+  // Items per page
+  const ITEMS_PER_PAGE = 20;
 
   // Destructure route params
-  let { storeUsername } = match.params;
+  let { storeUsername, pageNumber } = match.params;
+
+  // Query for NUMBER of Products
+  const {
+    loading: countLoading,
+    error: countError,
+    data: countData,
+  } = countQuery;
+
+  // Skip items by number of items loaded in previous pages
+  let skip = pageNumber ? (parseInt(pageNumber) - 1) * ITEMS_PER_PAGE : 0;
 
   // Query Products by store
-  const { loading, error, data, fetchMore } = useQuery(PRODUCTS_FEED_QUERY, {
+  const { loading, error, data } = useQuery(PRODUCTS_BY_STORE_QUERY, {
     variables: {
       storeUsername,
-      first: 8,
-      skip: 0,
-      orderBy: "updatedAt_DESC"
-    }
+      first: ITEMS_PER_PAGE,
+      skip,
+      orderBy: "updatedAt_DESC",
+    },
+    fetchPolicy: "cache-and-network",
   });
 
   // Error state
-  if (error) {
-    return <ErrorState />;
+  if (error || countError) {
+    return <ErrorToast text={"No internet connection"} emoji={"💩"} />;
   }
 
   // Loading state
-  if (loading) {
-    return <PageLoader text={"We're fetching your products."} />;
+  if (loading || countLoading) {
+    if (parseInt(pageNumber) === 1) {
+      return <PageLoader text={"We're fetching your products."} />;
+    } else {
+      return <ListLoader />;
+    }
+  }
+
+  // Get item count
+  let { count } = countData.productsByStoreCount;
+
+  // Divide total item number by items per page to get total number of pages
+  // Round up result to nearest integer
+  const pageCount = Math.ceil(count / ITEMS_PER_PAGE);
+
+  if (data.productsByStore.length === 0 && parseInt(pageNumber) === 1) {
+    return <ProductListEmpty />;
   }
 
   return (
     <>
       {data.productsByStore.length === 0 ? (
-        <ProductListEmpty />
+        /* Product list empty state */
+        <p>There are no products on this page.</p>
       ) : (
-        <div className="columns is-multiline is-mobile is-centered">
-          {/* Product list header */}
-          <div className="column is-10">
-            <ProductListHeader />
-          </div>
+        <CSSTransition
+          in={true}
+          appear={true}
+          mountOnEnter={true}
+          unmountOnExit={true}
+          classNames={"fadeUp"}
+          timeout={350}
+        >
+          <div className="product-list">
+            {/* Product table list */}
+            <table className="table is-fullwidth">
+              {/* Desktop: Table header */}
+              <ProductListTableHeader />
 
-          {/* Product list */}
-          <div className="column is-10">
-            <InfiniteScroll
-              pageStart={0}
-              initialLoad={true}
-              useWindow={true}
-              hasMore={hasMore}
-              loader={<ListLoader key={0} />}
-              loadMore={() =>
-                loadMoreProducts({ storeUsername, fetchMore, data, setHasMore })
-              }
-            >
-              <ProductTable data={data} />
-            </InfiniteScroll>
+              {/* Table body */}
+              <ProductListTableBody data={data} />
+            </table>
+
+            {/* Product pagination */}
+            <ProductListPagination
+              itemCount={count}
+              itemSkipped={skip}
+              itemShownCount={data.productsByStore.length}
+              pageCount={pageCount}
+              pageNumber={pageNumber}
+              storeUsername={storeUsername}
+            />
           </div>
-        </div>
+        </CSSTransition>
       )}
     </>
   );

@@ -1,0 +1,14 @@
+.delete-modal {
+  padding: 2.5rem 1.5rem;
+}
+
+.delete-modal__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.delete-modal__btn {
+  margin-bottom: 1rem;
+}

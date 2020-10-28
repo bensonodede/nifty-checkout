@@ -1,5 +1,5 @@
 import PriceMask from "./PriceMask";
 import PhoneNumberMask from "./PhoneNumberMask";
-import TillNumberMask from "./TillNumberMask";
+import QuantityMask from "./QuantityMask";
 
-export { PriceMask, PhoneNumberMask, TillNumberMask };
+export { PriceMask, PhoneNumberMask, QuantityMask };

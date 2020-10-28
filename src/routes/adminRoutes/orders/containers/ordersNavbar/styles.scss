@@ -1,4 +1,4 @@
-@import "~bulma/sass/utilities/mixins.sass";
+@import "app.scss";
 
 .orders-navbar {
   display: flex;
@@ -6,6 +6,8 @@
   justify-content: flex-start;
   background: #ffffff;
   border-bottom: 1px solid #e4e4e4;
+  margin-top: 1.25rem;
+  margin-bottom: 1.45rem;
   @include desktop {
     border-bottom: none;
   }
@@ -14,12 +16,25 @@
 .orders-navbar-item {
   display: flex;
   align-items: flex-start;
-  padding: 0.75rem 0rem;
-  margin-right: 1rem;
+  padding: 0.75rem 0.25rem;
+  margin-right: 0.75rem;
+  color: #d9d9d9;
   cursor: pointer;
 }
 
-.orders-navbar-item:hover,
+.orders-navbar-item:hover {
+  @include desktop {
+    border-bottom: none;
+    color: #787878;
+  }
+}
+
+.orders-navbar-item--active:hover,
 .orders-navbar-item--active {
   border-bottom: 3px solid #356ee1;
+  color: #484848;
+}
+
+.orders-navbar-item__text {
+  color: inherit !important;
 }

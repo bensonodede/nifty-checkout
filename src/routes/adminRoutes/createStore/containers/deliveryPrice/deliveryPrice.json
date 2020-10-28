@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "emoji": "🚚",
+    "title": "Cost per km",
+    "description": "We recommend setting a value between KSH 30 to KSH 35. This range will gurantee a fair pay for your rider and will cover their return trip.",
+    "label": " PICKUP/DELIVERY POLICY",
+    "field": "costPerKm"
+  },
+  {
+    "id": 2,
+    "emoji": "💵",
+    "title": "Minimum delivery fee",
+    "description": "What is the minimum cost for a delivery? Most riders and delivery services will charge a minimum of KSH 50 for a short trip.",
+    "label": "REFUNDS AND RETURN POLICY",
+    "field": "minDeliveryFee"
+  }
+]

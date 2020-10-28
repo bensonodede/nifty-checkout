@@ -28,10 +28,10 @@ const TextareaInput = ({
       className={`textarea-input__entry ${
         errors[name] ? `textarea-input__entry--error` : ``
       }`}
-      value={value}
+      defaultValue={value}
       onChange={async (event) => {
         // Get input value
-        let val = event.target.value;
+        let val = await event.target.value;
 
         // Set value to field
         await setFieldValue(name, val);
@@ -40,6 +40,9 @@ const TextareaInput = ({
         await setFieldTouched(name, true);
 
         // Run field validation
+        await validateField(name);
+
+        // ? Dirty fix to sync formik-persist with formik state touched and errors
         validateField(name);
       }}
     />

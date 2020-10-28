@@ -37,7 +37,7 @@ const PayoutField = ({ isValid, history }) => (
     <CreateStoreFooter
       isDisabled={!isValid}
       type={"button"}
-      onClick={() => history.push("/create-store/policy")}
+      onClick={() => history.push("/create-store/store-location")}
     />
   </>
 );

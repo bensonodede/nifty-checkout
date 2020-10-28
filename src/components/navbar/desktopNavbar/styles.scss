@@ -51,7 +51,10 @@
   color: #d9d9d9;
 }
 
-.navbar-item:hover,
+.navbar-item:hover {
+  color: #787878;
+}
+
 .navbar-item--active {
   border-bottom: 3px solid #356ee1;
   color: #484848;
@@ -59,7 +62,7 @@
 
 /***** Navbar PROFILE *****/
 
-.navbar-profile {
+.navbar-profile-link {
   display: flex;
   align-items: center;
   width: 2rem;
@@ -70,8 +73,12 @@
   color: #d9d9d9;
 }
 
-.navbar-profile:hover,
-.navbar-profile--active {
+.navbar-profile-link:hover {
+  color: #787878;
+}
+
+.navbar-profile-link--active {
+  padding-top: calc(1rem + 2px);
   border-bottom: 3px solid #356ee1;
   color: #484848;
 }
@@ -82,61 +89,35 @@
 
 // Navbar store link
 
+.navbar-store-link__wrapper {
+  padding: 1rem 0rem;
+}
+
 .navbar-store-link {
   position: relative;
   display: inline-block;
-  // display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  font-size: 2rem;
-  margin: 1rem 0.75rem;
-  border-radius: 2rem;
+  margin: 0rem 0.75rem;
+  border-radius: 100%;
   border: solid 1px #e4e4e4;
   cursor: pointer;
 }
 
+.navbar-store-link:hover {
+  background-color: #f9f9f9;
+}
+
+.navbar-store-link:active {
+  background-color: #e5e5e5;
+}
+
 .navbar-store-link__emoji {
-  font-size: 1.15rem;
-  margin-bottom: 0.35rem !important;
+  font-size: 0.95rem;
+  margin: 0;
+  margin-bottom: 0.25rem !important;
   margin-left: 0.2rem !important;
-}
-
-.navbar-store-link .navbar-store-link__tooltip {
-  visibility: hidden;
-  width: 100px;
-  background-color: #484848;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 80%;
-  margin-top: 15px !important;
-  margin-left: -60px !important;
-
-  /* Fade in tooltip - takes 1 second to go from 0% to 100% opacity: */
-  opacity: 0;
-  transition: opacity 0.75s;
-}
-
-.navbar-store-link:hover .navbar-store-link__tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-// Tooltip arrow
-.navbar-store-link .navbar-store-link__tooltip::after {
-  content: " ";
-  position: absolute;
-  bottom: 100%; /* At the top of the tooltip */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #484848 transparent;
-  z-index: 1;
 }

@@ -1,22 +1,19 @@
 [
   {
     "id": 1,
-    "title": "ALL",
-    "link": "",
-    "exact": true
+    "title": "All",
+    "link": "/all"
   },
 
   {
     "id": 2,
-    "title": "PENDING",
-    "link": "/pending",
-    "exact": true
+    "title": "Pending",
+    "link": "/pending"
   },
 
   {
     "id": 3,
-    "title": "FULFILLED",
-    "link": "/fulfilled",
-    "exact": false
+    "title": "Fulfilled",
+    "link": "/fulfilled"
   }
 ]

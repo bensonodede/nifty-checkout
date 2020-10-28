@@ -10,9 +10,7 @@
       "REACT_APP_PROD_DATABASE_URL": "@react_app_prod_database_url",
       "REACT_APP_PROD_PROJECT_ID": "@react_app_prod_project_id",
       "REACT_APP_PROD_STORAGE_BUCKET": "@react_app_prod_storage_bucket",
-      "REACT_APP_PROD_MESSAGING_SENDER_ID": "@react_app_prod_messaging_sender_id",
-
-      "REACT_APP_PROD_MIXPANEL_TOKEN": "@react_app_prod_mixpanel_token"
+      "REACT_APP_PROD_MESSAGING_SENDER_ID": "@react_app_prod_messaging_sender_id",      
     }
   }
 }

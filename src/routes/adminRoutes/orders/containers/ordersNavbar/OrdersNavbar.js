@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, matchPath } from "react-router-dom";
 
 // Import components
 import OrdersNavbarItem from "./OrdersNavbarItem";
@@ -9,14 +10,23 @@ import "./styles.scss";
 // Import navbar items
 const data = require("./OrdersNavbar.json");
 
-const OrdersNavBar = () => (
-  <div className="column is-10">
+const OrdersNavBar = ({ match }) => {
+  return (
     <div className="orders-navbar">
-      {data.map(item => (
-        <OrdersNavbarItem item={item} key={item.id} />
-      ))}
-    </div>
-  </div>
-);
+      {data.map((item) => {
+        // Match route to determine if active
+        let isActive = matchPath(match.url, {
+          path: `/:storeUsername/admin/orders${item.link}/page/:pageNumber`,
+          exact: true,
+          strict: false,
+        });
 
-export default OrdersNavBar;
+        return (
+          <OrdersNavbarItem item={item} key={item.id} isActive={!!isActive} />
+        );
+      })}
+    </div>
+  );
+};
+
+export default withRouter(OrdersNavBar);

@@ -106,6 +106,9 @@ const QueryInput = ({
               // Run field validation
               else {
                 await validateField(name);
+
+                // ? Dirty fix to sync formik-persist with formik state touched and errors
+                validateField(name);
               }
             }
 

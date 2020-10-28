@@ -1,0 +1,82 @@
+@import "app.scss";
+
+// Pagination
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.pagination__text {
+  font-size: 0.9rem;
+  margin: 0;
+  margin-top: 2rem;
+
+  @include desktop {
+    font-size: 1rem;
+  }
+}
+
+// Pagination row
+
+.pagination__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+// Pagination button
+
+.pagination__btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  background-color: #ffffff;
+  color: #484848;
+  padding: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: none;
+  margin: 0rem 3rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include desktop {
+    margin: 1rem 3rem;
+  }
+}
+
+.pagination__btn:hover {
+  @include desktop {
+    background-color: #f9f9f9;
+  }
+}
+
+.pagination__btn:active {
+  background-color: #e5e5e5;
+}
+
+.pagination__btn--disabled {
+  cursor: default;
+  opacity: 0;
+}
+
+.pagination__btn--disabled:hover {
+  background-color: transparent;
+}
+
+.pagination__btn--disabled:active {
+  background-color: transparent;
+}
+
+.pagination__btn-icon {
+  display: flex !important;
+  width: 1.05rem;
+}

@@ -1,3 +1,4 @@
-import FadeInUp from "./FadeInUp";
+import FadeInUp from "./fadeInUp";
+import FadeAnimation from "./fadeAnimation";
 
-export { FadeInUp };
+export { FadeInUp, FadeAnimation };

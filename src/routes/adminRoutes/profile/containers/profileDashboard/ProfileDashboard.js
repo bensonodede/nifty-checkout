@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { CSSTransition } from "react-transition-group";
 
 // Import components
 import {
@@ -21,20 +22,29 @@ const ProfileDashboard = ({ match }) => {
       <Helmet title={`Profile · ${storeUsername}`} defer={false} />
 
       {/* Profile page */}
-      <div className="route-wrapper">
-        <div className="container">
-          <div className="columns is-mobile is-multiline is-centered">
-            {/* Profile header */}
-            <ProfileDashboardHeader />
+      <CSSTransition
+        in={true}
+        appear={true}
+        mountOnEnter={true}
+        unmountOnExit={true}
+        classNames={"fadeUp"}
+        timeout={350}
+      >
+        <div className="route-wrapper">
+          <div className="container">
+            <div className="columns is-mobile is-multiline is-centered">
+              {/* Profile header */}
+              <ProfileDashboardHeader />
 
-            {/* Profile List */}
-            <ProfileDashboardList />
+              {/* Profile List */}
+              <ProfileDashboardList />
 
-            {/* Profile footer */}
-            <ProfileDashboardFooter />
+              {/* Profile footer */}
+              <ProfileDashboardFooter />
+            </div>
           </div>
         </div>
-      </div>
+      </CSSTransition>
     </>
   );
 };

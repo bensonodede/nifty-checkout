@@ -1,0 +1,69 @@
+@import "app.scss";
+
+.product-item {
+  cursor: pointer;
+  border-radius: 1rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.product-item:hover {
+  @include desktop {
+    background-color: #f9f9f9;
+  }
+}
+
+.product-item:active {
+  background-color: #e5e5e5;
+}
+
+/***** Item info *****/
+
+.product-item__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  @include desktop {
+    min-width: 15rem;
+  }
+}
+
+.product-item__img-container {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding-bottom: 3rem;
+  height: 0;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.product-item__img {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.product-item__content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.8rem;
+}
+
+.product-item__content-row {
+  color: #bbbbbb;
+}
+
+.product-item__price-currency {
+  font-size: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.product-item__options {
+  text-align: right !important;
+  padding-right: 0 !important;
+}

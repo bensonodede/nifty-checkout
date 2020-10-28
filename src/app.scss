@@ -17,8 +17,24 @@ p {
   white-space: pre-line;
 }
 
+// Bulma columns
+
+.columns {
+  margin: 0 !important;
+}
+
+// Bulma table styling
+
 .table {
   border-spacing: 0;
+}
+
+td {
+  border: none !important;
+}
+
+.table td {
+  vertical-align: middle !important;
 }
 
 /***** Customize Bulma variables *****/
@@ -35,7 +51,7 @@ $control-height: 2.7em;
 
 // Table variables
 $table-head-cell-border-width: 0 0 1px;
-$table-cell-padding: 0.5em 0.3em;
+$table-cell-padding: 1.25em 0.5em;
 
 // Navbar variables
 $navbar-item-hover-color: inherit;
@@ -69,19 +85,20 @@ $grey-lighter: #d9d9d9;
 
 // Route with fixed menu wrapper
 .route-wrapper {
-  overflow: hidden;
-
   @include mobile {
+    min-height: calc(100vh - 12rem);
     padding-top: 7rem;
     padding-bottom: 5rem;
   }
 
   @include tablet {
+    min-height: calc(100vh - 12rem);
     padding-top: 7rem;
     padding-bottom: 5rem;
   }
 
   @include desktop {
+    min-height: calc(100vh - 14rem);
     padding-top: 9rem;
     padding-bottom: 5rem;
   }
@@ -105,4 +122,145 @@ $grey-lighter: #d9d9d9;
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+}
+
+// Custom table styling with divs
+.div-table {
+  display: table;
+  width: 100%;
+}
+
+.div-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.div-table-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.div-table-col {
+  float: left; /* fix for  buggy browsers */
+  width: 16.6%;
+  text-align: center;
+}
+
+.div-table-col--large {
+  text-align: left;
+  width: 50% !important;
+}
+
+// Animations
+@keyframes scaleInTransition {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUpTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/***** Fade up css-transition *****/
+
+.fadeUp-enter,
+.fadeUp-appear {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fadeUp-enter-active,
+.fadeUp-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.fadeUp-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fadeUp-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+// React virtualized list
+
+.ReactVirtualized__List {
+  outline: none;
+  width: 100% !important;
+}
+
+.react-virtualized-list-row {
+  display: flex;
+  align-items: center;
+}
+
+// Map styling
+
+.map-preview__container {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  width: 100%;
+  height: 13rem;
+  background-color: #e5e5e5;
+  pointer-events: none;
+
+  @include tablet {
+    height: 15rem;
+  }
+
+  @include desktop {
+    height: 18rem;
+  }
+}
+
+.store-marker {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid 2px #ffffff;
+  border-radius: 100%;
+  background-color: #356ee1;
+  box-shadow: 0rem 0rem 0rem 0.5rem rgba(55, 112, 225, 0.25);
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+// Time from now styling
+.time__from-now:first-letter {
+  text-transform: capitalize;
 }

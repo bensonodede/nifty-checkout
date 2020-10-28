@@ -1,11 +1,14 @@
-@import "~bulma/sass/utilities/mixins.sass";
+@import "app.scss";
 
 .orders-item {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .orders-item:hover {
-  background-color: #f9f9f9;
+  @include desktop {
+    background-color: #f9f9f9;
+  }
 }
 
 .orders-item:active {
@@ -17,6 +20,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  @include desktop {
+    min-width: 15rem;
+  }
 }
 
 // Image styling
@@ -41,19 +47,20 @@
   border-radius: 0.5rem;
 }
 
-.orders-item__img-placeholder {
-  position: absolute;
-  width: 3.75rem;
-  color: #d9d9d9;
-}
-
 .orders-item__img-placeholder-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3rem;
-  width: 3rem;
+  width: 3.5rem;
   position: relative;
+}
+
+.orders-item__img-placeholder {
+  position: absolute;
+  width: 3.75rem;
+  height: 4rem;
+  color: #d9d9d9;
 }
 
 // Content
@@ -65,17 +72,42 @@
   padding-left: 0.8rem;
 }
 
+.orders-item__content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.orders-item__content-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.orders-item__content-time-icon {
+  color: #787878;
+  display: flex !important;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-right: 0.1rem;
+}
+
 // Status
 
 .orders-item__status {
   display: inline-flex;
-  margin-top: 0 !important;
-  padding: 0.2rem 0.3rem;
+  margin: 0;
+  padding: 0.1rem 0.3rem;
   border-radius: 0.15rem;
   background-color: #f3eb6b;
   color: #484848 !important;
+  margin-left: 0.5rem !important;
+
   @include desktop {
-    padding: 0.3rem 0.4rem;
+    margin: 0;
+    padding: 0.3rem 0.425rem;
   }
 }
 

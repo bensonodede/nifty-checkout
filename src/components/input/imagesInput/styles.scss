@@ -1,0 +1,60 @@
+.filepond--wrapper {
+  box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.15);
+  border-radius: 0.25rem;
+}
+
+.filepond--root {
+  font-family: "Airbnb Cereal App Light";
+  border-radius: 0.25rem;
+  margin-bottom: 0;
+}
+
+.filepond--panel-root {
+  background-color: #ffffff;
+}
+
+.filepond--file-info .filepond--file-info-main {
+  display: none;
+}
+
+.filepond--image-preview-overlay-success {
+  color: rgba(39, 107, 233, 0.75);
+}
+
+.filepond--image-preview-overlay-failure {
+  color: rgba(243, 65, 65, 0.75);
+}
+
+/* the text of the drop label*/
+.filepond--drop-label {
+  color: #787878;
+  font-size: 0.9rem !important;
+}
+
+/* "Browse" button */
+.filepond--label-action {
+  text-decoration: none;
+  color: #484848;
+  box-shadow: 0rem 0.3rem 1.5rem 0.05rem rgba(189, 54, 54, 0.055);
+  padding: 0.35rem 0.65rem;
+  border: solid 1px #484848;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  margin-left: 0.25rem;
+  font-family: "Airbnb Cereal App Medium";
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.filepond--label-action:active {
+  background-color: #484848;
+  border: solid 1px #484848;
+  color: #ffffff;
+}
+
+.filepond--custom-error {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+  border-radius: 0.25rem;
+  // ? Fix for slightly off width error
+  width: 100.1%;
+}

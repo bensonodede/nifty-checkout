@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import useStateWithCallback from "use-state-with-callback";
-import LazyLoad from "react-lazy-load";
+import LazyLoad from "react-lazyload";
 import ExifOrientationImg from "react-exif-orientation-img";
 
 // Import functions
@@ -11,16 +11,16 @@ import "./styles.scss";
 
 const ImgLoader = ({ transform, src, alt, className, onLoad }) => {
   // Track component mounted state
-  const componentIsMounted = useRef(true);
+  const _isMounted = useRef(false);
 
   // Component state
   const [placeholderLoaded, setPlaceholderLoaded] = useState(false);
   const [images, setImages] = useState({
     image: "",
     cached: false,
-    placeholder: ""
+    placeholder: "",
   });
-  const [loaded, setLoaded] = useStateWithCallback(false, loaded => {
+  const [loaded, setLoaded] = useStateWithCallback(false, (loaded) => {
     // Execute function after load, if any.
     if (onLoad) {
       onLoad();
@@ -28,17 +28,21 @@ const ImgLoader = ({ transform, src, alt, className, onLoad }) => {
   });
 
   useEffect(() => {
+    // On component mounted, set mounted state to true
+    _isMounted.current = true;
+
     // Parse image url
     const { image, cached, placeholder } = parseImgUrl({ transform, src });
 
     // Set placeholder and image to state
-    if (componentIsMounted) {
+    if (_isMounted.current) {
       setImages({ image, cached, placeholder });
     }
 
-    // Clean up to prevent memory leaks
-    return function cleanup() {
-      componentIsMounted.current = false;
+    // On component unmount
+    return () => {
+      // Set unmounted state to false
+      _isMounted.current = false;
     };
   }, [src, transform]);
 
@@ -49,10 +53,10 @@ const ImgLoader = ({ transform, src, alt, className, onLoad }) => {
     <>
       {/* Placeholder image */}
       {!loaded && !cached && (
-        <LazyLoad className={`img__placeholder ${className}`}>
+        <LazyLoad classNamePrefix={`img__placeholder ${className}`} once={true}>
           <ExifOrientationImg
             onLoad={() => {
-              if (componentIsMounted.current) {
+              if (_isMounted.current) {
                 setPlaceholderLoaded(true);
               }
             }}
@@ -67,10 +71,11 @@ const ImgLoader = ({ transform, src, alt, className, onLoad }) => {
       {(placeholderLoaded || cached) && (
         <LazyLoad
           className={loaded ? `img__loaded ${className}` : `img__loading`}
+          once={true}
         >
           <ExifOrientationImg
             onLoad={() => {
-              if (componentIsMounted.current) {
+              if (_isMounted.current) {
                 setLoaded(true);
               }
             }}

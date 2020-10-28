@@ -28,11 +28,9 @@ const StoreUsernameDescription = ({ values: { storeUsername } }) => (
             {storeUsername ? (
               <>{storeUsername}</>
             ) : (
-              <span className="has-text-grey-lighter">
-                kickasskicks
-              </span>
+              <span className="has-text-grey-lighter">kickasskicks</span>
             )}
-            .magicfinn.com
+            .withfinn.shop
           </h5>
         </div>
       </div>

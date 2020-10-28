@@ -1,0 +1,128 @@
+@import "app.scss";
+
+// Order Customer Contact
+
+.order-customer-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.order-customer-contact__icon {
+  width: 3rem;
+  color: #787878;
+  margin-right: 0.5rem;
+}
+
+.order-customer-contact__description-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.order-customer-contact__copy-btn {
+  color: #787878;
+  background-color: transparent;
+  border: solid 1.5px #787878;
+  border-radius: 100%;
+  padding: 0.5rem;
+  margin-left: 0.75rem;
+  cursor: pointer;
+}
+
+.order-customer-contact__copy-btn:hover {
+  @include desktop {
+    background-color: #f9f9f9;
+  }
+}
+
+.order-customer-contact__copy-btn:active {
+  background-color: #787878;
+  color: #ffffff;
+}
+
+.order-customer-contact__copy-btn-icon {
+  width: 1.05rem;
+  color: inherit;
+  display: flex !important;
+}
+
+// Order Customer Location
+
+.order-customer-location__map {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  width: 100%;
+  height: 13rem;
+  background-color: #e5e5e5;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    height: 15rem;
+  }
+
+  @include desktop {
+    height: 18rem;
+  }
+}
+
+.order-customer-location__map-overlay {
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 13rem;
+  cursor: pointer;
+
+  @include tablet {
+    height: 15rem;
+  }
+
+  @include desktop {
+    height: 18rem;
+  }
+}
+
+.order-customer-location__map-overlay:hover {
+  @include desktop {
+    background-color: #ffffff;
+    opacity: 0.35;
+  }
+}
+
+.order-customer-location__map-overlay:active {
+  background-color: #ffffff;
+  opacity: 0.5;
+}
+
+.order-customer-location__title {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.destination-marker {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid 2px #ffffff;
+  border-radius: 100%;
+  background-color: #356ee1;
+  box-shadow: 0rem 0rem 0rem 0.5rem rgba(55, 112, 225, 0.25);
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.origin-marker {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 100%;
+  background-color: #356ee1;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}

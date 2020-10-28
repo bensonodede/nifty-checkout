@@ -7,13 +7,15 @@ const parseImgUrl = ({ transform, src }) => {
   //? If transform is empty (Catch in prop types definition)
   if (!transform) {
     transform = "";
+  } else {
+    transform = `${transform},`;
   }
 
   // Optimal quality image transform
   let image = [
     src.slice(0, position),
-    `${transform},q_auto/`,
-    src.slice(position)
+    `${transform}q_auto/`,
+    src.slice(position),
   ].join("");
 
   // Check if image is in cache
@@ -22,8 +24,8 @@ const parseImgUrl = ({ transform, src }) => {
   // Poor quality image placeholder transform
   let placeholder = [
     src.slice(0, position),
-    `${transform},q_1,f_auto/`,
-    src.slice(position)
+    `${transform}q_1,f_auto/`,
+    src.slice(position),
   ].join("");
 
   return { image, cached, placeholder };

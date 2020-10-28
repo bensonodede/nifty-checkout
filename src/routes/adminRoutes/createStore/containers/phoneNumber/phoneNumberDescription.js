@@ -5,7 +5,7 @@ const PhoneNumberDescription = () => (
     This is how your customers will contact you. We'll also send you
     notifications for new orders on this number.{" "}
     <span role="img" aria-label="emoji">
-      🤙🏾
+      📲 🔔
     </span>
   </p>
 );

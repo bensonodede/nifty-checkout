@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { createUploadLink } from "apollo-upload-client";
+import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
 import Firebase, { FirebaseContext } from "./components/firebase/";
 import { setDefaultBreakpoints, BreakpointProvider } from "react-socks";
 
 // Import styles
 import "./app.scss";
+import "react-virtualized/styles.css";
 
 // Import routes
 import Routes from "./routes";
@@ -16,7 +17,7 @@ import Routes from "./routes";
 let serverUrl;
 
 // Define production domain
-let productionHost = "magicfinn.com";
+let productionHost = "withfinn.com";
 
 // Check if site is using production domain or development domain
 if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
@@ -27,7 +28,7 @@ if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
 }
 
-// Website screen breakpoints
+// Devices screen breakpoints
 setDefaultBreakpoints([
   { mobile: 0 },
   { tablet: 568 },
@@ -36,7 +37,7 @@ setDefaultBreakpoints([
   { fullhd: 1408 },
 ]);
 
-const link = createUploadLink({
+const link = createHttpLink({
   uri: serverUrl,
 });
 

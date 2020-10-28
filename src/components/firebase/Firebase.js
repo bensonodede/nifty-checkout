@@ -8,7 +8,7 @@ const prodConfig = {
   databaseURL: process.env.REACT_APP_PROD_DATABASE_URL,
   projectId: process.env.REACT_APP_PROD_PROJECT_ID,
   storageBucket: process.env.REACT_APP_PROD_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID,
 };
 
 // Development firebase config
@@ -18,11 +18,11 @@ const devConfig = {
   databaseURL: process.env.REACT_APP_DEV_DATABASE_URL,
   projectId: process.env.REACT_APP_DEV_PROJECT_ID,
   storageBucket: process.env.REACT_APP_DEV_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
 };
 
 // Define production domain
-let productionHost = "magicfinn.com";
+let productionHost = "withfinn.com";
 
 // Create Firebase class and initialize firebase instance
 class Firebase {
@@ -46,7 +46,7 @@ class Firebase {
   }
 
   //Sign in with custom token
-  dosignInWithCustomToken = token => this.auth.signInWithCustomToken(token);
+  dosignInWithCustomToken = (token) => this.auth.signInWithCustomToken(token);
 
   // Firebase Google sign in
   doSignInWithGoogle = () => this.auth.signInWithRedirect(this.googleProvider);

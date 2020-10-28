@@ -7,6 +7,8 @@ import checkStatus from "./checkStatus";
 
 const withSubscription = (Component) => {
   class WithSubscritpion extends React.Component {
+    _isMounted = false;
+
     constructor(props) {
       super(props);
 
@@ -17,6 +19,8 @@ const withSubscription = (Component) => {
     }
 
     componentDidMount() {
+      this._isMounted = true;
+
       // Destructure props
       let { storeUsername } = this.props.match.params;
       let { client: apolloClient } = this.props;
@@ -25,7 +29,10 @@ const withSubscription = (Component) => {
       // Get subscription plan and verify
       getSubscriptionPlan(storeUsername, apolloClient).then(({ data }) => {
         if (data) {
-          this.setState({ data });
+          if (this._isMounted) {
+            this.setState({ data });
+          }
+
           // Get subscription plan
           let { storeSubscriptionPlan } = data;
 
@@ -33,6 +40,10 @@ const withSubscription = (Component) => {
           checkStatus({ storeSubscriptionPlan, match, history, apolloClient });
         }
       });
+    }
+
+    componentWillUnmount() {
+      this._isMounted = false;
     }
 
     render() {

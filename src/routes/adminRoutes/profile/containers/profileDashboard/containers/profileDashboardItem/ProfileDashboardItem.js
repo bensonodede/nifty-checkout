@@ -4,6 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 // Import components
 import ProfileDashboardItemEmoji from "./ProfileDashboardItemEmoji";
 import ProfileDashboardItemContent from "./ProfileDashboardItemContent";
+import Card from "components/card";
 
 const ProfileDashboardItem = ({
   match,
@@ -14,10 +15,12 @@ const ProfileDashboardItem = ({
 
   return (
     <Link to={`/${storeUsername}/admin/profile/${link}`}>
-      <div className="home-item">
-        <ProfileDashboardItemEmoji emoji={emoji} />
-        <ProfileDashboardItemContent title={title} subtitle={subtitle} />
-      </div>
+      <Card>
+        <div className="home-item">
+          <ProfileDashboardItemEmoji emoji={emoji} />
+          <ProfileDashboardItemContent title={title} subtitle={subtitle} />
+        </div>
+      </Card>
     </Link>
   );
 };

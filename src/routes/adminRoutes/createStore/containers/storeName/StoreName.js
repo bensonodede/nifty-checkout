@@ -8,13 +8,13 @@ import StoreNameDescription from "./StoreNameDescription";
 const StoreName = ({
   isValid,
   touched: { storeName: touchedStoreName },
-  values
+  values,
 }) => {
   return (
-    <div className="route-wrapper">
+    <div className="route-wrapper-landing">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered is-vcentered">
-          <div className="column is-10-mobile is-8-tablet is-4-desktop">
+          <div className="column is-10-mobile is-6-tablet is-4-desktop">
             <StoreNameHeader />
             <StoreNameField isValid={!!(isValid && touchedStoreName)} />
             <StoreNameDescription values={values} />

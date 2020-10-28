@@ -15,6 +15,7 @@ import Orders from "./orders";
 import Profile from "./profile";
 import Help from "./help";
 import Subscription from "./subscription";
+// import Error404 from "./error404";
 
 const AdminRoutes = () => (
   <Switch>
@@ -34,32 +35,44 @@ const AdminRoutes = () => (
             component={Dashboard}
           /> */}
 
-    {/* Home redirect route */}
+    {/* Products redirect routes */}
     <Redirect
       exact
       from={"/:storeUsername/admin"}
-      to={"/:storeUsername/admin/products"}
+      to={"/:storeUsername/admin/products/page/1"}
     />
+
+    <Redirect
+      exact
+      from={"/:storeUsername/admin/products"}
+      to={"/:storeUsername/admin/products/page/1"}
+    />
+
     {/* Product list route */}
     <NavbarRoute
       exact
-      path={"/:storeUsername/admin/products"}
+      path={"/:storeUsername/admin/products/page/:pageNumber"}
       component={Products}
     />
+
     {/* Add product route */}
     <NavbarRoute
-      path={"/:storeUsername/admin/products/add"}
+      path={"/:storeUsername/admin/products/add-product"}
       component={AddProduct}
     />
+
     {/* Edit product route */}
     <NavbarRoute
-      path={"/:storeUsername/admin/products/edit/:id"}
+      path={"/:storeUsername/admin/products/edit/:productId"}
       component={EditProduct}
     />
+
     {/* Orders route */}
     <NavbarRoute path={"/:storeUsername/admin/orders"} component={Orders} />
+
     {/* Profile route */}
     <NavbarRoute path={"/:storeUsername/admin/profile"} component={Profile} />
+
     {/* Help route */}
     <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />
   </Switch>

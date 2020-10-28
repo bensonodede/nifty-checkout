@@ -1,0 +1,45 @@
+@import "app.scss";
+
+.delivery-submit {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: calc(100% - 3rem);
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 1rem 1rem 0rem 0rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -1px 10px 2px;
+
+  @include desktop {
+    width: calc(32% - 10rem);
+    z-index: 2;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    border-radius: 1rem;
+  }
+}
+
+.delivery-submit__title {
+  border-bottom: solid 1.2px #e5e5e5;
+  padding-bottom: 1.25rem;
+}
+
+.delivery-submit__description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0.5rem;
+}
+
+.delivery-submit__description-text {
+  margin: 0;
+  margin-right: 1.25rem;
+}
+
+.delivery-submit__btn {
+  align-self: flex-end;
+}

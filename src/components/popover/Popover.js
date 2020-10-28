@@ -1,27 +1,32 @@
 import React from "react";
-import TinyPopover from "react-tiny-popover";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
+
+// Import styles
+import "./styles.scss";
 
 const Popover = ({
-  show,
-  position,
+  children,
   content,
-  popoverClass,
-  onClickOutside,
-  children
-}) => {
-  return (
-    <TinyPopover
-      isOpen={show}
-      align={"end"}
-      position={position}
-      disableReposition={false}
-      transitionDuration={0.25}
-      content={content}
-      containerClassName={popoverClass}
-      onClickOutside={onClickOutside}
-    >
-      {children}
-    </TinyPopover>
-  );
-};
+  placement = "bottom",
+  show,
+  togglePopover,
+}) => (
+  <Tippy
+    duration={150}
+    allowHTML={true}
+    placement={placement}
+    content={content}
+    arrow={false}
+    maxWidth={"none"}
+    animation={"fade"}
+    theme={"light-popover"}
+    visible={show}
+    onClickOutside={togglePopover}
+    interactive={true}
+  >
+    {children}
+  </Tippy>
+);
+
 export default Popover;

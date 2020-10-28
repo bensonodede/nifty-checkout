@@ -12,7 +12,7 @@ const GenericMaskedInput = ({
   setFieldValue,
   setFieldTouched,
   errors,
-  validateField
+  validateField,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -25,7 +25,7 @@ const GenericMaskedInput = ({
       }
     >
       <MaskedInput
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           e.key === "Enter" && e.preventDefault();
         }}
         onFocus={() => {
@@ -34,7 +34,7 @@ const GenericMaskedInput = ({
         onBlur={() => {
           setIsFocused(false);
         }}
-        onChange={async event => {
+        onChange={async (event) => {
           // Get input value
           let val = event.target.value;
 
@@ -45,6 +45,9 @@ const GenericMaskedInput = ({
           await setFieldTouched(name, true);
 
           // Run field validation
+          await validateField(name);
+
+          // ? Dirty fix to sync formik-persist with formik state touched and errors
           validateField(name);
         }}
         value={value}

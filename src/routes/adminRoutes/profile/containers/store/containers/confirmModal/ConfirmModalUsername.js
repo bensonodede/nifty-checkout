@@ -18,7 +18,7 @@ const ConfirmModalUsername = ({ initialValues, values }) => (
         <p className="is-marginless">
           Your new website address will be: <br />
           <span className="title is-size-6">
-            {values.storeUsername}.magicfinn.com
+            {values.storeUsername}.withfinn.shop
           </span>
         </p>
       </div>

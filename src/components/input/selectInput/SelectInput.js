@@ -11,7 +11,7 @@ const SelectInput = ({
   setFieldValue,
   setFieldTouched,
   validateField,
-  name
+  name,
 }) => (
   <>
     <Select
@@ -19,7 +19,7 @@ const SelectInput = ({
       classNamePrefix="select-input"
       options={options}
       defaultValue={defaultValue}
-      onChange={async option => {
+      onChange={async (option) => {
         // Get selected option value
         let { value } = option;
 
@@ -31,6 +31,9 @@ const SelectInput = ({
 
         // Run field validation
         await validateField(name);
+
+        // ? Dirty fix to sync formik-persist with formik state touched and errors
+        validateField(name);
 
         //
         if (onSelectChange) {

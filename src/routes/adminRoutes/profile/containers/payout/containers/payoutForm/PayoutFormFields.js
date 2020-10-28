@@ -21,7 +21,7 @@ const PhoneNumberInput = ({ field, form }) => (
 const PayoutFormFields = ({ dirty, isValid, mutationLoading }) => (
   <>
     <div className="create-store-field">
-      <h5 className="create-store-field-label title is-size-7 is-marginless">
+      <h5 className="create-store-field-label title is-size-7">
         M-PESA ENABLED PHONE NUMBER
       </h5>
 
