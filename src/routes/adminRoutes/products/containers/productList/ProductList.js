@@ -53,7 +53,7 @@ const ProductList = ({ match, countQuery }) => {
   // Loading state
   if (loading || countLoading) {
     if (parseInt(pageNumber) === 1) {
-      return <PageLoader text={"We're fetching your products."} />;
+      return <PageLoader />;
     } else {
       return <ListLoader />;
     }

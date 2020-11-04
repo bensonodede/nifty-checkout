@@ -1,5 +1,9 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+
+// Import components
+import HeroNavbar from "./heroNavbar";
 
 // Import page routes
 import Landing from "./landing";
@@ -9,15 +13,47 @@ import Privacy from "./privacy";
 import About from "./about";
 import TalkToUs from "./talkToUs";
 
-const CommonRoutes = () => (
-  <Switch>
-    <Route exact path={"/"} component={Landing} />
-    <Route path={"/login"} component={Login} />
-    <Route path={"/terms"} component={Terms} />
-    <Route path={"/privacy"} component={Privacy} />
-    <Route path={"/about"} component={About} />
-    <Route path={"/talk-to-us"} component={TalkToUs} />
-  </Switch>
+// Render route with navbar
+const NavbarRoute = ({ exact, path, component: Component }) => (
+  <Route
+    exact={exact}
+    path={path}
+    render={(props) => (
+      <>
+        {/* Navbar */}
+        <HeroNavbar />
+
+        {/* Route component */}
+        <Component {...props} />
+      </>
+    )}
+  />
 );
+
+const CommonRoutes = () => {
+  // Get router location
+  let location = useLocation();
+
+  return (
+    <CSSTransition
+      in={true}
+      appear={true}
+      mountOnEnter={true}
+      unmountOnExit={true}
+      key={location.key}
+      classNames={"fadeUp"}
+      timeout={300}
+    >
+      <Switch location={location}>
+        <Route exact path={"/"} component={Landing} />
+        <Route path={"/login"} component={Login} />
+        <NavbarRoute path={"/terms"} component={Terms} />
+        <NavbarRoute path={"/privacy"} component={Privacy} />
+        <NavbarRoute path={"/about"} component={About} />
+        <NavbarRoute path={"/talk-to-us"} component={TalkToUs} />
+      </Switch>
+    </CSSTransition>
+  );
+};
 
 export default CommonRoutes;

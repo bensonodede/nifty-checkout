@@ -40,7 +40,10 @@ const CreateStore = ({ history }) => {
   // Redirect to admin page
   if (data) {
     setTimeout(() => {
-      history.push(`/${data.createStore.storeUsername}/admin`);
+      // Remove formik persist
+      localStorage.removeItem("create-store-form");
+
+      history.push(`/${data.createStore.storeUsername}/admin/products/page/1`);
     }, 2500);
   }
 
@@ -85,7 +88,7 @@ const CreateStore = ({ history }) => {
                 <CreateStoreRoutes FormikProps={FormikProps} />
 
                 {/* Persist values in local storage */}
-                <FormikPersist name={"create-store"} />
+                <FormikPersist name={"create-store-form"} />
               </Form>
             )}
           </Formik>

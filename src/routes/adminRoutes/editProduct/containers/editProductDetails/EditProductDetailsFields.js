@@ -13,7 +13,11 @@ import EditProductDetailsOptionsEmpty from "./EditProductDetailsOptionsEmpty";
 import EditProductDetailsOptionsList from "./EditProductDetailsOptionsList";
 import EditProductDetailsFooter from "./EditProductDetailsFooter";
 import EditProductContext from "../../EditProductContext";
-import { validateName, validateFileUrls } from "components/validation";
+import {
+  validateName,
+  validateFileUrls,
+  validateAlwaysValid,
+} from "components/validation";
 
 const EditProductDetailsFields = ({ isFormValid, values }) => {
   // Get mutation state values
@@ -70,7 +74,7 @@ const EditProductDetailsFields = ({ isFormValid, values }) => {
         </h5>
         <Field
           name="description"
-          validate={validateName}
+          validate={validateAlwaysValid}
           component={EditProductDetailsDescriptionInput}
         />
       </div>

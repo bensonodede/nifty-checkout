@@ -12,25 +12,21 @@ import "./styles.scss";
 
 const ProductHeader = ({ match, history, countQuery }) => {
   // Destructure route params
-  let { storeUsername, pageNumber } = match.params;
+  let { storeUsername } = match.params;
 
   // Query number of store products
   const { loading, error, data } = countQuery;
 
   // Loading and error state
   if (loading || error) {
-    if (parseInt(pageNumber) === 1) {
-      return null;
-    } else {
-      return (
-        <div className="product-header">
-          {/* If loading display placeholder */}
-          <h1 className="title is-size-4 is-marginless product-header__count-placeholder">
-            Counting products...
-          </h1>
-        </div>
-      );
-    }
+    return (
+      <div className="product-header">
+        {/* If loading display placeholder */}
+        <h1 className="title is-size-4 is-marginless product-header__count-placeholder">
+          Counting products...
+        </h1>
+      </div>
+    );
   }
 
   // Get count

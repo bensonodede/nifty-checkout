@@ -13,7 +13,11 @@ import AddProductDetailsOptionsEmpty from "./AddProductDetailsOptionsEmpty";
 import AddProductDetailsOptionsList from "./AddProductDetailsOptionsList";
 import AddProductDetailsFooter from "./AddProductDetailsFooter";
 import AddProductContext from "../../AddProductContext";
-import { validateName, validateFileUrls } from "components/validation";
+import {
+  validateName,
+  validateFileUrls,
+  validateAlwaysValid,
+} from "components/validation";
 
 const AddProductDetailsFields = ({ isFormValid, values }) => {
   // Get mutation state values
@@ -70,7 +74,7 @@ const AddProductDetailsFields = ({ isFormValid, values }) => {
         </h5>
         <Field
           name="description"
-          validate={validateName}
+          validate={validateAlwaysValid}
           component={AddProductDetailsDescriptionInput}
         />
       </div>

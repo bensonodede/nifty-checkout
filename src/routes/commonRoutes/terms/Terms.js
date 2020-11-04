@@ -1,9 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-// Import components
-import HeroNavbar from "../heroNavbar";
-
 // Import styles
 import "./styles.scss";
 
@@ -14,9 +11,6 @@ const Terms = () => (
   <>
     {/* Document title */}
     <Helmet title={"Finn · Terms and conditions"} />
-
-    {/* Navbar */}
-    <HeroNavbar />
 
     {/* Terms page */}
     <div className="route-wrapper-landing">
@@ -29,7 +23,7 @@ const Terms = () => (
             </h1>
 
             {/* Terms list */}
-            {termsData.map(item => (
+            {termsData.map((item) => (
               <div key={item.id} className="terms-item">
                 <h1 className="title is-size-4-mobile is-size-4-tablet is-size-3-desktop">
                   {item.title}

@@ -3,6 +3,7 @@ import validateName from "./validateName";
 import validatePhoneNumber from "./validatePhoneNumber";
 import validateFileUrls from "./validateFileUrls";
 import validateVariants from "./validateVariants";
+import validateAlwaysValid from "./validateAlwaysValid";
 
 export {
   validateImage,
@@ -10,4 +11,5 @@ export {
   validatePhoneNumber,
   validateFileUrls,
   validateVariants,
+  validateAlwaysValid,
 };

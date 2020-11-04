@@ -11,6 +11,17 @@
   @include desktop {
     width: 3rem;
   }
+  cursor: pointer;
+}
+
+.login__logo:hover {
+  @include desktop {
+    opacity: 0.9;
+  }
+}
+
+.login__logo:active {
+  opacity: 0.5;
 }
 
 .login-social {

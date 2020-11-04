@@ -14,15 +14,13 @@ const AddProductDetails = ({ match, isValid, values, touched }) => {
     name: touchedName,
     price: touchedPrice,
     imgUrls: touchedImgUrls,
-    description: touchedDescription,
   } = touched;
 
   let isFormValid = !!(
     isValid &&
     touchedName &&
     touchedPrice &&
-    touchedImgUrls &&
-    touchedDescription
+    touchedImgUrls
   );
 
   useEffect(() => {

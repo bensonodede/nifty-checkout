@@ -7,7 +7,7 @@ import { withFirebase } from "../firebase";
 import Button from "components/button";
 
 const SignInGoogleBase = ({ firebase }) => {
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     firebase.doSignInWithGoogle();
 
     // Prevent reload

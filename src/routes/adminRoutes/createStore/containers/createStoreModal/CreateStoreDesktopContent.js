@@ -25,6 +25,14 @@ const CreateStoreDesktopContent = ({ percentageLoading }) => (
       <p className="has-text-centered">
         This will take a minute, hang in there... <br />
       </p>
+
+      <p className="has-text-centered is-marginless">
+        <span className="title is-size-6">Psst! </span>It's safe to run this in
+        the background while you <br /> do other things.{" "}
+        <span role="img" aria-label="emoji">
+          🤗
+        </span>
+      </p>
     </div>
 
     {/* Create store loader */}

@@ -3,7 +3,6 @@ import { Breakpoint } from "react-socks";
 import { Helmet } from "react-helmet";
 
 // Import components
-import HeroNavbar from "../heroNavbar";
 import Button from "components/button";
 import { Icon } from "react-icons-kit";
 import { socialWhatsappOutline } from "react-icons-kit/ionicons/socialWhatsappOutline";
@@ -16,9 +15,6 @@ const TalkToUs = () => {
     <>
       {/* Document title */}
       <Helmet title={"Finn · Talk to us"} />
-
-      {/* Navigation bar */}
-      <HeroNavbar />
 
       {/* Talk to us Page */}
       <div className="route-wrapper-landing">

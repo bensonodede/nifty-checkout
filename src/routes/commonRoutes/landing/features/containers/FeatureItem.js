@@ -1,25 +1,17 @@
 import React from "react";
 
 // Import components
-import FeatureImage from "./FeatureImage";
-import FeatureDescription from "./FeatureDescription";
+import FeatureItemImage from "./FeatureItemImage";
+import FeatureItemDescription from "./FeatureItemDescription";
 
-const FeatureItem = ({ item: { id, image, title, description, features } }) => (
+const FeatureItem = ({ item }) => (
   <div className="feature-item">
-    <div
-      key={id}
-      className="columns is-mobile is-multiline is-centered is-vcentered is-variable is-4-tablet is-8-desktop"
-    >
+    <div className="columns is-mobile is-multiline is-centered is-vcentered is-variable is-4-tablet is-8-desktop">
       {/* Feature Image */}
-      <FeatureImage image={image} />
+      <FeatureItemImage image={item.image} />
 
       {/* Feature Description */}
-      <FeatureDescription
-        id={id}
-        title={title}
-        description={description}
-        features={features}
-      />
+      <FeatureItemDescription item={item} />
     </div>
   </div>
 );

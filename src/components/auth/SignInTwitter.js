@@ -9,7 +9,7 @@ import { Icon } from "react-icons-kit";
 import { twitter } from "react-icons-kit/icomoon/twitter";
 
 const SignInTwitterBase = ({ firebase }) => {
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     firebase.doSignInWithTwitter();
 
     // Prevent reload
@@ -19,10 +19,7 @@ const SignInTwitterBase = ({ firebase }) => {
   return (
     <form className="social" onSubmit={onSubmit}>
       {/* Social button */}
-      <Button
-        className="social__btn social__btn--twitter has-text-white"
-        type="submit"
-      >
+      <Button className="social__btn social__btn--twitter" type="submit">
         {/* Social icon */}
         <div className="social__icon">
           <Icon icon={twitter} size={"100%"} />

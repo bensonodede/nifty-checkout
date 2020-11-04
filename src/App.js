@@ -16,16 +16,13 @@ import Routes from "./routes";
 // Import server url environment variables
 let serverUrl;
 
-// Define production domain
-let productionHost = "withfinn.com";
-
-// Check if site is using production domain or development domain
-if (window.location.hostname.toLowerCase().search(productionHost) < 0) {
-  // Initialize DEVELOPMENT DOMAIN prisma server
-  serverUrl = process.env.REACT_APP_DEV_SERVER_URL;
-} else {
-  // Initialize PRODUCTION DOMAIN prisma server
+// Check dev environment
+if (process.env.NODE_ENV === "production") {
+  // Assign PRODUCTION DOMAIN prisma server
   serverUrl = process.env.REACT_APP_PROD_SERVER_URL;
+} else {
+  // Assign DEVELOPMENT DOMAIN prisma server
+  serverUrl = process.env.REACT_APP_DEV_SERVER_URL;
 }
 
 // Devices screen breakpoints

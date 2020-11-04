@@ -17,9 +17,7 @@ const StoreNameField = ({ history, isValid }) => (
   <>
     <div className="create-store-field">
       {/* Store name field label */}
-      <h5 className="create-store-field-label title is-size-7 is-marginless">
-        STORE NAME
-      </h5>
+      <h5 className="create-store-field-label title is-size-7">STORE NAME</h5>
 
       {/* Store name field */}
       <Field

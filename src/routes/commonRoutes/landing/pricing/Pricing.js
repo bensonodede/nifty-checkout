@@ -11,7 +11,7 @@ const Pricing = () => (
     <div className="hero-body">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered">
-          <div className="column is-11-mobile is-7-tablet is-9-desktop">
+          <div className="column is-12-mobile is-11-tablet is-9-desktop">
             {/* Content */}
             <PricingContent />
           </div>

@@ -23,7 +23,7 @@ const PayoutField = ({ isValid, history }) => (
   <>
     <div className="create-store-field">
       {/* Phone number input field */}
-      <h5 className="create-store-field-label title is-size-7 is-marginless">
+      <h5 className="create-store-field-label title is-size-7">
         M-PESA ENABLED PHONE NUMBER
       </h5>
       <Field

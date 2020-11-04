@@ -28,9 +28,7 @@ const StoreUsernameField = ({ history, isValid }) => (
   <>
     <div className="create-store-field">
       {/* Store username field label */}
-      <h5 className="create-store-field-label title is-size-7 is-marginless">
-        USERNAME
-      </h5>
+      <h5 className="create-store-field-label title is-size-7">USERNAME</h5>
 
       {/* Store username field */}
       <Field

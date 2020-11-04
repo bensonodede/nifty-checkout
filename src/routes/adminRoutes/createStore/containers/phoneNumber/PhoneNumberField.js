@@ -23,9 +23,7 @@ const PhoneNumberField = ({ history, isValid }) => (
   <>
     <div className="create-store-field">
       {/* Phone number input field */}
-      <h5 className="create-store-field-label title is-size-7 is-marginless">
-        PHONE NUMBER
-      </h5>
+      <h5 className="create-store-field-label title is-size-7">PHONE NUMBER</h5>
       <Field
         name="phoneNumber"
         validate={validatePhoneNumber}

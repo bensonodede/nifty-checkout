@@ -12,7 +12,7 @@ const SignUp = () => (
     <div className="hero-body">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered">
-          <div className="column is-11-mobile is-7-tablet is-9-desktop">
+          <div className="column is-12-mobile is-11-tablet is-9-desktop">
             <div className="signup-section">
               {/* Signup Emoji */}
               <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop has-text-centered is-marginless signup-section__emoji">

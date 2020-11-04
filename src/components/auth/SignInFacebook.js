@@ -9,7 +9,7 @@ import { Icon } from "react-icons-kit";
 import { facebook } from "react-icons-kit/icomoon/facebook";
 
 const SignInFacebookBase = ({ firebase }) => {
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     firebase.doSignInWithFacebook();
 
     // Prevent reload
@@ -19,10 +19,7 @@ const SignInFacebookBase = ({ firebase }) => {
   return (
     <form onSubmit={onSubmit} className="social">
       {/* Social buttnon */}
-      <Button
-        className="social__btn social__btn--facebook has-text-white"
-        type="submit"
-      >
+      <Button className="social__btn social__btn--facebook" type="submit">
         {/* Social icon */}
         <div className="social__icon">
           <Icon icon={facebook} size={"100%"} />

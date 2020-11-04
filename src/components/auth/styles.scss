@@ -17,13 +17,27 @@
 .social__btn--google {
   background-color: #ffffff;
 }
+
 .social__btn--facebook {
   background-color: #4267b2;
   border-color: #4267b2;
+  color: #ffffff;
 }
+
+.social__btn--facebook:active {
+  border-color: #4267b2;
+  color: #4267b2;
+}
+
 .social__btn--twitter {
   background-color: #1da1f2;
   border-color: #1da1f2;
+  color: #ffffff;
+}
+
+.social__btn--twitter:active {
+  border-color: #1da1f2;
+  color: #1da1f2;
 }
 
 // Social icon

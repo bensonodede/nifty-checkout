@@ -28,10 +28,25 @@
   align-items: center;
 }
 
+.hero-body__button {
+  margin-top: 2rem;
+}
+
 // Hero footer
 
 .hero-footer__image {
   display: flex;
-  width: 100%;
   margin: auto;
+
+  @include mobile {
+    width: 97%;
+  }
+
+  @include tablet {
+    width: 97%;
+  }
+
+  @include desktop {
+    width: 100%;
+  }
 }

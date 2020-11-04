@@ -1,9 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-// Import components
-import HeroNavbar from "../heroNavbar";
-
 // Import styles
 import "./styles.scss";
 
@@ -11,9 +8,6 @@ const About = () => (
   <>
     {/* Document title */}
     <Helmet title={"Finn · About Finn"} />
-
-    {/* Navigation bar */}
-    <HeroNavbar />
 
     {/* About page */}
     <div className="route-wrapper-landing">
@@ -31,9 +25,9 @@ const About = () => (
 
             {/* About sub-title */}
             <p className="has-text-grey-light is-size-6-mobile is-size-6-tablet is-size-5-desktop has-text-centered-mobile">
-              Finn is a tiny team. So tiny that it's just one person. Our
-              mission is to create tools that make it fun and simple to run an
-              online business.
+              Finn is a tiny team. So tiny that it's just one person. I love
+              making tools that make it fun and simple to run an online
+              business.
             </p>
           </div>
 
