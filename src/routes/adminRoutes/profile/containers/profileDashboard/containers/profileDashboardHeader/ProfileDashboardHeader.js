@@ -19,10 +19,10 @@ const ProfileDashboardHeader = ({ firebase }) => {
   return (
     <div className="column is-10">
       {/* Title */}
-      <h1 className="title is-size-3">Profile</h1>
+      <h1 className="title is-size-3 is-marginless">Profile</h1>
 
       {/* Sub title */}
-      <p className=" subtitle has-text-grey-light is-size-6">
+      <p className="has-text-grey-light is-size-6">
         {displayName}, {email}
       </p>
     </div>

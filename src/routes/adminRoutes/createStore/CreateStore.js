@@ -58,6 +58,11 @@ const CreateStore = ({ history }) => {
       if (data) {
         setPercentageLoading(100);
       }
+
+      // If error, reset loader
+      if (error) {
+        setPercentageLoading(0);
+      }
     }, 1200);
   }
 
