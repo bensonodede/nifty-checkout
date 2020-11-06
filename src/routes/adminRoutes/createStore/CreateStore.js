@@ -47,6 +47,11 @@ const CreateStore = ({ history }) => {
     }, 2500);
   }
 
+  // Redirect to login page
+  if (error) {
+    history.push(`/login`);
+  }
+
   // Progress loader function
   if (isOpen) {
     setTimeout(() => {

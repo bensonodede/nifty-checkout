@@ -56,7 +56,7 @@ const OrderProductsRowDescription = ({ product, variant }) => {
           ) : (
             <>
               {/* Product price */}
-              <p className="order-products-row__description order-products-row__description--price">
+              <p className="order-products-row__description has-text-grey-light order-products-row__description--price">
                 {numeral(price).format("0,0")}{" "}
                 <span className="is-size-7">KES</span>
               </p>

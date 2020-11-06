@@ -38,6 +38,11 @@ const WaitingModal = ({ isOpen, id, values, history }) => {
     }, 2000);
   }
 
+// Redirect to login page
+  if (error) {
+    history.push(`/login`);
+  }
+
   // Progress loader function
   if (isOpen) {
     setTimeout(() => {
@@ -48,6 +53,11 @@ const WaitingModal = ({ isOpen, id, values, history }) => {
       // Set loader to 100%
       if (data) {
         setPercentageLoading(100);
+      } 
+
+       // If error, reset loader
+      if (error) {
+        setPercentageLoading(0);
       }
     }, 1200);
   }
