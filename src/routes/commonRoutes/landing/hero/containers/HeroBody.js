@@ -29,7 +29,7 @@ const HeroBody = () => {
                 className="hero-body__button"
                 type={"button"}
               >
-                Try for free
+                Get started
               </Button>
             </div>
           </div>

@@ -42,6 +42,9 @@ const link = createHttpLink({
 const client = new ApolloClient({
   // Point client to server address
   link,
+  fetchOptions:{
+    mode: "no-cors"
+  },
   cache: new InMemoryCache(),
   connectToDevTools: true,
 });

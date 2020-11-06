@@ -6,9 +6,9 @@ const PricingContent = () => (
     <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop has-text-centered">
       Simple, fair pricing.
     </h1>
-    <p className="has-text-centered is-size-5-mobile is-size-4-tablet is-size-4-desktop has-text-grey-light is-marginless">
+    {/* <p className="has-text-centered is-size-5-mobile is-size-4-tablet is-size-4-desktop has-text-grey-light is-marginless">
       Try Finn for free for 14 days. No credit card needed.
-    </p>
+    </p> */}
 
     {/* Pricing item */}
     <div className="pricing-content__container">

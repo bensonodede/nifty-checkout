@@ -11,7 +11,7 @@ import featuresData from "./featuresData";
 
 const Features = () => (
   <section className="hero">
-    <div className="hero-body">
+    <div className="hero-body features-hero--body">
       <div className="container">
         {/* Features header */}
         <FeaturesHeader />

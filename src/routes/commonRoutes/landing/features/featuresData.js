@@ -126,19 +126,19 @@ const featuresData = [
         id: 1,
         subtitle: "One link for everything",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Sell on instagram, whatsapp and facebook without any of the hassle. Direct customers to your store and we'll handle the rest.",
       },
       {
         id: 2,
-        subtitle: 'Never say "call to order"',
+        subtitle: 'Never say "Call to order"',
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Your customers deserve a better shopping experience. They'll keep coming back.",
       },
       {
         id: 3,
         subtitle: "Order notifications",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Get an SMS notification whenever there's a new order. You won't miss out on anything.",
       },
     ],
   },

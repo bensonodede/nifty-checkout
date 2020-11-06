@@ -1,8 +1,15 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
+.features-hero--body{
+  @include mobile {
+    padding: 3rem 0rem !important;
+  }
+}
+
 .features__header {
   @include mobile {
-    margin: 4rem 0rem 4rem 0rem;
+    width: 83%;
+    margin: 4rem auto 6rem auto;
   }
 
   @include tablet {
@@ -40,6 +47,20 @@
   }
 }
 
+
+.feature-item__image{
+  @include desktop{
+    width: 90%
+  }
+}
+
+.features__item-container .feature-item:nth-child(even) .columns .feature-item__image {
+  @include tablet {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
 .feature-section-title {
   font-size: 0.85rem !important;
   margin-top: 2rem !important;
@@ -56,4 +77,7 @@
 
 .feature-sub-item {
   margin-bottom: 2rem;
+  @include tablet {
+    margin-bottom: 3rem;
+  }
 }
