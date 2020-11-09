@@ -3,15 +3,16 @@ import React from "react";
 const PolicyDescription = () => (
   <>
     <p className="has-text-grey-light is-size-6">
-      Let your customers know how and when they'll get their items. Also, if it
-      doesn't work out, be transparent about refunds and/or returns.{" "}
+      These are some of the most common questions customers have before making a
+      purchase. Increase trust by letting them know up front.
       <span role="img" aria-label="emoji">
         🙏
       </span>
     </p>
 
     <h1 className="has-text-grey-dark is-size-6">
-      (This info will be displayed on every product page and purchase receipt)
+      (This info will be displayed on every product page where customers can
+      easliy see it.)
     </h1>
   </>
 );

@@ -1,37 +1,23 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.create-store-navbar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #ffffff;
-  z-index: 1;
-
+// Route with fixed menu wrapper
+.create-store-route-wrapper {
   @include mobile {
-    padding: 1rem 0rem;
-    margin: 0rem 1rem;
+    min-height: calc(100vh - 8rem);
+    padding-top: 3rem;
+    padding-bottom: 5rem;
   }
-  @include tablet {
-    padding: 1.5rem 0rem;
-    margin: 0rem 2.5rem;
-  }
-  @include desktop {
-    padding: 1.5rem 0rem;
-    margin: 0rem 2.5rem;
-  }
-}
 
-.create-store-navbar__logo {
-  @include mobile {
-    width: 2.5rem;
-  }
   @include tablet {
-    width: 3rem;
+    min-height: calc(100vh - 8rem);
+    padding-top: 3rem;
+    padding-bottom: 5rem;
   }
+
   @include desktop {
-    width: 3rem;
+    min-height: calc(100vh - 9rem);
+    padding-top: 4rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -73,7 +59,7 @@
   border-radius: 1rem 1rem 0rem 0rem;
   border: solid 1.5px #e5e5e5;
   border-bottom: none;
-  padding: 2rem 2rem;
+  padding: 1rem 1.5rem;
   width: 100%;
   height: 5rem;
 }

@@ -1,4 +1,3 @@
-import CreateStoreNavbar from "./CreateStoreNavbar";
 import CreateStoreModal from "./createStoreModal";
 
 import Intro from "./intro";
@@ -12,7 +11,6 @@ import StoreLocationMap from "./storeLocationMap";
 import DeliveryPrice from "./deliveryPrice";
 
 export {
-  CreateStoreNavbar,
   CreateStoreModal,
   Intro,
   StoreName,
