@@ -24,12 +24,6 @@ const CreateStoreDesktopContent = ({ percentageLoading }) => (
       {/* Create store sub-title */}
       <p className="has-text-centered">
         This will take a minute, hang in there...
-        <br />
-        It's safe to let this run in the background while
-        <br /> you do other things.{" "}
-        <span role="img" aria-label="emoji">
-          🤗
-        </span>
       </p>
     </div>
 

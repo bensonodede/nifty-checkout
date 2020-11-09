@@ -15,7 +15,8 @@ const LoginQuery = ({ authUser }) => {
 
   // Query user store
   const { loading, error, data } = useQuery(LOGIN_QUERY, {
-    variables: { uid }
+    variables: { uid },
+    fetchPolicy: "network-only",
   });
 
   // Loading state
@@ -26,21 +27,21 @@ const LoginQuery = ({ authUser }) => {
   // Error state
   if (error) {
     return <ErrorToast emoji={"💩"} text={"No internet connection"} />;
-  }  
+  }
 
   // Get User store from data
   let { stores } = data.login;
 
   // Store exists
   if (stores[0]) {
-    let { storeUsername } = stores[0];    
+    let { storeUsername } = stores[0];
 
     // Redirect to dashboard
     return <Redirect to={`/${storeUsername}/admin/`} />;
   }
 
   // Store does NOT exist
-  else {    
+  else {
     // Redirect to create-store page
     return <Redirect to={`/create-store`} />;
   }
