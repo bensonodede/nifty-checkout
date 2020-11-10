@@ -36,6 +36,9 @@ setDefaultBreakpoints([
 
 const link = createHttpLink({
   uri: serverUrl,
+  fetchOptions: {
+    mode: "no-cors",
+  },
 });
 
 // Initialize apollo client
