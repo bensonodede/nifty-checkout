@@ -4,7 +4,7 @@ const PolicyDescription = () => (
   <>
     <p className="has-text-grey-light is-size-6">
       These are some of the most common questions customers have before making a
-      purchase. Increase trust by letting them know up front.
+      purchase. Increase trust by answering them up front.
       <span role="img" aria-label="emoji">
         🙏
       </span>
@@ -12,7 +12,7 @@ const PolicyDescription = () => (
 
     <h1 className="has-text-grey-dark is-size-6">
       (This info will be displayed on every product page where customers can
-      easliy see it.)
+      easliy see it)
     </h1>
   </>
 );

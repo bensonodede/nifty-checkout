@@ -1,5 +1,5 @@
 // Import packages
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { compose } from "recompose";
 import { Formik, Form } from "formik";
@@ -23,19 +23,12 @@ import { FormikPersist } from "components/form";
 // Initial form values
 const initialFormValues = require("./initialFormValues.json");
 
-const CreateStore = ({ history }) => {
+const CreateStore = ({ firebase, history }) => {
   // Destructure hooks
   const [isOpen, toggleModal] = useModal(false);
   const [mutate, { error, data }] = useMutation(CREATE_STORE);
   // Percentage loaded state
   const [percentageLoading, setPercentageLoading] = useState(0);
-
-  // Close modal if error occurs
-  useEffect(() => {
-    if (error) {
-      toggleModal();
-    }
-  }, [error]);
 
   // Redirect to admin page
   if (data) {
@@ -47,9 +40,9 @@ const CreateStore = ({ history }) => {
     }, 2500);
   }
 
-  // Redirect to login page
+  // Sign out if error occurs
   if (error) {
-    history.push(`/login`);
+    firebase.doSignOut();
   }
 
   // Progress loader function

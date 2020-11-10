@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { Breakpoint } from "react-socks";
+import { compose } from "recompose";
 
 // Import Components
+import { withFirebase } from "components/firebase";
 import { BottomModal, CenterModal } from "components/modal";
 import { SuccessToast, ErrorToast } from "components/toast";
 import WaitingModalMobileContent from "./WaitingModalMobileContent";
@@ -14,7 +16,7 @@ import editStoreMutation from "../../utils";
 // Import styles
 import "./styles.scss";
 
-const WaitingModal = ({ isOpen, id, values, history }) => {
+const WaitingModal = ({ firebase, isOpen, id, values, history }) => {
   // Destructure edit store mutation
   const { error, data, _editStoreMutation } = editStoreMutation();
 
@@ -38,9 +40,9 @@ const WaitingModal = ({ isOpen, id, values, history }) => {
     }, 2000);
   }
 
-// Redirect to login page
+  // Sign out on error
   if (error) {
-    history.push(`/login`);
+    firebase.doSignOut();
   }
 
   // Progress loader function
@@ -53,9 +55,9 @@ const WaitingModal = ({ isOpen, id, values, history }) => {
       // Set loader to 100%
       if (data) {
         setPercentageLoading(100);
-      } 
+      }
 
-       // If error, reset loader
+      // If error, reset loader
       if (error) {
         setPercentageLoading(0);
       }
@@ -87,4 +89,4 @@ const WaitingModal = ({ isOpen, id, values, history }) => {
   );
 };
 
-export default withRouter(WaitingModal);
+export default compose(withRouter, withFirebase)(WaitingModal);
