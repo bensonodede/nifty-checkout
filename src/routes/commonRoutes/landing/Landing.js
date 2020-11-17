@@ -11,7 +11,7 @@ import Footer from "./footer";
 const Landing = () => (
   <>
     {/* Document title */}
-    <Helmet title={"Finn · Everyhing you need to start selling online"} />
+    <Helmet title={"Finn · Everything you need to start selling online"} />
 
     {/* Hero section */}
     <Hero />

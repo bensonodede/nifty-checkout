@@ -126,13 +126,13 @@ const featuresData = [
         id: 1,
         subtitle: "One link for everything",
         description:
-          "Sell on instagram, whatsapp and facebook without any of the hassle. Direct customers to your store and we'll handle the rest.",
+          "Directly tag your products on instagram. Place your website link anywhere. Get customers flowing to your store.",
       },
       {
         id: 2,
-        subtitle: 'Never say "Call to order"',
+        subtitle: "Their questions answered",
         description:
-          "Your customers deserve a better shopping experience. They'll keep coming back.",
+          "How much is it? Size? Still available? All this info will be available for every item on your store, so you can focus on the important stuff.",
       },
       {
         id: 3,
