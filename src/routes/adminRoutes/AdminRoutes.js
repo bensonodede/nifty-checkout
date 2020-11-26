@@ -6,13 +6,13 @@ import { withAuthentication } from "components/session";
 import NavbarRoute from "./NavbarRoute";
 
 // Import routes
-import CreateStore from "./createStore";
 // import Dashboard from "./dashboard";
+import CreateStore from "./createStore";
 import Products from "./products";
 import AddProduct from "./addProduct";
 import EditProduct from "./editProduct";
 import Orders from "./orders";
-import Profile from "./profile";
+import Account from "./account";
 import Help from "./help";
 import Subscription from "./subscription";
 // import Error404 from "./error404";
@@ -27,13 +27,6 @@ const AdminRoutes = () => (
       path={"/:storeUsername/admin/subscription"}
       component={Subscription}
     />
-
-    {/* Dashboard/Home route */}
-    {/* <NavbarRoute
-            exact
-            path={"/:storeUsername/admin"}
-            component={Dashboard}
-          /> */}
 
     {/* Products redirect routes */}
     <Redirect
@@ -71,7 +64,7 @@ const AdminRoutes = () => (
     <NavbarRoute path={"/:storeUsername/admin/orders"} component={Orders} />
 
     {/* Profile route */}
-    <NavbarRoute path={"/:storeUsername/admin/profile"} component={Profile} />
+    <NavbarRoute path={"/:storeUsername/admin/account"} component={Account} />
 
     {/* Help route */}
     <NavbarRoute path={"/:storeUsername/admin/help"} component={Help} />

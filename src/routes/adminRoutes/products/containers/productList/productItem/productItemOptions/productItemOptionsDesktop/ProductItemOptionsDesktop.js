@@ -28,7 +28,7 @@ const ProductItemOptionsDesktop = ({ item }) => {
   // Destructure mutation props
   let { loading: mutationLoading } = deleteMutationProps;
 
-  //
+  // Options buton reference
   const buttonRef = useRef();
 
   return (

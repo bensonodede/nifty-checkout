@@ -19,7 +19,13 @@ const DeleteModal = ({
   const { id, imgUrls } = item;
 
   return (
-    <CenterModal isOpen={isDeleteOpen} toggleModal={toggleDeleteModal}>
+    <CenterModal
+      isOpen={isDeleteOpen}
+      toggleModal={(e) => {
+        e.stopPropagation();
+        toggleDeleteModal();
+      }}
+    >
       <div className="delete-modal--desktop">
         {/* Delete confirmation text */}
         <div className="content">

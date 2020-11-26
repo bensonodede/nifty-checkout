@@ -22,7 +22,7 @@ const WaitingModalMobileContent = ({ percentageLoading }) => (
       </h1>
 
       {/* Waiting modal edit-store sub-title */}
-      <p className="has-text-centered">
+      <p className="has-text-centered has-text-grey-light">
         This will take a minute, hang in there...
       </p>
     </div>

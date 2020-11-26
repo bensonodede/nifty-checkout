@@ -231,6 +231,18 @@ const TOGGLE_ORDER_STATUS = gql`
   }
 `;
 
+// Add domain
+const CREATE_DOMAIN = gql`
+  mutation CreateDomain($storeUsername: String!, $domainName: String!) {
+    createDomain(storeUsername: $storeUsername, domainName: $domainName) {
+      id
+      registrarUrl
+      domainName
+      verified
+    }
+  }
+`;
+
 // Delete cloudinary file
 const DELETE_CLOUDINARY_FILE = gql`
   mutation DeleteCloudinaryFile($imgUrl: String!) {
@@ -252,5 +264,8 @@ export {
   // Order mutations
   CREATE_ORDER,
   TOGGLE_ORDER_STATUS,
+  // Domain mutations
+  CREATE_DOMAIN,
+  // Cloudinary mutation
   DELETE_CLOUDINARY_FILE,
 };

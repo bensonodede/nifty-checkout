@@ -20,14 +20,14 @@ const PayoutForm = ({ match, history }) => {
 
   // Run store query
   let { loading, error, data } = useQuery(STORE_QUERY, {
-    variables: { storeUsername: match.params.storeUsername }
+    variables: { storeUsername: match.params.storeUsername },
   });
 
   let {
     mutationLoading,
     mutationError,
     mutationData,
-    _editPayoutMutation
+    _editPayoutMutation,
   } = editPayoutMutation();
 
   // Loading state
@@ -54,13 +54,13 @@ const PayoutForm = ({ match, history }) => {
       <Formik
         initialValues={{
           // Add whitespaces and remove country code
-          payoutNumber: payoutNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 ")
+          payoutNumber: payoutNumber.slice(3).replace(/(\d{3})(?=\d)/g, "$1 "),
         }}
         validateOnBlur={false}
         validateOnMount={false}
-        onSubmit={values => _editPayoutMutation({ ...values, ...{ id } })}
+        onSubmit={(values) => _editPayoutMutation({ ...values, ...{ id } })}
       >
-        {FormikProps => (
+        {(FormikProps) => (
           <>
             <Form>
               <PayoutFormFields

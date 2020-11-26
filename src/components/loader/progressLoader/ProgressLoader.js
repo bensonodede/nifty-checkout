@@ -1,12 +1,14 @@
 import React from "react";
+
+// Import styles
 import "react-step-progress-bar/styles.css";
+import "./styles.scss";
+
+// Import components
 import { ProgressBar } from "react-step-progress-bar";
 
 const ProgressLoader = ({ percent }) => (
-  <ProgressBar
-    percent={percent}
-    filledBackground="linear-gradient(to right, #6ac0fb, #356ee1)"
-  />
+  <ProgressBar percent={percent} filledBackground="#356ee1" />
 );
 
 export default ProgressLoader;

@@ -1,5 +1,5 @@
 import NavbarLinks from "./NavbarLinks";
-import NavbarProfile from "./NavbarProfile";
+import NavbarAccount from "./NavbarAccount";
 import NavbarStoreLink from "./NavbarStoreLink";
 
-export { NavbarLinks, NavbarProfile, NavbarStoreLink };
+export { NavbarLinks, NavbarAccount, NavbarStoreLink };

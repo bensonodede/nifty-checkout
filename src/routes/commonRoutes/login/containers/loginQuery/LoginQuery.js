@@ -13,6 +13,8 @@ const LoginQuery = ({ authUser }) => {
   // Destructure unique user ID
   const { uid } = authUser;
 
+  console.log(uid);
+
   // Query user store
   const { loading, error, data } = useQuery(LOGIN_QUERY, {
     variables: { uid },
@@ -26,8 +28,11 @@ const LoginQuery = ({ authUser }) => {
 
   // Error state
   if (error) {
+    console.log(error);
     return <ErrorToast emoji={"💩"} text={"No internet connection"} />;
   }
+
+  console.log(data);
 
   // Get User store from data
   let { stores } = data.login;

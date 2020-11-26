@@ -29,6 +29,7 @@
 
 .navbar-logo__img {
   width: 3rem;
+  margin-bottom: 9px;
   height: auto;
 }
 
@@ -55,35 +56,38 @@
   color: #787878;
 }
 
+.navbar-item--active:hover,
 .navbar-item--active {
   border-bottom: 3px solid #356ee1;
   color: #484848;
 }
 
-/***** Navbar PROFILE *****/
+/***** Navbar account *****/
 
-.navbar-profile-link {
+.navbar-account-link {
   display: flex;
   align-items: center;
   width: 2rem;
   height: 2rem;
   padding: 1rem 0rem;
+  padding-bottom: calc(1rem - 3px);
   margin: 0rem 0.75rem;
   cursor: pointer;
   color: #d9d9d9;
 }
 
-.navbar-profile-link:hover {
+.navbar-account-link:hover {
   color: #787878;
 }
 
-.navbar-profile-link--active {
-  padding-top: calc(1rem + 2px);
+.navbar-account-link--active:hover,
+.navbar-account-link--active {
+  padding-top: calc(1rem + 3px);
   border-bottom: 3px solid #356ee1;
   color: #484848;
 }
 
-.navbar-profile__icon {
+.navbar-account__icon {
   color: inherit;
 }
 
@@ -103,7 +107,8 @@
   height: 2rem;
   margin: 0rem 0.75rem;
   border-radius: 100%;
-  border: solid 1px #e4e4e4;
+  border: solid 0.25px #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   cursor: pointer;
 }
 

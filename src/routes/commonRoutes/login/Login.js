@@ -16,6 +16,8 @@ const Login = ({ firebase }) => {
   // Firebase auth hook
   const { authUser, initializing } = useAuth(firebase);
 
+  console.log(authUser);
+
   // User is signed in
   if (!!authUser && !initializing) {
     return (

@@ -155,6 +155,18 @@ const ORDERS_COUNT = gql`
   }
 `;
 
+// Get store domain
+const DOMAIN_QUERY = gql`
+  query DomainQuery($storeUsername: String!) {
+    domain(storeUsername: $storeUsername) {
+      id
+      domainName
+      registrarUrl
+      verified
+    }
+  }
+`;
+
 // Get all orders from a store
 const ORDERS_BY_STORE_QUERY = gql`
   query OrdersByStoreQuery(
@@ -259,4 +271,6 @@ export {
   ORDERS_COUNT,
   ORDERS_BY_STORE_QUERY,
   ORDER_BY_ORDERID_QUERY,
+  // Domain query
+  DOMAIN_QUERY,
 };

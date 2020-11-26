@@ -15,8 +15,8 @@
 
   {
     "id": 4,
-    "title": "Profile",
-    "link": "/profile",
+    "title": "Account",
+    "link": "/account",
     "exact": false
   },
 

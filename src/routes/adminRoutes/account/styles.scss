@@ -1,0 +1,32 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.account__header {
+  margin-top: 0rem !important;
+  margin-bottom: 4rem !important;
+}
+
+.account__description {
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
+.account__form-field {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.account__form-field-label {
+  margin-bottom: 0.75rem !important;
+}
+
+.account__form-footer {
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    margin: 0;
+  }
+
+  margin: 2rem 0rem;
+}

@@ -1,3 +1,3 @@
-import ProfileRoutes from "./profileRoutes";
+import ProfileRoutes from "./ProfileRoutes";
 
 export default ProfileRoutes;

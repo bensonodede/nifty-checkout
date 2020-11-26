@@ -1,0 +1,92 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+// Profile list
+
+.settings-list {
+  margin: 2rem 0rem;
+
+  display: grid;
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem 2rem;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 2rem;
+  }
+}
+
+// Settings item
+
+.settings-item {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1.5rem 0.05rem rgba(189, 54, 54, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 300ms;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.settings-item:hover {
+  @include desktop {
+    transform: scale(1.1);
+    transition: all 300ms;
+  }
+}
+
+.settings-item:active {
+  transform: scale(1);
+  box-shadow: none;
+  transition: all 200ms;
+}
+
+.settings-item__content {
+  margin: 0.5rem 0rem;
+}
+
+.settings-item__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0rem;
+}
+
+.settings-item__icon {
+  color: #484848;
+  width: 1.25rem;
+  margin-left: 0.15rem;
+}
+
+.settings-item__emoji {
+  margin-bottom: 1rem;
+}
+
+.settings-footer__logout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-footer__logout {
+  padding: 0.75rem 1rem;
+  border-radius: 0.45rem;
+  border: solid 1.2px #e5e5e5;
+  cursor: pointer;
+}
+
+.settings-footer__logout:active {
+  background-color: #e5e5e5;
+}

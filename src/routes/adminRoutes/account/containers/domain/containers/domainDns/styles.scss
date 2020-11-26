@@ -1,0 +1,118 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+// Domain DNS header
+
+.domain-dns__header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #484848 !important;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.domain-dns__header:hover {
+  @include desktop {
+    color: #787878 !important;
+  }
+}
+
+.domain-dns__header:active {
+  color: #e5e5e5 !important;
+}
+
+.domain-dns__header-title {
+  color: inherit !important;
+}
+
+.domain-dns__header-title-icon {
+  width: 1.65rem;
+  margin-top: 0.45rem;
+  display: flex !important;
+  margin-left: 0.35rem;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.domain-dns__header-delete-icon {
+  display: flex !important;
+  width: 1.25rem;
+  flex-shrink: 0;
+  margin-left: 3rem;
+  border: solid 1.75px #e5e5e5;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+// Domain DNS step
+
+.domain-dns__step-item {
+  margin-bottom: 4rem;
+}
+
+.domain-dns__step-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.domain-dns__step-link {
+  font-weight: 600;
+}
+
+.domain-dns__step-header-number-wrapper {
+  background-color: #484848;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.domain-dns__step-header-number {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+// Domain DNS table
+
+.domain-dns__table {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.5rem;
+  padding: 0rem 1rem;
+  padding-top: 1.5rem;
+}
+
+.domain-dns__table-header-item {
+  border: none !important;
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+// Domain DNS footer
+
+.domain-dns__footer-error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.domain-dns__footer-error-text {
+  color: #fe2c2c;
+}
+
+.domain-dns__footer-error-icon {
+  display: flex !important;
+  flex-shrink: 0;
+  width: 0.75rem;
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  border-radius: 100%;
+  color: #ffffff;
+  background-color: #fe2c2c;
+}

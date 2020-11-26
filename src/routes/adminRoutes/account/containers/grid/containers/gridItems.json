@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "emoji": "🛒",
+    "title": "Store info",
+    "subtitle": "Basic info about your store",
+    "link": "store"
+  },
+
+  {
+    "id": 2,
+    "emoji": "💰",
+    "title": "Payouts",
+    "subtitle": "How you get paid",
+    "link": "payouts"
+  },
+
+  {
+    "id": 3,
+    "emoji": "💸",
+    "title": "Billing",
+    "subtitle": "How you pay us",
+    "link": "billing"
+  }
+]
