@@ -21,5 +21,13 @@
     "title": "Billing",
     "subtitle": "How you pay us",
     "link": "billing"
+  },
+
+  {
+    "id": 4,
+    "emoji": "🔗",
+    "title": "Domain",
+    "subtitle": "Custom website address",
+    "link": "domain"
   }
 ]

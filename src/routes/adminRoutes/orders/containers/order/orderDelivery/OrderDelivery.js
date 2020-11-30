@@ -1,6 +1,6 @@
 import React from "react";
-import { useClipboard } from "use-clipboard-copy";
 import numeral from "numeral";
+import { useClipboard } from "use-clipboard-copy";
 
 // Import components
 import { Icon } from "react-icons-kit";

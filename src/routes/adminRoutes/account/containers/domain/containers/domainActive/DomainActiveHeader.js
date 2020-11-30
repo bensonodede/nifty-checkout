@@ -3,10 +3,10 @@ import React from "react";
 // Import components
 import { Icon } from "react-icons-kit";
 import { ic_open_in_new } from "react-icons-kit/md/ic_open_in_new";
+import { checkmark } from "react-icons-kit/ionicons/checkmark";
 
-const DomainDnsHeader = ({ domain: { domainName } }) => (
+const DomainActiveHeader = () => (
   <div className="account__header">
-    {/* Title */}
     <a
       className="domain-dns__header"
       href={`https://${domainName}`}
@@ -22,14 +22,12 @@ const DomainDnsHeader = ({ domain: { domainName } }) => (
       />
     </a>
 
-    {/* Sub title */}
-    <p>
-      Follow these 4 simple steps to activate your domain.{" "}
-      <span role="img" aria-label={"emoji"}>
-        🙌
-      </span>
-    </p>
+    {/*  */}
+    <div className="domain-active__row">
+      <Icon size="100%" icon={checkmark} className="domain-active__icon" />
+      <h5 className="is-size-6 is-marginless has-text-primary">Connected</h5>
+    </div>
   </div>
 );
 
-export default DomainDnsHeader;
+export default DomainActiveHeader;

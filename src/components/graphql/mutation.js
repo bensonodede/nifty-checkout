@@ -237,6 +237,29 @@ const CREATE_DOMAIN = gql`
     createDomain(storeUsername: $storeUsername, domainName: $domainName) {
       id
       registrarUrl
+      expiryDate
+      domainName
+      verified
+    }
+  }
+`;
+
+// Delete domain
+const DELETE_DOMAIN = gql`
+  mutation DeleteDomain($storeUsername: String!, $domainName: String!) {
+    deleteDomain(storeUsername: $storeUsername, domainName: $domainName) {
+      id
+    }
+  }
+`;
+
+// Verify domain
+const VERIFY_DOMAIN = gql`
+  mutation VerifyDomain($domainName: String!) {
+    verifyDomain(domainName: $domainName) {
+      id
+      registrarUrl
+      expiryDate
       domainName
       verified
     }
@@ -266,6 +289,8 @@ export {
   TOGGLE_ORDER_STATUS,
   // Domain mutations
   CREATE_DOMAIN,
+  DELETE_DOMAIN,
+  VERIFY_DOMAIN,
   // Cloudinary mutation
   DELETE_CLOUDINARY_FILE,
 };

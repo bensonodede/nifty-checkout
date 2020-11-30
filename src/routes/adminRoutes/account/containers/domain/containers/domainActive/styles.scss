@@ -1,0 +1,16 @@
+.domain-active__icon {
+  display: flex !important;
+  flex-shrink: 0;
+  width: 0.85rem;
+  padding: 0.325rem;
+  margin-right: 0.5rem;
+  border-radius: 100%;
+  color: #ffffff;
+  background-color: #356ee1;
+}
+
+.domain-active__row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}

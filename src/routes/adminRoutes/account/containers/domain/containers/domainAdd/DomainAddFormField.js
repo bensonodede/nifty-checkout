@@ -2,16 +2,22 @@ import React from "react";
 import { Field } from "formik";
 
 // Import components
-import { GenericInput } from "components/input";
+import { GenericMaskedInput } from "components/input";
 import { validateName } from "components/validation";
 
 // Domain input component
 const DomainInput = ({ field, form }) => (
-  <GenericInput {...field} {...form} placeholder={"myshop.com"} />
+  <GenericMaskedInput
+    {...field}
+    {...form}
+    placeholder={"myshop.com"}
+    // Only allow lowercase letters, numbers and symbols
+    mask={(s) => Array.from(s).map(() => /[a-z-0-9_@./#&+-]+/)}
+  />
 );
 
 // Domain field component
-const DomainFormField = () => (
+const DomainAddFormField = () => (
   <div className="create-store-field">
     {/* Field label */}
     <h5 className="create-store-field-label title is-size-7">YOUR DOMAIN</h5>
@@ -21,4 +27,4 @@ const DomainFormField = () => (
   </div>
 );
 
-export default DomainFormField;
+export default DomainAddFormField;

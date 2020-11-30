@@ -160,8 +160,9 @@ const DOMAIN_QUERY = gql`
   query DomainQuery($storeUsername: String!) {
     domain(storeUsername: $storeUsername) {
       id
-      domainName
       registrarUrl
+      expiryDate
+      domainName
       verified
     }
   }

@@ -1,4 +1,5 @@
-import DomainForm from "./domainForm";
+import DomainActive from "./domainActive";
 import DomainDns from "./domainDns";
+import DomainAdd from "./domainAdd";
 
-export { DomainForm, DomainDns };
+export { DomainAdd, DomainDns, DomainActive };

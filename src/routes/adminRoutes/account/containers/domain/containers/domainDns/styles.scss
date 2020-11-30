@@ -53,13 +53,19 @@
 
 .domain-dns__step-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
+  margin-bottom: 2rem;
 }
 
 .domain-dns__step-link {
   font-weight: 600;
+  cursor: pointer;
+}
+
+.domain-dns__step-link:active {
+  opacity: 0.5;
 }
 
 .domain-dns__step-header-number-wrapper {
@@ -71,12 +77,25 @@
   height: 1.6rem;
   border-radius: 100%;
   margin-right: 0.5rem;
-  margin-bottom: 0.65rem;
 }
 
 .domain-dns__step-header-number {
   font-size: 0.9rem;
   color: #ffffff;
+}
+
+.domain-dns__step-path {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.domain-dns__step-point-emoji {
+  display: flex !important;
+  margin: 0rem 0.75rem;
+  margin-bottom: 0.15rem;
 }
 
 // Domain DNS table
@@ -85,6 +104,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.5rem;
   padding: 0rem 1rem;
+  padding-left: 1.5rem;
   padding-top: 1.5rem;
 }
 
@@ -94,7 +114,41 @@
   padding-bottom: 0rem !important;
 }
 
+.domain-dns__table-value {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.domain-dns__table-value:active {
+  opacity: 0.5;
+}
+
+.domain-dns__table-copy-icon {
+  width: 1rem;
+  display: flex !important;
+  flex-flow: column;
+  margin-left: 0.5rem;
+  color: #356ee1;
+}
+
+.domain-dns__table-help-text {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.domain-dns__table-help-text:active {
+  opacity: 0.5;
+}
+
 // Domain DNS footer
+
+.domain-dns__footer-card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.5rem;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
 
 .domain-dns__footer-error {
   display: flex;
@@ -109,10 +163,18 @@
 .domain-dns__footer-error-icon {
   display: flex !important;
   flex-shrink: 0;
-  width: 0.75rem;
-  padding: 0.3rem;
+  width: 0.9rem;
+  padding: 0.375rem;
   margin-right: 0.5rem;
   border-radius: 100%;
   color: #ffffff;
   background-color: #fe2c2c;
+}
+
+.domain-dns__footer-btn-verify {
+  margin-top: 2.5rem;
+}
+
+.domain-dns__footer-btn-remove {
+  margin-top: 0.75rem;
 }
