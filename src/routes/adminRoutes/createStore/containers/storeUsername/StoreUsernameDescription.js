@@ -12,6 +12,8 @@ const StoreUsernameDescription = ({ values: { storeUsername } }) => (
       <span role="img" aria-label="emoji">
         👇🏾
       </span>
+      <br />
+      (You can add a custom domain name later)
     </p>
 
     {/* Device illustration */}

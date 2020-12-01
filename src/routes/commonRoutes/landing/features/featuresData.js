@@ -16,7 +16,8 @@ const featuresData = [
       {
         id: 2,
         subtitle: "Custom website address",
-        description: "Look professional from the start with a free sub-domain.",
+        description:
+          "Look professional from the start with a custom domain name or get a free sub-domain from us.",
       },
       {
         id: 3,
