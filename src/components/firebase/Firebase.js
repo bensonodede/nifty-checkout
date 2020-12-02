@@ -25,8 +25,7 @@ const devConfig = {
 class Firebase {
   constructor() {
     // Check dev environment
-    if (process.env.NODE_ENV === "production") {
-      console.log(prodConfig);
+    if (process.env.NODE_ENV === "production") {      
       // Use PRODUCTION DOMAIN firebase
       app.initializeApp(prodConfig);
     } else {

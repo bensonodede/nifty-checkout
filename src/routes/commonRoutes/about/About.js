@@ -55,7 +55,7 @@ const About = () => (
               Wanna work with me? Send me an email{" "}
               <a
                 className="title is-size-6-mobile is-size-6-tablet is-size-5-desktop"
-                href="mailto:bensonodede@withfinn.com?Subject=Work%20at%20finn"
+                href="mailto:bensonodede@gmail.com?Subject=Work%20at%20finn"
                 rel="noopener noreferrer"
                 target="_blank"
               >
