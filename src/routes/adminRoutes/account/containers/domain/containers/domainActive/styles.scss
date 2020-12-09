@@ -1,3 +1,12 @@
+.domain-active__item {
+  margin: 2.5rem 0rem;
+}
+
+.domain-active__item-title {
+  color: #bbbbbb !important;
+  margin-bottom: 0.5rem !important;
+}
+
 .domain-active__icon {
   display: flex !important;
   flex-shrink: 0;
@@ -12,5 +21,12 @@
 .domain-active__row {
   display: flex;
   flex-direction: row;
-  margin-top: 1rem;
+}
+
+.domain-active__link {
+  cursor: pointer;
+}
+
+.domain-active__link:active {
+  opacity: 0.5;
 }

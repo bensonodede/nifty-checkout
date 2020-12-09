@@ -29,7 +29,7 @@ const DomainAdd = ({ match, history }) => {
     data: queryData,
   } = useQuery(DOMAIN_QUERY, {
     variables: { storeUsername },
-    fetchPolicy: "network-only",
+    fetchPolicy: "cache-and-network",
   });
 
   // Create domain mutation

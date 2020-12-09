@@ -8,6 +8,8 @@ import { CSSTransition } from "react-transition-group";
 import Button from "components/button";
 import { PageLoader } from "components/loader";
 import { ErrorToast, SuccessToast } from "components/toast";
+import DomainActiveHeader from "./DomainActiveHeader";
+import DomainActiveList from "./DomainActiveList";
 
 // Import graphql operations
 import { DOMAIN_QUERY } from "components/graphql/query";
@@ -29,7 +31,7 @@ const DomainActive = ({ match, history }) => {
   // Query domain
   const { loading, error, data } = useQuery(DOMAIN_QUERY, {
     variables: { storeUsername },
-    fetchPolicy: "network-only",
+    fetchPolicy: "cache-and-network",
   });
 
   // Loading state
@@ -41,8 +43,6 @@ const DomainActive = ({ match, history }) => {
   if (error) {
     return <ErrorToast emoji={"💩"} text={"No internet connection"} />;
   }
-
-  console.log(data);
 
   // Destrucure data
   let { domain } = data;
@@ -64,8 +64,6 @@ const DomainActive = ({ match, history }) => {
     }, 1500);
   }
 
-  let { domainName } = data.domain;
-
   return (
     <>
       {/* Page title */}
@@ -84,7 +82,13 @@ const DomainActive = ({ match, history }) => {
           <div className="container">
             <div className="columns is-mobile is-multiline is-centered">
               <div className="column is-10-mobile is-6-tablet is-4-desktop">
-                {/*  */}
+                {/* Header */}
+                <DomainActiveHeader domainName={domain.domainName} />
+
+                {/* List */}
+                <DomainActiveList domain={domain} />
+
+                {/* Remove button */}
                 <Button
                   className="domain-dns__footer-btn-remove"
                   type={"button"}
@@ -96,7 +100,7 @@ const DomainActive = ({ match, history }) => {
                     deleteMutation({
                       variables: {
                         storeUsername,
-                        domainName,
+                        domainName: domain.domainName,
                       },
                     })
                   }

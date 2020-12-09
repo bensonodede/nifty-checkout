@@ -7,8 +7,9 @@ import { CSSTransition } from "react-transition-group";
 // Import components
 import { PageLoader } from "components/loader";
 import { ErrorToast } from "components/toast";
+
 import DomainDnsHeader from "./DomainDnsHeader";
-import DomainDnsSteps from "./DomainDnsSteps";
+import DomainDnsSteps from "./domainDnsSteps";
 
 // Import graphql operations
 import { DOMAIN_QUERY } from "components/graphql/query";
@@ -23,7 +24,7 @@ const DomainDns = ({ match, history }) => {
   // Query domain
   const { loading, error, data } = useQuery(DOMAIN_QUERY, {
     variables: { storeUsername },
-    fetchPolicy: "network-only",
+    fetchPolicy: "cache-and-network",
   });
 
   // Loading state
@@ -36,8 +37,6 @@ const DomainDns = ({ match, history }) => {
     return <ErrorToast emoji={"💩"} text={"No internet connection"} />;
   }
 
-  console.log(data);
-
   // Destrucure data
   let { domain } = data;
 
@@ -49,7 +48,7 @@ const DomainDns = ({ match, history }) => {
   return (
     <>
       {/* Page title */}
-      <Helmet title={`Domain · ${storeUsername}`} defer={false} />
+      <Helmet title={`Configure domain · ${storeUsername}`} defer={false} />
 
       {/* Domain DNS page */}
       <CSSTransition

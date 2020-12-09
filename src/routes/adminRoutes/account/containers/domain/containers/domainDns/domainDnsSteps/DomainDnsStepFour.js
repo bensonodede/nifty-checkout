@@ -7,11 +7,12 @@ import Button from "components/button";
 import { ErrorToast, SuccessToast } from "components/toast";
 import { Icon } from "react-icons-kit";
 import { close } from "react-icons-kit/ionicons/close";
+import DomainDnsStepsItem from "./DomainDnsStepsItem";
 
 // Import graphql operations
 import { DELETE_DOMAIN, VERIFY_DOMAIN } from "components/graphql/mutation";
 
-const DomainDnsFooter = ({ match, history, domain: { domainName } }) => {
+const DomainDnsStepFour = ({ match, history, domainName }) => {
   // Destructure route params
   let { storeUsername } = match.params;
 
@@ -44,9 +45,9 @@ const DomainDnsFooter = ({ match, history, domain: { domainName } }) => {
   }
 
   return (
-    <>
-      {/*  */}
-      <div className="domain-dns__footer-card">
+    <DomainDnsStepsItem number={4} title={"Verify that everything is set up"}>
+      {/* Card */}
+      <div className="domain-dns__card">
         <h5 className="is-size-6 is-marginless">Keep in mind</h5>
         <p className="has-text-grey-light">
           We have to let the whole internet know that you have a shiny new
@@ -64,19 +65,19 @@ const DomainDnsFooter = ({ match, history, domain: { domainName } }) => {
         </p>
       </div>
 
-      {/*  */}
+      {/* Not connected status */}
       <div className="domain-dns__footer-error">
         <Icon
           size="100%"
           icon={close}
           className="domain-dns__footer-error-icon"
         />
-        <h5 className="is-size-6 is-marginless domain-dns__footer-error-text">
+        <h5 className="is-size-6 is-marginless has-text-grey-darker">
           Not connected
         </h5>
       </div>
 
-      {/*  */}
+      {/* Verify button */}
       <Button
         className="domain-dns__footer-btn-verify"
         type={"button"}
@@ -95,7 +96,7 @@ const DomainDnsFooter = ({ match, history, domain: { domainName } }) => {
         Verify connection
       </Button>
 
-      {/*  */}
+      {/* Remove button */}
       <Button
         className="domain-dns__footer-btn-remove"
         type={"button"}
@@ -137,8 +138,8 @@ const DomainDnsFooter = ({ match, history, domain: { domainName } }) => {
       {(deleteError || verifyError) && (
         <ErrorToast text={"No internet connection"} emoji={"💩"} />
       )}
-    </>
+    </DomainDnsStepsItem>
   );
 };
 
-export default withRouter(DomainDnsFooter);
+export default withRouter(DomainDnsStepFour);

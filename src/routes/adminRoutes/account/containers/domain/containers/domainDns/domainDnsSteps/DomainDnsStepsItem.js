@@ -1,7 +1,7 @@
 import React from "react";
 
 const DomainDnsStepsItem = ({ number, title, children }) => (
-  <div className="domain-dns__step-item">
+  <div className="domain-dns__step">
     {/* Header */}
     <div className="domain-dns__step-header">
       <div className="domain-dns__step-header-number-wrapper">
