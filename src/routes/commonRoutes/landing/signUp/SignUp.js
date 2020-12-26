@@ -24,16 +24,18 @@ const SignUp = () => (
               {/* Signup Title */}
               <div className="signup-section__title">
                 <h1 className="title is-size-3-mobile is-size-3-tablet is-size-2-desktop has-text-centered has-text-white is-marginless">
-                  Ready to get started?
+                  Try for free
                 </h1>
                 <p className="has-text-white has-text-centered">
-                  
+                  Create your oniline store in less than 5 minutes.
                 </p>
               </div>
 
               {/* Signup Button */}
               <Link to={"/login"}>
-                <Button className="signup-section__button">Try it out</Button>
+                <Button className="signup-section__button">
+                  Create my store
+                </Button>
               </Link>
             </div>
           </div>

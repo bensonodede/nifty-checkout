@@ -8,7 +8,7 @@
   },
 
   {
-    "id": 2,
+    "id": 3,
     "emoji": "💰",
     "title": "Payouts",
     "subtitle": "How you get paid",
@@ -16,7 +16,7 @@
   },
 
   {
-    "id": 3,
+    "id": 4,
     "emoji": "💸",
     "title": "Billing",
     "subtitle": "How you pay us",
@@ -24,7 +24,7 @@
   },
 
   {
-    "id": 4,
+    "id": 5,
     "emoji": "🔗",
     "title": "Domain",
     "subtitle": "Custom website address",

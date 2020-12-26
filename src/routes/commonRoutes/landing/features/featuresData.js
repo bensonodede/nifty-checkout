@@ -9,7 +9,7 @@ const featuresData = [
     features: [
       {
         id: 1,
-        subtitle: "Build your brand",
+        subtitle: "Own your brand",
         description:
           "Create a personalized store that's minimally and intuitively designed.",
       },

@@ -1,6 +1,6 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.features-hero--body{
+.features-hero--body {
   @include mobile {
     padding: 3rem 0rem !important;
   }
@@ -8,12 +8,11 @@
 
 .features__header {
   @include mobile {
-    width: 83%;
-    margin: 4rem auto 6rem auto;
+    margin: 3rem auto;
   }
 
   @include tablet {
-    margin: 5rem 0rem 5rem 0rem;
+    margin: 5rem auto;
   }
 
   @include desktop {
@@ -47,14 +46,16 @@
   }
 }
 
-
-.feature-item__image{
-  @include desktop{
-    width: 90%
+.feature-item__image {
+  @include desktop {
+    width: 90%;
   }
 }
 
-.features__item-container .feature-item:nth-child(even) .columns .feature-item__image {
+.features__item-container
+  .feature-item:nth-child(even)
+  .columns
+  .feature-item__image {
   @include tablet {
     display: flex;
     margin-left: auto;

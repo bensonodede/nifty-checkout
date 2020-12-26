@@ -1,73 +1,69 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
-.pricing-content__container {
-  margin-top: 4rem;
+.pricing-grid {
+  margin-top: 3rem;
   display: grid;
-  grid-template-columns: 2fr 0.75fr 2fr;
+  column-gap: 3rem;
+  row-gap: 3rem;
 
   @include mobile {
+    grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
   }
 
   @include tablet {
+    grid-template-columns: 1fr;
     margin-top: 6rem;
   }
 
   @include desktop {
+    grid-template-columns: 1fr 1fr;
     margin-top: 8rem;
   }
 }
 
-.pricing-content__item {
+.pricing-grid__item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 1rem;
-  box-shadow: 0rem 0rem 1.5rem 0.05rem rgba(189, 54, 54, 0.1);
-  padding: 3.5rem 4rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  padding: 2rem 2rem;
+  padding-top: 3rem;
 }
 
-.pricing-content__main {
-  margin-bottom: 2rem;
+.pricing-grid__item-button {
+  margin-top: 2rem;
 }
 
-.pricing-content__trial {
-  background-color: #356ee1;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.2rem;
-  margin-bottom: 3rem !important;
-}
-
-.pricing-content__price {
+.pricing-grid__price {
+  margin: 1rem 0rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 0.25rem !important;
-}
-
-.pricing-content__currency {
-  margin-top: 0.25rem;
-  margin-left: 0.25rem;
-  font-size: 0.75rem;
-
-  @include tablet {
-    font-size: 0.75rem;
-    margin-top: 0.35rem;
-  }
-
-  @include desktop {
-    font-size: 0.95rem;
-    margin-left: 0.35rem;
-    margin-top: 0.4rem;
-  }
-}
-
-.pricing-content__and {
-  display: flex;
-  margin: 1rem;
   align-items: center;
-  justify-content: center;
+}
+
+.pricing-grid__price-currency {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.45rem;
+}
+
+// Pricing item
+
+.pricing-item {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0rem;
+}
+
+.pricing-item__icon {
+  width: 0.95rem;
+  display: flex !important;
+  margin-right: 0.75rem;
+  color: #484848;
+}
+
+.pricing-item__icon--null {
+  color: #d9d9d9;
 }

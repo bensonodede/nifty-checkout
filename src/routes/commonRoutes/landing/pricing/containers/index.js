@@ -1,3 +1,4 @@
-import PricingContent from "./PricingContent";
+import PricingHeader from "./PricingHeader";
+import PricingGrid from "./PricingGrid";
 
-export { PricingContent };
+export { PricingHeader, PricingGrid };

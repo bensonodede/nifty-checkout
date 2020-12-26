@@ -5,7 +5,7 @@ const HeroFooter = () => (
   <div className="hero-foot">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
-        <div className="column is-12-mobile is-12-tablet is-12-desktop">
+        <div className="column is-fullwidth is-paddingless">
           {/* Mobile footer */}
           <Breakpoint mobile only>
             <img

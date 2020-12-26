@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import components
-import { PricingContent } from "./containers";
+import { PricingHeader, PricingGrid } from "./containers";
 
 // Import styles
 import "./styles.scss";
@@ -11,9 +11,12 @@ const Pricing = () => (
     <div className="hero-body">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered">
-          <div className="column is-12-mobile is-11-tablet is-9-desktop">
-            {/* Content */}
-            <PricingContent />
+          <div className="column is-12-mobile is-10-tablet is-11-desktop">
+            {/* Header */}
+            <PricingHeader />
+
+            {/* Grid */}
+            <PricingGrid />
           </div>
         </div>
       </div>

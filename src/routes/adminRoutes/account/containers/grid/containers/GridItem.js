@@ -30,7 +30,9 @@ const GridItem = ({
         </div>
 
         {/* Sub-title */}
-        <p className="is-marginless has-text-grey-light">{subtitle}</p>
+        <p className="is-marginless has-text-grey-light is-size-6">
+          {subtitle}
+        </p>
       </div>
     </div>
   );

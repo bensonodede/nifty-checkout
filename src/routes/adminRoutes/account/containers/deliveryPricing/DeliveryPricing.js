@@ -3,19 +3,19 @@ import { Helmet } from "react-helmet";
 import { CSSTransition } from "react-transition-group";
 
 // Import components
-import { StoreHeader, StoreForm } from "./containers";
+import { DeliveryPricingHeader } from "./containers";
 
 // Import styles
 import "./styles.scss";
 
-const Store = ({ match }) => {
+const DeliveryPricing = ({ match }) => {
   // Destructure store name params
   let { storeUsername } = match.params;
 
   return (
     <>
       {/* Page title */}
-      <Helmet title={`Edit store info · ${storeUsername}`} defer={false} />
+      <Helmet title={`Delivery pricing · ${storeUsername}`} defer={false} />
 
       {/* Store page */}
       <CSSTransition
@@ -30,8 +30,7 @@ const Store = ({ match }) => {
           <div className="container">
             <div className="columns is-mobile is-multiline is-centered">
               <div className="column is-10-mobile is-6-tablet is-4-desktop">
-                <StoreHeader />
-                <StoreForm />
+                <DeliveryPricingHeader />
               </div>
             </div>
           </div>
@@ -41,4 +40,4 @@ const Store = ({ match }) => {
   );
 };
 
-export default Store;
+export default DeliveryPricing;

@@ -10,17 +10,17 @@ const HeroBody = () => {
     <div className="hero-body hero-body--custom is-paddingless">
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered">
-          <div className="column is-11-mobile is-12-tablet is-10-desktop">
+          <div className="column is-11-mobile is-8-tablet is-8-desktop">
             <div className="hero-body--column">
               {/* Hero title */}
               <h1 className="title is-size-3-mobile is-size-2-tablet is-size-1-desktop is-marginless has-text-centered">
-                Everything you need to start selling online
-                <br />
+                Selling on instagram?
               </h1>
 
               {/* Hero sub-title */}
-              <p className="has-text-centered has-text-grey-light is-size-6-mobile is-size-6-tablet is-size-5-desktop">
-                Create a simple, beautiful store in 5 minutes.
+              <p className="has-text-centered has-text-grey-light is-size-6-mobile is-size-5-tablet is-size-5-desktop">
+                Create a beautiful online store in 5 minutes. Let your customers
+                buy your products without ever leaving instagram.
               </p>
 
               {/* Sign up button */}
@@ -29,7 +29,7 @@ const HeroBody = () => {
                 className="hero-body__button"
                 type={"button"}
               >
-                Get started
+                Start selling
               </Button>
             </div>
           </div>

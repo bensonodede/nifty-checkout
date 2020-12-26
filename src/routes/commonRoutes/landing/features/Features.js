@@ -13,14 +13,16 @@ const Features = () => (
   <section className="hero">
     <div className="hero-body features-hero--body">
       <div className="container">
-        {/* Features header */}
-        <FeaturesHeader />
+        <div className="columns is-mobile is-multiline is-centered">
+          {/* Features header */}
+          <FeaturesHeader />
 
-        {/* List of features */}
-        <div className="features__item-container">
-          {featuresData.map(item => (
-            <FeatureItem key={item.id} item={item} />
-          ))}
+          {/* List of features */}
+          <div className="features__item-container">
+            {featuresData.map((item) => (
+              <FeatureItem key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
