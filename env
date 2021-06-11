@@ -1,0 +1,27 @@
+# Absolute imports path
+NODE_PATH=src/
+SASS_PATH=./node_modules
+
+# Server env variables
+REACT_APP_PROD_SERVER_URL="https://magicfinnserver.xyz/graphql"
+REACT_APP_DEV_SERVER_URL="http://localhost:4000/graphql"
+REACT_APP_LOCAL_SERVER_URL="http://localhost:4000/graphql"
+
+# Firebase PRODUCTION env variables
+REACT_APP_FIREBASE_PROD_API_KEY="AIzaSyBRzlqUBeAOao_h9kcdS1LEOoaeWVJ6QbM"
+REACT_APP_FIREBASE_PROD_AUTH_DOMAIN="auth.withfinn.com"
+REACT_APP_FIREBASE_PROD_DATABASE_URL="https://madewithfinn.firebaseio.com"
+REACT_APP_FIREBASE_PROD_PROJECT_ID="madewithfinn"
+REACT_APP_FIREBASE_PROD_STORAGE_BUCKET="madewithfinn.appspot.com"
+REACT_APP_FIREBASE_PROD_MESSAGING_SENDER_ID="618575049101"
+
+# Firebase DEVELOPMENT env variables
+REACT_APP_FIREBASE_DEV_API_KEY="AIzaSyB6iwOtMCt4cMxF-1IML6m09T6QH17sITg"
+REACT_APP_FIREBASE_DEV_AUTH_DOMAIN="madewithfinn-dev.firebaseapp.com"
+REACT_APP_FIREBASE_DEV_DATABASE_URL="https://madewithfinn-dev.firebaseio.com"
+REACT_APP_FIREBASE_DEV_PROJECT_ID="madewithfinn-dev"
+REACT_APP_FIREBASE_DEV_STORAGE_BUCKET="madewithfinn-dev.appspot.com"
+REACT_APP_FIREBASE_DEV_MESSAGING_SENDER_ID="407443144102"
+
+# Google Maps env variable
+REACT_APP_GOOGLE_MAPS_API_KEY="AIzaSyA1S0vY-Ytyl7EDJ6JxzKLenQBgXAlO87o"
